@@ -48,11 +48,11 @@
 	<modules>
 	<module>AuthenticationService</module>
 	<module>UserService</module>
-	<module>ChannelService</module>
+
 	<module>ConfigurationService</module>
-	<module>CommunityService</module>
+
 	<module>DiscoveryService</module>
-	<module>FileService</module>
+
 	<module>MessageService</module>
 	</modules>
 
