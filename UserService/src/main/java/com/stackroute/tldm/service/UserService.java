@@ -5,7 +5,7 @@ import com.stackroute.tldm.exception.UserNotFoundException;
 import com.stackroute.tldm.model.UserModel;
 
 public interface UserService {
-	UserModel registerUser(UserModel user) throws UserAlreadyExistsException;
+	boolean registerUser(UserModel user) throws UserAlreadyExistsException;
 
 	UserModel updateUser(String userId, UserModel user) throws UserNotFoundException;
 

@@ -10,57 +10,57 @@ import com.stackroute.tldm.repository.UserRepository;
 
 @Service
 public class UserServiceImpl implements UserService {
-	private UserRepository userRepo;
 
-	@Autowired
-	public UserServiceImpl(UserRepository userRepo) {
-		this.userRepo = userRepo;
-	}
+    private UserRepository userRepo;
 
-	public UserModel registerUser(UserModel user) throws UserAlreadyExistsException {
-//		boolean flag = false;
-//		if (userRepo.existsById(user.getUserId())) {
-//			throw new UserAlreadyExistsException("user exists");
-//		} else {
-		return userRepo.insert(user);
-//			flag = true;
-//		}
+    @Autowired
+    public UserServiceImpl(UserRepository userRepo) {
+        this.userRepo = userRepo;
+    }
 
-//		return flag;
-		
-	}
+    public boolean registerUser(UserModel user) throws UserAlreadyExistsException {
+        boolean flag = false;
+        if (userRepo.existsById(user.getUserId())) {
+            throw new UserAlreadyExistsException("user exists");
+        } else {
+            userRepo.insert(user);
+            flag = true;
+        }
+        return flag;
 
-	public UserModel updateUser(String movieId, UserModel user) throws UserNotFoundException {
-		UserModel fetch = userRepo.findById(user.getUserId()).get();
-		if (fetch != null) {
-			userRepo.save(user);
+    }
 
-		} else {
-			throw new UserNotFoundException("user not found");
-		}
-		return user;
-	}
+    public UserModel updateUser(String movieId, UserModel user) throws UserNotFoundException {
+        UserModel fetch = userRepo.findById(user.getUserId()).get();
+        if (fetch != null) {
+            userRepo.save(user);
 
-	public boolean deleteUser(String userId) throws UserNotFoundException {
-		boolean flag = false;
-		if (userRepo.findById(userId) != null) {
-			userRepo.deleteById(userId);
-			flag = true;
-		} else {
-			throw new UserNotFoundException("user not found");
-		}
+        } else {
+            throw new UserNotFoundException("user not found");
+        }
+        return user;
+    }
 
-		return flag;
-	}
+    public boolean deleteUser(String userId) throws UserNotFoundException {
+        boolean flag = false;
+        if (userRepo.findById(userId) != null) {
+            userRepo.deleteById(userId);
+            flag = true;
+        } else {
+            throw new UserNotFoundException("user not found");
+        }
 
-	public UserModel getUserById(String userId) {
-		UserModel fetchMovie = userRepo.findById(userId).get();
-		return fetchMovie;
-	}
+        return flag;
+    }
 
-	public UserModel getUserByUserName(String movieName) {
-		UserModel user = userRepo.getUserByUserName(movieName);
-		return user;
-	}
+    public UserModel getUserById(String userId) {
+        UserModel fetchMovie = userRepo.findById(userId).get();
+        return fetchMovie;
+    }
+
+    public UserModel getUserByUserName(String movieName) {
+        UserModel user = userRepo.getUserByUserName(movieName);
+        return user;
+    }
 
 }
