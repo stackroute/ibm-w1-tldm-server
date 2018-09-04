@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
 
     public boolean registerUser(UserModel user) throws UserAlreadyExistsException {
         boolean flag = false;
-        if (userRepo.existsById(user.getUserId())) {
+        if (userRepo.getUserByUserName(user.getUserName()) != null) {
             throw new UserAlreadyExistsException("user exists");
         } else {
             userRepo.insert(user);
@@ -58,8 +58,8 @@ public class UserServiceImpl implements UserService {
         return fetchMovie;
     }
 
-    public UserModel getUserByUserName(String movieName) {
-        UserModel user = userRepo.getUserByUserName(movieName);
+    public UserModel getUserByUserName(String userName) {
+        UserModel user = userRepo.getUserByUserName(userName);
         return user;
     }
 
