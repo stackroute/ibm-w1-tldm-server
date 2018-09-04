@@ -52,7 +52,7 @@ public class MessageController {
         try {
             responseEntity = new ResponseEntity<>(messageService.getMessagesByUserIdAndReceiverId(senderId, receiverId), HttpStatus.OK);
         } catch (MessageNotFoundException e) {
-            responseEntity = new ResponseEntity<>("Message Not Found!", HttpStatus.NOT_FOUND);
+            responseEntity = new ResponseEntity<>("Message Not Found from no such!", HttpStatus.NOT_FOUND);
         }
         return responseEntity;
     }

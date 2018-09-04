@@ -42,24 +42,21 @@ public class MessageServiceImpl implements MessageService {
 
     @Override
     public List<Message> getMessagesByUserIdAndReceiverId(String senderId, String receiverId) throws MessageNotFoundException {
-        try {
-            List<Message> messageList = chatRepository.findAll();
-            List<Message> messages = new ArrayList<>();
-            if (messageList != null) {
-                ListIterator<Message> iterator = messageList.listIterator();
-                while (iterator.hasNext()) {
-                    String sender = iterator.next().getSender().getUserId();
-                    String receiver = iterator.next().getReceiver().getUserId();
-                    if (senderId.equals(sender) && receiverId.equals(receiver)) {
-                        messages.add(iterator.next());
-                    }
+        List<Message> messageList = chatRepository.findAll();
+        List<Message> messages = new ArrayList<>();
+        if (messageList != null) {
+            ListIterator<Message> iterator = messageList.listIterator();
+            while (iterator.hasNext()) {
+                Message messageToGet = iterator.next();
+                String sender = messageToGet.getSender().getUserId();
+                String receiver = messageToGet.getReceiver().getUserId();
+                if (senderId.equals(sender) && receiverId.equals(receiver)) {
+                    messages.add(messageToGet);
                 }
-                return messages;
-            } else {
-                throw new MessageNotFoundException("Message Not Found!");
             }
-        } catch (NoSuchElementException ex) {
-            throw new MessageNotFoundException("Message not found");
+            return messages;
+        } else {
+            throw new MessageNotFoundException("Message Not Found!");
         }
     }
 
