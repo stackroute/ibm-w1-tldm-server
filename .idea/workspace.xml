@@ -2,34 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="add9e009-2662-42db-a4bb-ba9c5dbdbc6d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/controller/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/controller/MessageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/exception/MessageNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/exception/MessageNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/model/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/model/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/model/MessageResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/model/MessageResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/model/Reciever.java" beforeDir="false" afterPath="$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/model/Receiver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/model/Sender.java" beforeDir="false" afterPath="$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/model/Sender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/service/MessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/service/MessageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/service/MessageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/service/MessageServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/META-INF/maven/com.stackroute.tldm/MessageService/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/META-INF/maven/com.stackroute.tldm/MessageService/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/MessageServiceApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/config/WebSocketConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/controller/MessageController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/exception/MessageNotFoundException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/model/Message.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/model/MessageResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/model/Reciever.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/model/Sender.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/repository/ChatRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/service/MessageService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/service/MessageServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/static/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/static/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/test-classes/com/stackroute/tldm/MessageServiceApplicationTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MessageService/.project" beforeDir="false" afterPath="$PROJECT_DIR$/MessageService/.project" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/AuthenticationService/target/" />
@@ -120,8 +93,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/service/MessageService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+            <state relative-caret-position="285">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -156,7 +129,7 @@
         <entry file="file://$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/repository/ChatRepository.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="133">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
@@ -220,86 +193,6 @@
               <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
               <item name="MessageService" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
-              <item name="MessageService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
-              <item name="MessageService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
-              <item name="MessageService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
-              <item name="MessageService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tldm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
-              <item name="MessageService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tldm" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
-              <item name="MessageService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tldm" type="462c0819:PsiDirectoryNode" />
-              <item name="exception" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
-              <item name="MessageService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tldm" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
-              <item name="MessageService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tldm" type="462c0819:PsiDirectoryNode" />
-              <item name="repository" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
-              <item name="MessageService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tldm" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -314,7 +207,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536064628371" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536064705590" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -405,7 +298,7 @@
       <option name="presentableId" value="Default" />
       <updated>1536054990053</updated>
       <workItem from="1536054994055" duration="2878000" />
-      <workItem from="1536063397666" duration="1229000" />
+      <workItem from="1536063397666" duration="1867000" />
     </task>
     <task id="LOCAL-00001" summary="some important changes">
       <created>1536058911017</created>
@@ -418,7 +311,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4107000" />
+    <option name="totallyTimeSpent" value="4745000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1010" extended-state="6" />
@@ -444,7 +337,7 @@
       <window_info anchor="bottom" id="Messages" order="10" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="13" />
+      <window_info anchor="bottom" id="Version Control" order="13" weight="0.32954547" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -591,14 +484,14 @@
     <entry file="file://$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/repository/ChatRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/service/MessageService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        <state relative-caret-position="285">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
