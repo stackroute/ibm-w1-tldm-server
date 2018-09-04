@@ -2,7 +2,7 @@ package com.stackroute.tldm.model;
 
 public class Sender {
 
-    private int userId;
+    private String userId;
     private String userName;
     private String name;
     private String userMail;
@@ -11,7 +11,7 @@ public class Sender {
     public Sender() {
     }
 
-    public Sender(int userId, String userName, String name, String userMail, String phoneNum) {
+    public Sender(String userId, String userName, String name, String userMail, String phoneNum) {
         this.userId = userId;
         this.userName = userName;
         this.name = name;
@@ -19,11 +19,11 @@ public class Sender {
         this.phoneNum = phoneNum;
     }
 
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
