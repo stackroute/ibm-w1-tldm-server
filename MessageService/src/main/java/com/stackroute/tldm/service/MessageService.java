@@ -11,5 +11,5 @@ public interface MessageService {
 
     boolean deleteMessage(String messageId) throws MessageNotFoundException;
 
-    List<Message> getMessagesByUserIdAndRecieverId(String senderId, String recieverId) throws MessageNotFoundException;
+    List<Message> getMessagesByUserIdAndReceiverId(String senderId, String receiverId) throws MessageNotFoundException;
 }

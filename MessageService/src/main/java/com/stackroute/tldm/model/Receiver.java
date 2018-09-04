@@ -1,6 +1,6 @@
 package com.stackroute.tldm.model;
 
-public class Reciever {
+public class Receiver {
 
     private String userId;
     private String userName;
@@ -8,10 +8,11 @@ public class Reciever {
     private String userMail;
     private String phoneNum;
 
-    public Reciever() {
+    public Receiver() {
+        super();
     }
 
-    public Reciever(String userId, String userName, String name, String userMail, String phoneNum) {
+    public Receiver(String userId, String userName, String name, String userMail, String phoneNum) {
         this.userId = userId;
         this.userName = userName;
         this.name = name;
@@ -61,7 +62,7 @@ public class Reciever {
 
     @Override
     public String toString() {
-        return "Reciever{" +
+        return "Receiver{" +
                 "userId=" + userId +
                 ", userName='" + userName + '\'' +
                 ", name='" + name + '\'' +

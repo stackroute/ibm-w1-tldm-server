@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MessageController {
 
-
     private MessageService messageService;
 
     @Autowired
@@ -47,11 +46,11 @@ public class MessageController {
         return responseEntity;
     }
 
-    @GetMapping("/api/v1/message/{senderId}/{recieverId}")
-    public ResponseEntity<?> getMessagesByUserAndReciever(@PathVariable("senderId") String senderId, @PathVariable("recieverId") String recieverId) {
+    @GetMapping("/api/v1/message/{senderId}/{receiverId}")
+    public ResponseEntity<?> getMessagesByUserAndReceiver(@PathVariable("senderId") String senderId, @PathVariable("receiverId") String receiverId) {
         ResponseEntity<?> responseEntity;
         try {
-            responseEntity = new ResponseEntity<>(messageService.getMessagesByUserIdAndRecieverId(senderId, recieverId), HttpStatus.OK);
+            responseEntity = new ResponseEntity<>(messageService.getMessagesByUserIdAndReceiverId(senderId, receiverId), HttpStatus.OK);
         } catch (MessageNotFoundException e) {
             responseEntity = new ResponseEntity<>("Message Not Found!", HttpStatus.NOT_FOUND);
         }

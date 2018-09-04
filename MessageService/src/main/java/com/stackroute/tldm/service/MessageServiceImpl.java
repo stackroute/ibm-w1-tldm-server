@@ -2,16 +2,13 @@ package com.stackroute.tldm.service;
 
 import com.stackroute.tldm.exception.MessageNotFoundException;
 import com.stackroute.tldm.model.Message;
-import com.stackroute.tldm.model.Reciever;
+import com.stackroute.tldm.model.Receiver;
 import com.stackroute.tldm.model.Sender;
 import com.stackroute.tldm.repository.ChatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
 
 @Service
 public class MessageServiceImpl implements MessageService {
@@ -28,9 +25,9 @@ public class MessageServiceImpl implements MessageService {
     public void saveMessage(Message message) {
         message.setCreatedAt(new Date());
         Sender sender = new Sender("1", "mggmanik", "Manik", "mggmanik@gmail.com", "7060186830");
-        Reciever reciever = new Reciever("2", "adiwakar", "Diwakar", "adiwakar11@gmail.com", "9778095607");
+        Receiver receiver = new Receiver("2", "adiwakar", "Diwakar", "adiwakar11@gmail.com", "9778095607");
         message.setSender(sender);
-        message.setReciever(reciever);
+        message.setReceiver(receiver);
         chatRepository.insert(message);
     }
 
@@ -44,21 +41,26 @@ public class MessageServiceImpl implements MessageService {
     }
 
     @Override
-    public List<Message> getMessagesByUserIdAndRecieverId(String senderId, String recieverId) throws MessageNotFoundException {
-        List<Message> messageList = chatRepository.findAll();
-        List<Message> messages = new ArrayList<>();
-        if (messageList != null) {
-            ListIterator<Message> iterator = messageList.listIterator();
-            while (iterator.hasNext()) {
-                if (senderId.equals(iterator.next().getSender().getUserId()) && recieverId.equals(iterator.next().getReciever().getUserId())) {
-                    messages.add(iterator.next());
+    public List<Message> getMessagesByUserIdAndReceiverId(String senderId, String receiverId) throws MessageNotFoundException {
+        try {
+            List<Message> messageList = chatRepository.findAll();
+            List<Message> messages = new ArrayList<>();
+            if (messageList != null) {
+                ListIterator<Message> iterator = messageList.listIterator();
+                while (iterator.hasNext()) {
+                    String sender = iterator.next().getSender().getUserId();
+                    String receiver = iterator.next().getReceiver().getUserId();
+                    if (senderId.equals(sender) && receiverId.equals(receiver)) {
+                        messages.add(iterator.next());
+                    }
                 }
+                return messages;
+            } else {
+                throw new MessageNotFoundException("Message Not Found!");
             }
-            return messages;
-        } else {
-            throw new MessageNotFoundException("Message Not Found!");
+        } catch (NoSuchElementException ex) {
+            throw new MessageNotFoundException("Message not found");
         }
-
     }
 
 }

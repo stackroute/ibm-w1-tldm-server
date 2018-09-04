@@ -9,6 +9,7 @@ public class Sender {
     private String phoneNum;
 
     public Sender() {
+        super();
     }
 
     public Sender(String userId, String userName, String name, String userMail, String phoneNum) {
