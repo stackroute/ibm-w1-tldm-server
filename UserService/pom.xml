@@ -6,7 +6,7 @@
 
 	<groupId>com.stackroute.tldm</groupId>
 	<artifactId>UserService</artifactId>
-	
+
 	<packaging>jar</packaging>
 
 	<name>UserService</name>
@@ -29,12 +29,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		
+
 
 		<dependency>
 			<groupId>mysql</groupId>
@@ -51,11 +51,10 @@
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
 		<dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-actuator</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 	</dependencies>
-<<<<<<< HEAD
 
 	<dependencyManagement>
 		<dependencies>
@@ -68,9 +67,6 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
-=======
->>>>>>> 17e0b3697c12cb1e5d445638114b5f8bba479041
 	<build>
 		<plugins>
 			<plugin>
