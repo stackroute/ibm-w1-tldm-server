@@ -5,6 +5,7 @@ public class MessageResponse {
     private String content;
 
     public MessageResponse() {
+        super();
     }
 
     public MessageResponse(String content) {

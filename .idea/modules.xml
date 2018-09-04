@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AuthenticationService/AuthenticationService.iml" filepath="$PROJECT_DIR$/AuthenticationService/AuthenticationService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AuthenticationService/AuthenticationService.iml" filepath="$PROJECT_DIR$/AuthenticationService/AuthenticationService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ConfigurationService/ConfigurationService.iml" filepath="$PROJECT_DIR$/ConfigurationService/ConfigurationService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ConfigurationService/ConfigurationService.iml" filepath="$PROJECT_DIR$/ConfigurationService/ConfigurationService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DiscoveryService/DiscoveryService.iml" filepath="$PROJECT_DIR$/DiscoveryService/DiscoveryService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DiscoveryService/DiscoveryService.iml" filepath="$PROJECT_DIR$/DiscoveryService/DiscoveryService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MessageService/MessageService.iml" filepath="$PROJECT_DIR$/MessageService/MessageService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MessageService/MessageService.iml" filepath="$PROJECT_DIR$/MessageService/MessageService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TLDM.iml" filepath="$PROJECT_DIR$/TLDM.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TLDM.iml" filepath="$PROJECT_DIR$/TLDM.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UserService/UserService.iml" filepath="$PROJECT_DIR$/UserService/UserService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UserService/UserService.iml" filepath="$PROJECT_DIR$/UserService/UserService.iml" />
+    </modules>
+  </component>
+</project>

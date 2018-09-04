@@ -11,17 +11,17 @@ public class Message {
     private String id;
     private String messageContent;
     private Sender sender;
-    private Reciever reciever;
+    private Receiver receiver;
     private Date createdAt;
 
     public Message() {
     }
 
-    public Message(String id, String messageContent, Sender sender, Reciever reciever, Date createdAt) {
+    public Message(String id, String messageContent, Sender sender, Receiver receiver, Date createdAt) {
         this.id = id;
         this.messageContent = messageContent;
         this.sender = sender;
-        this.reciever = reciever;
+        this.receiver = receiver;
         this.createdAt = createdAt;
     }
 
@@ -49,12 +49,12 @@ public class Message {
         this.sender = sender;
     }
 
-    public Reciever getReciever() {
-        return reciever;
+    public Receiver getReceiver() {
+        return receiver;
     }
 
-    public void setReciever(Reciever reciever) {
-        this.reciever = reciever;
+    public void setReceiver(Receiver receiver) {
+        this.receiver = receiver;
     }
 
     public Date getCreatedAt() {
@@ -71,7 +71,7 @@ public class Message {
                 "id='" + id + '\'' +
                 ", messageContent='" + messageContent + '\'' +
                 ", sender=" + sender +
-                ", reciever=" + reciever +
+                ", receiver=" + receiver +
                 ", createdAt=" + createdAt +
                 '}';
     }
