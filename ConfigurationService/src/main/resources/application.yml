@@ -1,0 +1,24 @@
+server:
+  port: 8083
+  
+spring:
+  application:
+    name: ConfigurationService
+  cloud:
+    config:
+      server:
+        git:
+          uri: http://github.com/sonu3706/spring-cloud-config-demo
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+      
+    register-with-eureka: true
+
+info:
+  app:
+    name: Configuartion Service
+    description: Configuartion service is up and has no problem
+    version: 1.0.0
