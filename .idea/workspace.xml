@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="add9e009-2662-42db-a4bb-ba9c5dbdbc6d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/META-INF/maven/com.stackroute.tldm/MessageService/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/META-INF/maven/com.stackroute.tldm/MessageService/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/MessageServiceApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/config/WebSocketConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/controller/MessageController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/exception/MessageNotFoundException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/model/Message.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/model/MessageResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/model/Receiver.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/model/Sender.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/repository/ChatRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/service/MessageService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/service/MessageServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/static/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/static/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/test-classes/com/stackroute/tldm/MessageServiceApplicationTests.class" beforeDir="false" />
-    </list>
+    <list default="true" id="add9e009-2662-42db-a4bb-ba9c5dbdbc6d" name="Default Changelist" comment="changed application.properties" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/AuthenticationService/target/" />
     <ignored path="$PROJECT_DIR$/DiscoveryService/target/" />
@@ -37,7 +18,7 @@
     <session id="-1300521627">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.16" value="3" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.19" value="1" />
@@ -49,7 +30,7 @@
         <counts>
           <entry key="html" value="3" />
           <entry key="iml" value="1" />
-          <entry key="java" value="34" />
+          <entry key="java" value="35" />
           <entry key="js" value="3" />
           <entry key="properties" value="5" />
           <entry key="xml" value="7" />
@@ -59,7 +40,7 @@
         <counts>
           <entry key="HTML" value="3" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="34" />
+          <entry key="JAVA" value="35" />
           <entry key="JavaScript" value="3" />
           <entry key="Properties" value="5" />
           <entry key="XML" value="7" />
@@ -115,95 +96,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/UserService/src/main/java/com/stackroute/tldm/service/UserService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/UserService/src/main/java/com/stackroute/tldm/service/UserServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/UserService/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="38" selection-start-line="38" selection-end-line="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/UserService/src/main/resources/application.properties">
+        <entry file="file://$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/service/MessageServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/UserService/src/main/java/com/stackroute/tldm/exception/UserNotFoundException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/UserService/src/main/java/com/stackroute/tldm/model/UserModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/UserService/src/main/java/com/stackroute/tldm/repository/UserRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/UserService/src/main/java/com/stackroute/tldm/controller/UserController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/repository/ChatRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/UserService/src/main/java/com/stackroute/tldm/UserServiceApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            <state relative-caret-position="220">
+              <caret line="18" column="19" lean-forward="true" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -273,11 +170,6 @@
               <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
               <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
-              <item name="MessageService" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -292,7 +184,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536122126904" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536122146893" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../MovieDemoApp/MovieCruiser" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -388,7 +280,7 @@
       <workItem from="1536065841056" duration="5639000" />
       <workItem from="1536073152402" duration="38000" />
       <workItem from="1536120529543" duration="38000" />
-      <workItem from="1536120602820" duration="1409000" />
+      <workItem from="1536120602820" duration="1621000" />
     </task>
     <task id="LOCAL-00001" summary="some important changes">
       <created>1536058911017</created>
@@ -422,7 +314,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12115000" />
+    <option name="totallyTimeSpent" value="12327000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="32" width="1853" height="1048" extended-state="6" />
@@ -582,13 +474,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/service/MessageServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="47" column="72" selection-start-line="47" selection-start-column="72" selection-end-line="47" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/service/MessageService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -655,6 +540,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/service/MessageServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="18" column="19" lean-forward="true" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
         </state>
       </provider>
     </entry>
