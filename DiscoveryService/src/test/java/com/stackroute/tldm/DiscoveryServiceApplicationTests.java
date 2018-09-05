@@ -1,4 +1,4 @@
-package com.stackroute.tldm.AuthenticationService;
+package com.stackroute.tldm;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class AuthenticationServiceApplicationTests {
+public class DiscoveryServiceApplicationTests {
 
 	@Test
 	public void contextLoads() {
