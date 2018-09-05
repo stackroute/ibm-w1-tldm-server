@@ -1,11 +1,7 @@
 Manifest-Version: 1.0
 Implementation-Title: MessageService
 Implementation-Version: 0.0.1-SNAPSHOT
-<<<<<<< HEAD
-Built-By: swedha
-=======
 Built-By: soumyajit
->>>>>>> c6af15591432112aca278a6cfc3e5f8a1d3c9ce4
 Implementation-Vendor-Id: com.stackroute.tldm
 Build-Jdk: 1.8.0_181
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
