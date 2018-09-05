@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 server:
   port: 8093
 <<<<<<< HEAD
@@ -21,7 +19,6 @@ spring:
       password: root12
       database: UserServiceDB
 
->>>>>>> 3795421494a74994eea4b38ac775248ad4aa68fc
 eureka:
 <<<<<<< HEAD
  client:
@@ -37,7 +34,7 @@ info:
 =======
   client:
     serviceUrl:
-      defaultZone: http://172.23.239.227:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/
     register-with-eureka: true
 
 info:
@@ -46,15 +43,4 @@ info:
     description: User service is up and has no problem
     version: 1.0.0
 
-<<<<<<< HEAD
-spring:
-  application:
-    name: User-Service
-  profiles:
-    active: Development
-  cloud:
-    config:
-      uri: http://172.23.239.104:8083
-=======
 >>>>>>> c6af15591432112aca278a6cfc3e5f8a1d3c9ce4
->>>>>>> 3795421494a74994eea4b38ac775248ad4aa68fc
