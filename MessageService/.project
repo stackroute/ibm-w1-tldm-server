@@ -6,54 +6,27 @@
 	</projects>
 	<buildSpec>
 		<buildCommand>
-<<<<<<< HEAD
-=======
 			<name>org.eclipse.wst.common.project.facet.core.builder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
 		<buildCommand>
->>>>>>> 17e0b3697c12cb1e5d445638114b5f8bba479041
 			<name>org.eclipse.jdt.core.javabuilder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
 		<buildCommand>
-<<<<<<< HEAD
 			<name>org.springframework.ide.eclipse.core.springbuilder</name>
-=======
-<<<<<<< HEAD
-			<name>org.springframework.ide.eclipse.core.springbuilder</name>
-=======
-			<name>org.eclipse.m2e.core.maven2Builder</name>
->>>>>>> 6c10d364f466479db6171495b3df25163894c749
->>>>>>> 17e0b3697c12cb1e5d445638114b5f8bba479041
 			<arguments>
 			</arguments>
 		</buildCommand>
 		<buildCommand>
-<<<<<<< HEAD
 			<name>org.springframework.ide.eclipse.boot.validation.springbootbuilder</name>
-=======
-<<<<<<< HEAD
-			<name>org.springframework.ide.eclipse.boot.validation.springbootbuilder</name>
-=======
-			<name>org.springframework.ide.eclipse.core.springbuilder</name>
->>>>>>> 6c10d364f466479db6171495b3df25163894c749
->>>>>>> 17e0b3697c12cb1e5d445638114b5f8bba479041
 			<arguments>
 			</arguments>
 		</buildCommand>
 		<buildCommand>
-<<<<<<< HEAD
 			<name>org.eclipse.m2e.core.maven2Builder</name>
-=======
-<<<<<<< HEAD
-			<name>org.eclipse.m2e.core.maven2Builder</name>
-=======
-			<name>org.springframework.ide.eclipse.boot.validation.springbootbuilder</name>
->>>>>>> 6c10d364f466479db6171495b3df25163894c749
->>>>>>> 17e0b3697c12cb1e5d445638114b5f8bba479041
 			<arguments>
 			</arguments>
 		</buildCommand>
@@ -62,9 +35,6 @@
 		<nature>org.springframework.ide.eclipse.core.springnature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.m2e.core.maven2Nature</nature>
-<<<<<<< HEAD
-=======
 		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
->>>>>>> 17e0b3697c12cb1e5d445638114b5f8bba479041
 	</natures>
 </projectDescription>
