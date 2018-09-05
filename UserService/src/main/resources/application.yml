@@ -1,14 +1,25 @@
-server.port=8093
-spring.application.name=User-Service
-spring.data.mongodb.host=localhost
-spring.data.mongodb.port=27017
-spring.data.mongodb.username=root12
-spring.data.mongodb.password=root12
-spring.data.mongodb.database=UserServiceDB
+server:
+  port: 8093
+ 
+spring:
+  application:
+    name: User-Service
+  data: 
+    mongodb:
+      host: localhost
+      port: 27017
+      username: root12
+      password: root12
+      database: UserServiceDB
 
-eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/
-eureka.client.register-with-eureka=true
+eureka:
+ client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
 
-info.app.name=User Service
-info.app.description=User service is up and has no problem
-info.app.version=1.0.0
+info:
+  app:
+    name: User Service
+    description: User service is up and has no problem
+    version: 1.0.0
