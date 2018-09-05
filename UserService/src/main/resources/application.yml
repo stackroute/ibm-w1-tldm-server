@@ -1,0 +1,25 @@
+server:
+  port: 8093
+spring:
+  application:
+    name: User-Service
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      username: root12
+      password: root12
+      database: UserServiceDB
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+
+info:
+  app:
+    name: User Service
+    description: User service is up and has no problem
+    version: 1.0.0
+
