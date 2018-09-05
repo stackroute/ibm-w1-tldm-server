@@ -1,46 +1,19 @@
-server:
-  port: 8093
-<<<<<<< HEAD
- 
-spring:
-  application:
-    name: User-Service
-  data: 
-=======
-spring:
-  application:
-    name: User-Service
-  data:
->>>>>>> c6af15591432112aca278a6cfc3e5f8a1d3c9ce4
-    mongodb:
-      host: localhost
-      port: 27017
-      username: root12
-      password: root12
-      database: UserServiceDB
-
 eureka:
-<<<<<<< HEAD
- client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-    register-with-eureka: true
-
-info:
-  app:
-    name: User Service
-    description: User service is up and has no problem
-    version: 1.0.0
-=======
   client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
     register-with-eureka: true
-
+    serviceUrl:
+      defaultZone: http://172.23.239.227:8761/eureka/
 info:
   app:
+    description: User Service is up and has no problem
     name: User Service
-    description: User service is up and has no problem
     version: 1.0.0
 
->>>>>>> c6af15591432112aca278a6cfc3e5f8a1d3c9ce4
+spring:
+  application:
+    name: User-Service
+  profiles:
+    active: Development
+  cloud:
+    config:
+      uri: http://172.23.239.104:8083
