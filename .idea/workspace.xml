@@ -2,9 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="add9e009-2662-42db-a4bb-ba9c5dbdbc6d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserService/src/main/java/com/stackroute/tldm/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/main/java/com/stackroute/tldm/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/META-INF/maven/com.stackroute.tldm/MessageService/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/META-INF/maven/com.stackroute.tldm/MessageService/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/MessageServiceApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/config/WebSocketConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/controller/MessageController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/exception/MessageNotFoundException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/model/Message.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/model/MessageResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/model/Receiver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/model/Sender.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/repository/ChatRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/service/MessageService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/service/MessageServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/static/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/static/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MessageService/target/test-classes/com/stackroute/tldm/MessageServiceApplicationTests.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/AuthenticationService/target/" />
@@ -131,7 +146,7 @@
         <entry file="file://$PROJECT_DIR$/UserService/src/main/resources/application.properties">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="154">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
@@ -261,85 +276,7 @@
             <path>
               <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
               <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
-              <item name="UserService" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
-              <item name="UserService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
-              <item name="UserService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
-              <item name="UserService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
-              <item name="UserService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tldm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
-              <item name="UserService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tldm" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
-              <item name="UserService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tldm" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
-              <item name="UserService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tldm" type="462c0819:PsiDirectoryNode" />
-              <item name="repository" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
-              <item name="UserService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tldm" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
-              <item name="UserService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="MessageService" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -355,7 +292,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536071469027" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536122126904" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../MovieDemoApp/MovieCruiser" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -451,7 +388,7 @@
       <workItem from="1536065841056" duration="5639000" />
       <workItem from="1536073152402" duration="38000" />
       <workItem from="1536120529543" duration="38000" />
-      <workItem from="1536120602820" duration="1051000" />
+      <workItem from="1536120602820" duration="1409000" />
     </task>
     <task id="LOCAL-00001" summary="some important changes">
       <created>1536058911017</created>
@@ -474,15 +411,21 @@
       <option name="project" value="LOCAL" />
       <updated>1536120854994</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="changed application.properties">
+      <created>1536121673875</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1536121673875</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11757000" />
+    <option name="totallyTimeSpent" value="12115000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="32" width="1853" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20478575" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -711,7 +654,7 @@
     <entry file="file://$PROJECT_DIR$/UserService/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
