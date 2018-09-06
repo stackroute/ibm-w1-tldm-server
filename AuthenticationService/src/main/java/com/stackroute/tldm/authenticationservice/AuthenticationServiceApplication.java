@@ -1,4 +1,4 @@
-package com.stackroute.tldm.AuthenticationService;
+package com.stackroute.tldm.authenticationservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
