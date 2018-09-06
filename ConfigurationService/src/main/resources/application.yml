@@ -8,12 +8,12 @@ spring:
     config:
       server:
         git:
-          uri: http://github.com/sonu3706/spring-cloud-config-demo
+          uri: https://github.com/stackroute/ibm-w1-tldm-server/tree/v1.0.0/config-services-repo
 
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://172.23.239.227/eureka/
+      defaultZone: http://172.23.239.227:8761/eureka/
       
     register-with-eureka: true
 
