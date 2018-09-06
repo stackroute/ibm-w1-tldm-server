@@ -10,21 +10,18 @@ public class UserModel {
 	private String userId;
 	private String userName;
 	private String name;
-	private String userPhoneNumber;
+	private String phoneNum;
 	private String userMail;
 
-	@Override
-	public String toString() {
-		return "UserModel [userId=" + userId + ", userName=" + userName + ", name=" + name + ", userPhoneNumber="
-				+ userPhoneNumber + ", userMail=" + userMail + "]";
+	public UserModel() {
+
 	}
 
-	public UserModel(String userId, String userName, String name, String userPhoneNumber, String userMail) {
-		super();
+	public UserModel(String userId, String userName, String name, String phoneNum, String userMail) {
 		this.userId = userId;
 		this.userName = userName;
 		this.name = name;
-		this.userPhoneNumber = userPhoneNumber;
+		this.phoneNum = phoneNum;
 		this.userMail = userMail;
 	}
 
@@ -52,12 +49,12 @@ public class UserModel {
 		this.name = name;
 	}
 
-	public String getUserPhoneNumber() {
-		return userPhoneNumber;
+	public String getPhoneNum() {
+		return phoneNum;
 	}
 
-	public void setUserPhoneNumber(String userPhoneNumber) {
-		this.userPhoneNumber = userPhoneNumber;
+	public void setPhoneNum(String phoneNum) {
+		this.phoneNum = phoneNum;
 	}
 
 	public String getUserMail() {
@@ -68,7 +65,15 @@ public class UserModel {
 		this.userMail = userMail;
 	}
 
-	public UserModel() {
 
+	@Override
+	public String toString() {
+		return "UserModel{" +
+				"userId='" + userId + '\'' +
+				", userName='" + userName + '\'' +
+				", name='" + name + '\'' +
+				", phoneNum='" + phoneNum + '\'' +
+				", userMail='" + userMail + '\'' +
+				'}';
 	}
 }
