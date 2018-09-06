@@ -1,4 +1,4 @@
-package com.stackroute.tldm.ConfigurationService;
+package com.stackroute.tldm;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
