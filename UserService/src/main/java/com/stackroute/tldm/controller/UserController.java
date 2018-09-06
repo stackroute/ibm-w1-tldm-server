@@ -61,7 +61,7 @@ public class UserController {
 		return responseEntity;
 	}
 
-	@GetMapping("/id/{userName}")
+	@GetMapping("/name/{userName}")
 	public ResponseEntity<?> showMethod(@PathVariable String userName) {
 		ResponseEntity<?> responseEntity = null;
 
@@ -112,7 +112,7 @@ public class UserController {
 
 	}
 
-	@GetMapping("/userList")
+	@GetMapping
 	public ResponseEntity<?> getAllUserDetails() {
 		ResponseEntity<?> responseEntity = null;
 		List<UserModel> nameList = service.getAllUsers();
