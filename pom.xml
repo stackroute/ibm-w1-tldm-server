@@ -51,6 +51,7 @@
         <module>ConfigurationService</module>
         <module>DiscoveryService</module>
         <module>MessageService</module>
+<module>GatewayService</module>
     </modules>
 
 
