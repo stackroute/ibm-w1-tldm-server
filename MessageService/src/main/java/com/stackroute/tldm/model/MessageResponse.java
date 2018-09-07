@@ -1,7 +1,5 @@
 package com.stackroute.tldm.model;
 
-import java.util.Date;
-
 public class MessageResponse {
 
     private String content;

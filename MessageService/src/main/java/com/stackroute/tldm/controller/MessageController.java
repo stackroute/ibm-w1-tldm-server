@@ -30,7 +30,7 @@ public class MessageController {
     @SendTo("/topic/response")
     public MessageResponse messageResponse(Message message) throws Exception {
         messageService.saveMessage(message);
-        String time = new SimpleDateFormat("HH:mm").format(new Date());
+        String time = new SimpleDateFormat("HH:mm").format(message.getCreatedAt());
         return new MessageResponse(message.getMessageContent(),time);
     }
 
