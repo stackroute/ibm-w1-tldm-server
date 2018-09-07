@@ -2,7 +2,7 @@ spring:
     data:
         mongodb:
             database: MessageServiceDB
-            host: http://172.23.239.122
+            host: localhost
             password: root123
             port: 27017
             username: root

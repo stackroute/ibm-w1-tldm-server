@@ -1,5 +1,10 @@
 package com.stackroute.tldm.service;
 
+
+
+import java.util.List;
+import java.util.NoSuchElementException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -53,14 +58,31 @@ public class UserServiceImpl implements UserService {
         return flag;
     }
 
-    public UserModel getUserById(String userId) {
-        UserModel fetchMovie = userRepo.findById(userId).get();
-        return fetchMovie;
+    public UserModel getUserById(String userId) throws UserNotFoundException {
+    	UserModel fetchUser;
+    	try {
+        fetchUser = userRepo.findById(userId).get();
+    	}
+    	catch(NoSuchElementException exception){
+    		throw new UserNotFoundException("User not found");
+    	}
+        return fetchUser;
     }
 
-    public UserModel getUserByUserName(String userName) {
-        UserModel user = userRepo.getUserByUserName(userName);
+    public UserModel getUserByUserName(String userName) throws UserNotFoundException {
+    	UserModel user;
+    	try {
+        user = userRepo.getUserByUserName(userName);
+    	}
+    	catch(NoSuchElementException exception) {
+    		 throw new UserNotFoundException("User not found");
+    	}
         return user;
     }
 
+    
+    public List<UserModel> getAllUsers(){
+        List<UserModel> userList = userRepo.findAll();
+        return userList;
+    }
 }

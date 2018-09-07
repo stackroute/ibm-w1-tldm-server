@@ -1,5 +1,7 @@
 package com.stackroute.tldm.service;
 
+import java.util.List;
+
 import com.stackroute.tldm.exception.UserAlreadyExistsException;
 import com.stackroute.tldm.exception.UserNotFoundException;
 import com.stackroute.tldm.model.UserModel;
@@ -11,8 +13,9 @@ public interface UserService {
 
 	boolean deleteUser(String userId) throws UserNotFoundException;
 
-	public UserModel getUserById(String userId);
+	public UserModel getUserById(String userId) throws UserNotFoundException;
 
-	public UserModel getUserByUserName(String userName);
-
+	public UserModel getUserByUserName(String userName) throws UserNotFoundException;
+	
+	public List<UserModel> getAllUsers();
 }
