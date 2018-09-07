@@ -2,15 +2,9 @@ server:
   port: 8761
 spring:
   application:
-    name: Discovery-service 
+    name: Discovery-Service 
 eureka:
   client:
     register-with-eureka: false
     fetch-registry: false
     
-logging:
-  level:
-    com:
-      netflix:
-        eureka: false
-        discovery: false

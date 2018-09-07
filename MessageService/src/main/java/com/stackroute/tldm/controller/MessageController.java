@@ -16,7 +16,7 @@ import java.util.Date;
 
 @RestController
 @RequestMapping("/api/v1/message")
-//@CrossOrigin("*")
+@CrossOrigin("*")
 public class MessageController {
 
     private MessageService messageService;
@@ -30,7 +30,7 @@ public class MessageController {
     @SendTo("/topic/response")
     public MessageResponse messageResponse(Message message) throws Exception {
         messageService.saveMessage(message);
-        String time = new SimpleDateFormat("HH:mm").format(message.getCreatedAt());
+        String time = new SimpleDateFormat("h:mm a").format(message.getCreatedAt());
         return new MessageResponse(message.getMessageContent(),time);
     }
 
