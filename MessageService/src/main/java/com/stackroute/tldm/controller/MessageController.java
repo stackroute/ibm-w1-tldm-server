@@ -12,6 +12,8 @@ import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/api/v1/message")
+//@CrossOrigin("*")
 public class MessageController {
 
     private MessageService messageService;
@@ -28,7 +30,7 @@ public class MessageController {
         return new MessageResponse(message.getMessageContent());
     }
 
-    @DeleteMapping("/api/v1/message/{messageId}")
+    @DeleteMapping("/{messageId}")
     public ResponseEntity<?> deleteMessage(@PathVariable("messageId") String m_id) {
         ResponseEntity<?> responseEntity;
         try {
@@ -43,7 +45,7 @@ public class MessageController {
         return responseEntity;
     }
 
-    @GetMapping("/api/v1/message/{senderId}/{receiverId}")
+    @GetMapping("/{senderId}/{receiverId}")
     public ResponseEntity<?> getMessagesByUserAndReceiver(@PathVariable("senderId") String senderId, @PathVariable("receiverId") String receiverId) {
         ResponseEntity<?> responseEntity;
         try {
