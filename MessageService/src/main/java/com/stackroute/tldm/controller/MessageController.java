@@ -11,6 +11,9 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 @RestController
 @RequestMapping("/api/v1/message")
 //@CrossOrigin("*")
@@ -27,7 +30,8 @@ public class MessageController {
     @SendTo("/topic/response")
     public MessageResponse messageResponse(Message message) throws Exception {
         messageService.saveMessage(message);
-        return new MessageResponse(message.getMessageContent());
+        String time = new SimpleDateFormat("HH:mm").format(new Date());
+        return new MessageResponse(message.getMessageContent(),time);
     }
 
     @DeleteMapping("/{messageId}")

@@ -9,6 +9,7 @@
         <module name="AuthenticationService" />
         <module name="ConfigurationService" />
         <module name="DiscoveryService" />
+        <module name="GatewayService" />
         <module name="MessageService" />
         <module name="UserService" />
       </profile>
@@ -17,6 +18,7 @@
       <module name="AuthenticationService" target="1.8" />
       <module name="ConfigurationService" target="1.8" />
       <module name="DiscoveryService" target="1.8" />
+      <module name="GatewayService" target="1.8" />
       <module name="MessageService" target="1.8" />
       <module name="TLDM" target="1.8" />
       <module name="UserService" target="1.8" />
