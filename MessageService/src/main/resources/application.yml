@@ -12,8 +12,15 @@ info:
 spring:
   application:
     name: Message-Service
-  profiles:
-    active: Development
-  cloud:
-    config:
-      uri: http://172.23.239.104:8083
+#  profiles:
+#    active: Development
+#  cloud:
+#    config:
+#      uri: http://172.23.239.104:8083
+  data:
+    mongodb:
+      database: MessageServiceDB
+      host: localhost
+      password: root123
+      port: 27017
+      username: root

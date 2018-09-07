@@ -11,7 +11,12 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 @RestController
+@RequestMapping("/api/v1/message")
+//@CrossOrigin("*")
 public class MessageController {
 
     private MessageService messageService;
@@ -25,10 +30,11 @@ public class MessageController {
     @SendTo("/topic/response")
     public MessageResponse messageResponse(Message message) throws Exception {
         messageService.saveMessage(message);
-        return new MessageResponse(message.getMessageContent());
+        String time = new SimpleDateFormat("HH:mm").format(new Date());
+        return new MessageResponse(message.getMessageContent(),time);
     }
 
-    @DeleteMapping("/api/v1/message/{messageId}")
+    @DeleteMapping("/{messageId}")
     public ResponseEntity<?> deleteMessage(@PathVariable("messageId") String m_id) {
         ResponseEntity<?> responseEntity;
         try {
@@ -43,7 +49,7 @@ public class MessageController {
         return responseEntity;
     }
 
-    @GetMapping("/api/v1/message/{senderId}/{receiverId}")
+    @GetMapping("/{senderId}/{receiverId}")
     public ResponseEntity<?> getMessagesByUserAndReceiver(@PathVariable("senderId") String senderId, @PathVariable("receiverId") String receiverId) {
         ResponseEntity<?> responseEntity;
         try {
