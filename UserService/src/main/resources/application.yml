@@ -12,8 +12,15 @@ info:
 spring:
   application:
     name: User-Service
-  profiles:
-    active: Development
-  cloud:
-    config:
-      uri: http://172.23.239.104:8083
+  data:
+   mongodb:
+     database: UserServiceDb
+     host: localhost
+     password: root12
+     port: 27017
+     username: root12  
+#  profiles:
+#    active: Development
+#  cloud:
+#    config:
+#      uri: http://172.23.239.104:8083
