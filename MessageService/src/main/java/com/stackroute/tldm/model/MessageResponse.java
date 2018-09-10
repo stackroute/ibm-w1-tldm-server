@@ -4,16 +4,16 @@ public class MessageResponse {
 
     private String content;
     private String time;
-    private String sender_id;
+//    private String sender_id;
 
     public MessageResponse() {
         super();
     }
 
-    public MessageResponse(String content, String time, String sender_id) {
+    public MessageResponse(String content, String time) {
         this.content = content;
         this.time = time;
-        this.sender_id = sender_id;
+//        this.sender_id = sender_id;
     }
 
     public String getContent() {
@@ -32,11 +32,11 @@ public class MessageResponse {
         return time;
     }
 
-    public String getSender_id() {
-        return sender_id;
-    }
-
-    public void setSender_id(String sender_id) {
-        this.sender_id = sender_id;
-    }
+//    public String getSender_id() {
+//        return sender_id;
+//    }
+//
+//    public void setSender_id(String sender_id) {
+//        this.sender_id = sender_id;
+//    }
 }
