@@ -3,20 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="add9e009-2662-42db-a4bb-ba9c5dbdbc6d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AuthenticationService/src/main/java/com/stackroute/tldm/authenticationservice/AuthenticationServiceApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiscoveryService/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/DiscoveryService/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/controller/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/controller/MessageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/MessageService/target/classes/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/META-INF/maven/com.stackroute.tldm/MessageService/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/MessageService/target/classes/META-INF/maven/com.stackroute.tldm/MessageService/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/MessageServiceApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/MessageServiceApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/config/WebSocketConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/config/WebSocketConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/controller/MessageController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/exception/MessageNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/exception/MessageNotFoundException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/model/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/model/Message.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/model/Receiver.class" beforeDir="false" afterPath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/model/Receiver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/model/Sender.class" beforeDir="false" afterPath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/model/Sender.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/service/MessageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/service/MessageService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/service/MessageServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/service/MessageServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/controller/MessageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/MessageService/target/classes/com/stackroute/tldm/controller/MessageController.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/AuthenticationService/target/" />
@@ -42,8 +30,8 @@
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.29" value="1" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.33" value="1" />
-          <entry key="project.opened" value="11" />
+          <entry key="project.open.time.33" value="2" />
+          <entry key="project.opened" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -52,7 +40,7 @@
           <entry key="classpath" value="1" />
           <entry key="html" value="6" />
           <entry key="iml" value="1" />
-          <entry key="java" value="57" />
+          <entry key="java" value="58" />
           <entry key="js" value="8" />
           <entry key="properties" value="10" />
           <entry key="xml" value="10" />
@@ -65,7 +53,7 @@
           <entry key="Eclipse" value="1" />
           <entry key="HTML" value="6" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="57" />
+          <entry key="JAVA" value="58" />
           <entry key="JavaScript" value="8" />
           <entry key="Properties" value="10" />
           <entry key="XML" value="10" />
@@ -74,19 +62,19 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="693" />
+          <entry key="java" value="749" />
           <entry key="js" value="2" />
           <entry key="properties" value="29" />
-          <entry key="txt" value="202" />
+          <entry key="txt" value="229" />
           <entry key="xml" value="5" />
           <entry key="yml" value="199" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="693" />
+          <entry key="JAVA" value="749" />
           <entry key="JavaScript" value="2" />
-          <entry key="PLAIN_TEXT" value="202" />
+          <entry key="PLAIN_TEXT" value="229" />
           <entry key="Properties" value="29" />
           <entry key="XML" value="5" />
           <entry key="YAML" value="199" />
@@ -130,7 +118,7 @@
         <entry file="file://$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/config/WebSocketConfig.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="264">
-              <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+              <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -138,26 +126,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MessageService/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1727">
+            <state relative-caret-position="2024">
               <caret line="92" column="41" selection-start-line="92" selection-start-column="41" selection-end-line="92" selection-end-column="41" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MessageService/src/main/resources/application.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+            <state relative-caret-position="352">
+              <caret line="16" column="9" lean-forward="true" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/MessageServiceApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/controller/MessageController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="32" column="50" selection-start-line="32" selection-start-column="50" selection-end-line="32" selection-end-column="50" />
+            <state relative-caret-position="293">
+              <caret line="30" column="72" lean-forward="true" selection-start-line="30" selection-start-column="72" selection-end-line="30" selection-end-column="72" />
             </state>
           </provider>
         </entry>
@@ -184,7 +181,13 @@
         <entry file="file://$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/model/MessageResponse.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="198">
-              <caret line="11" column="52" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
+              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+              <folding>
+                <element signature="e#695#696#0" expanded="true" />
+                <element signature="e#727#728#0" expanded="true" />
+                <element signature="e#777#778#0" expanded="true" />
+                <element signature="e#819#820#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -192,8 +195,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/service/MessageServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-513">
-              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="1100">
+              <caret line="60" column="5" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -233,11 +236,12 @@
         <option value="$PROJECT_DIR$/MessageService/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/UserService/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/MessageService/src/main/resources/static/app.js" />
-        <option value="$PROJECT_DIR$/MessageService/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/model/MessageResponse.java" />
         <option value="$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/config/WebSocketConfig.java" />
         <option value="$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/service/MessageServiceImpl.java" />
         <option value="$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/controller/MessageController.java" />
+        <option value="$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/model/MessageResponse.java" />
+        <option value="$PROJECT_DIR$/MessageService/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/MessageServiceApplication.java" />
       </list>
     </option>
   </component>
@@ -268,8 +272,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -320,7 +324,47 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="tldm" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
+              <item name="MessageService" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="tldm" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
+              <item name="MessageService" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="tldm" type="462c0819:PsiDirectoryNode" />
+              <item name="exception" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
+              <item name="MessageService" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="tldm" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
+              <item name="MessageService" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="tldm" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
@@ -334,7 +378,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -344,7 +388,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536324520225" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536552522882" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../MovieDemoApp/MovieDemoFront" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -471,7 +515,8 @@
       <workItem from="1536134981212" duration="15703000" />
       <workItem from="1536227645783" duration="16478000" />
       <workItem from="1536292031765" duration="15649000" />
-      <workItem from="1536315824261" duration="4942000" />
+      <workItem from="1536315824261" duration="7524000" />
+      <workItem from="1536484461755" duration="3654000" />
     </task>
     <task id="LOCAL-00001" summary="some important changes">
       <created>1536058911017</created>
@@ -522,16 +567,23 @@
       <option name="project" value="LOCAL" />
       <updated>1536302606356</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="fixed message-controller">
+      <created>1536328007712</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1536328007714</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71348000" />
+    <option name="totallyTimeSpent" value="77584000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="32" width="1853" height="1048" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21925431" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22259322" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -578,7 +630,8 @@
     <MESSAGE value="changed to application.yml" />
     <MESSAGE value="minor changes" />
     <MESSAGE value="modified message-body for time-stamp" />
-    <option name="LAST_COMMIT_MESSAGE" value="modified message-body for time-stamp" />
+    <MESSAGE value="fixed message-controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed message-controller" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/UserService/UserService.iml" />
@@ -685,13 +738,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/MessageServiceApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/service/MessageService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -716,10 +762,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MessageService/src/main/resources/application.yml">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MessageService/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+        <state relative-caret-position="2024">
+          <caret line="92" column="41" selection-start-line="92" selection-start-column="41" selection-end-line="92" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -737,10 +786,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/model/MessageResponse.java">
+    <entry file="file://$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/service/MessageServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="52" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
+        <state relative-caret-position="1100">
+          <caret line="60" column="5" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -751,34 +800,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MessageService/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1727">
-          <caret line="92" column="41" selection-start-line="92" selection-start-column="41" selection-end-line="92" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/config/WebSocketConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
-          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/service/MessageServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/model/MessageResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-513">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="198">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="e#695#696#0" expanded="true" />
+            <element signature="e#727#728#0" expanded="true" />
+            <element signature="e#777#778#0" expanded="true" />
+            <element signature="e#819#820#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/controller/MessageController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="32" column="50" selection-start-line="32" selection-start-column="50" selection-end-line="32" selection-end-column="50" />
+        <state relative-caret-position="293">
+          <caret line="30" column="72" lean-forward="true" selection-start-line="30" selection-start-column="72" selection-end-line="30" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/MessageServiceApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MessageService/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="9" lean-forward="true" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
         </state>
       </provider>
     </entry>

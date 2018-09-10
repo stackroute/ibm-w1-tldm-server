@@ -31,7 +31,8 @@ public class MessageController {
     public MessageResponse messageResponse(Message message) throws Exception {
         messageService.saveMessage(message);
         String time = new SimpleDateFormat("h:mm a").format(message.getCreatedAt());
-        return new MessageResponse(message.getMessageContent(),time);
+        String sender_id = message.getSender().getUserId();
+        return new MessageResponse(message.getMessageContent(), time, sender_id);
     }
 
     @DeleteMapping("/{messageId}")
@@ -55,7 +56,7 @@ public class MessageController {
         try {
             responseEntity = new ResponseEntity<>(messageService.getMessagesByUserIdAndReceiverId(senderId, receiverId), HttpStatus.OK);
         } catch (MessageNotFoundException e) {
-            responseEntity = new ResponseEntity<>("Message Not Found from no such!", HttpStatus.NOT_FOUND);
+            responseEntity = new ResponseEntity<>("Message Not Found!", HttpStatus.NOT_FOUND);
         }
         return responseEntity;
     }
