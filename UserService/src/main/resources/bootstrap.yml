@@ -2,7 +2,7 @@ eureka:
   client:
     register-with-eureka: true
     serviceUrl:
-      defaultZone: http://172.23.239.227:8761/eureka/
+      defaultZone: http://172.23.239.227:8761/eureka
 info:
   app:
     description: User Service is up and has no problem
