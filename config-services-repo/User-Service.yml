@@ -1,7 +1,7 @@
 spring:
     data:
         mongodb:
-            database: UserServiceDB
+            database: UserServiceDb
             host: http://172.23.239.62
             password: root12
             port: 27017
