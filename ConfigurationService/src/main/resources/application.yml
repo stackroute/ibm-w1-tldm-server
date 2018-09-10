@@ -8,7 +8,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/stackroute/ibm-w1-tldm-server/tree/v1.0.0/config-services-repo
+          uri: https://github.com/mggmanik/config.git
 
 eureka:
   client:
