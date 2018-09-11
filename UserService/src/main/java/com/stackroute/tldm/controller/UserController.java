@@ -61,13 +61,13 @@ public class UserController {
 		return responseEntity;
 	}
 
-	@GetMapping("/name/{userName}")
-	public ResponseEntity<?> showMethod(@PathVariable String userName) {
+	@GetMapping("/name/{name}")
+	public ResponseEntity<?> showMethod(@PathVariable String name) {
 		ResponseEntity<?> responseEntity = null;
 
 		try {
-			if (service.getUserByUserName(userName) != null) {
-				responseEntity = new ResponseEntity<>(service.getUserByUserName(userName), HttpStatus.OK);
+			if (service.getUserByName(name) != null) {
+				responseEntity = new ResponseEntity<>(service.getUserByName(name), HttpStatus.OK);
 
 			} else {
 				responseEntity = new ResponseEntity<>("user not found", HttpStatus.NOT_FOUND);

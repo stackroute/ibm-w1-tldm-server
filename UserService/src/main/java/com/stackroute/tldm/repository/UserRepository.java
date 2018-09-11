@@ -8,5 +8,7 @@ import com.stackroute.tldm.model.UserModel;
 public interface UserRepository extends MongoRepository<UserModel, String> {
 
 	UserModel getUserByUserName(String userName);
+	
+	UserModel getUserByName(String name);
 
 }

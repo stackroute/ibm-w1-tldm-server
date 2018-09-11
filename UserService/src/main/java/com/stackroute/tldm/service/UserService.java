@@ -17,5 +17,7 @@ public interface UserService {
 
 	public UserModel getUserByUserName(String userName) throws UserNotFoundException;
 	
+	public UserModel getUserByName(String name) throws UserNotFoundException;
+	
 	public List<UserModel> getAllUsers();
 }
