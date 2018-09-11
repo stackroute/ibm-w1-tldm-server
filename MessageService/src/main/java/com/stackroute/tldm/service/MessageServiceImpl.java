@@ -24,10 +24,10 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public void saveMessage(Message message) {
         message.setCreatedAt(new Date());
-        Sender sender = new Sender("1", "mggmanik", "Manik", "mggmanik@gmail.com", "7060186830");
-        Receiver receiver = new Receiver("2", "adiwakar", "Diwakar", "adiwakar11@gmail.com", "9778095607");
-        message.setSender(sender);
-        message.setReceiver(receiver);
+//        Sender sender = new Sender("1", "mggmanik", "Manik", "mggmanik@gmail.com", "7060186830");
+//        Receiver receiver = new Receiver("2", "adiwakar", "Diwakar", "adiwakar11@gmail.com", "9778095607");
+//        message.setSender(sender);
+//        message.setReceiver(receiver);
         chatRepository.insert(message);
     }
 

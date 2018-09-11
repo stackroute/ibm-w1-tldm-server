@@ -13,7 +13,7 @@ zuul:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://172.23.239.227:8761/eureka/
+      defaultZone: http://172.23.239.227:8761/eureka
     register-with-eureka: true
 info:
   app:

@@ -31,8 +31,7 @@ public class MessageController {
     public MessageResponse messageResponse(Message message) throws Exception {
         messageService.saveMessage(message);
         String time = new SimpleDateFormat("h:mm a").format(message.getCreatedAt());
-        String sender_id = message.getSender().getUserId();
-        return new MessageResponse(message.getMessageContent(), time, sender_id);
+        return new MessageResponse(message.getMessageContent(), message.getSender(), message.getReceiver(), time);
     }
 
     @DeleteMapping("/{messageId}")
