@@ -1,5 +1,7 @@
 package com.stackroute.tldm.model;
 
+// The response client will receive in the front-end.
+
 public class MessageResponse {
 
     private String content;

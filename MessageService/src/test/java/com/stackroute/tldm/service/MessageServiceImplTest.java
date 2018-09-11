@@ -1,6 +1,5 @@
 package com.stackroute.tldm.service;
 
-import static org.hamcrest.CoreMatchers.any;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
@@ -20,7 +19,6 @@ import com.stackroute.tldm.model.Message;
 import com.stackroute.tldm.model.Receiver;
 import com.stackroute.tldm.model.Sender;
 import com.stackroute.tldm.repository.ChatRepository;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 public class MessageServiceImplTest {
