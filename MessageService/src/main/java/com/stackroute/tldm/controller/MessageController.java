@@ -39,12 +39,12 @@ public class MessageController {
         ResponseEntity<?> responseEntity;
         try {
             if (messageService.deleteMessage(m_id)) {
-                responseEntity = new ResponseEntity(HttpStatus.OK);
+                responseEntity = new ResponseEntity<>(HttpStatus.OK);
             } else {
-                responseEntity = new ResponseEntity(HttpStatus.NOT_FOUND);
+                responseEntity = new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
         } catch (MessageNotFoundException e) {
-            responseEntity = new ResponseEntity(HttpStatus.NOT_FOUND);
+            responseEntity = new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return responseEntity;
     }
