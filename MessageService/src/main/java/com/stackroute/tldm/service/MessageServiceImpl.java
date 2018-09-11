@@ -50,7 +50,7 @@ public class MessageServiceImpl implements MessageService {
                 Message messageToGet = iterator.next();
                 String sender = messageToGet.getSender().getUserId();
                 String receiver = messageToGet.getReceiver().getUserId();
-                if (senderId.equals(sender) && receiverId.equals(receiver)) {
+                if ((senderId.equals(sender) || receiverId.equals(sender)) && (receiverId.equals(receiver) || senderId.equals(receiver))) {
                     messages.add(messageToGet);
                 }
             }
