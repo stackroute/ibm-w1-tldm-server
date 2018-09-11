@@ -19,7 +19,7 @@
 #      uri: http://172.23.239.104:8083
 #  data:
 #    mongodb:
-#      database: MessageServiceDB
+#      database: message_service
 #      host: localhost
 #      password: root123
 #      port: 27017

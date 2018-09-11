@@ -29,12 +29,9 @@ public class MessageController {
     @MessageMapping("/chat")
     @SendTo("/topic/response")
     public MessageResponse messageResponse(Message message) throws Exception {
-//        System.out.println("messages:::"+message);
         messageService.saveMessage(message);
         String time = new SimpleDateFormat("h:mm a").format(message.getCreatedAt());
-//        String sender_id = message.getSender().getUserId();
-        System.out.println(message.getMessageContent());
-        return new MessageResponse(message.getMessageContent(), time);
+        return new MessageResponse(message.getMessageContent(), message.getSender(), message.getReceiver(), time);
     }
 
     @DeleteMapping("/{messageId}")

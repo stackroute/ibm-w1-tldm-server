@@ -3,17 +3,19 @@ package com.stackroute.tldm.model;
 public class MessageResponse {
 
     private String content;
+    private Sender sender;
+    private Receiver receiver;
     private String time;
-//    private String sender_id;
 
     public MessageResponse() {
         super();
     }
 
-    public MessageResponse(String content, String time) {
+    public MessageResponse(String content, Sender sender, Receiver receiver, String time) {
         this.content = content;
+        this.sender = sender;
+        this.receiver = receiver;
         this.time = time;
-//        this.sender_id = sender_id;
     }
 
     public String getContent() {
@@ -24,19 +26,37 @@ public class MessageResponse {
         this.content = content;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public Sender getSender() {
+        return sender;
+    }
+
+    public void setSender(Sender sender) {
+        this.sender = sender;
+    }
+
+    public Receiver getReceiver() {
+        return receiver;
+    }
+
+    public void setReceiver(Receiver receiver) {
+        this.receiver = receiver;
     }
 
     public String getTime() {
         return time;
     }
 
-//    public String getSender_id() {
-//        return sender_id;
-//    }
-//
-//    public void setSender_id(String sender_id) {
-//        this.sender_id = sender_id;
-//    }
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    @Override
+    public String toString() {
+        return "MessageResponse{" +
+                "content='" + content + '\'' +
+                ", sender=" + sender +
+                ", receiver=" + receiver +
+                ", time='" + time + '\'' +
+                '}';
+    }
 }
