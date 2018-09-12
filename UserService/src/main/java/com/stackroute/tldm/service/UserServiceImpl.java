@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User registerUser(User user) throws UserAlreadyExistsException {
         User registeredUser;
-        if (userRepo.getUserByUserName(user.getUserName()) != null) {
+        if (userRepo.getUserByUserId(user.getUserId()) != null) {
             throw new UserAlreadyExistsException("user exists");
         } else {
             registeredUser = userRepo.insert(user);
@@ -36,11 +36,10 @@ public class UserServiceImpl implements UserService {
 
     // this method is used update a existing user
     @Override
-    public User updateUser(String movieId, User user) throws UserNotFoundException {
-        User fetch = userRepo.findById(user.getUserId()).get();
+    public User updateUser(String userId, User user) throws UserNotFoundException {
+        User fetch = userRepo.findById(userId).get();
         if (fetch != null) {
             userRepo.save(user);
-
         } else {
             throw new UserNotFoundException("user not found");
         }
@@ -86,7 +85,7 @@ public class UserServiceImpl implements UserService {
         return user;
     }
 
-    @Override
+    /*@Override
     public User getUserByName(String name) throws UserNotFoundException {
         User user;
         try {
@@ -95,7 +94,7 @@ public class UserServiceImpl implements UserService {
             throw new UserNotFoundException("User not found");
         }
         return user;
-    }
+    }*/
 
     // this method is used to get the list of users
     @Override
