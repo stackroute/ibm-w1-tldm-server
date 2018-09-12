@@ -1,21 +1,18 @@
 package com.stackroute.tldm.model;
 
-public class Receiver {
+public class User {
 
     private String userId;
     private String userName;
-    private String name;
     private String userMail;
     private String phoneNum;
 
-    public Receiver() {
-        super();
+    public User() {
     }
 
-    public Receiver(String userId, String userName, String name, String userMail, String phoneNum) {
+    public User(String userId, String userName, String userMail, String phoneNum) {
         this.userId = userId;
         this.userName = userName;
-        this.name = name;
         this.userMail = userMail;
         this.phoneNum = phoneNum;
     }
@@ -36,14 +33,6 @@ public class Receiver {
         this.userName = userName;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getUserMail() {
         return userMail;
     }
@@ -62,10 +51,9 @@ public class Receiver {
 
     @Override
     public String toString() {
-        return "Receiver{" +
-                "userId=" + userId +
+        return "User{" +
+                "userId='" + userId + '\'' +
                 ", userName='" + userName + '\'' +
-                ", name='" + name + '\'' +
                 ", userMail='" + userMail + '\'' +
                 ", phoneNum='" + phoneNum + '\'' +
                 '}';

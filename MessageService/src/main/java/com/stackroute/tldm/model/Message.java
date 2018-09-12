@@ -11,30 +11,30 @@ import java.util.Date;
 public class Message {
 
     @Id
-    private String id;
+    private String messageId;
     private String messageContent;
-    private Sender sender;
-    private Receiver receiver;
+    private User sender;
+    private User receiver;
     private Date createdAt;
 
     public Message() {
         super();
     }
 
-    public Message(String id, String messageContent, Sender sender, Receiver receiver, Date createdAt) {
-        this.id = id;
+    public Message(String messageId, String messageContent, User sender, User receiver, Date createdAt) {
+        this.messageId = messageId;
         this.messageContent = messageContent;
         this.sender = sender;
         this.receiver = receiver;
         this.createdAt = createdAt;
     }
 
-    public String getId() {
-        return id;
+    public String getMessageId() {
+        return messageId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setMessageId(String messageId) {
+        this.messageId = messageId;
     }
 
     public String getMessageContent() {
@@ -45,19 +45,19 @@ public class Message {
         this.messageContent = messageContent;
     }
 
-    public Sender getSender() {
+    public User getSender() {
         return sender;
     }
 
-    public void setSender(Sender sender) {
+    public void setSender(User sender) {
         this.sender = sender;
     }
 
-    public Receiver getReceiver() {
+    public User getReceiver() {
         return receiver;
     }
 
-    public void setReceiver(Receiver receiver) {
+    public void setReceiver(User receiver) {
         this.receiver = receiver;
     }
 
@@ -72,7 +72,7 @@ public class Message {
     @Override
     public String toString() {
         return "Message{" +
-                "id='" + id + '\'' +
+                "messageId='" + messageId + '\'' +
                 ", messageContent='" + messageContent + '\'' +
                 ", sender=" + sender +
                 ", receiver=" + receiver +

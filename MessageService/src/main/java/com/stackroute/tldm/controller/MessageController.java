@@ -2,7 +2,6 @@ package com.stackroute.tldm.controller;
 
 import com.stackroute.tldm.exception.MessageNotFoundException;
 import com.stackroute.tldm.model.Message;
-import com.stackroute.tldm.model.MessageResponse;
 import com.stackroute.tldm.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,8 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.*;
-
-import java.text.SimpleDateFormat;
 
 @RestController
 @RequestMapping("/api/v1/message")
@@ -30,10 +27,9 @@ public class MessageController {
 
     @MessageMapping("/chat")
     @SendTo("/topic/response")
-    public MessageResponse messageResponse(Message message) throws Exception {
+    public Message messageResponse(Message message) throws Exception {
         messageService.saveMessage(message);
-        String time = new SimpleDateFormat("h:mm a").format(message.getCreatedAt());
-        return new MessageResponse(message.getMessageContent(), message.getSender(), message.getReceiver(), time);
+        return new Message(message.getMessageId(), message.getMessageContent(), message.getSender(), message.getReceiver(), message.getCreatedAt());
     }
 
     // Delete a particular messageById.
