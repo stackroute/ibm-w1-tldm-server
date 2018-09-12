@@ -26,6 +26,9 @@ public class MessageController {
         this.messageService = messageService;
     }
 
+//    Web-socket handler method using @MessageMapping to set the endpoint where to send the message and @SendTo to
+//    subscribe to the endpoint to receive the message.
+
     @MessageMapping("/chat")
     @SendTo("/topic/response")
     public MessageResponse messageResponse(Message message) throws Exception {
@@ -33,6 +36,8 @@ public class MessageController {
         String time = new SimpleDateFormat("h:mm a").format(message.getCreatedAt());
         return new MessageResponse(message.getMessageContent(), message.getSender(), message.getReceiver(), time);
     }
+
+//    Delete a particular messageById.
 
     @DeleteMapping("/{messageId}")
     public ResponseEntity<?> deleteMessage(@PathVariable("messageId") String m_id) {
@@ -48,6 +53,8 @@ public class MessageController {
         }
         return responseEntity;
     }
+
+//    Get a conversation between Sender and the Receiver.
 
     @GetMapping("/{senderId}/{receiverId}")
     public ResponseEntity<?> getMessagesByUserAndReceiver(@PathVariable("senderId") String senderId, @PathVariable("receiverId") String receiverId) {

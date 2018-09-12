@@ -6,6 +6,10 @@ import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBr
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
 
+// Configuration class implementing WebSocketMessageBrokerConfigurer to enable broker for adding destinations prefixes
+// to subscribe to.
+// Also adding the endpoint to establish the connection with SockJs from the front-end.
+
 @Configuration
 @EnableWebSocketMessageBroker
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {

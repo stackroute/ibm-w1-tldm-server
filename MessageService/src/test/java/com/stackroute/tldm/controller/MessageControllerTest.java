@@ -1,4 +1,4 @@
-package com.stackroute.tldm.test.controller;
+package com.stackroute.tldm.controller;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
