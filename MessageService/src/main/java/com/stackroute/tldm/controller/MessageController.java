@@ -12,7 +12,6 @@ import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 @RestController
 @RequestMapping("/api/v1/message")
@@ -26,8 +25,8 @@ public class MessageController {
         this.messageService = messageService;
     }
 
-//    Web-socket handler method using @MessageMapping to set the endpoint where to send the message and @SendTo to
-//    subscribe to the endpoint to receive the message.
+    // Web-socket handler method using @MessageMapping to set the endpoint where to send the message and @SendTo to
+    // subscribe to the endpoint to receive the message.
 
     @MessageMapping("/chat")
     @SendTo("/topic/response")
@@ -37,8 +36,7 @@ public class MessageController {
         return new MessageResponse(message.getMessageContent(), message.getSender(), message.getReceiver(), time);
     }
 
-//    Delete a particular messageById.
-
+    // Delete a particular messageById.
     @DeleteMapping("/{messageId}")
     public ResponseEntity<?> deleteMessage(@PathVariable("messageId") String m_id) {
         ResponseEntity<?> responseEntity;
@@ -51,11 +49,11 @@ public class MessageController {
         } catch (MessageNotFoundException e) {
             responseEntity = new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+
         return responseEntity;
     }
 
-//    Get a conversation between Sender and the Receiver.
-
+    // Get a conversation between Sender and the Receiver.
     @GetMapping("/{senderId}/{receiverId}")
     public ResponseEntity<?> getMessagesByUserAndReceiver(@PathVariable("senderId") String senderId, @PathVariable("receiverId") String receiverId) {
         ResponseEntity<?> responseEntity;
@@ -64,6 +62,7 @@ public class MessageController {
         } catch (MessageNotFoundException e) {
             responseEntity = new ResponseEntity<>("Message Not Found!", HttpStatus.NOT_FOUND);
         }
+
         return responseEntity;
     }
 }

@@ -8,7 +8,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @EnableEurekaClient
 public class MessageServiceApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(MessageServiceApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(MessageServiceApplication.class, args);
+    }
 }

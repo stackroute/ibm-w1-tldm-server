@@ -2,6 +2,7 @@ package com.stackroute.tldm.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.Date;
 
 // To be saved to the database.
@@ -17,6 +18,7 @@ public class Message {
     private Date createdAt;
 
     public Message() {
+        super();
     }
 
     public Message(String id, String messageContent, Sender sender, Receiver receiver, Date createdAt) {
