@@ -31,12 +31,15 @@ public class UserController {
 	public UserController(UserService service) {
 		this.service = service;
 	}
+    
+  //this handler method is mapped to the URL "/api/user" using  HTTP POST method//
 
+	
 	@PostMapping
 	public ResponseEntity<?> registerUser(@RequestBody UserModel user) {
 		ResponseEntity<?> responseEntity = null;
 		try {
-			if (service.registerUser(user)) {
+			if (service.registerUser(user) != null) {
 				responseEntity = new ResponseEntity<>(user, HttpStatus.CREATED);
 			}
 		} catch (UserAlreadyExistsException exception) {
@@ -45,6 +48,8 @@ public class UserController {
 		}
 		return responseEntity;
 	}
+
+	//this handler method is mapped to the URL "/api/user/{userId}" using  HTTP PUT method//
 
 	@PutMapping("/{userId}")
 	public ResponseEntity<?> updateMethod(@PathVariable String userId, @RequestBody UserModel user) {
@@ -60,6 +65,9 @@ public class UserController {
 
 		return responseEntity;
 	}
+
+	//this handler method is mapped to the URL "/api/user/name/{userName}" using  HTTP GET method//
+
 
 	@GetMapping("/name/{name}")
 	public ResponseEntity<?> showMethod(@PathVariable String name) {
@@ -79,6 +87,8 @@ public class UserController {
 		return responseEntity;
 	}
 
+	//this handler method is mapped to the URL "/api/user/{userId}" using  HTTP DELETE method//
+
 	@DeleteMapping("/{userId}")
 	public ResponseEntity<?> deleteByName(@PathVariable String userId) {
 		ResponseEntity<?> responseEntity = null;
@@ -92,6 +102,8 @@ public class UserController {
 
 		return responseEntity;
 	}
+
+		//this handler method is mapped to the URL "/api/user/{Id}" using  HTTP GET method//
 
 	@GetMapping("/{id}")
 	public ResponseEntity<?> getUserById(@PathVariable String id) {
@@ -111,6 +123,9 @@ public class UserController {
 		return responseEntity;
 
 	}
+
+	//this handler method is mapped to the URL "/api/user" using  HTTP GET method//
+
 
 	@GetMapping
 	public ResponseEntity<?> getAllUserDetails() {

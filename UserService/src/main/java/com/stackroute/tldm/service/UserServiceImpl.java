@@ -20,18 +20,20 @@ public class UserServiceImpl implements UserService {
 	public UserServiceImpl(UserRepository userRepo) {
 		this.userRepo = userRepo;
 	}
+ //this method should be used to save a new user//
 
-	public boolean registerUser(UserModel user) throws UserAlreadyExistsException {
-		boolean flag = false;
+	public UserModel registerUser(UserModel user) throws UserAlreadyExistsException {
+                UserModel registeredUser;
 		if (userRepo.getUserByUserName(user.getUserName()) != null) {
 			throw new UserAlreadyExistsException("user exists");
 		} else {
-			userRepo.insert(user);
-			flag = true;
+		registeredUser = userRepo.insert(user);
 		}
-		return flag;
+		return registeredUser;
 
 	}
+
+    //this method is used update a existing user//
 
 	public UserModel updateUser(String movieId, UserModel user) throws UserNotFoundException {
 		UserModel fetch = userRepo.findById(user.getUserId()).get();
@@ -43,6 +45,8 @@ public class UserServiceImpl implements UserService {
 		}
 		return user;
 	}
+ //this method is used to delete an existing user//
+
 
 	public boolean deleteUser(String userId) throws UserNotFoundException {
 		boolean flag = false;
@@ -55,6 +59,8 @@ public class UserServiceImpl implements UserService {
 
 		return flag;
 	}
+//this method is used to get a user by userId//
+
 
 	public UserModel getUserById(String userId) throws UserNotFoundException {
 		UserModel fetchUser;
@@ -65,6 +71,7 @@ public class UserServiceImpl implements UserService {
 		}
 		return fetchUser;
 	}
+//this method is used to get a user by userName//
 
 	public UserModel getUserByUserName(String userName) throws UserNotFoundException {
 		UserModel user;
@@ -86,6 +93,7 @@ public class UserServiceImpl implements UserService {
 		}
 		return user;
 	}
+//this method is used to get the list of users//
 
 	public List<UserModel> getAllUsers() {
 		List<UserModel> userList = userRepo.findAll();

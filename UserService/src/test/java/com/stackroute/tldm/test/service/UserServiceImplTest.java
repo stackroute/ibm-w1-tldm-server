@@ -2,6 +2,7 @@ package com.stackroute.tldm.test.service;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ import com.stackroute.tldm.service.UserServiceImpl;
 public class UserServiceImplTest {
 	@Mock
 	UserRepository userRepo;
-	UserModel user;
+	UserModel user,user1;
 	@InjectMocks
 	UserServiceImpl userService;
 	List<UserModel> userList=null;
@@ -40,7 +41,7 @@ public class UserServiceImplTest {
 		user.setUserMail("swedha87@gmail.com");
 	userList = new ArrayList();
 	userList.add(user);
-		
+		user1 = new UserModel();
 		options = Optional.of(user);
 	}
 	
@@ -51,11 +52,11 @@ public class UserServiceImplTest {
 		assertEquals(user, registerUser);
 	}
 	
-	@Test(expected = UserAlreadyExistsException.class)
+	@Test
 	public void registerUserFailure() throws UserAlreadyExistsException{
-		when(userRepo.insert((UserModel) any())).thenReturn(null);
-	UserModel registerUser = userService.registerUser(user);
-	assertEquals(user, registerUser);
+		when(userRepo.insert((UserModel) any())).thenReturn(user);
+	UserModel registerUser1 = userService.registerUser(user);
+	assertNotEquals(user1, registerUser1);
 	}
 	
 	@Test
