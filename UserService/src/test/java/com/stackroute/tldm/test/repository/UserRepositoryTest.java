@@ -20,10 +20,9 @@ public class UserRepositoryTest {
     @Before
     public void setUp() {
         user = new User();
-        user.setUserId("john123");
+        user.setUserId("swetha123");
         user.setUserName("Swetha Selvaraj");
         user.setPhoneNum("12345");
-        user.setName("swe");
         user.setUserMail("swe@gmail.com");
     }
 
@@ -36,7 +35,7 @@ public class UserRepositoryTest {
     @Ignore
     public void registerUserTest() {
         userRepository.insert(user);
-        User fetchUser = userRepository.findById("john123").get();
+        User fetchUser = userRepository.findById("swetha123").get();
         Assert.assertEquals(user.getUserId(), fetchUser.getUserId());
     }
 
@@ -44,7 +43,7 @@ public class UserRepositoryTest {
     @Ignore
     public void getUserByIdTest() {
         userRepository.insert(user);
-        User fetchUser = userRepository.findById("john123").get();
+        User fetchUser = userRepository.findById("swetha123").get();
         Assert.assertEquals(user.getUserId(), fetchUser.getUserId());
     }
 
@@ -60,10 +59,10 @@ public class UserRepositoryTest {
     @Ignore
     public void updateUserTest() {
         userRepository.insert(user);
-        User fetchUser = userRepository.findById("john123").get();
+        User fetchUser = userRepository.findById("swetha123").get();
         fetchUser.setUserMail("swe@gmail.com");
         userRepository.save(fetchUser);
-        fetchUser = userRepository.findById("john123").get();
+        fetchUser = userRepository.findById("swetha123").get();
         Assert.assertEquals("swe@gmail.com", fetchUser.getUserMail());
     }
 }

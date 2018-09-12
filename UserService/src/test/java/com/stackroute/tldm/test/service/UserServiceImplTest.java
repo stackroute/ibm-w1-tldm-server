@@ -37,10 +37,9 @@ public class UserServiceImplTest {
         MockitoAnnotations.initMocks(this);
 
         user = new User();
-        user.setUserId("12345");
-        user.setName("swetha");
+        user.setUserId("swedha12");
         user.setPhoneNum("56528769987");
-        user.setUserName("swedha12");
+        user.setUserName("swetha");
         user.setUserMail("swedha87@gmail.com");
         userList = new ArrayList();
         userList.add(user);

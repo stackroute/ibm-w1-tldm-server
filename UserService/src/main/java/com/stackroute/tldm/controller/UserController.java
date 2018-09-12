@@ -50,8 +50,8 @@ public class UserController {
 
     // this handler method is mapped to the URL "/api/user/{userId}" using  HTTP PUT method
     @PutMapping("/{userId}")
-    public ResponseEntity<?> updateMethod(@PathVariable String userId, @RequestBody User user) {
-        ResponseEntity<?> responseEntity = null;
+    public ResponseEntity<?> updateUser(@PathVariable String userId, @RequestBody User user) {
+        ResponseEntity<?> responseEntity;
         try {
             service.updateUser(userId, user);
             responseEntity = new ResponseEntity<>(user, HttpStatus.OK);
@@ -64,14 +64,33 @@ public class UserController {
         return responseEntity;
     }
 
+    // this handler method is mapped to the URL "/api/user/{Id}" using  HTTP GET method
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getUserByUserId(@PathVariable String id) {
+        ResponseEntity<?> responseEntity;
+        User fetch;
+        try {
+            fetch = service.getUserById(id);
+            if (fetch != null) {
+                responseEntity = new ResponseEntity<>(fetch, HttpStatus.OK);
+            } else {
+                responseEntity = new ResponseEntity<>("user details for id is not found", HttpStatus.NOT_FOUND);
+            }
+        } catch (UserNotFoundException e) {
+            responseEntity = new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+        }
+
+        return responseEntity;
+    }
+
     // this handler method is mapped to the URL "/api/user/name/{userName}" using  HTTP GET method
-    @GetMapping("/name/{name}")
-    public ResponseEntity<?> showMethod(@PathVariable String name) {
-        ResponseEntity<?> responseEntity = null;
+    @GetMapping("/name/{userName}")
+    public ResponseEntity<?> getUserByUserName(@PathVariable String userName) {
+        ResponseEntity<?> responseEntity;
 
         try {
-            if (service.getUserByName(name) != null) {
-                responseEntity = new ResponseEntity<>(service.getUserByName(name), HttpStatus.OK);
+            if (service.getUserByUserName(userName) != null) {
+                responseEntity = new ResponseEntity<>(service.getUserByUserName(userName), HttpStatus.OK);
 
             } else {
                 responseEntity = new ResponseEntity<>("user not found", HttpStatus.NOT_FOUND);
@@ -85,7 +104,7 @@ public class UserController {
 
     // this handler method is mapped to the URL "/api/user/{userId}" using  HTTP DELETE method
     @DeleteMapping("/{userId}")
-    public ResponseEntity<?> deleteByName(@PathVariable String userId) {
+    public ResponseEntity<?> deleteUser(@PathVariable String userId) {
         ResponseEntity<?> responseEntity = null;
         try {
             if (service.deleteUser(userId)) {
@@ -93,25 +112,6 @@ public class UserController {
             }
         } catch (UserNotFoundException exception) {
             responseEntity = new ResponseEntity<>("user not found", HttpStatus.NOT_FOUND);
-        }
-
-        return responseEntity;
-    }
-
-    // this handler method is mapped to the URL "/api/user/{Id}" using  HTTP GET method
-    @GetMapping("/{id}")
-    public ResponseEntity<?> getUserById(@PathVariable String id) {
-        ResponseEntity<?> responseEntity;
-        User fetch;
-        try {
-            fetch = service.getUserById(id);
-            if (fetch != null) {
-                responseEntity = new ResponseEntity<>(fetch, HttpStatus.OK);
-            } else {
-                responseEntity = new ResponseEntity<>("user details for id is not found", HttpStatus.NOT_FOUND);
-            }
-        } catch (UserNotFoundException e) {
-            responseEntity = new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
 
         return responseEntity;
