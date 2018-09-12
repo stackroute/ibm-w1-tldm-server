@@ -85,17 +85,6 @@ public class UserServiceImpl implements UserService {
         return user;
     }
 
-    /*@Override
-    public User getUserByName(String name) throws UserNotFoundException {
-        User user;
-        try {
-            user = userRepo.getUserByName(name);
-        } catch (NoSuchElementException exception) {
-            throw new UserNotFoundException("User not found");
-        }
-        return user;
-    }*/
-
     // this method is used to get the list of users
     @Override
     public List<User> getAllUsers() {

@@ -9,7 +9,6 @@ public class User {
     @Id
     private String userId;
     private String userName;
-    // private String name;
     private String phoneNum;
     private String userMail;
 
@@ -20,7 +19,6 @@ public class User {
     public User(String userId, String userName, String phoneNum, String userMail) {
         this.userId = userId;
         this.userName = userName;
-        // this.name = name;
         this.phoneNum = phoneNum;
         this.userMail = userMail;
     }
@@ -40,14 +38,6 @@ public class User {
     public void setUserName(String userName) {
         this.userName = userName;
     }
-
-    /*public String getName() {
-        return name;
-    }*/
-
-    /*public void setName(String name) {
-        this.name = name;
-    }*/
 
     public String getPhoneNum() {
         return phoneNum;
@@ -70,7 +60,6 @@ public class User {
         return "User{" +
                 "userId='" + userId + '\'' +
                 ", userName='" + userName + '\'' +
-                // ", name='" + name + '\'' +
                 ", phoneNum='" + phoneNum + '\'' +
                 ", userMail='" + userMail + '\'' +
                 '}';
