@@ -2,36 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="add9e009-2662-42db-a4bb-ba9c5dbdbc6d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/UserService/src/main/java/com/stackroute/tldm/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AuthenticationService/src/main/java/com/stackroute/tldm/AuthenticationServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/AuthenticationService/src/main/java/com/stackroute/tldm/AuthenticationServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AuthenticationService/src/test/java/com/stackroute/tldm/AuthenticationServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/AuthenticationService/src/test/java/com/stackroute/tldm/AuthenticationServiceApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConfigurationService/src/main/java/com/stackroute/tldm/ConfigurationServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConfigurationService/src/main/java/com/stackroute/tldm/ConfigurationServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConfigurationService/src/test/java/com/stackroute/tldm/ConfigurationServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConfigurationService/src/test/java/com/stackroute/tldm/ConfigurationServiceApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiscoveryService/src/main/java/com/stackroute/tldm/DiscoveryServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/DiscoveryService/src/main/java/com/stackroute/tldm/DiscoveryServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GatewayService/src/main/java/com/stackroute/tldm/GatewayServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/GatewayService/src/main/java/com/stackroute/tldm/GatewayServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GatewayService/src/main/java/com/stackroute/tldm/filter/ErrorFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/GatewayService/src/main/java/com/stackroute/tldm/filter/ErrorFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GatewayService/src/main/java/com/stackroute/tldm/filter/PostFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/GatewayService/src/main/java/com/stackroute/tldm/filter/PostFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GatewayService/src/main/java/com/stackroute/tldm/filter/PreFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/GatewayService/src/main/java/com/stackroute/tldm/filter/PreFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GatewayService/src/main/java/com/stackroute/tldm/filter/RouteFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/GatewayService/src/main/java/com/stackroute/tldm/filter/RouteFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GatewayService/src/test/java/com/stackroute/tldm/GatewayServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/GatewayService/src/test/java/com/stackroute/tldm/GatewayServiceApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/MessageServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/MessageServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/controller/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/controller/MessageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/model/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/model/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/service/MessageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/service/MessageServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/src/test/java/com/stackroute/tldm/MessageServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/DiscoveryService/src/test/java/com/stackroute/tldm/DiscoveryServiceApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/src/test/java/com/stackroute/tldm/controller/MessageControllerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MessageService/src/test/java/com/stackroute/tldm/service/MessageServiceImplTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserService/src/main/java/com/stackroute/tldm/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/main/java/com/stackroute/tldm/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserService/src/main/java/com/stackroute/tldm/exception/UserAlreadyExistsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/main/java/com/stackroute/tldm/exception/UserAlreadyExistsException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserService/src/main/java/com/stackroute/tldm/exception/UserNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/main/java/com/stackroute/tldm/exception/UserNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserService/src/main/java/com/stackroute/tldm/model/UserModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserService/src/main/java/com/stackroute/tldm/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/main/java/com/stackroute/tldm/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserService/src/main/java/com/stackroute/tldm/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/main/java/com/stackroute/tldm/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserService/src/main/java/com/stackroute/tldm/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/main/java/com/stackroute/tldm/service/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserService/src/test/java/com/stackroute/tldm/test/controller/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/test/java/com/stackroute/tldm/test/controller/UserControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService/bin/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService/bin/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService/bin/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService/bin/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService/bin/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService/bin/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService/bin/src/main/java/com/stackroute/tldm/UserServiceApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService/bin/src/main/java/com/stackroute/tldm/controller/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService/bin/src/main/java/com/stackroute/tldm/exception/UserAlreadyExistsException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService/bin/src/main/java/com/stackroute/tldm/exception/UserNotFoundException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService/bin/src/main/java/com/stackroute/tldm/model/UserModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService/bin/src/main/java/com/stackroute/tldm/repository/UserRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService/bin/src/main/java/com/stackroute/tldm/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService/bin/src/main/java/com/stackroute/tldm/service/UserServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService/bin/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserService/bin/src/test/java/com/stackroute/tldm/UserService/UserServiceApplicationTests.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/UserService/src/test/java/com/stackroute/tldm/test/repository/UserRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/test/java/com/stackroute/tldm/test/repository/UserRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserService/src/test/java/com/stackroute/tldm/test/service/UserServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UserService/src/test/java/com/stackroute/tldm/test/service/UserServiceImplTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/AuthenticationService/target/" />
@@ -119,14 +107,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="gitignore" value="1" />
+          <entry key="gitignore" value="2" />
           <entry key="java" value="54" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JAVA" value="54" />
-          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -181,27 +169,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/UserService/src/test/java/com/stackroute/tldm/test/service/UserServiceImplTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+            <state relative-caret-position="475">
+              <caret line="25" column="9" lean-forward="true" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/UserService/src/test/java/com/stackroute/tldm/test/repository/UserRepositoryTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="798">
-              <caret line="54" column="50" selection-start-line="54" selection-start-column="50" selection-end-line="54" selection-end-column="50" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#947#948#0" expanded="true" />
-                <element signature="e#989#990#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -305,57 +279,38 @@
             <path>
               <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
               <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
+              <item name="AuthenticationService" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
+              <item name="ConfigurationService" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
+              <item name="DiscoveryService" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
+              <item name="GatewayService" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
               <item name="MessageService" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
               <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
-              <item name="UserService" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
-              <item name="UserService" type="462c0819:PsiDirectoryNode" />
+              <item name="MessageService" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
               <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
-              <item name="UserService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
-              <item name="UserService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
-              <item name="UserService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tldm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
-              <item name="UserService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tldm" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
-              <item name="UserService" type="462c0819:PsiDirectoryNode" />
+              <item name="MessageService" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -363,38 +318,6 @@
               <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
               <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
               <item name="UserService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
-              <item name="UserService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
-              <item name="UserService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="repository" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TLDM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ibm-w1-tldm-server" type="462c0819:PsiDirectoryNode" />
-              <item name="UserService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -409,10 +332,13 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536737992686" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536739351359" />
     <property name="last_opened_file_path" value="$USER_HOME$/MovieDemoApp/MovieDemoFront" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/MessageService/src/main/java/com/stackroute/tldm/controller/MessageController.java" />
   </component>
@@ -657,13 +583,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126413000" />
+    <option name="totallyTimeSpent" value="127244000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1010" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49914238" visible="true" weight="0.2353255" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49914238" visible="true" weight="0.2353255" />
       <window_info id="Structure" order="1" sideWeight="0.50085765" side_tool="true" weight="0.22927101" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -694,7 +620,7 @@
       <window_info anchor="right" id="Database" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="right" id="Bean Validation" order="9" />
+      <window_info anchor="right" id="Bean Validation" order="9" weight="0.32977587" />
     </layout>
     <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49914238" visible="true" weight="0.2353255" />
@@ -752,7 +678,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="modified method for conversation between sender and receiver" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/MessageService/src/main/resources/static/app.js" />
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1288,20 +1213,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/UserService/src/test/java/com/stackroute/tldm/test/service/UserServiceImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/UserService/bin/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/UserService/src/test/java/com/stackroute/tldm/test/repository/UserRepositoryTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="54" column="50" selection-start-line="54" selection-start-column="50" selection-end-line="54" selection-end-column="50" />
+        <state relative-caret-position="437">
+          <caret line="23" column="44" lean-forward="true" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#947#948#0" expanded="true" />
@@ -1310,5 +1228,91 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/UserService/src/test/java/com/stackroute/tldm/test/service/UserServiceImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="25" column="9" lean-forward="true" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>MessageService</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: antlr:antlr:2.7.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

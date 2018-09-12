@@ -18,7 +18,7 @@ public class UserRepositoryTest {
     private User user;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         user = new User();
         user.setUserId("john123");
         user.setUserName("Swetha Selvaraj");
