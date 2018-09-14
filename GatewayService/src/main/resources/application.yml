@@ -1,0 +1,23 @@
+spring:
+ application:
+    name: GatewayService
+server:
+  port: 8055
+zuul:
+  routes:
+    Message-Service:
+      url: http://172.23.239.122:8080
+    User-Service:
+      url: http://172.23.239.62:8080   
+eureka:
+ client:
+   serviceUrl:
+     defaultZone: http://172.23.239.227:8761/eureka
+   register-with-eureka: true
+   
+info:
+ app:
+   description: gateway Service is up and has no problem
+   name: Gateway Service
+   version: 1.0.0
+
