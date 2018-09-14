@@ -24,11 +24,15 @@ public class UserServiceImpl implements UserService {
     // this method should be used to save a new user
     @Override
     public User registerUser(User user) throws UserAlreadyExistsException {
-        User registeredUser;
-        if (userRepo.getUserByUserId(user.getUserId()) != null) {
-            throw new UserAlreadyExistsException("user exists");
-        } else {
-            registeredUser = userRepo.insert(user);
+        User registeredUser = null;
+
+        
+        if(!userRepo.existsById(user.getUserId())) {
+        	
+        	registeredUser = userRepo.insert(user);
+        }
+        else {
+        	throw new UserAlreadyExistsException("User exists");
         }
 
         return registeredUser;
