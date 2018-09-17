@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.*;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/message")
@@ -34,7 +35,7 @@ public class MessageController {
 
     // Delete a particular messageById.
     @DeleteMapping("/{messageId}")
-    public ResponseEntity<?> deleteMessage(@PathVariable("messageId") String m_id) {
+    public ResponseEntity<?> deleteMessage(@PathVariable("messageId") UUID m_id) {
         ResponseEntity<?> responseEntity;
         try {
             if (messageService.deleteMessage(m_id)) {

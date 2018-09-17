@@ -5,7 +5,6 @@ import com.stackroute.tldm.model.Message;
 import com.stackroute.tldm.repository.ChatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.*;
 
 @Service
@@ -20,12 +19,14 @@ public class MessageServiceImpl implements MessageService {
 
     @Override
     public void saveMessage(Message message) {
+        UUID newId = UUID.randomUUID();
+        message.setMessageId(newId);
         message.setCreatedAt(new Date());
         chatRepository.insert(message);
     }
 
     @Override
-    public boolean deleteMessage(String messageId) throws MessageNotFoundException {
+    public boolean deleteMessage(UUID messageId) throws MessageNotFoundException {
         if (chatRepository.existsById(messageId)) {
             chatRepository.deleteById(messageId);
             return true;

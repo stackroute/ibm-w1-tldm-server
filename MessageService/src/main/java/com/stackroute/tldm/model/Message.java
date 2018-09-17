@@ -4,6 +4,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
+import java.util.UUID;
 
 // To be saved to the database.
 
@@ -11,7 +12,7 @@ import java.util.Date;
 public class Message {
 
     @Id
-    private String messageId;
+    private UUID messageId;
     private String messageContent;
     private User sender;
     private User receiver;
@@ -21,7 +22,7 @@ public class Message {
         super();
     }
 
-    public Message(String messageId, String messageContent, User sender, User receiver, Date createdAt) {
+    public Message(UUID messageId, String messageContent, User sender, User receiver, Date createdAt) {
         this.messageId = messageId;
         this.messageContent = messageContent;
         this.sender = sender;
@@ -29,11 +30,11 @@ public class Message {
         this.createdAt = createdAt;
     }
 
-    public String getMessageId() {
+    public UUID getMessageId() {
         return messageId;
     }
 
-    public void setMessageId(String messageId) {
+    public void setMessageId(UUID messageId) {
         this.messageId = messageId;
     }
 
