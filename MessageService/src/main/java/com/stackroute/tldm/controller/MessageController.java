@@ -6,6 +6,7 @@ import com.stackroute.tldm.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.*;
@@ -17,20 +18,19 @@ import java.util.UUID;
 public class MessageController {
 
     private MessageService messageService;
+    private KafkaTemplate<String, Message> kafkaTemplate;
+    private static String BOOT_TOPIC = "message";
 
     @Autowired
-    public MessageController(MessageService messageService) {
+    public MessageController(MessageService messageService, KafkaTemplate<String, Message> kafkaTemplate) {
         this.messageService = messageService;
+        this.kafkaTemplate = kafkaTemplate;
     }
 
-    // Web-socket handler method using @MessageMapping to set the endpoint where to send the message and @SendTo to
-    // subscribe to the endpoint to receive the message.
-
     @MessageMapping("/chat")
-    @SendTo("/topic/response")
-    public Message messageResponse(Message message) throws Exception {
+    public void sendMessage(Message message) throws Exception {
         messageService.saveMessage(message);
-        return new Message(message.getMessageId(), message.getMessageContent(), message.getSender(), message.getReceiver(), message.getCreatedAt());
+        kafkaTemplate.send(BOOT_TOPIC, message);
     }
 
     // Delete a particular messageById.

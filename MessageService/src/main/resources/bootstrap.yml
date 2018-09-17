@@ -17,6 +17,10 @@ spring:
   cloud:
     config:
       uri: http://172.23.239.104:8083
+  kafka:
+    consumer:
+      auto-offset-reset: earliest
+      group-id: boot
 #  data:
 #    mongodb:
 #      database: MessageServiceDB
