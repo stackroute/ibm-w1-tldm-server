@@ -53,6 +53,7 @@
         <module>MessageService</module>
 <module>GatewayService</module>
 <module>ChannelService</module>
+<module>CommunityService</module>
     </modules>
 
 
