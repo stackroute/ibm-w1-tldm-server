@@ -1,6 +1,7 @@
 package com.stackroute.tldm.controller;
 
 import com.stackroute.tldm.exception.MessageNotFoundException;
+import com.stackroute.tldm.model.ChannelMessage;
 import com.stackroute.tldm.model.Message;
 import com.stackroute.tldm.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.messaging.handler.annotation.MessageMapping;
-import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
@@ -19,18 +19,27 @@ public class MessageController {
 
     private MessageService messageService;
     private KafkaTemplate<String, Message> kafkaTemplate;
+    private KafkaTemplate<String, ChannelMessage> channelKafkaTemplate;
     private static String BOOT_TOPIC = "message";
+    private static String CHANNEL_TOPIC = "channel";
 
     @Autowired
-    public MessageController(MessageService messageService, KafkaTemplate<String, Message> kafkaTemplate) {
+    public MessageController(MessageService messageService, KafkaTemplate<String, Message> kafkaTemplate, KafkaTemplate<String, ChannelMessage> channelKafkaTemplate) {
         this.messageService = messageService;
         this.kafkaTemplate = kafkaTemplate;
+        this.channelKafkaTemplate = channelKafkaTemplate;
     }
 
     @MessageMapping("/chat")
     public void sendMessage(Message message) throws Exception {
         messageService.saveMessage(message);
         kafkaTemplate.send(BOOT_TOPIC, message);
+    }
+    
+    @MessageMapping("/channelChat")
+    public void sendMessageToChannel(ChannelMessage channelMessage) throws Exception {
+    	messageService.saveMessage(channelMessage);
+    	channelKafkaTemplate.send(CHANNEL_TOPIC, channelMessage);
     }
 
     // Delete a particular messageById.

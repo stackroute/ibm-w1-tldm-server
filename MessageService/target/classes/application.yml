@@ -24,3 +24,21 @@
 #      password: root123
 #      port: 27017
 #      username: root
+#spring:
+#  kafka:
+#    consumer:
+#      auto-offset-reset: earliest
+#      group-id: boot
+#
+#topic:
+#  boot: message
+server:
+  port: 8080
+spring:
+  data:
+    mongodb:
+      database: message_service
+      host: localhost
+      password: root123
+      port: 27017
+      username: kamali

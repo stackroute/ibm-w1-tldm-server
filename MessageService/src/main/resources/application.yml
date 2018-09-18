@@ -32,3 +32,13 @@
 #
 #topic:
 #  boot: message
+server:
+  port: 8080
+spring:
+  data:
+    mongodb:
+      database: message_service
+      host: localhost
+      password: root123
+      port: 27017
+      username: kamali
