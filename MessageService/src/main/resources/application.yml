@@ -28,6 +28,7 @@
 #  kafka:
 #    consumer:
 #      auto-offset-reset: earliest
+<<<<<<< HEAD
 #      group-id: boot
 #
 #topic:
@@ -42,3 +43,6 @@ spring:
       password: root123
       port: 27017
       username: kamali
+=======
+#      group-id: boot
+>>>>>>> 0b50db10afb2187a5b982199a11b304dad0edffd
