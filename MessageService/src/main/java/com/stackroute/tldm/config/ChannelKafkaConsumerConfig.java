@@ -1,6 +1,8 @@
 package com.stackroute.tldm.config;
 
-import com.stackroute.tldm.model.Message;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.context.annotation.Bean;
@@ -11,30 +13,27 @@ import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.stackroute.tldm.model.ChannelMessage;
 
 @Configuration
 @EnableKafka
-public class KafkaConsumerConfig {
-
-		
+public class ChannelKafkaConsumerConfig {
+	
 	@Bean
-	public ConsumerFactory<String, Message> consumerFactory() {
+	public ConsumerFactory<String, ChannelMessage> consumerFactory() {
 		Map<String, Object> config = new HashMap<>();
 		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.239.122:9092");
-		config.put(ConsumerConfig.GROUP_ID_CONFIG, "message_group");
+		config.put(ConsumerConfig.GROUP_ID_CONFIG, "channel_group");
 		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
 		return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
-				new JsonDeserializer<>(Message.class));
+				new JsonDeserializer<>(ChannelMessage.class));
 	}
 
 	@Bean
-	public ConcurrentKafkaListenerContainerFactory<String, Message> kafkaListenerContainerFactory() {
-		ConcurrentKafkaListenerContainerFactory<String, Message> factory = new ConcurrentKafkaListenerContainerFactory<>();
+	public ConcurrentKafkaListenerContainerFactory<String, ChannelMessage> kafkaListenerContainerFactory() {
+		ConcurrentKafkaListenerContainerFactory<String, ChannelMessage> factory = new ConcurrentKafkaListenerContainerFactory<>();
 		factory.setConsumerFactory(consumerFactory());
 		return factory;
 	}
-
 }

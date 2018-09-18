@@ -32,12 +32,12 @@ public class ChannelMessage {
 		this.createdAt = createdAt;
 	}
 
-	public UUID getMessageId() {
+	public UUID getChannelMessageId() {
 		return messageId;
 	}
 
-	public void setMessageId(UUID messageId) {
-		this.messageId = messageId;
+	public void setChannelMessageId(UUID channelMessageId) {
+		this.messageId = channelMessageId;
 	}
 
 	public String getMessageContent() {

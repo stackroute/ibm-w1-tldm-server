@@ -10,7 +10,6 @@ public class Community {
 	private List<User> communityUsers;
 	private Date communityCreatedDate;
 	private User communityCreatedBy;
-	// "@OneToMany
 	private List<Channel> channelList;
 
 	public String getCommunityId() {

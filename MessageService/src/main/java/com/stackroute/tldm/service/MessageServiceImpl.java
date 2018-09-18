@@ -1,10 +1,8 @@
 package com.stackroute.tldm.service;
 
 import com.stackroute.tldm.exception.MessageNotFoundException;
-import com.stackroute.tldm.model.ChannelMessage;
 import com.stackroute.tldm.model.Message;
 import com.stackroute.tldm.repository.ChatRepository;
-import com.stackroute.tldm.repository.GroupChatRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,12 +12,10 @@ import java.util.*;
 public class MessageServiceImpl implements MessageService {
 
 	private ChatRepository chatRepository;
-	private GroupChatRepository groupChatRepository;
 
 	@Autowired
-	public MessageServiceImpl(ChatRepository chatRepository, GroupChatRepository groupChatRepository) {
+	public MessageServiceImpl(ChatRepository chatRepository) {
 		this.chatRepository = chatRepository;
-		this.groupChatRepository = groupChatRepository;
 	}
 
 	@Override
@@ -28,14 +24,6 @@ public class MessageServiceImpl implements MessageService {
 		message.setMessageId(newId);
 		message.setCreatedAt(new Date());
 		chatRepository.insert(message);
-	}
-
-	@Override
-	public void saveMessage(ChannelMessage channelMessage) {
-		UUID newMessageId = UUID.randomUUID();
-		channelMessage.setMessageId(newMessageId);
-		channelMessage.setCreatedAt(new Date());
-		groupChatRepository.insert(channelMessage);
 	}
 
 	@Override
@@ -69,5 +57,16 @@ public class MessageServiceImpl implements MessageService {
 			throw new MessageNotFoundException("Message Not Found!");
 		}
 	}
+	
+//	@Override
+//	public boolean deleteChannelMessage(UUID channelMessageId) throws MessageNotFoundException {
+//		if(groupChatRepository.existsById(channelMessageId)) {
+//			groupChatRepository.deleteById(channelMessageId);
+//			return true;
+//		}
+//		else {
+//			throw new MessageNotFoundException("Message Not Found!!");
+//		}
+//	}
 
 }
