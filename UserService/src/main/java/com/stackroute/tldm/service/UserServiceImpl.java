@@ -1,5 +1,6 @@
 package com.stackroute.tldm.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -28,6 +29,7 @@ public class UserServiceImpl implements UserService {
 
         
         if(!userRepo.existsById(user.getUserId())) {
+        	user.setCreatedAt(new Date());
         	
         	registeredUser = userRepo.insert(user);
         }

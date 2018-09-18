@@ -9,6 +9,8 @@
 #    name: User Service
 #    version: 1.0.0
 #
+#
+#  
 #spring:
 #  application:
 #    name: User-Service
@@ -18,7 +20,7 @@
 #     host: localhost
 #     password: root12
 #     port: 27017
-##     username: root12
+#     username: root12
 #  profiles:
 #    active: Development
 #  cloud:
