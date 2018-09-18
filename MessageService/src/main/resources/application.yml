@@ -29,6 +29,3 @@
 #    consumer:
 #      auto-offset-reset: earliest
 #      group-id: boot
-#
-#topic:
-#  boot: message

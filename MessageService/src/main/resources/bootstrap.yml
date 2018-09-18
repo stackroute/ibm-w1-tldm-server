@@ -1,8 +1,14 @@
+server:
+  port: ${PORT:0}
+
 eureka:
   client:
     register-with-eureka: true
     serviceUrl:
       defaultZone: http://172.23.239.227:8761/eureka
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
 info:
   app:
     description: Message service is up and has no problem
