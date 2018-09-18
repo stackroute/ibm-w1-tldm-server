@@ -52,6 +52,7 @@
         <module>DiscoveryService</module>
         <module>MessageService</module>
 <module>GatewayService</module>
+<module>ChannelService</module>
     </modules>
 
 
