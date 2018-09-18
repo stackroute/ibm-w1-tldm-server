@@ -6,10 +6,11 @@ import java.util.List;
 import java.util.UUID;
 
 public interface MessageService {
+   	
+	void saveMessage(Message message);
 
-    void saveMessage(Message message);
+	boolean deleteMessage(UUID messageId) throws MessageNotFoundException;
 
-    boolean deleteMessage(UUID messageId) throws MessageNotFoundException;
+	List<Message> getMessagesByUserIdAndReceiverId(String senderId, String receiverId) throws MessageNotFoundException;
 
-    List<Message> getMessagesByUserIdAndReceiverId(String senderId, String receiverId) throws MessageNotFoundException;
 }
