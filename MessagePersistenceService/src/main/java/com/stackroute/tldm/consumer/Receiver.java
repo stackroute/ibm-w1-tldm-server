@@ -5,23 +5,25 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.handler.annotation.Payload;
 
 import com.stackroute.tldm.model.Message;
-import com.stackroute.tldm.service.MessagePersistService;
+import com.stackroute.tldm.service.MessageService;
 
 public class Receiver {
 	
-	MessagePersistService messagePersists;
+	private MessageService messageService;
 
 	@Autowired
-	public Receiver(MessagePersistService messagePersists) {
+	public Receiver(MessageService messageService) {
 		super();
-		this.messagePersists = messagePersists;
+		this.messageService = messageService;
 	}
+
 	
-	@KafkaListener(topics = "message_persist_test")
+	@KafkaListener(topics = "message", groupId = "message_group_persist")
 	public void receive(@Payload Message message) {
-		
-		messagePersists.saveMessage(message);
+
+		messageService.saveMessage(message);
 		System.out.println("Message:" + message);
+	
 	}
 
 }
