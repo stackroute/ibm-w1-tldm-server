@@ -12,13 +12,13 @@ info:
 spring:
   application:
     name: User-Service
-  #  data:
-  #   mongodb:
-  #     database: UserServiceDb
-  #     host: localhost
-  #     password: root12
-  #     port: 27017
-  #     username: root12
+#  data:
+#     mongodb:
+#       database: UserServiceDb
+#       host: localhost
+#       password: root12
+#       port: 27017
+#       username: root12
   profiles:
     active: Development
   cloud:
