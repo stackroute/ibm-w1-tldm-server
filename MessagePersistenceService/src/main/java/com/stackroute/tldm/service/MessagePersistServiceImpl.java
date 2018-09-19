@@ -2,30 +2,28 @@ package com.stackroute.tldm.service;
 
 import com.stackroute.tldm.exception.MessageNotFoundException;
 import com.stackroute.tldm.model.Message;
-import com.stackroute.tldm.repository.ChatRepository;
+import com.stackroute.tldm.repository.ChatPersistRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.*;
 
 @Service
-public class MessageServiceImpl implements MessageService {
+public class MessagePersistServiceImpl implements MessagePersistService {
 
-	private ChatRepository chatRepository;
+	private ChatPersistRepository chatRepository;
 
 	@Autowired
-	public MessageServiceImpl(ChatRepository chatRepository) {
+	public MessagePersistServiceImpl(ChatPersistRepository chatRepository) {
 		this.chatRepository = chatRepository;
 	}
 
 	@Override
-	public void saveMessage(Message message) {
-		UUID newId = UUID.randomUUID();
-		message.setMessageId(newId);
-		message.setCreatedAt(new Date());
-		chatRepository.insert(message);
-	}
-
+    public void saveMessage(Message message) {
+        message.setCreatedAt(new Date());
+        chatRepository.save(message);
+    }
+	
 	@Override
 	public boolean deleteMessage(UUID messageId) throws MessageNotFoundException {
 		if (chatRepository.existsById(messageId)) {

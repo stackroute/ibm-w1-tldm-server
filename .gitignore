@@ -2,4 +2,5 @@
 /.recommenders/
 /.idea/*
 /.settings/
+/MessageService/target/*
 *.iml
