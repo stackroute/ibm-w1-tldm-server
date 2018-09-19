@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.stackroute.tldm</groupId>
-	<artifactId>Community</artifactId>
+	<artifactId>CommunityService</artifactId>
 
 	<packaging>jar</packaging>
 
