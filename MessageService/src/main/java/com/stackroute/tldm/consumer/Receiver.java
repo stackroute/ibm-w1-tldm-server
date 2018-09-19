@@ -19,6 +19,7 @@ public class Receiver {
 
     @KafkaListener(topics = "message")
     public void receive(@Payload Message message) {
+        System.out.println("Message:" + message);
         template.convertAndSend("/topic/response/" + message.getSender().getUserId(), message);
         template.convertAndSend("/topic/response/" + message.getReceiver().getUserId(), message);
     }
