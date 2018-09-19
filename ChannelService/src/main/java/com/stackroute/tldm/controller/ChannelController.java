@@ -135,4 +135,15 @@ public class ChannelController {
 		}
 		return responseEntity;
 	}
+	@DeleteMapping("/{channelId}/{userId}")
+    public ResponseEntity<?> removeChannelUser(@PathVariable String channelId, @PathVariable String userId) {
+        ResponseEntity<?> responseEntity = null;
+        // System.out.println(channelService.removeChannelUser(channelId, userId));
+        if (channelService.removeChannelUser(channelId, userId)) {
+            responseEntity = new ResponseEntity<>("Channel User Deleted Successfully", HttpStatus.OK);
+        } else {
+            responseEntity = new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
+        }
+        return responseEntity;
+    }
 }
