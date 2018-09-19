@@ -1,23 +1,28 @@
+server:
+  port: 8063
+
+eureka:
+  client:
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: http://172.23.239.227:8061/eureka
+
+info:
+  app:
+    description: Gateway Service is up and has no problem
+    name: Gateway Service
+    version: 1.0.0
+
 spring:
  application:
-    name: GatewayService
-server:
-  port: 8055
+    name: Gateway-Service
+  profiles:
+    active: Development
+
 zuul:
   routes:
     Message-Service:
-      url: http://172.23.239.122:8080
+      url: http://172.23.239.122:8067
     User-Service:
-      url: http://172.23.239.62:8080   
-eureka:
- client:
-   serviceUrl:
-     defaultZone: http://172.23.239.227:8761/eureka
-   register-with-eureka: true
-   
-info:
- app:
-   description: gateway Service is up and has no problem
-   name: Gateway Service
-   version: 1.0.0
+      url: http://172.23.239.62:8069
 

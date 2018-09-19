@@ -1,17 +1,17 @@
-#server:
-#  port: ${PORT:0}
+server:
+  port: 8067
 
 eureka:
   client:
     register-with-eureka: true
     serviceUrl:
-      defaultZone: http://172.23.239.227:8761/eureka
+      defaultZone: http://172.23.239.227:8061/eureka
 #  instance:
 #    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 
 info:
   app:
-    description: Message service is up and has no problem
+    description: Message Service is up and has no problem
     name: Message Service
     version: 1.0.0
 
@@ -22,7 +22,7 @@ spring:
     active: Development
   cloud:
     config:
-      uri: http://172.23.239.212:8083
+      uri: http://172.23.239.212:8062
   kafka:
     consumer:
       auto-offset-reset: earliest

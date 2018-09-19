@@ -1,3 +1,6 @@
+server:
+  port: 8068
+
 spring:
 #  kafka:
 #    consumer:

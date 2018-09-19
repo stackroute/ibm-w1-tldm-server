@@ -1,24 +1,28 @@
 server:
-  port: 8083
-  
+  port: 8062
+
+eureka:
+  client:
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: http://172.23.239.227:8061/eureka
+
+info:
+  app:
+    description: Configuration Service is up and has no problem
+    name: Configuration Service
+    version: 1.0.0
+
 spring:
   application:
-    name: ConfigurationService
+    name: Configuration-Service
+  profiles:
+    active: Development
   cloud:
     config:
       server:
         git:
           uri: https://github.com/mggmanik/config.git
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://172.23.239.227:8761/eureka
-      
-    register-with-eureka: true
 
-info:
-  app:
-    name: Configuartion Service
-    description: Configuartion service is up and has no problem
-    version: 1.0.0
+
