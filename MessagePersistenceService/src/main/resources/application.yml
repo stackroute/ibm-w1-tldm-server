@@ -1,0 +1,19 @@
+spring:
+#  kafka:
+#    consumer:
+#        auto-offset-reset: earliest
+#        key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#        value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#     producer:
+#        key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#        value-serializer: org.apache.kafka.common.serialization.StringSerializer
+ data:
+   cassandra:
+     schema-action: CREATE_IF_NOT_EXISTS
+     contact-points: localhost
+     keyspace-name: message_keyspace
+#      port: 9042
+#topic:
+# boot: message
+#server:
+#  port: 9041

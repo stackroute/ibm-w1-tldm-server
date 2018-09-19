@@ -54,6 +54,7 @@
 <module>GatewayService</module>
 <module>ChannelService</module>
 <module>CommunityService</module>
+<module>MessagePersistenceService<module>
     </modules>
 
 
