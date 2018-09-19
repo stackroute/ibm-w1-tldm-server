@@ -1,4 +1,5 @@
 package com.stackroute.tldm.model;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
@@ -10,22 +11,23 @@ import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 
 import com.datastax.driver.core.DataType;
+
 @Table("Message")
-public class Message implements Serializable{
-	
+public class Message implements Serializable {
+
 	@PrimaryKey
 	@CassandraType(type = DataType.Name.TEXT)
 	private UUID messageId;
-	
+
 	@CassandraType(type = DataType.Name.TEXT)
 	private String messageContent;
-	
+
 	@CassandraType(type = DataType.Name.UDT, userTypeName = "user")
 	private User sender;
-	
+
 	@CassandraType(type = DataType.Name.UDT, userTypeName = "user")
 	private User receiver;
-	
+
 	@CassandraType(type = DataType.Name.DATE)
 	private Date createdAt;
 

@@ -7,16 +7,16 @@ import com.datastax.driver.core.DataType;
 
 @UserDefinedType("user")
 public class User {
-	
+
 	@CassandraType(type = DataType.Name.TEXT)
 	private String userId;
-	
+
 	@CassandraType(type = DataType.Name.TEXT)
 	private String userName;
-	
+
 	@CassandraType(type = DataType.Name.TEXT)
 	private String userMail;
-	
+
 	@CassandraType(type = DataType.Name.TEXT)
 	private String phoneNum;
 

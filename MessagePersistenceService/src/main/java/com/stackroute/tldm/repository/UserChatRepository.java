@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 import com.stackroute.tldm.model.Message;
 
 @Repository
-public interface ChatPersistRepository extends CassandraRepository<Message, UUID> {
+public interface UserChatRepository extends CassandraRepository<Message, UUID> {
 
 }

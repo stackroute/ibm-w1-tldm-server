@@ -5,7 +5,7 @@ import com.stackroute.tldm.model.Message;
 import java.util.List;
 import java.util.UUID;
 
-public interface MessagePersistService {
+public interface MessageService {
    	
 	void saveMessage(Message message);
 
