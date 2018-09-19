@@ -30,7 +30,9 @@ public class CommunityServiceImpl implements CommunityService {
 	public Community createCommunity(Community community) throws CommunityAlreadyExistsException {
 		Community createCommunity = null;
 
-		if (!communityRepo.existsById(community.getCommunityId())) {
+
+		if (communityRepo.getCommunityByCommunityName(community.getCommunityName())==null){
+		
              community.setCommunityCreatedDate(new Date());
             // community.setCommunityCreatedBy(user.getUserName());;
          
