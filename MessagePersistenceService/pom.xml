@@ -13,8 +13,14 @@
 
 	<parent>
 		<groupId>com.stackroute</groupId>
+<<<<<<< HEAD
 		<artifactId>TLDM</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
+=======
+    <artifactId>TLDM</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+		
+>>>>>>> 4456a65ea4632aae27f80d14e61c192517165e66
 	</parent>
 	
 	<properties>

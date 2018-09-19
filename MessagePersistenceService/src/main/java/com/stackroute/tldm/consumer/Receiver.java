@@ -17,10 +17,9 @@ public class Receiver {
 		this.messagePersists = messagePersists;
 	}
 	
-	@KafkaListener(topics = "message_persist")
+	@KafkaListener(topics = "message_persist_test")
 	public void receive(@Payload Message message) {
 		
-		System.out.println("message is ::"+ message);
 		messagePersists.saveMessage(message);
 		System.out.println("Message:" + message);
 	}
