@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: Channel-Service
+  data:
+    mongodb:
+      database: channelDb
+      host: localhost
+      password: root123
+      port: 27017
+      username: gayathri1996

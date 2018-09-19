@@ -4,6 +4,8 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.util.Date;
+
 import com.stackroute.tldm.model.User;
 import org.junit.Before;
 import org.junit.Test;
@@ -47,11 +49,13 @@ public class UserControllerTest {
     public void setUp() {
         MockitoAnnotations.initMocks(this);
         mockMvc = MockMvcBuilders.standaloneSetup(userController).build();
+       // user = new User(, null, null, null, null);
         user = new User();
         user.setUserId("swedha12");
         user.setPhoneNum("56528769987");
         user.setUserName("swetha");
         user.setUserMail("swedha87@gmail.com");
+        user.setCreatedAt(new Date());
     }
 
     @Test
