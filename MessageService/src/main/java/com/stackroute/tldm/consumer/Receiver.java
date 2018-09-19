@@ -19,18 +19,18 @@ public class Receiver {
         this.template = template;
     }
 
-    @KafkaListener(topics = "message", groupId="message_group")
+    @KafkaListener(topics = "message", groupId = "message_group")
     public void receive(@Payload Message message) {
         System.out.println("Message:" + message);
         template.convertAndSend("/topic/response/" + message.getSender().getUserId(), message);
         template.convertAndSend("/topic/response/" + message.getReceiver().getUserId(), message);
     }
-    
-    @KafkaListener(topics = "channel", groupId="channel_group")
+
+    @KafkaListener(topics = "channel", groupId = "channel_group")
     public void receiveGroupMessages(@Payload ChannelMessage channelMessage) {
-    	template.convertAndSend("/topic-group/response/" +channelMessage.getSender().getUserId(), channelMessage);
-    	template.convertAndSend("/topic-group/response/" +channelMessage.getChannel().getChannelId(), channelMessage);
+        template.convertAndSend("/topic-group/response/" + channelMessage.getSender().getUserId(), channelMessage);
+        template.convertAndSend("/topic-group/response/" + channelMessage.getChannel().getChannelId(), channelMessage);
     }
-    
+
 
 }
