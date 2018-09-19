@@ -20,15 +20,9 @@ public class KafkaProducerConfig {
 	public ProducerFactory<String, Message> producerFactory() {
 		Map<String, Object> config = new HashMap<>();
 
-<<<<<<< HEAD
-        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.239.122:9092");
-        config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
-=======
 		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.239.122:9092");
 		config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
->>>>>>> 4b0f9a48d55d4eed4cdd2b8bd0971013c11c04bd
 
 		return new DefaultKafkaProducerFactory<>(config);
 	}

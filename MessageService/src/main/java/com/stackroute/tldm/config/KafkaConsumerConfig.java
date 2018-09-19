@@ -18,24 +18,16 @@ import java.util.Map;
 @EnableKafka
 public class KafkaConsumerConfig {
 
-		
-	@Bean
-	public ConsumerFactory<String, Message> consumerFactory() {
-		Map<String, Object> config = new HashMap<>();
-		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.239.122:9092");
-		config.put(ConsumerConfig.GROUP_ID_CONFIG, "message_group");
-		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-		return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
-				new JsonDeserializer<>(Message.class));
-	}
 
-<<<<<<< HEAD
+    @Bean
+    public ConsumerFactory<String, Message> consumerFactory() {
+        Map<String, Object> config = new HashMap<>();
         config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.239.122:9092");
         config.put(ConsumerConfig.GROUP_ID_CONFIG, "message_group");
         config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-        return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(), new JsonDeserializer<>(Message.class));
+        return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
+                new JsonDeserializer<>(Message.class));
     }
 
     @Bean
@@ -45,13 +37,4 @@ public class KafkaConsumerConfig {
 //        factory.setConcurrency(2);
         return factory;
     }
-=======
-	@Bean
-	public ConcurrentKafkaListenerContainerFactory<String, Message> kafkaListenerContainerFactory() {
-		ConcurrentKafkaListenerContainerFactory<String, Message> factory = new ConcurrentKafkaListenerContainerFactory<>();
-		factory.setConsumerFactory(consumerFactory());
-		return factory;
-	}
-
->>>>>>> 4b0f9a48d55d4eed4cdd2b8bd0971013c11c04bd
 }
