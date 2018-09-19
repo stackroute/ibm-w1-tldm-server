@@ -71,7 +71,8 @@
 
 		
 	</dependencies>
-	<dependencyManagement>
+	
+<dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -82,7 +83,7 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-    </dependencies>
+    
 
 
     <build>
