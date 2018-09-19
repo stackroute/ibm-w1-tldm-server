@@ -23,7 +23,7 @@ public class ChannelServiceImpl implements ChannelService{
 	@Override
 	public void saveMessage(ChannelMessage channelMessage) {
 		UUID newMessageId = UUID.randomUUID();
-		channelMessage.setChannelMessageId(newMessageId);
+		channelMessage.setMessageId(newMessageId);
 		channelMessage.setCreatedAt(new Date());
 		groupChatRepository.insert(channelMessage);
 	}

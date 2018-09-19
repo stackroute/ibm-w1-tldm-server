@@ -1,7 +1,6 @@
 package com.stackroute.tldm.model;
 
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 import org.springframework.data.annotation.Id;
@@ -13,7 +12,6 @@ public class ChannelMessage {
 	private UUID messageId;
 	private String messageContent;
 	private User sender;
-	private List<User> receiver;
 	private Channel channel;
 	private Date createdAt;
 
@@ -21,23 +19,22 @@ public class ChannelMessage {
 
 	}
 
-	public ChannelMessage(UUID messageId, String messageContent, User sender, List<User> receiver, Channel channel,
+	public ChannelMessage(UUID messageId, String messageContent, User sender, Channel channel,
 			Date createdAt) {
 		super();
 		this.messageId = messageId;
 		this.messageContent = messageContent;
 		this.sender = sender;
-		this.receiver = receiver;
 		this.channel = channel;
 		this.createdAt = createdAt;
 	}
 
-	public UUID getChannelMessageId() {
+	public UUID getMessageId() {
 		return messageId;
 	}
 
-	public void setChannelMessageId(UUID channelMessageId) {
-		this.messageId = channelMessageId;
+	public void setMessageId(UUID messageId) {
+		this.messageId = messageId;
 	}
 
 	public String getMessageContent() {
@@ -54,14 +51,6 @@ public class ChannelMessage {
 
 	public void setSender(User sender) {
 		this.sender = sender;
-	}
-
-	public List<User> getReceiver() {
-		return receiver;
-	}
-
-	public void setReceiver(List<User> receiver) {
-		this.receiver = receiver;
 	}
 
 	public Channel getChannel() {
@@ -83,7 +72,7 @@ public class ChannelMessage {
 	@Override
 	public String toString() {
 		return "ChannelMessage [messageId=" + messageId + ", messageContent=" + messageContent + ", sender=" + sender
-				+ ", receiver=" + receiver + ", channel=" + channel + ", createdAt=" + createdAt + "]";
+				+ ", channel=" + channel + ", createdAt=" + createdAt + "]";
 	}
 
 }
