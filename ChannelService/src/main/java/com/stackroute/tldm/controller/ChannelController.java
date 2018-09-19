@@ -135,35 +135,30 @@ public class ChannelController {
 		}
 		return responseEntity;
 	}
-<<<<<<< HEAD
-	
+
 	@GetMapping("/{userName}")
-	public ResponseEntity<?> getchannelByUserName(@PathVariable String userName){
+	public ResponseEntity<?> getchannelByUserName(@PathVariable String userName) {
 		ResponseEntity<?> responseEntity;
 		Channel fetchUser;
-		
-			fetchUser=(Channel) channelService.getListOfChannelsByUsers(userName);
-			if(fetchUser != null) {
-				responseEntity= new ResponseEntity<>(fetchUser,HttpStatus.OK);
-			}else {
-				responseEntity= new ResponseEntity<>("user name not found",HttpStatus.NOT_FOUND);
-			}
-			return responseEntity;
-		}
-	}
-	
 
-=======
+		fetchUser = (Channel) channelService.getListOfChannelsByUsers(userName);
+		if (fetchUser != null) {
+			responseEntity = new ResponseEntity<>(fetchUser, HttpStatus.OK);
+		} else {
+			responseEntity = new ResponseEntity<>("user name not found", HttpStatus.NOT_FOUND);
+		}
+		return responseEntity;
+	}
+
 	@DeleteMapping("/{channelId}/{userId}")
-    public ResponseEntity<?> removeChannelUser(@PathVariable String channelId, @PathVariable String userId) {
-        ResponseEntity<?> responseEntity = null;
-        // System.out.println(channelService.removeChannelUser(channelId, userId));
-        if (channelService.removeChannelUser(channelId, userId)) {
-            responseEntity = new ResponseEntity<>("Channel User Deleted Successfully", HttpStatus.OK);
-        } else {
-            responseEntity = new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
-        }
-        return responseEntity;
-    }
+	public ResponseEntity<?> removeChannelUser(@PathVariable String channelId, @PathVariable String userId) {
+		ResponseEntity<?> responseEntity = null;
+		// System.out.println(channelService.removeChannelUser(channelId, userId));
+		if (channelService.removeChannelUser(channelId, userId)) {
+			responseEntity = new ResponseEntity<>("Channel User Deleted Successfully", HttpStatus.OK);
+		} else {
+			responseEntity = new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
+		}
+		return responseEntity;
+	}
 }
->>>>>>> 96dbe572cb12fba354231c347935fc28c2a957de
