@@ -2,32 +2,33 @@ package com.stackroute.tldm.service;
 
 import com.stackroute.tldm.exception.MessageNotFoundException;
 import com.stackroute.tldm.model.Message;
-import com.stackroute.tldm.repository.ChatPersistRepository;
+import com.stackroute.tldm.repository.UserChatRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.*;
 
 @Service
-public class MessagePersistServiceImpl implements MessagePersistService {
+public class MessageServiceImpl implements MessageService {
 
-	private ChatPersistRepository chatRepository;
+	private UserChatRepository userChatRepository;
 
 	@Autowired
-	public MessagePersistServiceImpl(ChatPersistRepository chatRepository) {
-		this.chatRepository = chatRepository;
+	public MessageServiceImpl(UserChatRepository userChatRepository) {
+		super();
+		this.userChatRepository = userChatRepository;
 	}
 
 	@Override
     public void saveMessage(Message message) {
         message.setCreatedAt(new Date());
-        chatRepository.save(message);
+        userChatRepository.save(message);
     }
 	
 	@Override
 	public boolean deleteMessage(UUID messageId) throws MessageNotFoundException {
-		if (chatRepository.existsById(messageId)) {
-			chatRepository.deleteById(messageId);
+		if (userChatRepository.existsById(messageId)) {
+			userChatRepository.deleteById(messageId);
 			return true;
 		} else {
 			throw new MessageNotFoundException("Message Not Found!");
@@ -37,7 +38,7 @@ public class MessagePersistServiceImpl implements MessagePersistService {
 	@Override
 	public List<Message> getMessagesByUserIdAndReceiverId(String senderId, String receiverId)
 			throws MessageNotFoundException {
-		List<Message> messageList = chatRepository.findAll();
+		List<Message> messageList = userChatRepository.findAll();
 		List<Message> messages = new ArrayList<>();
 		if (messageList != null) {
 			ListIterator<Message> iterator = messageList.listIterator();
