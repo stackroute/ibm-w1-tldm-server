@@ -103,5 +103,26 @@ public class ChannelServiceImpl implements ChannelService {
 		return channels;
 
 	}
+	@Override
+    public boolean removeChannelUser(String channelId, String userId) {
+        boolean flag = false;
+        Channel channels = new Channel();
+        channels = channelRepository.findById(channelId).get();
+        List<User> channelUser = this.findAllChannelUsersByChannelName(channels.getChannelName());
+        
+        Iterator<User> iterator = channelUser.iterator();
+        while (iterator.hasNext()) {
+            User user = iterator.next();
+            if (user.getUserId().equals(userId)) {
+                iterator.remove();
+                flag = true;
+                break;
+            }
+        }
+        channels.setChannelUsers(channelUser);
+        channelRepository.save(channels);
+        System.out.println(flag);
+        return flag;
+    }
 
 }
