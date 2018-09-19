@@ -23,6 +23,7 @@ public interface ChannelService {
 	List<User> findAllChannelUsersByChannelName(String channelName);
 	
 	Channel updateChannelUser (String channelId,User user) throws ChannelNotFoundException;
+	 public boolean removeChannelUser(String channelId, String userId) ;
 
 	public List<String> getListOfChannelsByUsers(String userName);
 }
