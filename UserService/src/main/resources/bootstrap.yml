@@ -23,4 +23,4 @@ spring:
     active: Development
   cloud:
     config:
-      uri: http://172.23.239.104:8083
+      uri: http://172.23.239.212:8083
