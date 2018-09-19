@@ -30,12 +30,17 @@ public class ChannelServiceImpl implements ChannelService {
 	@Override
 	public Channel createChannel(Channel channel) throws ChannelAlreadyExistsException {
 		Channel createChannel = null;
-		if (!channelRepository.existsById(channel.getChannelId())) {
+		try {
+			if (channelRepository.getChannelByChannelName(channel.getChannelName())== null) {
 
-			channel.setChannelCreatedDate(new Date());
-			createChannel = channelRepository.insert(channel);
-		} else {
-			throw new ChannelAlreadyExistsException("Channel Already Exists");
+				channel.setChannelCreatedDate(new Date());
+				createChannel = channelRepository.insert(channel);
+			} else {
+				throw new ChannelAlreadyExistsException("Channel Already Exists");
+			}
+		} catch (ChannelNotFoundException e) {
+			
+			e.printStackTrace();
 		}
 
 		return createChannel;
