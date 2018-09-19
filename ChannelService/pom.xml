@@ -3,19 +3,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-<<<<<<< HEAD
+
 	<groupId>com.stackroute.tldm</groupId>
 	<artifactId>ChannelService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-=======
-    <groupId>com.stackroute.tldm</groupId>
-    <artifactId>channelService</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
->>>>>>> 26a50d75c1b5c52da587d25aea767d7804c15b9e
 
-    <name>channelService</name>
+   
+    <name>ChannelService</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>
@@ -62,24 +57,9 @@
             <version>1.4.1</version>
         </dependency>
 
-<<<<<<< HEAD
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>de.flapdoodle.embed</groupId>
-			<artifactId>de.flapdoodle.embed.mongo</artifactId>
-			<scope>test</scope>
-		</dependency>
-		 <!-- https://mvnrepository.com/artifact/net.vz.mongodb.jackson/mongo-jackson-mapper-->
-<dependency>
-    <groupId>net.vz.mongodb.jackson</groupId>
-    <artifactId>mongo-jackson-mapper</artifactId>
-    <version>1.4.1</version>
-</dependency> 
-<dependency>
+		
+		
+	<dependency>	
            <groupId>org.springframework.cloud</groupId>
            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
        </dependency>
@@ -102,9 +82,8 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-=======
     </dependencies>
->>>>>>> 26a50d75c1b5c52da587d25aea767d7804c15b9e
+
 
     <build>
         <plugins>
