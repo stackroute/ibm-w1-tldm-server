@@ -103,5 +103,25 @@ public class ChannelServiceImpl implements ChannelService {
 		return channels;
 
 	}
+	
+	@Override
+	public List<String> getListOfChannelsByUsers(String userName) {
+		List<String> channelName=null;
+		List<Channel> channelList=channelRepository.findAll();
+		Iterator iterator=channelList.iterator();
+		while(iterator.hasNext()) {
+			Channel eachChannel=(Channel)iterator.next();
+			List<User> channelUser=eachChannel.getChannelUsers();
+			Iterator userIterator=channelUser.iterator();
+			while(userIterator.hasNext()) {
+				User eachUser=(User) userIterator.next();
+				if(userName.equals(eachUser.getUserName())) {
+					channelName.add(eachChannel.getChannelName());
+				}
+			}
+			
+		}
+		return channelName;
 
+}
 }

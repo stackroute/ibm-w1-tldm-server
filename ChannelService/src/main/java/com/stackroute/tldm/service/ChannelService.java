@@ -24,5 +24,5 @@ public interface ChannelService {
 	
 	Channel updateChannelUser (String channelId,User user) throws ChannelNotFoundException;
 
-   
+	public List<String> getListOfChannelsByUsers(String userName);
 }

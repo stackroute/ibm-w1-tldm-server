@@ -135,4 +135,20 @@ public class ChannelController {
 		}
 		return responseEntity;
 	}
-}
+	
+	@GetMapping("/{userName}")
+	public ResponseEntity<?> getchannelByUserName(@PathVariable String userName){
+		ResponseEntity<?> responseEntity;
+		Channel fetchUser;
+		
+			fetchUser=(Channel) channelService.getListOfChannelsByUsers(userName);
+			if(fetchUser != null) {
+				responseEntity= new ResponseEntity<>(fetchUser,HttpStatus.OK);
+			}else {
+				responseEntity= new ResponseEntity<>("user name not found",HttpStatus.NOT_FOUND);
+			}
+			return responseEntity;
+		}
+	}
+	
+
