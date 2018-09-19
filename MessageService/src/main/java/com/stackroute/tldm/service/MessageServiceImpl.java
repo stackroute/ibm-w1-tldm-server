@@ -57,16 +57,6 @@ public class MessageServiceImpl implements MessageService {
 			throw new MessageNotFoundException("Message Not Found!");
 		}
 	}
-	
-//	@Override
-//	public boolean deleteChannelMessage(UUID channelMessageId) throws MessageNotFoundException {
-//		if(groupChatRepository.existsById(channelMessageId)) {
-//			groupChatRepository.deleteById(channelMessageId);
-//			return true;
-//		}
-//		else {
-//			throw new MessageNotFoundException("Message Not Found!!");
-//		}
-//	}
+
 
 }

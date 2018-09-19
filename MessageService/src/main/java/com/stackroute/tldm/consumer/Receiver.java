@@ -31,15 +31,4 @@ public class Receiver {
     	template.convertAndSend("/topic-group/response/" +channelMessage.getChannel().getChannelId(), channelMessage);
     }
     
-//    @KafkaListener(topics = "channel")
-//    public void receiveGroup(@Payload ChannelMessage channelMessage) {
-//    	template.convertAndSend("/topic/response/" + channelMessage.getSender().getUserId(), channelMessage);
-//    	List<User> receiverList = channelMessage.getChannel().getChannelUsers();
-//    	//List<User> receiverList = channelMessage.getReceiver();
-//    	Iterator<User> iterator = receiverList.iterator();
-//    	while(iterator.hasNext()) {
-//  		template.convertAndSend("/topic/response/" + iterator.next().getUserId(), channelMessage);
-//    	}
-//    }
-}
 
