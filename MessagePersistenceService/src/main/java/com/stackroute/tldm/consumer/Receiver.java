@@ -20,10 +20,8 @@ public class Receiver {
 	
 	@KafkaListener(topics = "message", groupId = "message_group_persist")
 	public void receive(@Payload Message message) {
-
 		messageService.saveMessage(message);
 		System.out.println("Message:" + message);
-	
 	}
 
 }
