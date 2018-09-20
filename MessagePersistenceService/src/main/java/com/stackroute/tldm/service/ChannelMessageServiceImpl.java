@@ -22,7 +22,7 @@ public class ChannelMessageServiceImpl implements ChannelMessageService {
     public void saveMessage(ChannelMessage channelMessage) {
         UUID newMessageId = UUID.randomUUID();
         channelMessage.setMessageId(newMessageId);
-        channelMessage.setCreatedAt(new Date());
+        channelMessage.setTimestamp(new Date());
         channelChatRepository.insert(channelMessage);
     }
 }

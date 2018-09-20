@@ -28,9 +28,9 @@ public class Receiver {
         messageService.saveMessage(message);
     }
 
-    @KafkaListener(topics = "channel", groupId = "channel_group_persist")
-    public void receiveGroupMessages(@Payload ChannelMessage channelMessage) {
-        channelMessageService.saveMessage(channelMessage);
-    }
+//    @KafkaListener(topics = "channel", groupId = "channel_group_persist")
+//    public void receiveGroupMessages(@Payload ChannelMessage channelMessage) {
+//        channelMessageService.saveMessage(channelMessage);
+//    }
 
 }

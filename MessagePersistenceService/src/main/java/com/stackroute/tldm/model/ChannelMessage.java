@@ -11,20 +11,18 @@ public class ChannelMessage {
     private String messageContent;
     private User sender;
     private Channel channel;
-    private Date createdAt;
+    private Date timestamp;
 
     public ChannelMessage() {
 
     }
 
-    public ChannelMessage(UUID messageId, String messageContent, User sender, Channel channel,
-                          Date createdAt) {
-        super();
+    public ChannelMessage(UUID messageId, String messageContent, User sender, Channel channel, Date timestamp) {
         this.messageId = messageId;
         this.messageContent = messageContent;
         this.sender = sender;
         this.channel = channel;
-        this.createdAt = createdAt;
+        this.timestamp = timestamp;
     }
 
     public UUID getMessageId() {
@@ -59,18 +57,22 @@ public class ChannelMessage {
         this.channel = channel;
     }
 
-    public Date getCreatedAt() {
-        return createdAt;
+    public Date getTimestamp() {
+        return timestamp;
     }
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
     }
 
     @Override
     public String toString() {
-        return "ChannelMessage [messageId=" + messageId + ", messageContent=" + messageContent + ", sender=" + sender
-                + ", channel=" + channel + ", createdAt=" + createdAt + "]";
+        return "ChannelMessage{" +
+                "messageId=" + messageId +
+                ", messageContent='" + messageContent + '\'' +
+                ", sender=" + sender +
+                ", channel=" + channel +
+                ", timestamp=" + timestamp +
+                '}';
     }
-
 }
