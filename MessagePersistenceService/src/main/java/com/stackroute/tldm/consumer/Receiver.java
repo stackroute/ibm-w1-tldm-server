@@ -22,15 +22,15 @@ public class Receiver {
         this.channelMessageService = channelMessageService;
     }
 
-    @KafkaListener(topics = "message", groupId = "message_group_persist")
+    @KafkaListener(topics = "${topic1.boot}", groupId = "${groupId1.boot}")
     public void receiveUserToUser(@Payload Message message) {
         System.out.println("Message:" + message);
         messageService.saveMessage(message);
     }
 
-//    @KafkaListener(topics = "channel", groupId = "channel_group_persist")
-//    public void receiveGroupMessages(@Payload ChannelMessage channelMessage) {
-//        channelMessageService.saveMessage(channelMessage);
-//    }
+    @KafkaListener(topics = "${topic2.boot}", groupId = "${groupId2.boot}")
+    public void receiveGroupMessages(@Payload ChannelMessage channelMessage) {
+        channelMessageService.saveMessage(channelMessage);
+    }
 
 }
