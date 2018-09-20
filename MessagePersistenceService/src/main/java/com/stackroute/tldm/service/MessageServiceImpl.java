@@ -25,7 +25,7 @@ public class MessageServiceImpl implements MessageService {
         UUID newMessageId = UUID.randomUUID();
         message.setMessageId(newMessageId);
         message.setCreatedAt(new Date());
-        userChatRepository.save(message);
+        userChatRepository.insert(message);
     }
 
     @Override

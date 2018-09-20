@@ -1,6 +1,7 @@
 package com.stackroute.tldm.controller;
 import java.util.UUID;
 
+import com.stackroute.tldm.service.ChannelMessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,12 +23,14 @@ import com.stackroute.tldm.service.MessageService;
 public class MessagePersistenceController {
 	
 	private MessageService messageService;
-	
+	private ChannelMessageService channelMessageService;
+
 	@Autowired
-	public MessagePersistenceController(MessageService messageService) {
+	public MessagePersistenceController(MessageService messageService, ChannelMessageService channelMessageService) {
 		this.messageService = messageService;
+		this.channelMessageService = channelMessageService;
 	}
-	
+
 	// Delete a particular messageById.
 	@DeleteMapping("/{messageId}")
 	public ResponseEntity<?> deleteMessage(@PathVariable("messageId") UUID messageId) {

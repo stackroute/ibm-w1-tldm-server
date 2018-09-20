@@ -22,11 +22,6 @@ public class CassandraConfig {
 		return Arrays.asList(specification);
 	}
 
-//	    @Override
-//	    protected List<DropKeyspaceSpecification> getKeyspaceDrops() {
-//	        return Arrays.asList(DropKeyspaceSpecification.dropKeyspace(KEYSPACE));
-//	    }
-
 	protected String getKeyspaceName() {
 		return KEYSPACE;
 	}

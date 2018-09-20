@@ -1,13 +1,8 @@
 spring:
-#  kafka:
-#    consumer:
-#        auto-offset-reset: earliest
-#        key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-#        value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-#     producer:
-#        key-serializer: org.apache.kafka.common.serialization.StringSerializer
-#        value-serializer: org.apache.kafka.common.serialization.StringSerializer
- data:
+  kafka:
+    consumer:
+        auto-offset-reset: earliest
+  data:
    cassandra:
      schema-action: CREATE_IF_NOT_EXISTS
      contact-points: localhost
