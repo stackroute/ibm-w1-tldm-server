@@ -1,33 +1,26 @@
 package com.stackroute.tldm.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
 import java.util.Date;
 import java.util.UUID;
 
-// To be saved to the database.
-
-@Document
 public class Message {
 
-    @Id
     private UUID messageId;
     private String messageContent;
     private User sender;
     private User receiver;
-    private Date createdAt;
+    private Date timestamp;
 
     public Message() {
         super();
     }
 
-    public Message(UUID messageId, String messageContent, User sender, User receiver, Date createdAt) {
+    public Message(UUID messageId, String messageContent, User sender, User receiver, Date timestamp) {
         this.messageId = messageId;
         this.messageContent = messageContent;
         this.sender = sender;
         this.receiver = receiver;
-        this.createdAt = createdAt;
+        this.timestamp = timestamp;
     }
 
     public UUID getMessageId() {
@@ -62,22 +55,22 @@ public class Message {
         this.receiver = receiver;
     }
 
-    public Date getCreatedAt() {
-        return createdAt;
+    public Date getTimestamp() {
+        return timestamp;
     }
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
     }
 
     @Override
     public String toString() {
         return "Message{" +
-                "messageId='" + messageId + '\'' +
+                "messageId=" + messageId +
                 ", messageContent='" + messageContent + '\'' +
                 ", sender=" + sender +
                 ", receiver=" + receiver +
-                ", createdAt=" + createdAt +
+                ", timestamp=" + timestamp +
                 '}';
     }
 }

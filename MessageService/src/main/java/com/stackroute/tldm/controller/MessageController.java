@@ -7,6 +7,9 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+import java.util.UUID;
+
 @RestController
 @RequestMapping("/api/v1/message")
 @CrossOrigin("*")
@@ -25,6 +28,9 @@ public class MessageController {
 
 	@MessageMapping("/chat")
 	public void sendMessage(Message message) throws Exception {
+		UUID newMessageId = UUID.randomUUID();
+		message.setMessageId(newMessageId);
+		message.setTimestamp(new Date());
 		kafkaTemplate.send(BOOT_TOPIC, message);
 	}
 
