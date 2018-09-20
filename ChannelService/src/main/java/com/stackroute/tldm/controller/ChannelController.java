@@ -104,7 +104,7 @@ public class ChannelController {
 		return responseEntity;
 	}
 
-	@GetMapping("/name/{channelName}")
+	@GetMapping("/{channelName}")
 	public ResponseEntity<?> getChannelByChannelName(@PathVariable String channelName) {
 		ResponseEntity<?> responseEntity;
 		Channel fetch;
@@ -122,7 +122,7 @@ public class ChannelController {
 		return responseEntity;
 	}
 
-	@GetMapping("/channels/{channelName}")
+	@GetMapping("/users/{channelName}")
 	public ResponseEntity<?> getUsersByChannelName(@PathVariable String channelName) {
 		ResponseEntity<?> responseEntity;
 		List<User> allUsers;
