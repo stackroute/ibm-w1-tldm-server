@@ -99,13 +99,13 @@ public class ChannelServiceImpl implements ChannelService {
 	@Override
 	public Channel updateChannelUser(String channelId, User user) throws ChannelNotFoundException {
 
-		Channel channels = channelRepository.findById(channelId).get();
+		Channel channel = channelRepository.findById(channelId).get();
 		List<User> userList = new ArrayList<>();
-		userList = channels.getChannelUsers();
+		userList = channel.getChannelUsers();
 		userList.add(user);
-		channels.setChannelUsers(userList);
-		channelRepository.save(channels);
-		return channels;
+		channel.setChannelUsers(userList);
+		channelRepository.save(channel);
+		return channel;
 
 	}
 
