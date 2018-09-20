@@ -30,12 +30,17 @@ public class ChannelServiceImpl implements ChannelService {
 	@Override
 	public Channel createChannel(Channel channel) throws ChannelAlreadyExistsException {
 		Channel createChannel = null;
-		if (!channelRepository.existsById(channel.getChannelId())) {
+		try {
+			if (channelRepository.getChannelByChannelName(channel.getChannelName())== null) {
 
-			channel.setChannelCreatedDate(new Date());
-			createChannel = channelRepository.insert(channel);
-		} else {
-			throw new ChannelAlreadyExistsException("Channel Already Exists");
+				channel.setChannelCreatedDate(new Date());
+				createChannel = channelRepository.insert(channel);
+			} else {
+				throw new ChannelAlreadyExistsException("Channel Already Exists");
+			}
+		} catch (ChannelNotFoundException e) {
+			
+			e.printStackTrace();
 		}
 
 		return createChannel;
@@ -102,6 +107,48 @@ public class ChannelServiceImpl implements ChannelService {
 		channelRepository.save(channels);
 		return channels;
 
+	}
+
+	@Override
+	public List<String> getListOfChannelsByUsers(String userName) {
+		List<String> channelName = 	new ArrayList<>();
+		List<Channel> channelList = channelRepository.findAll();
+		Iterator iterator = channelList.iterator();
+		while (iterator.hasNext()) {
+			Channel eachChannel = (Channel) iterator.next();
+			List<User> channelUser = eachChannel.getChannelUsers();
+			Iterator userIterator = channelUser.iterator();
+			while (userIterator.hasNext()) {
+				User eachUser = (User) userIterator.next();
+				if (userName.equals(eachUser.getUserName())) {
+					channelName.add(eachChannel.getChannelName());
+				}
+			}
+
+		}
+		return channelName;
+	}
+
+	@Override
+	public boolean removeChannelUser(String channelId, String userId) {
+		boolean flag = false;
+		Channel channels = new Channel();
+		channels = channelRepository.findById(channelId).get();
+		List<User> channelUser = this.findAllChannelUsersByChannelName(channels.getChannelName());
+
+		Iterator<User> iterator = channelUser.iterator();
+		while (iterator.hasNext()) {
+			User user = iterator.next();
+			if (user.getUserId().equals(userId)) {
+				iterator.remove();
+				flag = true;
+				break;
+			}
+		}
+		channels.setChannelUsers(channelUser);
+		channelRepository.save(channels);
+		System.out.println(flag);
+		return flag;
 	}
 
 }
