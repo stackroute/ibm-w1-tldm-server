@@ -104,7 +104,7 @@ public class ChannelController {
 		return responseEntity;
 	}
 
-	@GetMapping("/name/{channelName}")
+	@GetMapping("/{channelName}")
 	public ResponseEntity<?> getChannelByChannelName(@PathVariable String channelName) {
 		ResponseEntity<?> responseEntity;
 		Channel fetch;
@@ -122,7 +122,7 @@ public class ChannelController {
 		return responseEntity;
 	}
 
-	@GetMapping("/{channelName}")
+	@GetMapping("/users/{channelName}")
 	public ResponseEntity<?> getUsersByChannelName(@PathVariable String channelName) {
 		ResponseEntity<?> responseEntity;
 		List<User> allUsers;
@@ -139,11 +139,10 @@ public class ChannelController {
 	@GetMapping("/{userName}")
 	public ResponseEntity<?> getchannelByUserName(@PathVariable String userName) {
 		ResponseEntity<?> responseEntity;
-		Channel fetchUser;
-
-		fetchUser = (Channel) channelService.getListOfChannelsByUsers(userName);
-		if (fetchUser != null) {
-			responseEntity = new ResponseEntity<>(fetchUser, HttpStatus.OK);
+		List<String> fetchChannel;
+		fetchChannel =  channelService.getListOfChannelsByUsers(userName);
+		if (fetchChannel != null) {
+			responseEntity = new ResponseEntity<>(fetchChannel, HttpStatus.OK);
 		} else {
 			responseEntity = new ResponseEntity<>("user name not found", HttpStatus.NOT_FOUND);
 		}

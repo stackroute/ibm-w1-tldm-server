@@ -111,7 +111,7 @@ public class ChannelServiceImpl implements ChannelService {
 
 	@Override
 	public List<String> getListOfChannelsByUsers(String userName) {
-		List<String> channelName = null;
+		List<String> channelName = 	new ArrayList<>();
 		List<Channel> channelList = channelRepository.findAll();
 		Iterator iterator = channelList.iterator();
 		while (iterator.hasNext()) {
