@@ -1,4 +1,5 @@
 package com.stackroute.tldm.controller;
+
 import java.util.UUID;
 
 import com.stackroute.tldm.service.ChannelMessageService;
@@ -21,45 +22,45 @@ import com.stackroute.tldm.service.MessageService;
 @RequestMapping("/api/v1/message")
 @CrossOrigin("*")
 public class MessagePersistenceController {
-	
-	private MessageService messageService;
-	private ChannelMessageService channelMessageService;
 
-	@Autowired
-	public MessagePersistenceController(MessageService messageService, ChannelMessageService channelMessageService) {
-		this.messageService = messageService;
-		this.channelMessageService = channelMessageService;
-	}
+    private MessageService messageService;
+    private ChannelMessageService channelMessageService;
 
-	// Delete a particular messageById.
-	@DeleteMapping("/{messageId}")
-	public ResponseEntity<?> deleteMessage(@PathVariable("messageId") UUID messageId) {
-		ResponseEntity<?> responseEntity;
-		try {
-			if (messageService.deleteMessage(messageId)) {
-				responseEntity = new ResponseEntity<>(HttpStatus.OK);
-			} else {
-				responseEntity = new ResponseEntity<>(HttpStatus.NOT_FOUND);
-			}
-		} catch (MessageNotFoundException e) {
-			responseEntity = new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
-		return responseEntity;
-	}
+    @Autowired
+    public MessagePersistenceController(MessageService messageService, ChannelMessageService channelMessageService) {
+        this.messageService = messageService;
+        this.channelMessageService = channelMessageService;
+    }
 
-	// Get a conversation between Sender and the Receiver.
-	@GetMapping("/{senderId}/{receiverId}")
-	public ResponseEntity<?> getMessagesBySenderAndReceiver(@PathVariable("senderId") String senderId,
-			@PathVariable("receiverId") String receiverId) {
-		ResponseEntity<?> responseEntity;
-		try {
-			responseEntity = new ResponseEntity<>(messageService.getMessagesBySenderIdAndReceiverId(senderId, receiverId),
-					HttpStatus.OK);
-		} catch (MessageNotFoundException e) {
-			responseEntity = new ResponseEntity<>("Message Not Found!", HttpStatus.NOT_FOUND);
-		}
+    // Delete a particular messageById.
+    @DeleteMapping("/{messageId}/{senderId}")
+    public ResponseEntity<?> deleteMessage(@PathVariable("messageId") UUID messageId, @PathVariable("senderId") String senderId) {
+        ResponseEntity<?> responseEntity;
+        try {
+            if (messageService.deleteMessage(messageId, senderId)) {
+                responseEntity = new ResponseEntity<>(HttpStatus.OK);
+            } else {
+                responseEntity = new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        } catch (MessageNotFoundException e) {
+            responseEntity = new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return responseEntity;
+    }
 
-		return responseEntity;
-	}
+    // Get a conversation between Sender and the Receiver.
+    @GetMapping("/{senderId}/{receiverId}")
+    public ResponseEntity<?> getMessagesBySenderAndReceiver(@PathVariable("senderId") String senderId,
+                                                            @PathVariable("receiverId") String receiverId) {
+        ResponseEntity<?> responseEntity;
+        try {
+            responseEntity = new ResponseEntity<>(messageService.getMessagesBySenderIdAndReceiverId(senderId, receiverId),
+                    HttpStatus.OK);
+        } catch (MessageNotFoundException e) {
+            responseEntity = new ResponseEntity<>("Message Not Found!", HttpStatus.NOT_FOUND);
+        }
+
+        return responseEntity;
+    }
 
 }

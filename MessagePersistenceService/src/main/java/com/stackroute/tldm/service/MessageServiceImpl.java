@@ -26,10 +26,16 @@ public class MessageServiceImpl implements MessageService {
     }
 
     @Override
-    public boolean deleteMessage(UUID messageId) throws MessageNotFoundException {
+    public boolean deleteMessage(UUID messageId, String senderId) throws MessageNotFoundException {
         if (userChatRepository.existsById(messageId)) {
-            userChatRepository.deleteById(messageId);
-            return true;
+            Message message = userChatRepository.findById(messageId).get();
+            String sender = message.getSender().getUserId();
+            if (sender.equals(senderId)) {
+                userChatRepository.deleteById(messageId);
+                return true;
+            } else {
+                throw new MessageNotFoundException("Message Not Found!");
+            }
         } else {
             throw new MessageNotFoundException("Message Not Found!");
         }

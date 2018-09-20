@@ -9,7 +9,7 @@ public interface MessageService {
    	
 	void saveMessage(Message message);
 
-	boolean deleteMessage(UUID messageId) throws MessageNotFoundException;
+	boolean deleteMessage(UUID messageId, String senderId) throws MessageNotFoundException;
 
 	List<Message> getMessagesBySenderIdAndReceiverId(String senderId, String receiverId) throws MessageNotFoundException;
 
