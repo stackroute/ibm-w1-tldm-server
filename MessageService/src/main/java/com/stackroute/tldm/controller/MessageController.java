@@ -3,6 +3,7 @@ package com.stackroute.tldm.controller;
 import com.stackroute.tldm.model.ChannelMessage;
 import com.stackroute.tldm.model.Message;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.web.bind.annotation.*;
@@ -17,8 +18,12 @@ public class MessageController {
 
 	private KafkaTemplate<String, Message> kafkaTemplate;
 	private KafkaTemplate<String, ChannelMessage> channelKafkaTemplate;
-	private static String BOOT_TOPIC = "message";
-	private static String CHANNEL_TOPIC = "channel";
+
+	@Value("${topic1.boot}")
+	private String BOOT_TOPIC;
+
+	@Value("${topic2.boot}")
+	private String CHANNEL_TOPIC;
 
 	@Autowired
 	public MessageController(KafkaTemplate<String, Message> kafkaTemplate, KafkaTemplate<String, ChannelMessage> channelKafkaTemplate) {
