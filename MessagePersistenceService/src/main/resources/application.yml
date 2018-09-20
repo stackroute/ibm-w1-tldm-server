@@ -6,7 +6,7 @@ spring:
    cassandra:
      schema-action: CREATE_IF_NOT_EXISTS
      contact-points: localhost
-     keyspace-name: message_keyspace
+     keyspace-name: message_key_space
 #      port: 9042
 #topic:
 # boot: message
