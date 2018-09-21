@@ -31,15 +31,16 @@ public class ChannelServiceImpl implements ChannelService {
 	public Channel createChannel(Channel channel) throws ChannelAlreadyExistsException {
 		Channel createChannel = null;
 		try {
-			if (channelRepository.getChannelByChannelName(channel.getChannelName())== null) {
+			if (channelRepository.getChannelByChannelName(channel.getChannelName()) == null) {
 
 				channel.setChannelCreatedDate(new Date());
+				
 				createChannel = channelRepository.insert(channel);
 			} else {
 				throw new ChannelAlreadyExistsException("Channel Already Exists");
 			}
 		} catch (ChannelNotFoundException e) {
-			
+
 			e.printStackTrace();
 		}
 
@@ -110,23 +111,32 @@ public class ChannelServiceImpl implements ChannelService {
 	}
 
 	@Override
-	public List<String> getListOfChannelsByUsers(String userName) {
-		List<String> channelName = 	new ArrayList<>();
+	public List<Channel> getListOfChannelsByUsers(String userName) {
+		List<Channel> channels = new ArrayList<>();
 		List<Channel> channelList = channelRepository.findAll();
+		System.out.println(channelList);
 		Iterator iterator = channelList.iterator();
 		while (iterator.hasNext()) {
 			Channel eachChannel = (Channel) iterator.next();
-			List<User> channelUser = eachChannel.getChannelUsers();
-			Iterator userIterator = channelUser.iterator();
-			while (userIterator.hasNext()) {
-				User eachUser = (User) userIterator.next();
-				if (userName.equals(eachUser.getUserName())) {
-					channelName.add(eachChannel.getChannelName());
+			if (eachChannel != null) {
+				List<User> channelUser = eachChannel.getChannelUsers();
+				 System.out.println(channelUser);
+				Iterator userIterator = channelUser.iterator();
+				while (userIterator.hasNext()) {
+					User eachUser = (User) userIterator.next();
+					System.out.println("kkkkkkkk" + eachUser.getUserName());
+					if (userName.equals(eachUser.getUserName())) {
+						channels.add(eachChannel);
+						System.out.println("kkkkkkkk" + channels);
+						// channelRepository.save(channels);
+					}
 				}
-			}
-
+			}			
+			// if (channelUser.size() > 0) {
+			// }
 		}
-		return channelName;
+
+		return channels;
 	}
 
 	@Override
