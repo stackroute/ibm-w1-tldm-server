@@ -2,7 +2,7 @@
 #  client:
 #    register-with-eureka: true
 #    serviceUrl:
-#      defaultZone: http://172.23.239.227:8761/eureka
+#      defaultZone: http://172.23.239.227:8061/eureka
 #info:
 #  app:
 #    description: User Service is up and has no problem
@@ -26,3 +26,11 @@
 #  cloud:
 #    config:
 #      uri: http://172.23.239.212:8083
+#spring:
+#  data:
+#    mongodb:
+#        database: UserServiceDb
+#        host: localhost
+#        password: root12
+#        port: 27017
+#        username: root12
