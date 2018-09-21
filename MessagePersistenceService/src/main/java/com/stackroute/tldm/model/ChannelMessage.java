@@ -1,25 +1,27 @@
 package com.stackroute.tldm.model;
 
+
 import java.util.Date;
 import java.util.UUID;
 
-public class Message {
+public class ChannelMessage {
+
 
     private UUID messageId;
     private String messageContent;
     private User sender;
-    private User receiver;
+    private Channel channel;
     private Date timestamp;
 
-    public Message() {
-        super();
+    public ChannelMessage() {
+
     }
 
-    public Message(UUID messageId, String messageContent, User sender, User receiver, Date timestamp) {
+    public ChannelMessage(UUID messageId, String messageContent, User sender, Channel channel, Date timestamp) {
         this.messageId = messageId;
         this.messageContent = messageContent;
         this.sender = sender;
-        this.receiver = receiver;
+        this.channel = channel;
         this.timestamp = timestamp;
     }
 
@@ -47,12 +49,12 @@ public class Message {
         this.sender = sender;
     }
 
-    public User getReceiver() {
-        return receiver;
+    public Channel getChannel() {
+        return channel;
     }
 
-    public void setReceiver(User receiver) {
-        this.receiver = receiver;
+    public void setChannel(Channel channel) {
+        this.channel = channel;
     }
 
     public Date getTimestamp() {
@@ -65,11 +67,11 @@ public class Message {
 
     @Override
     public String toString() {
-        return "Message{" +
+        return "ChannelMessage{" +
                 "messageId=" + messageId +
                 ", messageContent='" + messageContent + '\'' +
                 ", sender=" + sender +
-                ", receiver=" + receiver +
+                ", channel=" + channel +
                 ", timestamp=" + timestamp +
                 '}';
     }

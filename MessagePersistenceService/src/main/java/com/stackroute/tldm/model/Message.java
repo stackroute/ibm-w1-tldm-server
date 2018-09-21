@@ -28,8 +28,8 @@ public class Message implements Serializable {
 	@CassandraType(type = DataType.Name.UDT, userTypeName = "user")
 	private User receiver;
 
-	@CassandraType(type = DataType.Name.DATE)
-	private Date createdAt;
+	@CassandraType(type = DataType.Name.TIMESTAMP)
+	private Date timestamp;
 
 	public Message() {
 		super();
@@ -39,13 +39,12 @@ public class Message implements Serializable {
 		this.messageContent = messageContent;
 	}
 
-	public Message(UUID messageId, String messageContent, User sender, User receiver, Date createdAt) {
-		super();
+	public Message(UUID messageId, String messageContent, User sender, User receiver, Date timestamp) {
 		this.messageId = messageId;
 		this.messageContent = messageContent;
 		this.sender = sender;
 		this.receiver = receiver;
-		this.createdAt = createdAt;
+		this.timestamp = timestamp;
 	}
 
 	public UUID getMessageId() {
@@ -80,18 +79,22 @@ public class Message implements Serializable {
 		this.receiver = receiver;
 	}
 
-	public Date getCreatedAt() {
-		return createdAt;
+	public Date getTimestamp() {
+		return timestamp;
 	}
 
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
+	public void setTimestamp(Date timestamp) {
+		this.timestamp = timestamp;
 	}
 
 	@Override
 	public String toString() {
-		return "Message{" + "messageId='" + messageId + '\'' + ", messageContent='" + messageContent + '\''
-				+ ", sender=" + sender + ", receiver=" + receiver + ", createdAt=" + createdAt + '}';
+		return "Message{" +
+				"messageId=" + messageId +
+				", messageContent='" + messageContent + '\'' +
+				", sender=" + sender +
+				", receiver=" + receiver +
+				", timestamp=" + timestamp +
+				'}';
 	}
-
 }
