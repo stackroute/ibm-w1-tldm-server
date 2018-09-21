@@ -17,7 +17,7 @@ import com.stackroute.tldm.model.ChannelMessage;
 @Configuration
 public class ChannelKafkaProducerConfig {
 	@Bean
-	public ProducerFactory<String, ChannelMessage> producerFactory() {
+	public ProducerFactory<String, ChannelMessage> channelProducerFactory() {
 		Map<String, Object> config = new HashMap<>();
 
 		config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.239.122:9092");
@@ -28,8 +28,8 @@ public class ChannelKafkaProducerConfig {
 	}
 
 	@Bean
-	public KafkaTemplate<String, ChannelMessage> kafkaTemplate() {
-		return new KafkaTemplate<>(producerFactory());
+	public KafkaTemplate<String, ChannelMessage> channelKafkaTemplate() {
+		return new KafkaTemplate<>(channelProducerFactory());
 	}
 
 }
