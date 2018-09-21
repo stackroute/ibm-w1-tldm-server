@@ -26,7 +26,8 @@ public class MessageController {
 	private String CHANNEL_TOPIC;
 
 	@Autowired
-	public MessageController(KafkaTemplate<String, Message> kafkaTemplate, KafkaTemplate<String, ChannelMessage> channelKafkaTemplate) {
+	public MessageController(KafkaTemplate<String, Message> kafkaTemplate,
+			KafkaTemplate<String, ChannelMessage> channelKafkaTemplate) {
 		this.kafkaTemplate = kafkaTemplate;
 		this.channelKafkaTemplate = channelKafkaTemplate;
 	}
@@ -41,6 +42,9 @@ public class MessageController {
 
 	@MessageMapping("/channel-chat")
 	public void sendMessageToChannel(ChannelMessage channelMessage) throws Exception {
+		UUID newChannelMessageId = UUID.randomUUID();
+		channelMessage.setMessageId(newChannelMessageId);
+		channelMessage.setTimestamp(new Date());
 		channelKafkaTemplate.send(CHANNEL_TOPIC, channelMessage);
 	}
 }

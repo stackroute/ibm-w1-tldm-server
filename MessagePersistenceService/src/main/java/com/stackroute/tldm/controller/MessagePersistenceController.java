@@ -22,16 +22,14 @@ import com.stackroute.tldm.service.MessageService;
 @RequestMapping("/api/v1/message")
 @CrossOrigin("*")
 public class MessagePersistenceController {
+	
+	private MessageService messageService;
 
-    private MessageService messageService;
-    private ChannelMessageService channelMessageService;
-
-    @Autowired
-    public MessagePersistenceController(MessageService messageService, ChannelMessageService channelMessageService) {
-        this.messageService = messageService;
-        this.channelMessageService = channelMessageService;
-    }
-
+	@Autowired
+	public MessagePersistenceController(MessageService messageService, ChannelMessageService channelMessageService) {
+		this.messageService = messageService;
+	}
+	
     // Delete a particular messageById.
     @DeleteMapping("/{messageId}/{senderId}")
     public ResponseEntity<?> deleteMessage(@PathVariable("messageId") UUID messageId, @PathVariable("senderId") String senderId) {
@@ -59,8 +57,7 @@ public class MessagePersistenceController {
         } catch (MessageNotFoundException e) {
             responseEntity = new ResponseEntity<>("Message Not Found!", HttpStatus.NOT_FOUND);
         }
-
-        return responseEntity;
-    }
+		return responseEntity;
+	}
 
 }
