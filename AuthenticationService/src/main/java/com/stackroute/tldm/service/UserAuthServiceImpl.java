@@ -25,9 +25,11 @@ public class UserAuthServiceImpl implements UserAuthService {
 		// boolean flag = false;
 		String info = user.getUserId();
 
+		//get
+
 		try {
 			if (!userAuth.existsById(info)
-					&& (findUserByEmail(user.getEmail()) == null)) {
+					&& (findUserByEmail(user.getEmail()) == null) && info.trim().length()>0 && info.length()==info.trim().length()) {
 				userAuth.save(user);
 				return user;
 				// flag = true;
