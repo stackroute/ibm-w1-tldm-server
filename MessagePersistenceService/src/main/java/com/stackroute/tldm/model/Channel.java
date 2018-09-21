@@ -3,14 +3,26 @@ package com.stackroute.tldm.model;
 import java.util.Date;
 import java.util.List;
 
+import com.datastax.driver.core.DataType;
+import org.springframework.data.cassandra.core.mapping.CassandraType;
+import org.springframework.data.cassandra.core.mapping.UserDefinedType;
+
+@UserDefinedType("Channel")
 public class Channel {
 
+    @CassandraType(type = DataType.Name.TEXT)
     private String channelId;
+    @CassandraType(type = DataType.Name.TEXT)
     private String channelName;
+    @CassandraType(type = DataType.Name.TEXT)
     private String createdBy;
+    @CassandraType(type = DataType.Name.TEXT)
     private String channelDescription;
+    @CassandraType(type = DataType.Name.TIMESTAMP)
     private Date channelCreatedDate;
+    @CassandraType(type = DataType.Name.UDT, userTypeName = "Community")
     private Community community;
+    @CassandraType(type = DataType.Name.UDT, userTypeName = "user")
     private List<User> channelUsers;
 
     public String getChannelId() {

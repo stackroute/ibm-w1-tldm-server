@@ -1,16 +1,27 @@
 package com.stackroute.tldm.model;
 
 
+import com.datastax.driver.core.DataType;
+import org.springframework.data.cassandra.core.mapping.CassandraType;
+import org.springframework.data.cassandra.core.mapping.PrimaryKey;
+import org.springframework.data.cassandra.core.mapping.Table;
+
 import java.util.Date;
 import java.util.UUID;
 
+@Table("ChannelMessage")
 public class ChannelMessage {
 
-
+    @PrimaryKey
+    @CassandraType(type = DataType.Name.TEXT)
     private UUID messageId;
+    @CassandraType(type = DataType.Name.TEXT)
     private String messageContent;
+    @CassandraType(type = DataType.Name.UDT, userTypeName = "user")
     private User sender;
+    @CassandraType(type = DataType.Name.UDT, userTypeName = "Channel")
     private Channel channel;
+    @CassandraType(type = DataType.Name.TIMESTAMP)
     private Date timestamp;
 
     public ChannelMessage() {
