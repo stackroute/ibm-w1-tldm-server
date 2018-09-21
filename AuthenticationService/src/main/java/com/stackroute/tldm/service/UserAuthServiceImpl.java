@@ -1,60 +1,63 @@
 package com.stackroute.tldm.service;
 
-import java.util.NoSuchElementException;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.stackroute.tldm.exception.UserAlreadyExistsException;
 import com.stackroute.tldm.model.User;
 import com.stackroute.tldm.repository.UserAuthRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.NoSuchElementException;
 
 @Service
 public class UserAuthServiceImpl implements UserAuthService {
 
-	private UserAuthRepository userAuth;
+    private UserAuthRepository userAuth;
 
-	@Autowired
-	public UserAuthServiceImpl(UserAuthRepository userAuth) {
-		this.userAuth = userAuth;
+    @Autowired
+    public UserAuthServiceImpl(UserAuthRepository userAuth) {
+        this.userAuth = userAuth;
 
-	}
+    }
 
-	@Override
-	public User registerUser(User user) throws UserAlreadyExistsException {
-		// boolean flag = false;
-		String info = user.getUserId();
+    @Override
+    public User registerUser(User user) throws UserAlreadyExistsException {
+        // boolean flag = false;
+        String info = user.getUserId().trim();
 
-		//get
+        System.out.println(info);
+        //get
 
-		try {
-			if (!userAuth.existsById(info)
-					&& (findUserByEmail(user.getEmail()) == null) && info.trim().length()>0 && info.length()==info.trim().length()) {
-				userAuth.save(user);
-				return user;
-				// flag = true;
-			} else {
-				throw new UserAlreadyExistsException("User Information already present");
-			}
+        try {
+            if (!userAuth.existsById(info)
+                    && ((findUserByEmail(user.getEmail()) == null)) && (info.trim().length() > 0) && (info.length()==info.replaceAll("\\s", "").length())){
 
-		} catch (NoSuchElementException exception) {
-			throw new UserAlreadyExistsException("User Information already present");
-		}
-	}
+                System.out.println(info.trim());
+                userAuth.save(user);
 
-	public User findUserByEmail(String email) {
-		User info = userAuth.findUserByEmail(email);
-		if (info != null) {
-			return info;
-		} else {
-			return null;
-		}
-	}
+                return user;
+                // flag = true;
+            } else {
+                throw new UserAlreadyExistsException("User Information already present");
+            }
 
-	@Override
-	public User findUserByUserIdAndPassword(String userId, String password) {
-		User fetchedUser = userAuth.findUserByUserIdAndPassword(userId, password);
-		return fetchedUser;
-	}
+        } catch (NoSuchElementException exception) {
+            throw new UserAlreadyExistsException("User Information already present");
+        }
+    }
+
+    public User findUserByEmail(String email) {
+        User info = userAuth.findUserByEmail(email);
+        if (info != null) {
+            return info;
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public User findUserByUserIdAndPassword(String userId, String password) {
+        User fetchedUser = userAuth.findUserByUserIdAndPassword(userId, password);
+        return fetchedUser;
+    }
 
 }
