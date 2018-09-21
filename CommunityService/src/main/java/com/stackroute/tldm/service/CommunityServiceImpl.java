@@ -1,7 +1,7 @@
 package com.stackroute.tldm.service;
 
 import java.util.Date;
-import java.util.List;
+
 import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,9 +9,10 @@ import org.springframework.stereotype.Service;
 
 import com.stackroute.tldm.exception.CommunityAlreadyExistsException;
 import com.stackroute.tldm.exception.CommunityNotFoundException;
-import com.stackroute.tldm.model.Channel;
+
 import com.stackroute.tldm.model.Community;
-import com.stackroute.tldm.model.User;
+
+
 import com.stackroute.tldm.repository.CommunityRepository;
 
 @Service
@@ -44,19 +45,7 @@ public class CommunityServiceImpl implements CommunityService {
 		return createCommunity;
 	}
 
-	@Override
-	public boolean deleteCommunity(String communityId) throws CommunityNotFoundException {
-		if (communityRepo.findById(communityId) != null) {
-
-			communityRepo.deleteById(communityId);
-		} else {
-			throw new CommunityNotFoundException("community not found");
-		}
-
-		return true;
-
-	}
-
+	
 	@Override
 	public Community updateCommunity(String communityId, Community community)throws CommunityNotFoundException {
 
@@ -84,19 +73,20 @@ public class CommunityServiceImpl implements CommunityService {
 	}
 // all channels within the community.
 	
-	@Override
-	public List<Channel> getAllChannels() {
-//	List<Channel> list;
-		return null;
-	}
-	
-//all users in the community
-	
-	@Override
-	public List<User> getAllUsers() {
-		//List<User> userList
-		return null;
-	}
+//	@Override
+//	public List<Channel> getAllChannels() {
+////	List<Channel> list;
+//		return null;
+//	}
+//	
+////all users in the community
+//	
+//	@Override
+//	public List<User> getAllUsers() {
+//
+//	return null;
+//		
+//	}
 
 	@Override
 	public Community getCommunityByCommunityName(String communityName) throws CommunityNotFoundException {
@@ -111,6 +101,22 @@ public class CommunityServiceImpl implements CommunityService {
 		return community;
 	}
 
+	@Override
+	public boolean delCommunity(String communityId) throws CommunityNotFoundException {
+		// TODO Auto-generated method stub
+		
+		if (communityRepo.findById(communityId) != null) {
+
+			communityRepo.deleteById(communityId);
+		} else {
+			throw new CommunityNotFoundException("community not found");
+		}
+
+		return true;
+
+	}
+
+	
 	
 
 
