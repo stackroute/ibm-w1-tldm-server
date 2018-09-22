@@ -1,12 +1,11 @@
 package com.stackroute.tldm.test.controller;
 
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import java.util.Date;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.stackroute.tldm.controller.UserController;
+import com.stackroute.tldm.exception.UserAlreadyExistsException;
+import com.stackroute.tldm.exception.UserNotFoundException;
 import com.stackroute.tldm.model.User;
+import com.stackroute.tldm.service.UserService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,22 +14,19 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import java.util.Date;
+
 import static org.mockito.ArgumentMatchers.any;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.stackroute.tldm.controller.UserController;
-import com.stackroute.tldm.exception.UserAlreadyExistsException;
-import com.stackroute.tldm.exception.UserNotFoundException;
-import com.stackroute.tldm.service.UserService;
-
 import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(value = UserController.class, secure = false)
@@ -55,13 +51,14 @@ public class UserControllerTest {
         user.setPhoneNum("56528769987");
         user.setUserName("swetha");
         user.setUserMail("swedha87@gmail.com");
+        user.setPassword("123456");
         user.setCreatedAt(new Date());
     }
 
     @Test
     public void registerUserSuccess() throws Exception {
         when(userService.registerUser(user)).thenReturn(user);
-        mockMvc.perform(post("/api/user")
+        mockMvc.perform(post("/register")
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
                 .andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
     }
@@ -69,7 +66,7 @@ public class UserControllerTest {
     @Test
     public void registerUserFailure() throws Exception {
         when(userService.registerUser(any())).thenThrow(UserAlreadyExistsException.class);
-        mockMvc.perform(post("/api/user")
+        mockMvc.perform(post("/register")
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
                 .andExpect(status().isConflict()).andDo(MockMvcResultHandlers.print());
     }

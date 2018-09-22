@@ -1,13 +1,12 @@
 package com.stackroute.tldm.test.repository;
 
+import com.stackroute.tldm.model.User;
+import com.stackroute.tldm.repository.UserRepository;
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import com.stackroute.tldm.model.User;
-import com.stackroute.tldm.repository.UserRepository;
 
 @RunWith(SpringRunner.class)
 @DataMongoTest
@@ -24,6 +23,8 @@ public class UserRepositoryTest {
         user.setUserName("Swetha Selvaraj");
         user.setPhoneNum("12345");
         user.setUserMail("swe@gmail.com");
+        user.setPassword("123456");
+        userRepository.save(user);
     }
 
     @After
