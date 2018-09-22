@@ -26,20 +26,7 @@ public class UserAuthController {
 		this.userService = userService;
 	}
 
-//	@PostMapping
-//	public ResponseEntity<?> registerUser(@RequestBody User user) {
-//		ResponseEntity<?> responseEntity = null;
-//
-//		try {
-//			if (userService.registerUser(user) != null) {
-//				responseEntity = new ResponseEntity<>(user, HttpStatus.OK);
-//			}
-//		} catch (Exception exception) {
-//			responseEntity = new ResponseEntity<>(exception.getMessage(), HttpStatus.CONFLICT);
-//		}
-//
-//		return responseEntity;
-//	}
+
 
 	@PostMapping("/login")
 	public ResponseEntity<?> loginUser(@RequestBody User loginDetails) {

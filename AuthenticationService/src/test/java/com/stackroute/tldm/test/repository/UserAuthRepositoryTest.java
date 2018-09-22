@@ -38,13 +38,13 @@ public class UserAuthRepositoryTest {
 		userAuthRepository.deleteAll();
 	}
 
-	@Test
-	public void registerUserTest() {
-
-		User fetchedUser = userAuthRepository.findUserByUserMail("pankaju713@gmail.com");
-		System.out.println(fetchedUser);
-		Assert.assertEquals(user.getUserId(), fetchedUser.getUserId());
-	}
+//	@Test
+//	public void registerUserTest() {
+//
+//		User fetchedUser = userAuthRepository.findUserByUserMail("pankaju713@gmail.com");
+//		System.out.println(fetchedUser);
+//		Assert.assertEquals(user.getUserId(), fetchedUser.getUserId());
+//	}
 
 	@Test
 	public void loginUserTest() {

@@ -2,7 +2,6 @@ package com.stackroute.tldm.test.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stackroute.tldm.controller.UserAuthController;
-import com.stackroute.tldm.exception.UserAlreadyExistsException;
 import com.stackroute.tldm.model.User;
 import com.stackroute.tldm.service.UserAuthService;
 import org.junit.Before;
@@ -19,7 +18,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -49,22 +47,6 @@ public class UserAuthControllerTest {
 		
 	}
 
-	@Test
-	public void registerUserSuccess() throws Exception {
-
-		when(userAuthService.registerUser(user)).thenReturn(user);
-		mockMvc.perform(post("/user/auth").contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
-				.andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
-
-	}
-
-	@Test
-	public void registerUserFailure() throws Exception {
-
-		when(userAuthService.registerUser(any())).thenThrow(UserAlreadyExistsException.class);
-		mockMvc.perform(post("/user/auth").contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
-				.andExpect(status().isConflict()).andDo(MockMvcResultHandlers.print());
-	}
 
 	public static String asJsonString(final Object obj) {
 		try {

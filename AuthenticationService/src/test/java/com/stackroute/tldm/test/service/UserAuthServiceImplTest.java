@@ -25,6 +25,6 @@ public class UserAuthServiceImplTest {
 		user1 = new User();
 	}
 
-	
+
 
 }
