@@ -5,14 +5,11 @@ import com.stackroute.tldm.model.User;
 
 public interface UserAuthService {
 
-	 User registerUser(User user) throws  UserAlreadyExistsException;
+    User registerUser(User user) throws UserAlreadyExistsException;
 
-	 User findUserByEmail(String email);
+    User findUserByUserEmail(String email);
 
-	User findUserByUserIdAndPassword(String userId, String password);
-
-
-
+    User findUserByUserIdAndPassword(String userId, String password);
 
 
 }

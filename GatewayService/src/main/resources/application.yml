@@ -24,7 +24,7 @@ zuul:
     Message-Service:
       url: http://172.23.239.122:8067
     User-Service:
-      sensitiveHeaders: Cookie,Set-Cookie,Authorization
+      sensitiveHeaders: Authorization
       url: http://172.23.239.62:8069
 
 

@@ -29,7 +29,7 @@ public class UserAuthServiceImpl implements UserAuthService {
 
         try {
             if (!userAuth.existsById(info)
-                    && ((findUserByEmail(user.getEmail()) == null)) && (info.trim().length() > 0) && (info.length()==info.replaceAll("\\s", "").length())){
+                    && ((findUserByUserEmail(user.getUserMail()) == null)) && (info.trim().length() > 0) && (info.length()==info.replaceAll("\\s", "").length())){
 
                 System.out.println(info.trim());
                 userAuth.save(user);
@@ -45,8 +45,8 @@ public class UserAuthServiceImpl implements UserAuthService {
         }
     }
 
-    public User findUserByEmail(String email) {
-        User info = userAuth.findUserByEmail(email);
+    public User findUserByUserEmail(String email) {
+        User info = userAuth.findUserByUserMail(email);
         if (info != null) {
             return info;
         } else {

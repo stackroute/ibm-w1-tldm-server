@@ -1,9 +1,10 @@
 package com.stackroute.tldm.test.controller;
 
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.stackroute.tldm.controller.UserAuthController;
+import com.stackroute.tldm.exception.UserAlreadyExistsException;
+import com.stackroute.tldm.model.User;
+import com.stackroute.tldm.service.UserAuthService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,13 +18,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import static org.mockito.ArgumentMatchers.any;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.stackroute.tldm.controller.UserAuthController;
-import com.stackroute.tldm.exception.UserAlreadyExistsException;
-import com.stackroute.tldm.model.User;
-import com.stackroute.tldm.service.UserAuthService;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest
@@ -44,7 +43,7 @@ public class UserAuthControllerTest {
 		mockMvc = MockMvcBuilders.standaloneSetup(userAuthController).build();
 		user = new User();
 		user.setUserId("impku");
-		user.setEmail("pankaju713@gmail.com");
+		user.setUserMail("pankaju713@gmail.com");
 		user.setPassword("1234567");
 		
 		
