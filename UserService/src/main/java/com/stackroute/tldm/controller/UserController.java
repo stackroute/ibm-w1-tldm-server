@@ -1,11 +1,12 @@
 package com.stackroute.tldm.controller;
 
 import java.util.List;
-
 import com.stackroute.tldm.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.stackroute.tldm.exception.UserAlreadyExistsException;
 import com.stackroute.tldm.exception.UserNotFoundException;
 import com.stackroute.tldm.service.UserService;
@@ -26,10 +26,15 @@ import com.stackroute.tldm.service.UserService;
 public class UserController {
 
     private UserService service;
+    private KafkaTemplate<String, User> kafkaTemplate;
+
+    @Value("${topic.boot}")
+    private String BOOT_TOPIC;
 
     @Autowired
-    public UserController(UserService service) {
+    public UserController(UserService service, KafkaTemplate<String, User> kafkaTemplate) {
         this.service = service;
+        this.kafkaTemplate = kafkaTemplate;
     }
 
     // this handler method is mapped to the URL "/api/user" using  HTTP POST method
@@ -38,6 +43,7 @@ public class UserController {
         ResponseEntity<?> responseEntity = null;
         try {
             if (service.registerUser(user) != null) {
+                kafkaTemplate.send(BOOT_TOPIC, user);
                 responseEntity = new ResponseEntity<>(user, HttpStatus.CREATED);
             }
         } catch (UserAlreadyExistsException exception) {
