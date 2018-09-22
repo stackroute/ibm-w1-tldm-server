@@ -1,19 +1,12 @@
 package com.stackroute.tldm.test.service;
 
-import com.stackroute.tldm.exception.UserAlreadyExistsException;
 import com.stackroute.tldm.model.User;
 import com.stackroute.tldm.repository.UserAuthRepository;
 import com.stackroute.tldm.service.UserAuthServiceImpl;
 import org.junit.Before;
-import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
 
 public class UserAuthServiceImplTest {
 
@@ -32,19 +25,6 @@ public class UserAuthServiceImplTest {
 		user1 = new User();
 	}
 
-	@Test
-	public void registerUserSuccess() throws UserAlreadyExistsException {
-		when(userAuth.save((User) any())).thenReturn(user);
-		User regUser = userImpl.registerUser(user);
-		assertEquals(user, regUser);
-	}
-
-	@Test
-	public void registerUserFailure() throws UserAlreadyExistsException {
-		when(userAuth.save((User) any())).thenReturn(user);
-		User regUser = userImpl.registerUser(user);
-		assertNotEquals(user1, regUser);
-
-	}
+	
 
 }
