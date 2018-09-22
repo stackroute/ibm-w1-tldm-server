@@ -22,7 +22,7 @@ import com.stackroute.tldm.service.UserService;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/api/v1/user")
+
 public class UserController {
 
     private UserService service;
@@ -37,8 +37,8 @@ public class UserController {
         this.kafkaTemplate = kafkaTemplate;
     }
 
-    // this handler method is mapped to the URL "/api/user" using  HTTP POST method
-    @PostMapping
+    // this handler method is mapped to the URL "/register" using  HTTP POST method
+    @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody User user) {
         ResponseEntity<?> responseEntity = null;
         try {
@@ -54,8 +54,8 @@ public class UserController {
         return responseEntity;
     }
 
-    // this handler method is mapped to the URL "/api/user/{userId}" using  HTTP PUT method
-    @PutMapping("/{userId}")
+    // this handler method is mapped to the URL "/api/v1/user/{userId}" using  HTTP PUT method
+    @PutMapping("api/v1/user/{userId}")
     public ResponseEntity<?> updateUser(@PathVariable String userId, @RequestBody User user) {
         ResponseEntity<?> responseEntity;
         try {
@@ -70,8 +70,8 @@ public class UserController {
         return responseEntity;
     }
 
-    // this handler method is mapped to the URL "/api/user/{Id}" using  HTTP GET method
-    @GetMapping("/{id}")
+    // this handler method is mapped to the URL "/api/v1/user/{Id}" using  HTTP GET method
+    @GetMapping("api/v1/user/{id}")
     public ResponseEntity<?> getUserByUserId(@PathVariable String id) {
         ResponseEntity<?> responseEntity;
         User fetch;
@@ -89,8 +89,8 @@ public class UserController {
         return responseEntity;
     }
 
-    // this handler method is mapped to the URL "/api/user/name/{userName}" using  HTTP GET method
-    @GetMapping("/name/{userName}")
+    // this handler method is mapped to the URL "/api/v1/user/name/{userName}" using  HTTP GET method
+    @GetMapping("api/v1/user/name/{userName}")
     public ResponseEntity<?> getUserByUserName(@PathVariable String userName) {
         ResponseEntity<?> responseEntity;
 
@@ -108,8 +108,8 @@ public class UserController {
         return responseEntity;
     }
 
-    // this handler method is mapped to the URL "/api/user/{userId}" using  HTTP DELETE method
-    @DeleteMapping("/{userId}")
+    // this handler method is mapped to the URL "/api/v1/user/{userId}" using  HTTP DELETE method
+    @DeleteMapping("api/v1/user/{userId}")
     public ResponseEntity<?> deleteUser(@PathVariable String userId) {
         ResponseEntity<?> responseEntity = null;
         try {
@@ -123,8 +123,8 @@ public class UserController {
         return responseEntity;
     }
 
-    // this handler method is mapped to the URL "/api/user" using  HTTP GET method
-    @GetMapping
+    // this handler method is mapped to the URL "/api/v1/user" using  HTTP GET method
+    @GetMapping("/api/v1/user")
     public ResponseEntity<?> getAllUserDetails() {
         ResponseEntity<?> responseEntity;
         List<User> nameList = service.getAllUsers();
