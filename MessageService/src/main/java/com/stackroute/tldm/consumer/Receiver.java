@@ -28,7 +28,6 @@ public class Receiver {
 
     @KafkaListener(topics = "${topic2.boot}", groupId = "${groupId2.boot}")
     public void receiveGroupMessages(@Payload ChannelMessage channelMessage) {
-        template.convertAndSend("/topic-group/response/" + channelMessage.getSender().getUserId(), channelMessage);
         template.convertAndSend("/topic-group/response/" + channelMessage.getChannel().getChannelId(), channelMessage);
     }
 

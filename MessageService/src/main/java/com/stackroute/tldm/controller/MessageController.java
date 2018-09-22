@@ -16,35 +16,34 @@ import java.util.UUID;
 @CrossOrigin("*")
 public class MessageController {
 
-	private KafkaTemplate<String, Message> kafkaTemplate;
-	private KafkaTemplate<String, ChannelMessage> channelKafkaTemplate;
+    private KafkaTemplate<String, Message> kafkaTemplate;
+    private KafkaTemplate<String, ChannelMessage> channelKafkaTemplate;
 
-	@Value("${topic1.boot}")
-	private String BOOT_TOPIC;
+    @Value("${topic1.boot}")
+    private String BOOT_TOPIC;
 
-	@Value("${topic2.boot}")
-	private String CHANNEL_TOPIC;
+    @Value("${topic2.boot}")
+    private String CHANNEL_TOPIC;
 
-	@Autowired
-	public MessageController(KafkaTemplate<String, Message> kafkaTemplate,
-			KafkaTemplate<String, ChannelMessage> channelKafkaTemplate) {
-		this.kafkaTemplate = kafkaTemplate;
-		this.channelKafkaTemplate = channelKafkaTemplate;
-	}
+    @Autowired
+    public MessageController(KafkaTemplate<String, Message> kafkaTemplate, KafkaTemplate<String, ChannelMessage> channelKafkaTemplate) {
+        this.kafkaTemplate = kafkaTemplate;
+        this.channelKafkaTemplate = channelKafkaTemplate;
+    }
 
-	@MessageMapping("/chat")
-	public void sendMessage(Message message) throws Exception {
-		UUID newMessageId = UUID.randomUUID();
-		message.setMessageId(newMessageId);
-		message.setTimestamp(new Date());
-		kafkaTemplate.send(BOOT_TOPIC, message);
-	}
+    @MessageMapping("/chat")
+    public void sendMessage(Message message) throws Exception {
+        UUID newMessageId = UUID.randomUUID();
+        message.setMessageId(newMessageId);
+        message.setTimestamp(new Date());
+        kafkaTemplate.send(BOOT_TOPIC, message);
+    }
 
-	@MessageMapping("/channel-chat")
-	public void sendMessageToChannel(ChannelMessage channelMessage) throws Exception {
-		UUID newChannelMessageId = UUID.randomUUID();
-		channelMessage.setMessageId(newChannelMessageId);
-		channelMessage.setTimestamp(new Date());
-		channelKafkaTemplate.send(CHANNEL_TOPIC, channelMessage);
-	}
+    @MessageMapping("/channel-chat")
+    public void sendMessageToChannel(ChannelMessage channelMessage) throws Exception {
+        UUID newChannelMessageId = UUID.randomUUID();
+        channelMessage.setMessageId(newChannelMessageId);
+        channelMessage.setTimestamp(new Date());
+        channelKafkaTemplate.send(CHANNEL_TOPIC, channelMessage);
+    }
 }
