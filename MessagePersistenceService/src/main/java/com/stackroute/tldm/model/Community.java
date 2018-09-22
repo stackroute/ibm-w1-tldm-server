@@ -1,15 +1,26 @@
 package com.stackroute.tldm.model;
 
+import com.datastax.driver.core.DataType;
+import org.springframework.data.cassandra.core.mapping.CassandraType;
+import org.springframework.data.cassandra.core.mapping.UserDefinedType;
+
 import java.util.Date;
 import java.util.List;
 
+@UserDefinedType("Community")
 public class Community {
 
+    @CassandraType(type = DataType.Name.TEXT)
     private String communityId;
+    @CassandraType(type = DataType.Name.TEXT)
     private String communityName;
+    @CassandraType(type = DataType.Name.UDT, userTypeName = "user")
     private List<User> communityUsers;
+    @CassandraType(type = DataType.Name.TIMESTAMP)
     private Date communityCreatedDate;
+    @CassandraType(type = DataType.Name.UDT, userTypeName = "user")
     private User communityCreatedBy;
+    @CassandraType(type = DataType.Name.UDT, userTypeName = "user")
     private List<Channel> channelList;
 
     public String getCommunityId() {
