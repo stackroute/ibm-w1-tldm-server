@@ -22,7 +22,7 @@ import com.stackroute.tldm.service.UserService;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/api/user")
+@RequestMapping("/api/v1/user")
 public class UserController {
 
     private UserService service;
