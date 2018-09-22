@@ -1,13 +1,14 @@
 package com.stackroute.tldm.service;
 
-import java.util.List;
-
 import com.stackroute.tldm.exception.UserAlreadyExistsException;
 import com.stackroute.tldm.exception.UserNotFoundException;
 import com.stackroute.tldm.model.User;
 
+import java.util.List;
+
 public interface UserService {
     User registerUser(User user) throws UserAlreadyExistsException;
+    User findByUserEmail(String userEmail);
 
     User updateUser(String userId, User user) throws UserNotFoundException;
 
