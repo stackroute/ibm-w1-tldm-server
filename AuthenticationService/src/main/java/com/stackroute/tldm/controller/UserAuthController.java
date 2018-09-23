@@ -1,25 +1,19 @@
 package com.stackroute.tldm.controller;
 
+import com.stackroute.tldm.config.SecurityTokenGenerator;
+import com.stackroute.tldm.exception.UserNotFoundException;
+import com.stackroute.tldm.exception.UserUserIdAndPasswordMismatchException;
+import com.stackroute.tldm.model.User;
+import com.stackroute.tldm.service.UserAuthService;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.stackroute.tldm.config.SecurityTokenGenerator;
-import com.stackroute.tldm.exception.UserUserIdAndPasswordMismatchException;
-import com.stackroute.tldm.exception.UserNotFoundException;
-import com.stackroute.tldm.model.User;
-import com.stackroute.tldm.service.UserAuthService;
-
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 
 @RestController
 @RequestMapping("/user/auth")
@@ -32,20 +26,7 @@ public class UserAuthController {
 		this.userService = userService;
 	}
 
-	@PostMapping
-	public ResponseEntity<?> registerUser(@RequestBody User user) {
-		ResponseEntity<?> responseEntity = null;
 
-		try {
-			if (userService.registerUser(user) != null) {
-				responseEntity = new ResponseEntity<>(user, HttpStatus.OK);
-			}
-		} catch (Exception exception) {
-			responseEntity = new ResponseEntity<>(exception.getMessage(), HttpStatus.CONFLICT);
-		}
-
-		return responseEntity;
-	}
 
 	@PostMapping("/login")
 	public ResponseEntity<?> loginUser(@RequestBody User loginDetails) {
@@ -64,6 +45,8 @@ public class UserAuthController {
 				throw new UserUserIdAndPasswordMismatchException(
 						"Invalid login credential, Please check email and password ");
 			}
+
+
 			// generating token
 			SecurityTokenGenerator securityTokenGenrator = (User userDetails) -> {
 				String jwtToken = "";

@@ -1,16 +1,15 @@
 package com.stackroute.tldm.service;
 
-import java.util.Date;
-import java.util.List;
-import java.util.NoSuchElementException;
-
+import com.stackroute.tldm.exception.UserAlreadyExistsException;
+import com.stackroute.tldm.exception.UserNotFoundException;
 import com.stackroute.tldm.model.User;
+import com.stackroute.tldm.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.stackroute.tldm.exception.UserAlreadyExistsException;
-import com.stackroute.tldm.exception.UserNotFoundException;
-import com.stackroute.tldm.repository.UserRepository;
+import java.util.Date;
+import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -25,19 +24,36 @@ public class UserServiceImpl implements UserService {
     // this method should be used to save a new user
     @Override
     public User registerUser(User user) throws UserAlreadyExistsException {
-        User registeredUser = null;
+        String info = user.getUserId().trim();
+        try {
+            if (!userRepo.existsById(info)
+                    && ((findByUserEmail(user.getUserMail()) == null)) && (info.trim().length() > 0) && (info.length()==info.replaceAll("\\s", "").length())){
 
-        
-        if(!userRepo.existsById(user.getUserId())) {
-        	user.setCreatedAt(new Date());
-        	
-        	registeredUser = userRepo.insert(user);
-        }
-        else {
-        	throw new UserAlreadyExistsException("User exists");
+                System.out.println(info.trim());
+                user.setCreatedAt(new Date());
+                userRepo.save(user);
+
+                return user;
+               
+            } else {
+                throw new UserAlreadyExistsException("User Information already present");
+            }
+
+        } catch (NoSuchElementException exception) {
+            throw new UserAlreadyExistsException("User Information already present");
         }
 
-        return registeredUser;
+    }
+    //this method is used to find a user by email//
+
+    @Override
+    public User findByUserEmail(String userEmail) {
+        User info = userRepo.findByUserMail(userEmail);
+        if(info != null){
+            return info;
+        }else{
+            return  null;
+        }
     }
 
     // this method is used update a existing user

@@ -1,17 +1,16 @@
 package com.stackroute.tldm.repository;
 
-import javax.transaction.Transactional;
-
+import com.stackroute.tldm.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.stackroute.tldm.model.User;
+import javax.transaction.Transactional;
 
 @Repository
 @Transactional
 public interface UserAuthRepository extends JpaRepository<User, String> {
 
-	public User findUserByEmail(String email);
+	public User findUserByUserMail(String userEmail);
 
 	public User findUserByuserId(String userId);
 

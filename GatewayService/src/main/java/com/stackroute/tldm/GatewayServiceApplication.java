@@ -1,18 +1,19 @@
 package com.stackroute.tldm;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
-import org.springframework.context.annotation.Bean;
-
 import com.stackroute.tldm.filter.ErrorFilter;
 import com.stackroute.tldm.filter.PostFilter;
 import com.stackroute.tldm.filter.PreFilter;
 import com.stackroute.tldm.filter.RouteFilter;
+import com.stackroute.tldm.jwtfilter.JwtFilter;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-
+@EnableDiscoveryClient
 @EnableZuulProxy
 public class GatewayServiceApplication {
     public static void main(String[] args) {
@@ -38,5 +39,13 @@ public class GatewayServiceApplication {
     public RouteFilter routeFilter() {
         return new RouteFilter();
     }
+
+    @Bean
+    public FilterRegistrationBean jwtFilter() {
+        final FilterRegistrationBean registrationBean = new FilterRegistrationBean();
+        registrationBean.setFilter(new JwtFilter());
+        registrationBean.addUrlPatterns("/api/v1/*");
+        return registrationBean;
+}
 
 }
