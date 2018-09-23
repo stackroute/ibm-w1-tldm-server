@@ -23,7 +23,7 @@ import com.stackroute.tldm.service.ChannelService;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/api/channel")
+@RequestMapping("/api/v1/channel")
 public class ChannelController {
 
 	private ChannelService channelService;
@@ -139,6 +139,7 @@ public class ChannelController {
 	@GetMapping("/users/{userName}")
 	public ResponseEntity<?> getchannelByUserName(@PathVariable String userName) {
 		ResponseEntity<?> responseEntity;
+		userName.replace("%20", " ");
 		List<Channel> fetchChannel = channelService.getListOfChannelsByUsers(userName);
 		if (fetchChannel != null) {
 			responseEntity = new ResponseEntity<>(fetchChannel, HttpStatus.OK);
