@@ -32,7 +32,7 @@ public class MessageController {
     }
 
     @MessageMapping("/chat")
-    public void sendMessage(Message message) throws Exception {
+    public void sendMessageToUser(Message message) throws Exception {
         UUID newMessageId = UUID.randomUUID();
         message.setMessageId(newMessageId);
         message.setTimestamp(new Date());
