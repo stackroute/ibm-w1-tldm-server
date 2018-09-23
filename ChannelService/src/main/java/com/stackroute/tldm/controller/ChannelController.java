@@ -104,7 +104,7 @@ public class ChannelController {
 		return responseEntity;
 	}
 
-	@GetMapping("/name/{channelName}")
+	@GetMapping("/{channelName}")
 	public ResponseEntity<?> getChannelByChannelName(@PathVariable String channelName) {
 		ResponseEntity<?> responseEntity;
 		Channel fetch;
@@ -122,7 +122,7 @@ public class ChannelController {
 		return responseEntity;
 	}
 
-	@GetMapping("/{channelName}")
+	@GetMapping("/getuser/{channelName}")
 	public ResponseEntity<?> getUsersByChannelName(@PathVariable String channelName) {
 		ResponseEntity<?> responseEntity;
 		List<User> allUsers;
@@ -132,6 +132,30 @@ public class ChannelController {
 			System.out.println("user list:" + allUsers);
 		} else {
 			responseEntity = new ResponseEntity<>("channel name not found", HttpStatus.NOT_FOUND);
+		}
+		return responseEntity;
+	}
+
+	@GetMapping("/users/{userName}")
+	public ResponseEntity<?> getchannelByUserName(@PathVariable String userName) {
+		ResponseEntity<?> responseEntity;
+		List<Channel> fetchChannel = channelService.getListOfChannelsByUsers(userName);
+		if (fetchChannel != null) {
+			responseEntity = new ResponseEntity<>(fetchChannel, HttpStatus.OK);
+		} else {
+			responseEntity = new ResponseEntity<>("user name not found", HttpStatus.NOT_FOUND);
+		}
+		return responseEntity;
+	}
+
+	@DeleteMapping("/{channelId}/{userId}")
+	public ResponseEntity<?> removeChannelUser(@PathVariable String channelId, @PathVariable String userId) {
+		ResponseEntity<?> responseEntity = null;
+		// System.out.println(channelService.removeChannelUser(channelId, userId));
+		if (channelService.removeChannelUser(channelId, userId)) {
+			responseEntity = new ResponseEntity<>("Channel User Deleted Successfully", HttpStatus.OK);
+		} else {
+			responseEntity = new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
 		}
 		return responseEntity;
 	}

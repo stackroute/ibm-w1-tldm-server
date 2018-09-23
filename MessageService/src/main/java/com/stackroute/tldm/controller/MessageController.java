@@ -1,16 +1,14 @@
 package com.stackroute.tldm.controller;
 
-import com.stackroute.tldm.exception.MessageNotFoundException;
 import com.stackroute.tldm.model.ChannelMessage;
 import com.stackroute.tldm.model.Message;
-import com.stackroute.tldm.service.ChannelService;
-import com.stackroute.tldm.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
 import java.util.UUID;
 
 @RestController
@@ -18,62 +16,35 @@ import java.util.UUID;
 @CrossOrigin("*")
 public class MessageController {
 
-	private MessageService messageService;
-	private ChannelService channelService;
 	private KafkaTemplate<String, Message> kafkaTemplate;
 	private KafkaTemplate<String, ChannelMessage> channelKafkaTemplate;
-	private static String BOOT_TOPIC = "message";
-	private static String CHANNEL_TOPIC = "channel";
+
+	@Value("${topic1.boot}")
+	private String BOOT_TOPIC;
+
+	@Value("${topic2.boot}")
+	private String CHANNEL_TOPIC;
 
 	@Autowired
-	public MessageController(MessageService messageService, ChannelService channelService, KafkaTemplate<String, Message> kafkaTemplate,
+	public MessageController(KafkaTemplate<String, Message> kafkaTemplate,
 			KafkaTemplate<String, ChannelMessage> channelKafkaTemplate) {
-		this.messageService = messageService;
-		this.channelService = channelService;
 		this.kafkaTemplate = kafkaTemplate;
 		this.channelKafkaTemplate = channelKafkaTemplate;
 	}
 
 	@MessageMapping("/chat")
 	public void sendMessage(Message message) throws Exception {
-		messageService.saveMessage(message);
+		UUID newMessageId = UUID.randomUUID();
+		message.setMessageId(newMessageId);
+		message.setTimestamp(new Date());
 		kafkaTemplate.send(BOOT_TOPIC, message);
 	}
 
 	@MessageMapping("/channel-chat")
 	public void sendMessageToChannel(ChannelMessage channelMessage) throws Exception {
-		channelService.saveMessage(channelMessage);
+		UUID newChannelMessageId = UUID.randomUUID();
+		channelMessage.setMessageId(newChannelMessageId);
+		channelMessage.setTimestamp(new Date());
 		channelKafkaTemplate.send(CHANNEL_TOPIC, channelMessage);
-	}
-
-	// Delete a particular messageById.
-	@DeleteMapping("/{messageId}")
-	public ResponseEntity<?> deleteMessage(@PathVariable("messageId") UUID m_id) {
-		ResponseEntity<?> responseEntity;
-		try {
-			if (messageService.deleteMessage(m_id)) {
-				responseEntity = new ResponseEntity<>(HttpStatus.OK);
-			} else {
-				responseEntity = new ResponseEntity<>(HttpStatus.NOT_FOUND);
-			}
-		} catch (MessageNotFoundException e) {
-			responseEntity = new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
-		return responseEntity;
-	}
-
-	// Get a conversation between Sender and the Receiver.
-	@GetMapping("/{senderId}/{receiverId}")
-	public ResponseEntity<?> getMessagesByUserAndReceiver(@PathVariable("senderId") String senderId,
-			@PathVariable("receiverId") String receiverId) {
-		ResponseEntity<?> responseEntity;
-		try {
-			responseEntity = new ResponseEntity<>(messageService.getMessagesByUserIdAndReceiverId(senderId, receiverId),
-					HttpStatus.OK);
-		} catch (MessageNotFoundException e) {
-			responseEntity = new ResponseEntity<>("Message Not Found!", HttpStatus.NOT_FOUND);
-		}
-
-		return responseEntity;
 	}
 }

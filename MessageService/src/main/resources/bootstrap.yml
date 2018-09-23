@@ -23,14 +23,3 @@ spring:
   cloud:
     config:
       uri: http://172.23.239.212:8062
-  kafka:
-    consumer:
-      auto-offset-reset: earliest
-      group-id: boot
-#  data:
-#    mongodb:
-#      database: MessageServiceDB
-#      host: localhost
-#      password: root123
-#      port: 27017
-#      username: root

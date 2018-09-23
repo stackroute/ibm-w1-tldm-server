@@ -1,29 +1,36 @@
 package com.stackroute.tldm.consumer;
 
+import com.stackroute.tldm.model.ChannelMessage;
+import com.stackroute.tldm.service.ChannelMessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.handler.annotation.Payload;
 
 import com.stackroute.tldm.model.Message;
 import com.stackroute.tldm.service.MessageService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class Receiver {
-	
-	private MessageService messageService;
 
-	@Autowired
-	public Receiver(MessageService messageService) {
-		super();
-		this.messageService = messageService;
-	}
+    private MessageService messageService;
+    private ChannelMessageService channelMessageService;
 
-	
-	@KafkaListener(topics = "message", groupId = "message_group_persist")
-	public void receive(@Payload Message message) {
+    @Autowired
+    public Receiver(MessageService messageService, ChannelMessageService channelMessageService) {
+        this.messageService = messageService;
+        this.channelMessageService = channelMessageService;
+    }
 
-		messageService.saveMessage(message);
-		System.out.println("Message:" + message);
-	
-	}
+    @KafkaListener(topics = "${topic1.boot}", groupId = "${groupId1.boot}")
+    public void receiveUserToUser(@Payload Message message) {
+        System.out.println("Message:" + message);
+        messageService.saveMessage(message);
+    }
+
+    @KafkaListener(topics = "${topic2.boot}", groupId = "${groupId2.boot}")
+    public void receiveGroupMessages(@Payload ChannelMessage channelMessage) {
+        channelMessageService.saveMessage(channelMessage);
+    }
 
 }

@@ -1,5 +1,5 @@
 server:
-  port: 8069
+  port: 8068
 
 eureka:
   client:
@@ -9,16 +9,20 @@ eureka:
 
 info:
   app:
-    description: User Service is up and has no problem
-    name: User Service
+    description: Message Persistence Service is up and has no problem
+    name: Message Persistence Service
     version: 1.0.0
-
 spring:
   application:
-    name: User-Service
+    name: Message-Persistence-Service
   profiles:
     active: Development
   cloud:
     config:
       uri: http://172.23.239.212:8062
+
+Dcom:
+  datastax:
+    driver:
+      FORCE_NIO: true
 

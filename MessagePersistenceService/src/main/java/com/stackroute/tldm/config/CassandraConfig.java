@@ -10,7 +10,7 @@ import org.springframework.data.cassandra.core.cql.keyspace.CreateKeyspaceSpecif
 @Configuration
 public class CassandraConfig {
 	
-	public static final String KEYSPACE = "message_keyspace";
+	public static final String KEYSPACE = "message_key_space";
 
 	public SchemaAction getSchemaAction() {
 		return SchemaAction.CREATE_IF_NOT_EXISTS;
@@ -21,11 +21,6 @@ public class CassandraConfig {
 
 		return Arrays.asList(specification);
 	}
-
-//	    @Override
-//	    protected List<DropKeyspaceSpecification> getKeyspaceDrops() {
-//	        return Arrays.asList(DropKeyspaceSpecification.dropKeyspace(KEYSPACE));
-//	    }
 
 	protected String getKeyspaceName() {
 		return KEYSPACE;
