@@ -75,7 +75,6 @@ public class ChannelMessagePersistenceControllerTest {
 		community.setChannelList(channelList);
 		List<User> userList = new ArrayList<>();
 		community.setCommunityUsers(userList);
-
 		userList.add(user);
 
 		// Channel
@@ -94,7 +93,6 @@ public class ChannelMessagePersistenceControllerTest {
 		user.setPhoneNum("56528769987");
 		user.setUserName("kamali");
 		user.setUserMail("kamali87@gmail.com");
-		// user.setPassword("123456");
 		user.setCreatedAt(new Date());
 
 		// Channel Message
@@ -148,5 +146,5 @@ public class ChannelMessagePersistenceControllerTest {
 				MockMvcRequestBuilders.get("/api/v1/channel-message/tldm123").contentType(MediaType.APPLICATION_JSON))
 				.andExpect(MockMvcResultMatchers.status().isNotFound()).andDo(MockMvcResultHandlers.print());
 	}
-	
+
 }
