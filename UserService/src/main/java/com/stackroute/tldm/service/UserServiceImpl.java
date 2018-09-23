@@ -7,6 +7,7 @@ import com.stackroute.tldm.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -29,10 +30,11 @@ public class UserServiceImpl implements UserService {
                     && ((findByUserEmail(user.getUserMail()) == null)) && (info.trim().length() > 0) && (info.length()==info.replaceAll("\\s", "").length())){
 
                 System.out.println(info.trim());
+                user.setCreatedAt(new Date());
                 userRepo.save(user);
 
                 return user;
-                // flag = true;
+               
             } else {
                 throw new UserAlreadyExistsException("User Information already present");
             }
@@ -42,6 +44,7 @@ public class UserServiceImpl implements UserService {
         }
 
     }
+    //this method is used to find a user by email//
 
     @Override
     public User findByUserEmail(String userEmail) {
