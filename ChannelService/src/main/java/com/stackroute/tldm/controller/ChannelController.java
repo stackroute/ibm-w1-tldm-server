@@ -136,10 +136,10 @@ public class ChannelController {
 		return responseEntity;
 	}
 
-	@GetMapping("/users/{userName}")
+	@GetMapping("/user/{userName}")
 	public ResponseEntity<?> getchannelByUserName(@PathVariable String userName) {
 		ResponseEntity<?> responseEntity;
-		userName.replace("%20", " ");
+	userName.replace("%20", " ");
 		List<Channel> fetchChannel = channelService.getListOfChannelsByUsers(userName);
 		if (fetchChannel != null) {
 			responseEntity = new ResponseEntity<>(fetchChannel, HttpStatus.OK);
@@ -157,6 +157,19 @@ public class ChannelController {
 			responseEntity = new ResponseEntity<>("Channel User Deleted Successfully", HttpStatus.OK);
 		} else {
 			responseEntity = new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
+		}
+		return responseEntity;
+	}
+
+	@GetMapping("/users/{userId}")
+	public ResponseEntity<?> getchannelByUserId(@PathVariable String userId) {
+		ResponseEntity<?> responseEntity;
+//		userName.replace("%20", " ");
+		List<Channel> fetchChannel = channelService.getListOfChannelsByUser(userId);
+		if (fetchChannel != null) {
+			responseEntity = new ResponseEntity<>(fetchChannel, HttpStatus.OK);
+		} else {
+			responseEntity = new ResponseEntity<>("user name not found", HttpStatus.NOT_FOUND);
 		}
 		return responseEntity;
 	}
