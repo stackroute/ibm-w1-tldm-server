@@ -1,5 +1,7 @@
 package com.stackroute.tldm.model;
 
+import java.util.Date;
+
 import org.springframework.data.cassandra.core.mapping.CassandraType;
 import org.springframework.data.cassandra.core.mapping.UserDefinedType;
 
@@ -20,14 +22,19 @@ public class User {
 	@CassandraType(type = DataType.Name.TEXT)
 	private String phoneNum;
 
+	@CassandraType(type = DataType.Name.TEXT)
+	private Date createdAt;
+
 	public User() {
 	}
 
-	public User(String userId, String userName, String userMail, String phoneNum) {
+	public User(String userId, String userName, String userMail, String phoneNum, Date createdAt) {
+		super();
 		this.userId = userId;
 		this.userName = userName;
 		this.userMail = userMail;
 		this.phoneNum = phoneNum;
+		this.createdAt = createdAt;
 	}
 
 	public String getUserId() {
@@ -62,10 +69,18 @@ public class User {
 		this.phoneNum = phoneNum;
 	}
 
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
 	@Override
 	public String toString() {
-		return "User{" + "userId='" + userId + '\'' + ", userName='" + userName + '\'' + ", userMail='" + userMail
-				+ '\'' + ", phoneNum='" + phoneNum + '\'' + '}';
+		return "User [userId=" + userId + ", userName=" + userName + ", userMail=" + userMail + ", phoneNum=" + phoneNum
+				+ ", createdAt=" + createdAt + "]";
 	}
 
 }
