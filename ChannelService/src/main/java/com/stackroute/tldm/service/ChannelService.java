@@ -27,5 +27,6 @@ public interface ChannelService {
 	public boolean removeChannelUser(String channelId, String userId);
 
 	public List<Channel> getListOfChannelsByUsers(String userName);
+	
 	public List<Channel> getListOfChannelsByUser(String userId);
 }
