@@ -1,7 +1,7 @@
 package com.stackroute.tldm.service;
 
 import java.util.Date;
-
+import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +11,7 @@ import com.stackroute.tldm.exception.CommunityAlreadyExistsException;
 import com.stackroute.tldm.exception.CommunityNotFoundException;
 
 import com.stackroute.tldm.model.Community;
-
-
+import com.stackroute.tldm.model.User;
 import com.stackroute.tldm.repository.CommunityRepository;
 
 @Service
@@ -114,6 +113,20 @@ public class CommunityServiceImpl implements CommunityService {
 
 		return true;
 
+	}
+
+	@Override
+	public List<User> findAllCommunityUsersByCommunityName(String communityName) throws CommunityNotFoundException{
+		List<User>fetchUsers=null;
+		try{
+			
+		fetchUsers=communityRepo.getCommunityByCommunityName(communityName).getCommunityUsers();
+		}
+		catch(NoSuchElementException e)
+		{
+			throw new CommunityNotFoundException("community not found");
+		}
+		return fetchUsers;
 	}
 
 	

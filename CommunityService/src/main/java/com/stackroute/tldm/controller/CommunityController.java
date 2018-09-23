@@ -2,6 +2,8 @@ package com.stackroute.tldm.controller;
 
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.stackroute.tldm.exception.CommunityAlreadyExistsException;
 import com.stackroute.tldm.exception.CommunityNotFoundException;
 import com.stackroute.tldm.model.Community;
-
+import com.stackroute.tldm.model.User;
 import com.stackroute.tldm.service.CommunityService;
 
 @RestController
@@ -104,7 +106,7 @@ public class CommunityController {
 	}
 	
 	@GetMapping("/get/{communityName}")
-	public ResponseEntity<?> getCommunityName(@PathVariable String communityName) {
+	public ResponseEntity<?> getCommunityName(@PathVariable String communityName) throws CommunityNotFoundException{
 		ResponseEntity<?> responseEntity = null;	
 		try {
 			if(communityService.getCommunityByCommunityName(communityName)!=null)
@@ -119,6 +121,28 @@ public class CommunityController {
 		}
 		return responseEntity;
 }
+	
+	@GetMapping("/users/{communityName}")
+	public ResponseEntity<?>getUsersByCommunityName(@PathVariable String communityName) throws CommunityNotFoundException
+	{
+		ResponseEntity<?> responseEntity;
+		List<User>communityUsers;
+		
+		communityUsers=communityService.findAllCommunityUsersByCommunityName(communityName);
+		if(communityUsers!=null)
+		{
+			responseEntity=new ResponseEntity<>(communityUsers,HttpStatus.OK);
+			System.out.println("UserList"+ communityUsers);
+		
+		}
+		else
+		{
+			responseEntity=new ResponseEntity<>("community name not found",HttpStatus.NOT_FOUND);
+		}
+			
+		return responseEntity;
+		
+	}
 	
 	
 

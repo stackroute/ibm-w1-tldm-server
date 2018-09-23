@@ -1,9 +1,12 @@
 package com.stackroute.tldm.service;
 
+import java.util.List;
+
 import com.stackroute.tldm.exception.CommunityAlreadyExistsException;
 import com.stackroute.tldm.exception.CommunityNotFoundException;
 
 import com.stackroute.tldm.model.Community;
+import com.stackroute.tldm.model.User;
 
 public interface CommunityService {
 
@@ -22,5 +25,7 @@ public interface CommunityService {
 	// delete
 
 	boolean delCommunity(String communityId) throws CommunityNotFoundException;
+	
+	List<User> findAllCommunityUsersByCommunityName(String communityName)throws CommunityNotFoundException;
 
 }
