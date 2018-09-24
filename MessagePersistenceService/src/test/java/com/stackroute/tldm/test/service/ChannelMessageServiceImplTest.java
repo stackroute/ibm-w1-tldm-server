@@ -28,104 +28,107 @@ import com.stackroute.tldm.service.ChannelMessageServiceImpl;
 
 public class ChannelMessageServiceImplTest {
 
-	@MockBean
-	private ChannelMessage channelMessage;
-	@MockBean
-	private Channel channel;
-	@MockBean
-	private Community community;
-	@MockBean
-	private User user;
-	@MockBean
-	private ChannelChatRepository channelChatRepository;
+    @MockBean
+    private ChannelMessage channelMessage;
+    @MockBean
+    private Channel channel;
+    @MockBean
+    private Community community;
+    @MockBean
+    private User user;
+    @MockBean
+    private ChannelChatRepository channelChatRepository;
 
-	List<ChannelMessage> options;
+    List<ChannelMessage> options;
 
-	@InjectMocks
-	private ChannelMessageServiceImpl channelMessageService;
-	private UUID uuid;
-	private List<Channel> channelList = null;
-	private List<ChannelMessage> channelMessageList = null;
+    @InjectMocks
+    private ChannelMessageServiceImpl channelMessageService;
+    private UUID uuid;
+    private List<Channel> channelList = null;
+    private List<ChannelMessage> channelMessageList = null;
 
-	@Before
-	public void setUp() throws Exception {
+    @Before
+    public void setUp() throws Exception {
 
-		MockitoAnnotations.initMocks(this);
+        MockitoAnnotations.initMocks(this);
 
-		channelMessage = new ChannelMessage();
-		uuid = mock(UUID.class);
+        channelMessage = new ChannelMessage();
+        uuid = mock(UUID.class);
 
-		// Channel Message
-		channelMessage = new ChannelMessage();
-		channelMessage.setMessageId(uuid);
-		channelMessage.setMessageContent("channel message");
-		channelMessage.setSender(user);
-		channelMessage.setChannel(channel);
-		channelMessage.setTimestamp(new Date());
+        // Channel Message
+        channelMessage = new ChannelMessage();
+        channelMessage.setMessageId(uuid);
+        channelMessage.setMessageContent("channel message");
+        channelMessage.setSender(user);
+        channelMessage.setChannel(channel);
+        channelMessage.setTimestamp(new Date());
 
-		channelMessageList = new ArrayList<>();
-		channelMessageList.add(channelMessage);
+        channelMessageList = new ArrayList<>();
+        channelMessageList.add(channelMessage);
 
-		// Community
-		community = new Community();
-		community.setCommunityId("prod789");
-		community.setCommunityName("product");
-		community.setCommunityCreatedBy(user);
-		community.setCommunityCreatedDate(new Date());
-		community.setChannelList(channelList);
-		List<User> userList = new ArrayList<>();
-		community.setCommunityUsers(userList);
-		userList.add(user);
+        // Community
+        community = new Community();
+        community.setCommunityId("prod789");
+        community.setCommunityName("product");
+        community.setCommunityCreatedBy(user);
+        community.setCommunityCreatedDate(new Date());
+        community.setChannelList(channelList);
+        List<User> userList = new ArrayList<>();
+        community.setCommunityUsers(userList);
+        userList.add(user);
 
-		// Channel
-		channel = new Channel();
-		channel.setChannelId("xyz987");
-		channel.setChannelName("random");
-		channel.setChannelCreatedBy("abc");
-		channel.setChannelCreatedDate(new Date());
-		channel.setChannelDescription("group message");
-		channel.setCommunity(community);
-		channel.setChannelUsers(userList);
+        // Channel
+        channel = new Channel();
+        channel.setChannelId("xyz987");
+        channel.setChannelName("random");
+        channel.setChannelCreatedBy("abc");
+        channel.setChannelCreatedDate(new Date());
+        channel.setChannelDescription("group message");
+        channel.setCommunity(community);
+        channel.setChannelUsers(userList);
 
-		// User
-		user = new User();
-		user.setUserId("John123");
-		user.setUserMail("john2578@gmail.com");
-		user.setUserName("Ganga");
-		user.setPhoneNum("7401323395");
+        // User
+        user = new User();
+        user.setUserId("John123");
+        user.setUserMail("john2578@gmail.com");
+        user.setUserName("Ganga");
+        user.setPhoneNum("7401323395");
+    }
 
-	}
-//    @Ignore
-//	@Test
-//	public void saveMessageSuccess() {
-//		when(channelChatRepository.save(channelMessage).getMessageId()).thenReturn(uuid);
-//		ChannelMessage status = channelMessageService.saveMessage(channelMessage);
-//		Assert.assertEquals(channelMessage, status);
-//
-//	}
     @Ignore
-	@Test
-	public void deleteChannelMessageSuccess() throws MessageNotFoundException {
-		Optional<ChannelMessage> options = null;
-		when(channelChatRepository.findById(uuid)).thenReturn(options);
-		when(channelChatRepository.save(channelMessage)).thenReturn(channelMessage);
-		boolean flag = channelMessageService.deleteChannelMessage(channelMessage.getMessageId(), "john123");
-		Assert.assertEquals(true, flag);
+    @Test
+    public void saveMessageSuccess() {
+        when(channelChatRepository.save(channelMessage).getMessageId()).thenReturn(uuid);
+        // ChannelMessage status = channelMessageService.saveMessage(channelMessage);
+        // Assert.assertEquals(channelMessage, status);
 
-	}
+    }
+
     @Ignore
-	@Test
-	public void deleteChannelMessageFailure() throws MessageNotFoundException {
-		when(channelChatRepository.findById(channelMessage.getMessageId()));
-		when(channelChatRepository.save(channelMessage)).thenReturn(channelMessage);
-		boolean flag = channelMessageService.deleteChannelMessage(channelMessage.getMessageId(), "Jhon123");
-		Assert.assertEquals(true, flag);
-	}
+    @Test
+    public void deleteChannelMessageSuccess() throws MessageNotFoundException {
+        Optional<ChannelMessage> options = null;
+        when(channelChatRepository.findById(uuid)).thenReturn(options);
+        when(channelChatRepository.save(channelMessage)).thenReturn(channelMessage);
+        boolean flag = channelMessageService.deleteChannelMessage(channelMessage.getMessageId(), "john123");
+        Assert.assertEquals(true, flag);
+
+    }
+
     @Ignore
-	@Test
-	public void getChannelMessagesByChannelId() throws MessageNotFoundException {
-		when(channelChatRepository.findAll()).thenReturn(options);
-		List<ChannelMessage> channels = channelMessageService.getChannelMessagesByChannelId("john123");
-		Assert.assertEquals(channelList, channels);
-	}
+    @Test
+    public void deleteChannelMessageFailure() throws MessageNotFoundException {
+        when(channelChatRepository.findById(channelMessage.getMessageId()));
+        when(channelChatRepository.save(channelMessage)).thenReturn(channelMessage);
+        boolean flag = channelMessageService.deleteChannelMessage(channelMessage.getMessageId(), "Jhon123");
+        Assert.assertEquals(true, flag);
+    }
+
+    @Ignore
+    @Test
+    public void getChannelMessagesByChannelId() throws MessageNotFoundException {
+        when(channelChatRepository.findAll()).thenReturn(options);
+        List<ChannelMessage> channels = channelMessageService.getChannelMessagesByChannelId("john123");
+        Assert.assertEquals(channelList, channels);
+    }
 }
