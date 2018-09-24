@@ -9,6 +9,9 @@ import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
+// A KafkaListener enabled class which will listen from kafka topics,
+// Therefore, acting as a consumer for the data being produced.
+
 @Service
 public class Receiver {
 
