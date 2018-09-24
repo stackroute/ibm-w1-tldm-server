@@ -11,6 +11,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Date;
 import java.util.UUID;
 
+// Controller provided with Kafka-Templates for user and channel communications
+// The send method of kafka-template creates a topic if it not exists and produce data on that topic.
+// Here web-socket is used for publishing data to the topic using @MessageMapping which defines the end-point
+// where the data from the web-socket will come.
+// Two message-mappings are used for user and channel respectively.
+
 @RestController
 @RequestMapping("/api/v1/message")
 @CrossOrigin("*")

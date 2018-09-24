@@ -3,6 +3,8 @@ package com.stackroute.tldm.model;
 import java.util.Date;
 import java.util.List;
 
+// Model for Channel.
+
 public class Channel {
 
 	private String channelId;
