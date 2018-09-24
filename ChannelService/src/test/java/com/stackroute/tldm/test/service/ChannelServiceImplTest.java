@@ -116,5 +116,7 @@ public class ChannelServiceImplTest {
 		Channel updateChannels = channelService.updateChannel(channel.getChannelId(), channel);
 		assertEquals(channel, updateChannels);
 	}
+	
+	
 
 }
