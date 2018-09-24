@@ -8,7 +8,7 @@ import com.stackroute.tldm.model.ChannelMessage;
 
 public interface ChannelMessageService {
 
-    ChannelMessage saveMessage(ChannelMessage channelMessage);
+    void saveMessage(ChannelMessage channelMessage);
     
     boolean deleteChannelMessage(UUID messageId, String senderId) throws MessageNotFoundException;
     
