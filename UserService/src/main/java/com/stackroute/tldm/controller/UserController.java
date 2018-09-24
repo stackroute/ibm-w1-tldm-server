@@ -41,24 +41,6 @@ public class UserController {
         this.kafkaTemplate = kafkaTemplate;
     }
 
-    // this handler method is mapped to the URL "/register" using  HTTP POST method
-    @PostMapping()
-    @ApiOperation("For registering new users")
-    public ResponseEntity<?> registerUser(@RequestBody User user) {
-        ResponseEntity<?> responseEntity = null;
-        try {
-            if (service.registerUser(user) != null) {
-                kafkaTemplate.send(BOOT_TOPIC, user);
-                responseEntity = new ResponseEntity<>(user, HttpStatus.CREATED);
-            }
-        } catch (UserAlreadyExistsException exception) {
-            responseEntity = new ResponseEntity<>(exception.getMessage(), HttpStatus.CONFLICT);
-
-        }
-
-        return responseEntity;
-    }
-
     // this handler method is mapped to the URL "/api/v1/user/{userId}" using  HTTP PUT method
     @PutMapping("/{userId}")
     @ApiOperation("Updating users details")
