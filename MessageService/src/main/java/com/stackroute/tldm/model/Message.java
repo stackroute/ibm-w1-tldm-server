@@ -5,6 +5,11 @@ import java.util.UUID;
 
 // Model for User-Message.
 
+/*
+ * The class "Message" will be acting as the data model for the Message Table in the database. 
+ * Java object to recreate it as a table in your database.
+ */
+
 public class Message {
 
     private UUID messageId;
@@ -12,6 +17,13 @@ public class Message {
     private User sender;
     private User receiver;
     private Date timestamp;
+    /*
+     * This class should have five fields
+     * (messageId, messageContent, sender, receiver, timestamp)
+     * This class should
+	 * also contain the getters and setters for the fields,
+	 * parameterized constructor and toString method.
+     */
 
     public Message() {
         super();

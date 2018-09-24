@@ -5,6 +5,12 @@ import java.util.List;
 
 // Model for Community
 
+/*
+ * The class "Community" will be acting as the data model for the Community Table in the database. 
+ * Java object to recreate it as a table in your database.
+ */
+
+
 public class Community {
 
 	private String communityId;
@@ -13,6 +19,14 @@ public class Community {
 	private Date communityCreatedDate;
 	private User communityCreatedBy;
 	private List<Channel> channelList;
+	
+	 /*
+     * This class should have six fields
+     * (communityId, communityName, communityUsers, communityCreatedDate, communityCreatedBy, channelList)
+     * This class should
+	 * also contain the getters and setters for the fields,
+	 * parameterized constructor and toString method.
+     */
 
 	public String getCommunityId() {
 		return communityId;
