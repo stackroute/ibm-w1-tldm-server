@@ -34,6 +34,7 @@ public class ChannelController {
 
 	}
 
+	// this handler method is mapped to the URL using HTTP POST method //
 	@PostMapping
 	public ResponseEntity<?> createChannel(@RequestBody Channel channel) {
 		ResponseEntity<?> responseEntity = null;
@@ -50,6 +51,8 @@ public class ChannelController {
 		return responseEntity;
 	}
 
+	// this handler method is mapped to the URL "/{channelId}" using HTTP DELETE
+	// method //
 	@DeleteMapping("/{channelId}")
 	public ResponseEntity<?> deleteChannel(@PathVariable String channelId) {
 		ResponseEntity<?> responseEntity = null;
@@ -63,6 +66,7 @@ public class ChannelController {
 		return responseEntity;
 	}
 
+	// this handler method is mapped to the URL using HTTP GET method //
 	@GetMapping
 	public ResponseEntity<?> getAllchannels() {
 		ResponseEntity<?> responseEntity;
@@ -76,6 +80,8 @@ public class ChannelController {
 		return responseEntity;
 	}
 
+	// this handler method is mapped to the URL "/update/{channelId}" using HTTP PUT
+	// method //
 	@PutMapping("/update/{channelId}")
 	public ResponseEntity<?> updateChannel(@PathVariable String channelId, @RequestBody Channel channel) {
 		ResponseEntity<?> responseEntity = null;
@@ -90,6 +96,8 @@ public class ChannelController {
 		return responseEntity;
 	}
 
+	// this handler method is mapped to the URL "/{channelId}" using HTTP PUT method
+	// //
 	@PutMapping("/{channelId}")
 	public ResponseEntity<?> updateChannelUser(@PathVariable String channelId, @RequestBody User user) {
 		ResponseEntity<?> responseEntity = null;
@@ -104,6 +112,8 @@ public class ChannelController {
 		return responseEntity;
 	}
 
+	// this handler method is mapped to the URL "/{channelName}" using HTTP GET
+	// method //
 	@GetMapping("/{channelName}")
 	public ResponseEntity<?> getChannelByChannelName(@PathVariable String channelName) {
 		ResponseEntity<?> responseEntity;
@@ -122,6 +132,8 @@ public class ChannelController {
 		return responseEntity;
 	}
 
+	// this handler method is mapped to the URL "/getuser/{channelName}" using HTTP
+	// GET method"
 	@GetMapping("/getuser/{channelName}")
 	public ResponseEntity<?> getUsersByChannelName(@PathVariable String channelName) {
 		ResponseEntity<?> responseEntity;
@@ -129,13 +141,15 @@ public class ChannelController {
 		allUsers = channelService.findAllChannelUsersByChannelName(channelName);
 		if (allUsers != null) {
 			responseEntity = new ResponseEntity<>(allUsers, HttpStatus.OK);
-			System.out.println("user list:" + allUsers);
+			
 		} else {
 			responseEntity = new ResponseEntity<>("channel name not found", HttpStatus.NOT_FOUND);
 		}
 		return responseEntity;
 	}
 
+	// this handler method is mapped to the URL "/user/{userName}" using HTTP GET
+	// method //
 	@GetMapping("/user/{userName}")
 	public ResponseEntity<?> getchannelByUserName(@PathVariable String userName) {
 		ResponseEntity<?> responseEntity;
@@ -148,10 +162,12 @@ public class ChannelController {
 		return responseEntity;
 	}
 
+	// this handler method is mapped to the URL "/{channelId}/{userId}" using HTTP
+	// DELETE method //
 	@DeleteMapping("/{channelId}/{userId}")
 	public ResponseEntity<?> removeChannelUser(@PathVariable String channelId, @PathVariable String userId) {
 		ResponseEntity<?> responseEntity = null;
-		// System.out.println(channelService.removeChannelUser(channelId, userId));
+		
 		if (channelService.removeChannelUser(channelId, userId)) {
 			responseEntity = new ResponseEntity<>("Channel User Deleted Successfully", HttpStatus.OK);
 		} else {
@@ -160,6 +176,8 @@ public class ChannelController {
 		return responseEntity;
 	}
 
+	// this handler method is mapped to the URL "/users/{userId}" using HTTP GET
+	// method //
 	@GetMapping("/users/{userId}")
 	public ResponseEntity<?> getchannelByUserId(@PathVariable String userId) {
 		ResponseEntity<?> responseEntity;

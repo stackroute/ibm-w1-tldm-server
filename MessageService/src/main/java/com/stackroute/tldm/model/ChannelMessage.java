@@ -3,6 +3,7 @@ package com.stackroute.tldm.model;
 import java.util.Date;
 import java.util.UUID;
 
+// Model for Channel-Message.
 
 public class ChannelMessage {
 
