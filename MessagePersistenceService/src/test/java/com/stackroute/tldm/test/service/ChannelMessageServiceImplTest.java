@@ -93,7 +93,6 @@ public class ChannelMessageServiceImplTest {
 		user.setUserMail("john2578@gmail.com");
 		user.setUserName("Ganga");
 		user.setPhoneNum("7401323395");
-		user.setCreatedAt(new Date());
 
 	}
 //    @Ignore
