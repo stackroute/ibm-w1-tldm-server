@@ -7,6 +7,8 @@ import com.stackroute.tldm.model.User;
 import com.stackroute.tldm.service.UserAuthService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +20,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/user/auth")
 @CrossOrigin("*")
+@Api(value="Authentication Resource")
 public class UserAuthController {
 
 	private UserAuthService userService;
@@ -26,9 +29,23 @@ public class UserAuthController {
 		this.userService = userService;
 	}
 
+	@PostMapping
+	public ResponseEntity<?> registerUser(@RequestBody User user) {
+		ResponseEntity<?> responseEntity = null;
 
+		try {
+			if (userService.registerUser(user) != null) {
+				responseEntity = new ResponseEntity<>(user, HttpStatus.OK);
+			}
+		} catch (Exception exception) {
+			responseEntity = new ResponseEntity<>(exception.getMessage(), HttpStatus.CONFLICT);
+		}
+
+		return responseEntity;
+	}
 
 	@PostMapping("/login")
+	@ApiOperation("LogIn existing users")
 	public ResponseEntity<?> loginUser(@RequestBody User loginDetails) {
 		try {
 			String userId = loginDetails.getUserId();
@@ -38,7 +55,7 @@ public class UserAuthController {
 			}
 			User user = userService.findUserByUserIdAndPassword(userId, password);
 			if (user == null) {
-				throw new UserNotFoundException("User with given Id does not exists");
+				throw new UserNotFoundException("Invalid login credential, Please check userId or password ");
 			}
 			String fetchedPassword = user.getPassword();
 			if (!password.equals(fetchedPassword)) {
