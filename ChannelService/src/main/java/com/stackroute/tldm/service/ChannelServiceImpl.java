@@ -27,6 +27,7 @@ public class ChannelServiceImpl implements ChannelService {
 
 	}
 
+	// this method is used to create a channel
 	@Override
 	public Channel createChannel(Channel channel) throws ChannelAlreadyExistsException {
 		Channel createChannel = null;
@@ -47,6 +48,7 @@ public class ChannelServiceImpl implements ChannelService {
 		return createChannel;
 	}
 
+	// this method is used to update a channel
 	@Override
 	public Channel updateChannel(String channelId, Channel channel) throws ChannelNotFoundException {
 		Channel fetch = channelRepository.findById(channelId).get();
@@ -58,6 +60,7 @@ public class ChannelServiceImpl implements ChannelService {
 		return channel;
 	}
 
+	// this method is used to delete a channel
 	@Override
 	public boolean deleteChannel(String channelId) throws ChannelNotFoundException {
 		if (channelRepository.findById(channelId) != null) {
@@ -68,12 +71,14 @@ public class ChannelServiceImpl implements ChannelService {
 		return true;
 	}
 
+	// this method is used to get all the channels
 	@Override
 	public List<Channel> getAllChannels() {
 		List<Channel> channelList = channelRepository.findAll();
 		return channelList;
 	}
 
+	// this method is used to get the channel details by channel name
 	@Override
 	public Channel getChannelByChannelName(String channelName) throws ChannelNotFoundException {
 		Channel fetchChannel;
@@ -86,6 +91,7 @@ public class ChannelServiceImpl implements ChannelService {
 		return fetchChannel;
 	}
 
+	// this method is used to list all the users of a particular channel
 	@Override
 	public List<User> findAllChannelUsersByChannelName(String channelName) {
 		List<User> allUsers = null;
@@ -97,6 +103,7 @@ public class ChannelServiceImpl implements ChannelService {
 		return allUsers;
 	}
 
+	// this method is used to add a user to a channel
 	@Override
 	public Channel updateChannelUser(String channelId, User user) throws ChannelNotFoundException {
 
@@ -110,11 +117,13 @@ public class ChannelServiceImpl implements ChannelService {
 
 	}
 
+	// this method is used to list all the channels where a particular userName is
+	// present
 	@Override
 	public List<Channel> getListOfChannelsByUsers(String userName) {
 		List<Channel> channels = new ArrayList<>();
 		List<Channel> channelList = channelRepository.findAll();
-	
+
 		Iterator iterator = channelList.iterator();
 		while (iterator.hasNext()) {
 			Channel eachChannel = (Channel) iterator.next();
@@ -137,6 +146,7 @@ public class ChannelServiceImpl implements ChannelService {
 		return channels;
 	}
 
+	// this method is used to remove a user from a channel
 	@Override
 	public boolean removeChannelUser(String channelId, String userId) {
 		boolean flag = false;
@@ -155,15 +165,17 @@ public class ChannelServiceImpl implements ChannelService {
 		}
 		channels.setChannelUsers(channelUser);
 		channelRepository.save(channels);
-		System.out.println(flag);
+
 		return flag;
 	}
 
+	// this method is used to list all the channels where a particular userId is
+	// present
 	@Override
 	public List<Channel> getListOfChannelsByUser(String userId) {
 		List<Channel> channels = new ArrayList<>();
 		List<Channel> channelList = channelRepository.findAll();
-		System.out.println(channelList);
+
 		Iterator iterator = channelList.iterator();
 		while (iterator.hasNext()) {
 			Channel eachChannel = (Channel) iterator.next();
