@@ -7,6 +7,13 @@ import org.springframework.data.cassandra.core.mapping.UserDefinedType;
 
 import com.datastax.driver.core.DataType;
 
+/*
+ * The class "User" will be acting as the data model for the User Table in the database. 
+ * Please note that this class is annotated with @UserdefinedType annotation. 
+ * Java object to recreate it as a table in your database.
+ */
+
+
 @UserDefinedType("user")
 public class User {
 
@@ -24,6 +31,15 @@ public class User {
 
 	@CassandraType(type = DataType.Name.TEXT)
 	private Date createdAt;
+	
+	 /*
+     * This class should have five fields
+     * (userId, userName, userMail, phoneNum, createdAt)
+     * This class should
+	 * also contain the getters and setters for the fields,
+	 * parameterized constructor and toString method.
+     */
+
 
 	public User() {
 	}
