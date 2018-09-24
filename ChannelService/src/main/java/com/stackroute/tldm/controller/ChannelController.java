@@ -139,7 +139,6 @@ public class ChannelController {
 	@GetMapping("/user/{userName}")
 	public ResponseEntity<?> getchannelByUserName(@PathVariable String userName) {
 		ResponseEntity<?> responseEntity;
-	userName.replace("%20", " ");
 		List<Channel> fetchChannel = channelService.getListOfChannelsByUsers(userName);
 		if (fetchChannel != null) {
 			responseEntity = new ResponseEntity<>(fetchChannel, HttpStatus.OK);
@@ -164,7 +163,6 @@ public class ChannelController {
 	@GetMapping("/users/{userId}")
 	public ResponseEntity<?> getchannelByUserId(@PathVariable String userId) {
 		ResponseEntity<?> responseEntity;
-//		userName.replace("%20", " ");
 		List<Channel> fetchChannel = channelService.getListOfChannelsByUser(userId);
 		if (fetchChannel != null) {
 			responseEntity = new ResponseEntity<>(fetchChannel, HttpStatus.OK);

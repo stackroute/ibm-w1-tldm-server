@@ -1,6 +1,6 @@
 package com.stackroute.tldm.repository;
 
-import java.util.List;
+
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
@@ -12,6 +12,6 @@ import com.stackroute.tldm.model.Community;
 public interface CommunityRepository extends  MongoRepository<Community, String>{
 
 	Community getCommunityByCommunityName(String communityName);
-
+	
 	
 	}
