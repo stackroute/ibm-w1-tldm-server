@@ -3,7 +3,10 @@ package com.stackroute.tldm.model;
 
 import com.datastax.driver.core.DataType;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1ae668e48fb4fcf3b649eb1207590a34199da370
 import org.springframework.data.cassandra.core.mapping.CassandraType;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;

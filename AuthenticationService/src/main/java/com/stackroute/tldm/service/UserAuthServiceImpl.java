@@ -6,6 +6,7 @@ import com.stackroute.tldm.repository.UserAuthRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.NoSuchElementException;
 
 @Service
@@ -31,7 +32,7 @@ public class UserAuthServiceImpl implements UserAuthService {
             if (!userAuth.existsById(info)
                     && ((findUserByUserEmail(user.getUserMail()) == null)) && (info.trim().length() > 0) && (info.length()==info.replaceAll("\\s", "").length())){
 
-                System.out.println(info.trim());
+                user.setCreatedAt(new Date());
                 userAuth.save(user);
 
                 return user;

@@ -1,6 +1,7 @@
 package com.stackroute.tldm.service;
 
 import com.stackroute.tldm.exception.MessageNotFoundException;
+
 import com.stackroute.tldm.model.ChannelMessage;
 import com.stackroute.tldm.repository.ChannelChatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,15 +21,25 @@ public class ChannelMessageServiceImpl implements ChannelMessageService {
 	public ChannelMessageServiceImpl(ChannelChatRepository channelChatRepository) {
 		this.channelChatRepository = channelChatRepository;
 	}
+<<<<<<< HEAD
 	
 	
     // this method is used to save a message in a channel
+=======
+    
+	// Saving a Channel Message
+>>>>>>> 1ae668e48fb4fcf3b649eb1207590a34199da370
 	@Override
-	public void saveMessage(ChannelMessage channelMessage) {
-		channelChatRepository.insert(channelMessage);
+	public ChannelMessage saveMessage(ChannelMessage channelMessage) {
+		return channelChatRepository.insert(channelMessage);
 	}
+<<<<<<< HEAD
 
 	// this method is used to delete the channel messages
+=======
+    
+	// Deleting a particular Channel Message By Sender
+>>>>>>> 1ae668e48fb4fcf3b649eb1207590a34199da370
 	@Override
 	public boolean deleteChannelMessage(UUID messageId, String senderId) throws MessageNotFoundException {
 		if (channelChatRepository.existsById(messageId)) {
@@ -45,7 +56,11 @@ public class ChannelMessageServiceImpl implements ChannelMessageService {
 		}
 	}
 
+<<<<<<< HEAD
 	// this method is used to get all the channel messages using specific channel ID
+=======
+	// Get All Channel Messages By channelId
+>>>>>>> 1ae668e48fb4fcf3b649eb1207590a34199da370
 	@Override
 	public List<ChannelMessage> getChannelMessagesByChannelId(String channelId) throws MessageNotFoundException {
 		List<ChannelMessage> channelMessages = channelChatRepository.findAll();

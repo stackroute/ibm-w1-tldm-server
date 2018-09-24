@@ -27,7 +27,7 @@ public class ChannelMessagePersistenceController {
 		this.channelMessageService = channelMessageService;
 	}
 
-	// Delete a particular Channel Message
+	// Delete a particular Channel Message By Sender
 	@DeleteMapping("/{messageId}/{senderId}")
 	public ResponseEntity<?> deleteChannelMessages(@PathVariable("messageId") UUID messageId,
 			@PathVariable("senderId") String senderId) {
@@ -44,7 +44,7 @@ public class ChannelMessagePersistenceController {
 		return responseEntity;
 	}
 
-	// Get Channel Messages By ChannelId
+	// Get All Channel Messages By ChannelId
 	@GetMapping("/{channelId}")
 	public ResponseEntity<?> getChannelMessagesByChannelId(@PathVariable("channelId") String channelId) {
 		ResponseEntity<?> responseEntity;

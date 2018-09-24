@@ -14,15 +14,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.stackroute.tldm.exception.UserAlreadyExistsException;
 import com.stackroute.tldm.exception.UserNotFoundException;
 import com.stackroute.tldm.service.UserService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @CrossOrigin("*")
-
+@RequestMapping("api/v1/user")
+@Api(value="User Resource")
 public class UserController {
 
     private UserService service;
@@ -37,25 +41,9 @@ public class UserController {
         this.kafkaTemplate = kafkaTemplate;
     }
 
-    // this handler method is mapped to the URL "/register" using  HTTP POST method
-    @PostMapping("/register")
-    public ResponseEntity<?> registerUser(@RequestBody User user) {
-        ResponseEntity<?> responseEntity = null;
-        try {
-            if (service.registerUser(user) != null) {
-                kafkaTemplate.send(BOOT_TOPIC, user);
-                responseEntity = new ResponseEntity<>(user, HttpStatus.CREATED);
-            }
-        } catch (UserAlreadyExistsException exception) {
-            responseEntity = new ResponseEntity<>(exception.getMessage(), HttpStatus.CONFLICT);
-
-        }
-
-        return responseEntity;
-    }
-
     // this handler method is mapped to the URL "/api/v1/user/{userId}" using  HTTP PUT method
-    @PutMapping("api/v1/user/{userId}")
+    @PutMapping("/{userId}")
+    @ApiOperation("Updating users details")
     public ResponseEntity<?> updateUser(@PathVariable String userId, @RequestBody User user) {
         ResponseEntity<?> responseEntity;
         try {
@@ -71,7 +59,8 @@ public class UserController {
     }
 
     // this handler method is mapped to the URL "/api/v1/user/{Id}" using  HTTP GET method
-    @GetMapping("api/v1/user/{id}")
+    @GetMapping("/{id}")
+    @ApiOperation("Getting User Details by UserId")
     public ResponseEntity<?> getUserByUserId(@PathVariable String id) {
         ResponseEntity<?> responseEntity;
         User fetch;
@@ -90,7 +79,8 @@ public class UserController {
     }
 
     // this handler method is mapped to the URL "/api/v1/user/name/{userName}" using  HTTP GET method
-    @GetMapping("api/v1/user/name/{userName}")
+    @GetMapping("/name/{userName}")
+    @ApiOperation("Getting User Details By User Name")
     public ResponseEntity<?> getUserByUserName(@PathVariable String userName) {
         ResponseEntity<?> responseEntity;
 
@@ -109,7 +99,8 @@ public class UserController {
     }
 
     // this handler method is mapped to the URL "/api/v1/user/{userId}" using  HTTP DELETE method
-    @DeleteMapping("api/v1/user/{userId}")
+    @DeleteMapping("/{userId}")
+    @ApiOperation("To Delete the User Details")
     public ResponseEntity<?> deleteUser(@PathVariable String userId) {
         ResponseEntity<?> responseEntity = null;
         try {
@@ -124,7 +115,8 @@ public class UserController {
     }
 
     // this handler method is mapped to the URL "/api/v1/user" using  HTTP GET method
-    @GetMapping("/api/v1/user")
+    @GetMapping()
+    @ApiOperation("To get the list of users")
     public ResponseEntity<?> getAllUserDetails() {
         ResponseEntity<?> responseEntity;
         List<User> nameList = service.getAllUsers();
