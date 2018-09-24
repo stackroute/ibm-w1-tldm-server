@@ -1,6 +1,7 @@
 package com.stackroute.tldm.model;
 
 import java.io.Serializable;
+
 import java.util.Date;
 import java.util.UUID;
 
@@ -11,6 +12,13 @@ import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 
 import com.datastax.driver.core.DataType;
+
+/*
+ * The class "Message" will be acting as the data model for the Message Table in the database. 
+ * Please note that this class is annotated with @UserdefinedType annotation. 
+ * Java object to recreate it as a table in your database.
+ */
+
 
 @Table("Message")
 public class Message implements Serializable {
@@ -30,6 +38,14 @@ public class Message implements Serializable {
 
 	@CassandraType(type = DataType.Name.TIMESTAMP)
 	private Date timestamp;
+	
+	 /*
+     * This class should have five fields
+     * (messageId, messageContent, sender, receiver, timestamp)
+     * This class should
+	 * also contain the getters and setters for the fields,
+	 * parameterized constructor and toString method.
+     */
 
 	public Message() {
 		super();

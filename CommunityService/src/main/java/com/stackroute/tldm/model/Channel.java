@@ -6,6 +6,10 @@ import java.util.List;
 
 
 
+/*
+ * The class "Channel" will be acting as the data model for the Channel Table in the database. 
+ * Java object to recreate it as a table in your database.
+ */
 
 public class Channel {
 
@@ -15,6 +19,16 @@ public class Channel {
 	private String channelCreatedBy;
 	private String channelDescription;
 	private Date   channelCreatedDate;
+	
+	 /*
+     * This class should have five fields
+     * (channelId, channelName, channelCreatedBy, channelDescription, channelCreatedDate)
+     * This class should
+	 * also contain the getters and setters for the fields,
+	 * parameterized constructor and toString method.
+     */
+
+
 
 
 	private Community communityName;

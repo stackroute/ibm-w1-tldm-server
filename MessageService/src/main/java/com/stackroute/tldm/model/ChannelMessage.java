@@ -5,6 +5,12 @@ import java.util.UUID;
 
 // Model for Channel-Message.
 
+/*
+ * The class "Channel-Message" will be acting as the data model for the Channel-Message Table in the database. 
+ * Java object to recreate it as a table in your database.
+ */
+
+
 public class ChannelMessage {
 
 	private UUID messageId;
@@ -12,6 +18,15 @@ public class ChannelMessage {
 	private User sender;
 	private Channel channel;
 	private Date timestamp;
+	
+	 /*
+     * This class should have five fields
+     * (messageId, messageContent, sender, channel, timestamp)
+     * This class should
+	 * also contain the getters and setters for the fields,
+	 * parameterized constructor and toString method.
+     */
+
 
 	public ChannelMessage() {
 
