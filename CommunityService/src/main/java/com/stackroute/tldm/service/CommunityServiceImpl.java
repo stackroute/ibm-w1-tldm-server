@@ -26,6 +26,8 @@ public class CommunityServiceImpl implements CommunityService {
 		this.communityRepo = communityRepo;
 	}
 
+	//create community
+	
 	@Override
 	public Community createCommunity(Community community) throws CommunityAlreadyExistsException {
 		Community createCommunity = null;
@@ -44,19 +46,9 @@ public class CommunityServiceImpl implements CommunityService {
 		return createCommunity;
 	}
 
-	@Override
-	public boolean deleteCommunity(String communityId) throws CommunityNotFoundException {
-		if (communityRepo.findById(communityId) != null) {
-
-			communityRepo.deleteById(communityId);
-		} else {
-			throw new CommunityNotFoundException("community not found");
-		}
-
-		return true;
-
-	}
-
+	
+	//update community
+	
 	@Override
 	public Community updateCommunity(String communityId, Community community)throws CommunityNotFoundException {
 
@@ -70,6 +62,8 @@ public class CommunityServiceImpl implements CommunityService {
 	}
 
 
+	//get community details using communityId
+	
 	@Override
 	public Community getCommunityById(String communityId)throws CommunityNotFoundException {
 		 Community fetchCommunity;
@@ -82,21 +76,10 @@ public class CommunityServiceImpl implements CommunityService {
 	        return fetchCommunity;
 	
 	}
-// all channels within the community.
+
 	
-	@Override
-	public List<Channel> getAllChannels() {
-//	List<Channel> list;
-		return null;
-	}
-	
-//all users in the community
-	
-	@Override
-	public List<User> getAllUsers() {
-		//List<User> userList
-		return null;
-	}
+//get community details by communityname
+
 
 	@Override
 	public Community getCommunityByCommunityName(String communityName) throws CommunityNotFoundException {
@@ -110,7 +93,62 @@ public class CommunityServiceImpl implements CommunityService {
 		}
 		return community;
 	}
+	
+	
+	
+	//delete community using communityId
+	
+	@Override
+	public boolean delCommunity(String communityId) throws CommunityNotFoundException {
+		// TODO Auto-generated method stub
+		
+		if (communityRepo.findById(communityId) != null) {
 
+			communityRepo.deleteById(communityId);
+		} else {
+			throw new CommunityNotFoundException("community not found");
+		}
+
+		return true;
+
+	}
+	
+	
+////all users in the community
+
+	@Override
+	public List<User> findAllCommunityUsersByCommunityName(String communityName) throws CommunityNotFoundException{
+		List<User>fetchUsers=null;
+		try{
+			
+		fetchUsers=communityRepo.getCommunityByCommunityName(communityName).getCommunityUsers();
+		}
+		catch(NoSuchElementException e)
+		{
+			throw new CommunityNotFoundException("community not found");
+		}
+		return fetchUsers;
+	}
+
+	
+	
+	// all channels within the community.
+	@Override
+	public List<Channel> findAllChannelsByCommunityName(String communityName) throws CommunityNotFoundException {
+	
+		List<Channel> fetchChannels=null;
+		try {
+			fetchChannels=communityRepo.getCommunityByCommunityName(communityName).getChannelsList();
+		}
+		catch(NoSuchElementException e)
+		{
+			throw new CommunityNotFoundException("community not found");
+		}
+		
+		return fetchChannels;
+	}
+
+	
 	
 
 

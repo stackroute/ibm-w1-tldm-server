@@ -18,6 +18,13 @@ spring:
     name: Community-Service
   profiles:
     active: Development
+  data:
+    mongodb:
+       database: communityDatabase
+       username: saswin
+       password: root
+       host: localhost            
+       port: 27017  
   cloud:
     config:
       uri: http://172.23.239.212:8062
@@ -31,4 +38,5 @@ spring:
         smtp:
           starttls:
             enable: true
-    username: isamseil9090@gmail.com
+    username: isamseil9090@gmail.com 
+  

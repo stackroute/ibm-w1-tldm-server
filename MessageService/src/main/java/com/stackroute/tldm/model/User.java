@@ -2,6 +2,8 @@ package com.stackroute.tldm.model;
 
 import java.util.Date;
 
+// Model for User.
+
 public class User {
 	private String userId;
 	private String userName;

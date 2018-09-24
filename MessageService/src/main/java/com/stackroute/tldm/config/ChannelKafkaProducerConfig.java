@@ -14,6 +14,9 @@ import org.springframework.kafka.support.serializer.JsonSerializer;
 
 import com.stackroute.tldm.model.ChannelMessage;
 
+// Producer Configuration for Channel-Messages
+// For JSON object to be sent through kafka we need this configuration.
+
 @Configuration
 public class ChannelKafkaProducerConfig {
 	@Bean
