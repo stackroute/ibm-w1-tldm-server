@@ -20,12 +20,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.stackroute.tldm.exception.CommunityAlreadyExistsException;
 import com.stackroute.tldm.exception.CommunityNotFoundException;
+import com.stackroute.tldm.model.Channel;
 import com.stackroute.tldm.model.Community;
 import com.stackroute.tldm.model.User;
 import com.stackroute.tldm.service.CommunityService;
 
 @RestController
-@RequestMapping("api/v1/community")
+@RequestMapping("api/v1/community")                                      //default api for community service
 @CrossOrigin("*")
 
 public class CommunityController {
@@ -38,7 +39,11 @@ public class CommunityController {
 		this.communityService = communityService;
 	}
 
-	@PostMapping
+	
+	
+	//creating a community
+	
+	@PostMapping                
 	public ResponseEntity<?> createCommunity(@RequestBody Community community) {
 		ResponseEntity<?> responseEntity = null;
 		try {
@@ -52,6 +57,10 @@ public class CommunityController {
 
 		return responseEntity;
 	}
+	
+	
+	
+	//deleting a community
 
 @DeleteMapping("/delete/{communityId}")
 	public ResponseEntity<?> deleteCommunity(@PathVariable String communityId) {
@@ -91,6 +100,10 @@ public class CommunityController {
 //		return responseEntity;
 //	}
 
+
+//updating a community
+
+
 	@PutMapping("/{communityId}")
 	public ResponseEntity<?> updateCommunity(@PathVariable String communityId, @RequestBody Community community) {
 		ResponseEntity<?> responseEntity = null;
@@ -104,6 +117,9 @@ public class CommunityController {
 		}
 		return responseEntity;
 	}
+	
+	
+	//getting community details
 	
 	@GetMapping("/get/{communityName}")
 	public ResponseEntity<?> getCommunityName(@PathVariable String communityName) throws CommunityNotFoundException{
@@ -122,6 +138,10 @@ public class CommunityController {
 		return responseEntity;
 }
 	
+	
+	
+	//get users present in the community
+	
 	@GetMapping("/users/{communityName}")
 	public ResponseEntity<?>getUsersByCommunityName(@PathVariable String communityName) throws CommunityNotFoundException
 	{
@@ -132,7 +152,7 @@ public class CommunityController {
 		if(communityUsers!=null)
 		{
 			responseEntity=new ResponseEntity<>(communityUsers,HttpStatus.OK);
-			System.out.println("UserList"+ communityUsers);
+			
 		
 		}
 		else
@@ -142,6 +162,34 @@ public class CommunityController {
 			
 		return responseEntity;
 		
+	}
+	
+	
+	//get list of channels within  a community 
+	
+	@GetMapping("/channels/{communityName}")
+	public ResponseEntity<?> getChannelsByCommunityName(@PathVariable String communityName) throws CommunityNotFoundException
+	{
+		ResponseEntity<?> responseEntity;
+		List<Channel> channelList;
+		 
+		channelList=communityService.findAllChannelsByCommunityName(communityName);
+		if(channelList!=null)
+		{
+			responseEntity=new ResponseEntity<>(channelList,HttpStatus.OK);
+		
+		}
+		else
+		{
+			responseEntity=new ResponseEntity<>("community not found",HttpStatus.NOT_FOUND);
+			
+		}
+		
+		
+		
+		
+		
+		return responseEntity;
 	}
 	
 	

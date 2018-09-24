@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.stackroute.tldm.exception.CommunityAlreadyExistsException;
 import com.stackroute.tldm.exception.CommunityNotFoundException;
-
+import com.stackroute.tldm.model.Channel;
 import com.stackroute.tldm.model.Community;
 import com.stackroute.tldm.model.User;
 import com.stackroute.tldm.repository.CommunityRepository;
@@ -26,6 +26,8 @@ public class CommunityServiceImpl implements CommunityService {
 		this.communityRepo = communityRepo;
 	}
 
+	//create community
+	
 	@Override
 	public Community createCommunity(Community community) throws CommunityAlreadyExistsException {
 		Community createCommunity = null;
@@ -45,6 +47,8 @@ public class CommunityServiceImpl implements CommunityService {
 	}
 
 	
+	//update community
+	
 	@Override
 	public Community updateCommunity(String communityId, Community community)throws CommunityNotFoundException {
 
@@ -58,6 +62,8 @@ public class CommunityServiceImpl implements CommunityService {
 	}
 
 
+	//get community details using communityId
+	
 	@Override
 	public Community getCommunityById(String communityId)throws CommunityNotFoundException {
 		 Community fetchCommunity;
@@ -70,22 +76,10 @@ public class CommunityServiceImpl implements CommunityService {
 	        return fetchCommunity;
 	
 	}
-// all channels within the community.
+
 	
-//	@Override
-//	public List<Channel> getAllChannels() {
-////	List<Channel> list;
-//		return null;
-//	}
-//	
-////all users in the community
-//	
-//	@Override
-//	public List<User> getAllUsers() {
-//
-//	return null;
-//		
-//	}
+//get community details by communityname
+
 
 	@Override
 	public Community getCommunityByCommunityName(String communityName) throws CommunityNotFoundException {
@@ -99,7 +93,11 @@ public class CommunityServiceImpl implements CommunityService {
 		}
 		return community;
 	}
-
+	
+	
+	
+	//delete community using communityId
+	
 	@Override
 	public boolean delCommunity(String communityId) throws CommunityNotFoundException {
 		// TODO Auto-generated method stub
@@ -114,6 +112,9 @@ public class CommunityServiceImpl implements CommunityService {
 		return true;
 
 	}
+	
+	
+////all users in the community
 
 	@Override
 	public List<User> findAllCommunityUsersByCommunityName(String communityName) throws CommunityNotFoundException{
@@ -127,6 +128,24 @@ public class CommunityServiceImpl implements CommunityService {
 			throw new CommunityNotFoundException("community not found");
 		}
 		return fetchUsers;
+	}
+
+	
+	
+	// all channels within the community.
+	@Override
+	public List<Channel> findAllChannelsByCommunityName(String communityName) throws CommunityNotFoundException {
+	
+		List<Channel> fetchChannels=null;
+		try {
+			fetchChannels=communityRepo.getCommunityByCommunityName(communityName).getChannelsList();
+		}
+		catch(NoSuchElementException e)
+		{
+			throw new CommunityNotFoundException("community not found");
+		}
+		
+		return fetchChannels;
 	}
 
 	
