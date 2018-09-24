@@ -3,10 +3,6 @@ package com.stackroute.tldm.model;
 
 import com.datastax.driver.core.DataType;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 1ae668e48fb4fcf3b649eb1207590a34199da370
 import org.springframework.data.cassandra.core.mapping.CassandraType;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
@@ -16,8 +12,8 @@ import java.util.UUID;
 
 
 /*
- * The class "ChannelMessage" will be acting as the data model for the ChannelMessage Table in the database. 
- * Please note that this class is annotated with @Table annotation. 
+ * The class "ChannelMessage" will be acting as the data model for the ChannelMessage Table in the database.
+ * Please note that this class is annotated with @Table annotation.
  * Java object to recreate it as a table in your database.
  */
 
@@ -35,13 +31,13 @@ public class ChannelMessage {
     private Channel channel;
     @CassandraType(type = DataType.Name.TIMESTAMP)
     private Date timestamp;
-    
+
     /*
      * This class should have five fields
      * (messageId, messageContent, sender, channel, timestamp)
      * This class should
-	 * also contain the getters and setters for the fields,
-	 * parameterized constructor and toString method.
+     * also contain the getters and setters for the fields,
+     * parameterized constructor and toString method.
      */
 
     public ChannelMessage() {

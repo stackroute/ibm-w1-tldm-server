@@ -2,11 +2,17 @@ package com.stackroute.tldm.model;
 
 import java.util.Date;
 
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+/*
+ * The class "User" will be acting as the data model for the User Table in the database. 
+ * Java object to recreate it as a table in your database.
+ */
 
 @Document
 public class User {
@@ -24,6 +30,14 @@ public class User {
 	@Email
 	private String userMail;
 	private Date createdAt;
+	
+	 /*
+     * This class should have six fields
+     * (userId, password, userName, phoneNum, userMail, createdAt)
+     * This class should
+	 * also contain the getters and setters for the fields,
+	 * parameterized constructor and toString method.
+     */
 
 	public User() {
 
