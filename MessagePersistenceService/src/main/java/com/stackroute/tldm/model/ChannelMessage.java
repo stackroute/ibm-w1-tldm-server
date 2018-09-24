@@ -2,6 +2,7 @@ package com.stackroute.tldm.model;
 
 
 import com.datastax.driver.core.DataType;
+
 import org.springframework.data.cassandra.core.mapping.CassandraType;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
