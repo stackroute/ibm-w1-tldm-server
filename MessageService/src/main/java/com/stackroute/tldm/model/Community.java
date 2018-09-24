@@ -3,6 +3,8 @@ package com.stackroute.tldm.model;
 import java.util.Date;
 import java.util.List;
 
+// Model for Community
+
 public class Community {
 
 	private String communityId;
