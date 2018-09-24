@@ -30,15 +30,10 @@ import io.swagger.annotations.ApiOperation;
 public class UserController {
 
     private UserService service;
-    private KafkaTemplate<String, User> kafkaTemplate;
-
-    @Value("${topic.boot}")
-    private String BOOT_TOPIC;
 
     @Autowired
-    public UserController(UserService service, KafkaTemplate<String, User> kafkaTemplate) {
+    public UserController(UserService service) {
         this.service = service;
-        this.kafkaTemplate = kafkaTemplate;
     }
 
     // this handler method is mapped to the URL "/api/v1/user/{userId}" using  HTTP PUT method
