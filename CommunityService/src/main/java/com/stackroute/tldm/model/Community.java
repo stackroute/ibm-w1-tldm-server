@@ -6,6 +6,10 @@ import org.springframework.data.annotation.Id;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
+/*
+ * The class "Community" will be acting as the data model for the Community Table in the database. 
+ * Java object to recreate it as a table in your database.
+ */
 @Document
 public class Community {
 
@@ -21,6 +25,14 @@ public class Community {
 	private Date communityCreatedDate;	
    
 	private User communityCreatedBy;
+	
+	 /*
+     * This class should have six fields
+     * (communityId, communityName, communityUsers, channelList, communityCreatedDate, communityCreatedBy)
+     * This class should
+	 * also contain the getters and setters for the fields,
+	 * parameterized constructor and toString method.
+     */
 
 	public Community() {
 		super();
