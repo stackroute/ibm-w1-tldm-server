@@ -96,14 +96,14 @@ public class ChannelMessageServiceImplTest {
 		user.setCreatedAt(new Date());
 
 	}
-    @Ignore
-	@Test
-	public void saveMessageSuccess() {
-		when(channelChatRepository.save(channelMessage).getMessageId()).thenReturn(uuid);
-		ChannelMessage status = channelMessageService.saveMessage(channelMessage);
-		Assert.assertEquals(channelMessage, status);
-
-	}
+//    @Ignore
+//	@Test
+//	public void saveMessageSuccess() {
+//		when(channelChatRepository.save(channelMessage).getMessageId()).thenReturn(uuid);
+//		ChannelMessage status = channelMessageService.saveMessage(channelMessage);
+//		Assert.assertEquals(channelMessage, status);
+//
+//	}
     @Ignore
 	@Test
 	public void deleteChannelMessageSuccess() throws MessageNotFoundException {
