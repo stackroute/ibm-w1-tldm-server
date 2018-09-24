@@ -21,7 +21,9 @@ public class ChannelKafkaConsumerConfig {
     @Bean
     public ConsumerFactory<String, ChannelMessage> consumerFactory() {
         Map<String, Object> config = new HashMap<>();
+        // list of host:port pairs used for establishing the initial connections to the Kafka cluster
         config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "172.23.239.122:9092");
+        // allows a pool of processes to divide the work of consuming and processing records
         config.put(ConsumerConfig.GROUP_ID_CONFIG, "${groupId2.boot}");
         config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);

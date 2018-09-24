@@ -20,12 +20,15 @@ public class ChannelMessageServiceImpl implements ChannelMessageService {
 	public ChannelMessageServiceImpl(ChannelChatRepository channelChatRepository) {
 		this.channelChatRepository = channelChatRepository;
 	}
-
+	
+	
+    // this method is used to save a message in a channel
 	@Override
 	public void saveMessage(ChannelMessage channelMessage) {
 		channelChatRepository.insert(channelMessage);
 	}
 
+	// this method is used to delete the channel messages
 	@Override
 	public boolean deleteChannelMessage(UUID messageId, String senderId) throws MessageNotFoundException {
 		if (channelChatRepository.existsById(messageId)) {
@@ -42,6 +45,7 @@ public class ChannelMessageServiceImpl implements ChannelMessageService {
 		}
 	}
 
+	// this method is used to get all the channel messages using specific channel ID
 	@Override
 	public List<ChannelMessage> getChannelMessagesByChannelId(String channelId) throws MessageNotFoundException {
 		List<ChannelMessage> channelMessages = channelChatRepository.findAll();

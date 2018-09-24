@@ -20,11 +20,13 @@ public class MessageServiceImpl implements MessageService {
         this.userChatRepository = userChatRepository;
     }
 
+    // this method is used to save a message
     @Override
     public void saveMessage(Message message) {
         userChatRepository.insert(message);
     }
 
+    // this method is used to delete a message
     @Override
     public boolean deleteMessage(UUID messageId, String senderId) throws MessageNotFoundException {
         if (userChatRepository.existsById(messageId)) {
@@ -41,6 +43,7 @@ public class MessageServiceImpl implements MessageService {
         }
     }
 
+    // this method is used to get all the messages using specific senderID and receiverID
     @Override
     public List<Message> getMessagesBySenderIdAndReceiverId(String senderId, String receiverId)
             throws MessageNotFoundException {

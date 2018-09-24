@@ -22,12 +22,14 @@ public class Receiver {
         this.channelMessageService = channelMessageService;
     }
 
+    // this represents the topic-1 used in kafka
     @KafkaListener(topics = "${topic1.boot}", groupId = "${groupId1.boot}")
     public void receiveUserToUser(@Payload Message message) {
         System.out.println("Message:" + message);
         messageService.saveMessage(message);
     }
 
+    // this represents the topic-2 used in kafka
     @KafkaListener(topics = "${topic2.boot}", groupId = "${groupId2.boot}")
     public void receiveGroupMessages(@Payload ChannelMessage channelMessage) {
         channelMessageService.saveMessage(channelMessage);
