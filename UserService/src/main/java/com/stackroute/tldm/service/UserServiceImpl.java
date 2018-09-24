@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
         this.userRepo = userRepo;
     }
 
-    // this method should be used to save a new user
+    // this method is  used to save a new user
     @Override
     public User registerUser(User user) throws UserAlreadyExistsException {
         String info = user.getUserId().trim();
