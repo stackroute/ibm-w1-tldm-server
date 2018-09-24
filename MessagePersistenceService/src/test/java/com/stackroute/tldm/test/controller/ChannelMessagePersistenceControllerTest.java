@@ -93,7 +93,6 @@ public class ChannelMessagePersistenceControllerTest {
 		user.setPhoneNum("56528769987");
 		user.setUserName("kamali");
 		user.setUserMail("kamali87@gmail.com");
-		user.setCreatedAt(new Date());
 
 		// Channel Message
 		channelMessage.setMessageId(uuid);

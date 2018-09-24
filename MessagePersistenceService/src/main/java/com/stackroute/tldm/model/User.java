@@ -29,9 +29,6 @@ public class User {
 	@CassandraType(type = DataType.Name.TEXT)
 	private String phoneNum;
 
-	@CassandraType(type = DataType.Name.TEXT)
-	private Date createdAt;
-	
 	 /*
      * This class should have five fields
      * (userId, userName, userMail, phoneNum, createdAt)
@@ -44,13 +41,11 @@ public class User {
 	public User() {
 	}
 
-	public User(String userId, String userName, String userMail, String phoneNum, Date createdAt) {
-		super();
+	public User(String userId, String userName, String userMail, String phoneNum) {
 		this.userId = userId;
 		this.userName = userName;
 		this.userMail = userMail;
 		this.phoneNum = phoneNum;
-		this.createdAt = createdAt;
 	}
 
 	public String getUserId() {
@@ -85,18 +80,14 @@ public class User {
 		this.phoneNum = phoneNum;
 	}
 
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
 
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", userName=" + userName + ", userMail=" + userMail + ", phoneNum=" + phoneNum
-				+ ", createdAt=" + createdAt + "]";
+		return "User{" +
+				"userId='" + userId + '\'' +
+				", userName='" + userName + '\'' +
+				", userMail='" + userMail + '\'' +
+				", phoneNum='" + phoneNum + '\'' +
+				'}';
 	}
-
 }
