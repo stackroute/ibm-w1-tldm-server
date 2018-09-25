@@ -1,6 +1,5 @@
 package com.stackroute.tldm.test.controller;
 
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -64,7 +63,7 @@ public class ChannelMessagePersistenceControllerTest {
 		MockitoAnnotations.initMocks(this);
 		mockMvc = MockMvcBuilders.standaloneSetup(channelMessagePersistenceController).build();
 		channelMessage = new ChannelMessage();
-		uuid = mock(UUID.class);
+		uuid= UUID.randomUUID();
 
 		// Community
 		community = new Community();
@@ -106,7 +105,6 @@ public class ChannelMessagePersistenceControllerTest {
 
 	}
 
-	@Ignore
 	@Test
 	public void deleteChannelMessagesSuccess() throws Exception {
 

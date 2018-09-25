@@ -53,7 +53,7 @@ public class ChannelMessageServiceImplTest {
 		MockitoAnnotations.initMocks(this);
 
 		channelMessage = new ChannelMessage();
-		uuid = mock(UUID.class);
+		uuid = 	UUID.randomUUID();
 
 		// Channel Message
 		channelMessage = new ChannelMessage();

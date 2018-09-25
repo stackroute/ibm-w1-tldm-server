@@ -1,0 +1,42 @@
+server:
+  port: 8066
+
+eureka:
+  client:
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: http://172.23.239.227:8061/eureka
+
+info:
+  app:
+    description: Community Service is up and has no problem
+    name: Community Service
+    version: 1.0.0
+
+spring:
+  application:
+    name: Community-Service
+  profiles:
+    active: Development
+  data:
+    mongodb:
+       database: communityDatabase
+       username: saswin
+       password: root
+       host: localhost            
+       port: 27017  
+  cloud:
+    config:
+      uri: http://172.23.239.212:8062
+  mail:
+    host: smtp.gmail.com
+    password: sarasingh9090
+    port: 587
+
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+    username: isamseil9090@gmail.com 
+  
