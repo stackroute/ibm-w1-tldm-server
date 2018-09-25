@@ -39,12 +39,20 @@ public class Community {
 
 	}
 
-	public Community(String communityId, String communityName, List<User> communityUsers, Date communityCreatedDate,
-			User communityCreatedBy) {
+	@Override
+	public String toString() {
+		return "Community [communityId=" + communityId + ", communityName=" + communityName + ", communityUsers="
+				+ communityUsers + ", channelsList=" + channelsList + ", communityCreatedDate=" + communityCreatedDate
+				+ ", communityCreatedBy=" + communityCreatedBy + "]";
+	}
+
+	public Community(String communityId, String communityName, List<User> communityUsers, List<Channel> channelsList,
+			Date communityCreatedDate, User communityCreatedBy) {
 		super();
 		this.communityId = communityId;
 		this.communityName = communityName;
 		this.communityUsers = communityUsers;
+		this.channelsList = channelsList;
 		this.communityCreatedDate = communityCreatedDate;
 		this.communityCreatedBy = communityCreatedBy;
 	}
@@ -73,6 +81,14 @@ public class Community {
 		this.communityUsers = communityUsers;
 	}
 
+	public List<Channel> getChannelsList() {
+		return channelsList;
+	}
+
+	public void setChannelsList(List<Channel> channelsList) {
+		this.channelsList = channelsList;
+	}
+
 	public Date getCommunityCreatedDate() {
 		return communityCreatedDate;
 	}
@@ -89,11 +105,5 @@ public class Community {
 		this.communityCreatedBy = communityCreatedBy;
 	}
 
-	public List<Channel> getChannelsList() {
-		return channelsList;
-	}
-
-	public void setChannelsList(List<Channel> channelsList) {
-		this.channelsList = channelsList;
-	}
+	
 }
