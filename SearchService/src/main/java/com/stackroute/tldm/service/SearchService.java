@@ -1,7 +1,11 @@
 package com.stackroute.tldm.service;
 
 
+import com.stackroute.tldm.model.User;
+
+import java.util.List;
+
 public interface SearchService {
 
-    void getUserByName(String userName);
+    List<User> getAllUsersByUserNameRegex(String userName);
 }

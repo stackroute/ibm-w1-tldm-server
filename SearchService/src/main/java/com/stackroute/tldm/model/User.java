@@ -30,7 +30,7 @@ public class User {
      */
 
     public User() {
-
+        super();
     }
 
     public User(String userId, String password, String userName, String phoneNum, String userMail, Date createdAt) {
