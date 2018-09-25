@@ -1,6 +1,6 @@
 #server:
 #  port: 8066
-#
+
 #eureka:
 #  client:
 #    register-with-eureka: true
@@ -25,7 +25,7 @@
 #       password: root
 #       host: localhost            
 #       port: 27017  
-#  cloud:
+##  cloud:
 #    config:
 #      uri: http://172.23.239.212:8062
 #  mail:
