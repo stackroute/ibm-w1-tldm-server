@@ -131,6 +131,23 @@ public class ChannelController {
 		}
 		return responseEntity;
 	}
+	@GetMapping("/getchannel/{channelId}")
+	public ResponseEntity<?> getChannelByChannelId(@PathVariable String channelId) {
+		ResponseEntity<?> responseEntity;
+		Channel fetch;
+		try {
+			fetch = channelService.getChannelByChannelId(channelId);
+			if (fetch != null) {
+				responseEntity = new ResponseEntity<>(fetch, HttpStatus.OK);
+			} else {
+				responseEntity = new ResponseEntity<>("channel id not found", HttpStatus.NOT_FOUND);
+			}
+		} catch (ChannelNotFoundException e) {
+			responseEntity = new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+
+		}
+		return responseEntity;
+	}
 
 	// this handler method is mapped to the URL "/getuser/{channelName}" using HTTP
 	// GET method"
