@@ -17,13 +17,12 @@ import java.util.NoSuchElementException;
 public class UserServiceImpl implements UserService {
 
     private UserRepository userRepo;
-    private KafkaTemplate<String, List<User>> kafkaTemplate;
+    private KafkaTemplate<String, User> kafkaTemplate;
 
     @Value("${search-topic.boot}")
     private String searchTopic;
 
-    @Autowired
-    public UserServiceImpl(UserRepository userRepo, KafkaTemplate<String, List<User>> kafkaTemplate) {
+    public UserServiceImpl(UserRepository userRepo, KafkaTemplate<String, User> kafkaTemplate) {
         this.userRepo = userRepo;
         this.kafkaTemplate = kafkaTemplate;
     }
@@ -31,6 +30,7 @@ public class UserServiceImpl implements UserService {
     // this method is used to save a new user
     @Override
     public User registerUser(User user) throws UserAlreadyExistsException {
+        kafkaTemplate.send(searchTopic, user);
         return userRepo.insert(user);
     }
 
@@ -89,7 +89,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getAllUsers() {
         List<User> userList = userRepo.findAll();
-        kafkaTemplate.send(searchTopic, userList);
         return userList;
     }
 }
