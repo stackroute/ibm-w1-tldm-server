@@ -2,8 +2,10 @@ package com.stackroute.tldm.controller;
 
 import com.stackroute.tldm.service.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -17,8 +19,9 @@ public class SearchController {
         this.searchService = searchService;
     }
 
-    @MessageMapping("/search")
-    public void searchNames(String name) throws Exception {
-        searchService.getUsersByName(name);
+    @GetMapping("/api/v1/search-users")
+    public ResponseEntity<?> searchUserByNames(String name) {
+        searchService.getUserByName(name);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
