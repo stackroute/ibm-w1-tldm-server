@@ -1,12 +1,16 @@
 package com.stackroute.tldm.model;
 
-import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import java.util.Date;
 
-@Entity
+/*
+ * The class "User" will be acting as the data model for the User Table in the database.
+ * Java object to recreate it as a table in your database.
+ */
+
+@Document
 public class User {
 
     @Id
@@ -17,8 +21,16 @@ public class User {
     private String userMail;
     private Date createdAt;
 
+    /*
+     * This class should have six fields
+     * (userId, password, userName, phoneNum, userMail, createdAt)
+     * This class should
+     * also contain the getters and setters for the fields,
+     * parameterized constructor and toString method.
+     */
+
     public User() {
-        super();
+
     }
 
     public User(String userId, String password, String userName, String phoneNum, String userMail, Date createdAt) {
@@ -78,19 +90,10 @@ public class User {
         this.createdAt = createdAt;
     }
 
-    private String hashPassword(String password){
-        return BCrypt.hashpw(password, BCrypt.gensalt());
-    }
-
     @Override
     public String toString() {
-        return "User{" +
-                "userId='" + userId + '\'' +
-                ", password='" + password + '\'' +
-                ", userName='" + userName + '\'' +
-                ", phoneNum='" + phoneNum + '\'' +
-                ", userMail='" + userMail + '\'' +
-                ", createdAt=" + createdAt +
-                '}';
+        return "User [userId=" + userId + ", password=" + password + ", userName=" + userName + ", phoneNum=" + phoneNum
+                + ", userMail=" + userMail + ", createdAt=" + createdAt + "]";
     }
+
 }

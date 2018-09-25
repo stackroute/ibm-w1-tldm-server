@@ -1,5 +1,6 @@
 package com.stackroute.tldm.service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -146,6 +147,32 @@ public class CommunityServiceImpl implements CommunityService {
 		}
 		
 		return fetchChannels;
+	}
+
+	@Override
+	public Community updateByCommunityName(String communityName, Channel channel)throws CommunityNotFoundException {
+		List<Channel> fetchChannel = new ArrayList<>();
+		Community fetchCommunity;
+		fetchCommunity = communityRepo.getCommunityByCommunityName(communityName);
+//		fetchChannel = fetchCommunity.getChannelsList();
+		fetchChannel.add(channel);
+		fetchCommunity.setChannelsList(fetchChannel);
+		communityRepo.save(fetchCommunity);
+		return fetchCommunity;
+	}
+
+	
+	@Override
+	public Community updateByCommunityId(String communityId, Channel channel) {
+		List<Channel> fetchChannel = new ArrayList<>();
+		Community fetchCommunity;
+		fetchCommunity = communityRepo.getCommunityByCommunityId(communityId);
+		fetchChannel = fetchCommunity.getChannelsList();
+		fetchChannel.add(channel);
+		fetchCommunity.setChannelsList(fetchChannel);
+		communityRepo.save(fetchCommunity);
+		
+		return fetchCommunity;
 	}
 
 	

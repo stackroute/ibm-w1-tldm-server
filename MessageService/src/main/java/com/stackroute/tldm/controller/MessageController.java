@@ -18,7 +18,6 @@ import java.util.UUID;
 // Two message-mappings are used for user and channel respectively.
 
 @RestController
-@RequestMapping("/api/v1/message")
 @CrossOrigin("*")
 public class MessageController {
 

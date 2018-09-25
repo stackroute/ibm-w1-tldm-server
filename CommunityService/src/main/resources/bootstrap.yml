@@ -1,5 +1,5 @@
 server:
-  port: 8066
+ port: 8066
 
 eureka:
   client:
@@ -39,4 +39,7 @@ spring:
           starttls:
             enable: true
     username: isamseil9090@gmail.com 
+  
+  
+  
   
