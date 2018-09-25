@@ -26,20 +26,12 @@ public class SearchServiceImpl implements SearchService {
     }
 
     @KafkaListener(topics = "${search-topic.boot}", groupId = "${groupId.boot}")
-    public void receiveUserList(@Payload List<User> userList) {
-
-        ObjectMapper mapper = new ObjectMapper();
-        List<User> users = mapper.convertValue(userList, List.class);
-        ListIterator<User> iterator = users.listIterator();
-        while (iterator.hasNext()) {
-            User user = mapper.convertValue(iterator.next(), User.class);
-            searchRepository.save(user);
-        }
-
+    public void receiveUser(@Payload User user) {
+        searchRepository.insert(user);
     }
 
     @Override
-    public void getUsersByName(String userName) {
-        template.convertAndSend("/topic/search-user", searchRepository.findAllByUserName(userName));
+    public void getUserByName(String userName) {
+        searchRepository.findByUserNameRegex(userName);
     }
 }
