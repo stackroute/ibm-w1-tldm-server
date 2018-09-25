@@ -2,6 +2,8 @@
 
 import java.util.UUID;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +20,7 @@ import com.stackroute.tldm.service.ChannelMessageService;
 @RestController
 @RequestMapping("api/v1/channel-message")
 @CrossOrigin("*")
+@Api(value = "Channel Message Resource")
 public class ChannelMessagePersistenceController {
 
 	private ChannelMessageService channelMessageService;
@@ -29,6 +32,7 @@ public class ChannelMessagePersistenceController {
 
 	// Delete a particular Channel Message By Sender
 	@DeleteMapping("/{messageId}/{senderId}")
+	@ApiOperation("Delete Messages for One to Many communication")
 	public ResponseEntity<?> deleteChannelMessages(@PathVariable("messageId") UUID messageId,
 			@PathVariable("senderId") String senderId) {
 		ResponseEntity<?> responseEntity;
@@ -46,6 +50,7 @@ public class ChannelMessagePersistenceController {
 
 	// Get All Channel Messages By ChannelId
 	@GetMapping("/{channelId}")
+	@ApiOperation("Get Messages for One to Many communication")
 	public ResponseEntity<?> getChannelMessagesByChannelId(@PathVariable("channelId") String channelId) {
 		ResponseEntity<?> responseEntity;
 		try {

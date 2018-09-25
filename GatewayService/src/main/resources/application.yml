@@ -21,10 +21,12 @@ spring:
 
 zuul:
   routes:
-    Message-Service:
-      url: http://172.23.239.122:8067
+    Message-Persistence-Service:
+      url: http://172.23.239.104:8068
     User-Service:
       sensitiveHeaders: Authorization
       url: http://172.23.239.62:8069
-
-
+    Channel-Service:
+      url: http://172.23.239.233:8065
+    Community-Service:
+      url: http://172.23.239.237:8066
