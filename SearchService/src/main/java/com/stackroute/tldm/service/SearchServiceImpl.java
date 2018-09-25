@@ -40,17 +40,6 @@ public class SearchServiceImpl implements SearchService {
 
     @Override
     public void getUsersByName(String userName) {
-
-        List<User> users = new ArrayList<>();
-        List<User> userList = (List<User>) searchRepository.findAll();
-        ListIterator<User> iterator = userList.listIterator();
-        while (iterator.hasNext()) {
-            User user = iterator.next();
-            if (user.getUserName().equals(userName)) {
-                users.add(user);
-            }
-        }
-
-        template.convertAndSend("/topic/search-user", users);
+        template.convertAndSend("/topic/search-user", searchRepository.findAllByUserName(userName));
     }
 }
