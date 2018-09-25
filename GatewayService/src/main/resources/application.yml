@@ -26,5 +26,7 @@ zuul:
     User-Service:
       sensitiveHeaders: Authorization
       url: http://172.23.239.62:8069
-
-
+    Channel-Service:
+      url: htpp://172.23.239.233:8065
+    Community-Service:
+      url: http://172.23.239.237:8066
