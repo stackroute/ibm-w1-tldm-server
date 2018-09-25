@@ -1,5 +1,7 @@
 package com.stackroute.tldm.model;
 
+import org.springframework.security.crypto.bcrypt.BCrypt;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Date;
@@ -74,6 +76,10 @@ public class User {
 
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
+    }
+
+    private String hashPassword(String password){
+        return BCrypt.hashpw(password, BCrypt.gensalt());
     }
 
     @Override
