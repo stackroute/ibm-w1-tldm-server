@@ -143,5 +143,4 @@ public class ChannelMessagePersistenceControllerTest {
 				MockMvcRequestBuilders.get("/api/v1/channel-message/tldm123").contentType(MediaType.APPLICATION_JSON))
 				.andExpect(MockMvcResultMatchers.status().isNotFound()).andDo(MockMvcResultHandlers.print());
 	}
-
 }

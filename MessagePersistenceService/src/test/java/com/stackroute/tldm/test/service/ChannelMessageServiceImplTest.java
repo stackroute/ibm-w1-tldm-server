@@ -103,29 +103,41 @@ public class ChannelMessageServiceImplTest {
 //		Assert.assertEquals(channelMessage, status);
 //
 //	}
-    @Ignore
-	@Test
-	public void deleteChannelMessageSuccess() throws MessageNotFoundException {
-		Optional<ChannelMessage> options = null;
-		when(channelChatRepository.findById(uuid)).thenReturn(options);
-		when(channelChatRepository.save(channelMessage)).thenReturn(channelMessage);
-		boolean flag = channelMessageService.deleteChannelMessage(channelMessage.getMessageId(), "john123");
-		Assert.assertEquals(true, flag);
 
-	}
     @Ignore
-	@Test
-	public void deleteChannelMessageFailure() throws MessageNotFoundException {
-		when(channelChatRepository.findById(channelMessage.getMessageId()));
-		when(channelChatRepository.save(channelMessage)).thenReturn(channelMessage);
-		boolean flag = channelMessageService.deleteChannelMessage(channelMessage.getMessageId(), "Jhon123");
-		Assert.assertEquals(true, flag);
-	}
+    @Test
+    public void saveMessageSuccess() {
+        when(channelChatRepository.save(channelMessage).getMessageId()).thenReturn(uuid);
+        // ChannelMessage status = channelMessageService.saveMessage(channelMessage);
+        // Assert.assertEquals(channelMessage, status);
+
+    }
+
     @Ignore
-	@Test
-	public void getChannelMessagesByChannelId() throws MessageNotFoundException {
-		when(channelChatRepository.findAll()).thenReturn(options);
-		List<ChannelMessage> channels = channelMessageService.getChannelMessagesByChannelId("john123");
-		Assert.assertEquals(channelList, channels);
-	}
+    @Test
+    public void deleteChannelMessageSuccess() throws MessageNotFoundException {
+        Optional<ChannelMessage> options = null;
+        when(channelChatRepository.findById(uuid)).thenReturn(options);
+        when(channelChatRepository.save(channelMessage)).thenReturn(channelMessage);
+        boolean flag = channelMessageService.deleteChannelMessage(channelMessage.getMessageId(), "john123");
+        Assert.assertEquals(true, flag);
+
+    }
+
+    @Ignore
+    @Test
+    public void deleteChannelMessageFailure() throws MessageNotFoundException {
+        when(channelChatRepository.findById(channelMessage.getMessageId()));
+        when(channelChatRepository.save(channelMessage)).thenReturn(channelMessage);
+        boolean flag = channelMessageService.deleteChannelMessage(channelMessage.getMessageId(), "Jhon123");
+        Assert.assertEquals(true, flag);
+    }
+
+    @Ignore
+    @Test
+    public void getChannelMessagesByChannelId() throws MessageNotFoundException {
+        when(channelChatRepository.findAll()).thenReturn(options);
+        List<ChannelMessage> channels = channelMessageService.getChannelMessagesByChannelId("john123");
+        Assert.assertEquals(channelList, channels);
+    }
 }

@@ -12,19 +12,17 @@ import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-// Producer Configuration for User
-// For JSON object to be sent through kafka we need this configuration.
-
 @Configuration
-public class UserProducerKafkaConfig {
+public class UserProducerConfig {
 
     @Value("${server.boot}")
     private String ipConfig;
 
     @Bean
-    public ProducerFactory<String, User> userProducerFactory() {
+    public ProducerFactory<String, List<User>> producerFactory() {
         Map<String, Object> config = new HashMap<>();
 
         config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, ipConfig);
@@ -35,7 +33,7 @@ public class UserProducerKafkaConfig {
     }
 
     @Bean
-    public KafkaTemplate<String, User> userKafkaTemplate() {
-        return new KafkaTemplate<>(userProducerFactory());
+    public KafkaTemplate<String, List<User>> kafkaTemplate() {
+        return new KafkaTemplate<>(producerFactory());
     }
 }
