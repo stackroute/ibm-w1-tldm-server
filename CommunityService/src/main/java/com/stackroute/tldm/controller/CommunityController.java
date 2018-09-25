@@ -192,6 +192,8 @@ public class CommunityController {
 		
 		return responseEntity;
 	}
+//update community:channels get added into the community using communityName
+
 	
 	@PutMapping("/update/{communityName}")
 	public ResponseEntity<?> updateByCommunityName(@PathVariable String communityName, @RequestBody Channel channel,Community community) {
@@ -207,6 +209,9 @@ public class CommunityController {
 		}
 		return responseEntity;
 	}
+
+
+//update community:channels get added into the community using communityId
 	
 	@PutMapping("/updated/{communityId")
 	public ResponseEntity<?> updateByCommunityId(@PathVariable String communityId, @RequestBody Channel channel,Community community) {

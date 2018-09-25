@@ -149,6 +149,9 @@ public class CommunityServiceImpl implements CommunityService {
 		return fetchChannels;
 	}
 
+
+//update community using communityName
+
 	@Override
 	public Community updateByCommunityName(String communityName, Channel channel)throws CommunityNotFoundException {
 		List<Channel> fetchChannel = new ArrayList<>();
@@ -160,6 +163,8 @@ public class CommunityServiceImpl implements CommunityService {
 		communityRepo.save(fetchCommunity);
 		return fetchCommunity;
 	}
+
+//update community using communityId
 
 	
 	@Override
