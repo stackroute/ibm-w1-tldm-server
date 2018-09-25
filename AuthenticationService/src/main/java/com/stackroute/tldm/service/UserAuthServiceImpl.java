@@ -22,21 +22,16 @@ public class UserAuthServiceImpl implements UserAuthService {
 
     @Override
     public User registerUser(User user) throws UserAlreadyExistsException {
-        // boolean flag = false;
         String info = user.getUserId().trim();
-
         System.out.println(info);
-        //get
-
         try {
             if (!userAuth.existsById(info)
                     && ((findUserByUserEmail(user.getUserMail()) == null)) && (info.trim().length() > 0) && (info.length()==info.replaceAll("\\s", "").length())){
 
                 user.setCreatedAt(new Date());
                 userAuth.save(user);
-
                 return user;
-                // flag = true;
+
             } else {
                 throw new UserAlreadyExistsException("User Information already present");
             }
