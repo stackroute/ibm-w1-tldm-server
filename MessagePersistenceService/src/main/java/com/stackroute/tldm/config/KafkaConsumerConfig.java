@@ -17,7 +17,7 @@ import org.springframework.kafka.support.serializer.JsonDeserializer;
 
 import com.stackroute.tldm.model.Message;
 
-// Consumer configuration class for User-Messages and Channel-Messages
+// Consumer configuration class for User-Messages
 // Fetching group-id from cloud configurations.
 // For JSON object to be sent through kafka we need this configuration.
 
