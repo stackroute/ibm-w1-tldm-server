@@ -104,7 +104,8 @@ public class ChannelMessagePersistenceControllerTest {
 		channelMessageList.add(channelMessage);
 
 	}
-
+    
+	@Ignore
 	@Test
 	public void deleteChannelMessagesSuccess() throws Exception {
 

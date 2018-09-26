@@ -1,0 +1,33 @@
+#server:
+#  port: 8068
+
+#eureka:
+#  client:
+#    register-with-eureka: true
+#    serviceUrl:
+#      defaultZone: http://172.23.239.227:8061/eureka
+#
+#info:
+#  app:
+#    description: Message Persistence Service is up and has no problem
+#    name: Message Persistence Service
+#    version: 1.0.0
+#spring:
+#  kafka:
+#    consumer:
+#      auto-offset-reset: earliest
+#  data:
+#    cassandra:
+#      schema-action: CREATE_IF_NOT_EXISTS
+#      contact-points: localhost
+#      keyspace-name: message_key_space
+
+#spring:
+#  application:
+#    name: Message-Persistence-Service
+#  profiles:
+#    active: Development
+#  cloud:
+#    config:
+#      uri: http://172.23.239.212:8062
+
