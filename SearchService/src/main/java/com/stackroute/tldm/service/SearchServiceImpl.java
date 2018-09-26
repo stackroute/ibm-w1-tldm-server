@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 // receiveUser() method annotated with @KafkaListener becomes the consumer listening from User-Service.
-
 @Service
 public class SearchServiceImpl implements SearchService {
 
@@ -29,6 +28,7 @@ public class SearchServiceImpl implements SearchService {
     @Override
     public List<User> getAllUsersByUserNameRegex(String userName) {
         List<User> userList = searchRepository.findAllByUserNameRegex(userName);
+
         return userList;
     }
 }

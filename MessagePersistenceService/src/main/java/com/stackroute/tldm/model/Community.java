@@ -7,12 +7,6 @@ import org.springframework.data.cassandra.core.mapping.UserDefinedType;
 import java.util.Date;
 import java.util.List;
 
-/*
- * The class "Community" will be acting as the data model for the Community Table in the database. 
- * Please note that this class is annotated with @UserdefinedType annotation. 
- * Java object to recreate it as a table in your database.
- */
-
 @UserDefinedType("Community")
 public class Community {
 
@@ -28,14 +22,22 @@ public class Community {
     private User communityCreatedBy;
     @CassandraType(type = DataType.Name.UDT, userTypeName = "user")
     private List<Channel> channelList;
-    
-    /*
-     * This class should have six fields
-     * (communityId, communityName, communityUsers, communityCreatedDate, communityCreatedBy, channelList)
-     * This class should
-	 * also contain the getters and setters for the fields,
-	 * parameterized constructor and toString method.
-     */
+
+    public Community() {
+        super();
+
+    }
+
+    public Community(String communityId, String communityName, List<User> communityUsers, Date communityCreatedDate,
+                     User communityCreatedBy, List<Channel> channelList) {
+        super();
+        this.communityId = communityId;
+        this.communityName = communityName;
+        this.communityUsers = communityUsers;
+        this.communityCreatedDate = communityCreatedDate;
+        this.communityCreatedBy = communityCreatedBy;
+        this.channelList = channelList;
+    }
 
     public String getCommunityId() {
         return communityId;
@@ -85,27 +87,15 @@ public class Community {
         this.channelList = channelList;
     }
 
-    public Community(String communityId, String communityName, List<User> communityUsers, Date communityCreatedDate,
-                     User communityCreatedBy, List<Channel> channelList) {
-        super();
-        this.communityId = communityId;
-        this.communityName = communityName;
-        this.communityUsers = communityUsers;
-        this.communityCreatedDate = communityCreatedDate;
-        this.communityCreatedBy = communityCreatedBy;
-        this.channelList = channelList;
-    }
-
-    public Community() {
-        super();
-
-    }
-
     @Override
     public String toString() {
-        return "Community [communityId=" + communityId + ", communityName=" + communityName + ", communityUsers="
-                + communityUsers + ", communityCreatedDate=" + communityCreatedDate + ", communityCreatedBy="
-                + communityCreatedBy + ", channelList=" + channelList + "]";
+        return "Community{" +
+                "communityId='" + communityId + '\'' +
+                ", communityName='" + communityName + '\'' +
+                ", communityUsers=" + communityUsers +
+                ", communityCreatedDate=" + communityCreatedDate +
+                ", communityCreatedBy=" + communityCreatedBy +
+                ", channelList=" + channelList +
+                '}';
     }
-
 }

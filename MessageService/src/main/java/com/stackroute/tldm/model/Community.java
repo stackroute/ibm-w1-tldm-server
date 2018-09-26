@@ -5,98 +5,88 @@ import java.util.List;
 
 // Model for Community
 
-/*
- * The class "Community" will be acting as the data model for the Community Table in the database. 
- * Java object to recreate it as a table in your database.
- */
-
-
 public class Community {
 
-	private String communityId;
-	private String communityName;
-	private List<User> communityUsers;
-	private Date communityCreatedDate;
-	private User communityCreatedBy;
-	private List<Channel> channelList;
-	
-	 /*
-     * This class should have six fields
-     * (communityId, communityName, communityUsers, communityCreatedDate, communityCreatedBy, channelList)
-     * This class should
-	 * also contain the getters and setters for the fields,
-	 * parameterized constructor and toString method.
-     */
+    private String communityId;
+    private String communityName;
+    private List<User> communityUsers;
+    private Date communityCreatedDate;
+    private User communityCreatedBy;
+    private List<Channel> channelList;
 
-	public String getCommunityId() {
-		return communityId;
-	}
+    public Community() {
+        super();
 
-	public void setCommunityId(String communityId) {
-		this.communityId = communityId;
-	}
+    }
 
-	public String getCommunityName() {
-		return communityName;
-	}
+    public Community(String communityId, String communityName, List<User> communityUsers, Date communityCreatedDate,
+                     User communityCreatedBy, List<Channel> channelList) {
+        super();
+        this.communityId = communityId;
+        this.communityName = communityName;
+        this.communityUsers = communityUsers;
+        this.communityCreatedDate = communityCreatedDate;
+        this.communityCreatedBy = communityCreatedBy;
+        this.channelList = channelList;
+    }
 
-	public void setCommunityName(String communityName) {
-		this.communityName = communityName;
-	}
+    public String getCommunityId() {
+        return communityId;
+    }
 
-	public List<User> getCommunityUsers() {
-		return communityUsers;
-	}
+    public void setCommunityId(String communityId) {
+        this.communityId = communityId;
+    }
 
-	public void setCommunityUsers(List<User> communityUsers) {
-		this.communityUsers = communityUsers;
-	}
+    public String getCommunityName() {
+        return communityName;
+    }
 
-	public Date getCommunityCreatedDate() {
-		return communityCreatedDate;
-	}
+    public void setCommunityName(String communityName) {
+        this.communityName = communityName;
+    }
 
-	public void setCommunityCreatedDate(Date communityCreatedDate) {
-		this.communityCreatedDate = communityCreatedDate;
-	}
+    public List<User> getCommunityUsers() {
+        return communityUsers;
+    }
 
-	public User getCommunityCreatedBy() {
-		return communityCreatedBy;
-	}
+    public void setCommunityUsers(List<User> communityUsers) {
+        this.communityUsers = communityUsers;
+    }
 
-	public void setCommunityCreatedBy(User communityCreatedBy) {
-		this.communityCreatedBy = communityCreatedBy;
-	}
+    public Date getCommunityCreatedDate() {
+        return communityCreatedDate;
+    }
 
-	public List<Channel> getChannelList() {
-		return channelList;
-	}
+    public void setCommunityCreatedDate(Date communityCreatedDate) {
+        this.communityCreatedDate = communityCreatedDate;
+    }
 
-	public void setChannelList(List<Channel> channelList) {
-		this.channelList = channelList;
-	}
+    public User getCommunityCreatedBy() {
+        return communityCreatedBy;
+    }
 
-	public Community(String communityId, String communityName, List<User> communityUsers, Date communityCreatedDate,
-			User communityCreatedBy, List<Channel> channelList) {
-		super();
-		this.communityId = communityId;
-		this.communityName = communityName;
-		this.communityUsers = communityUsers;
-		this.communityCreatedDate = communityCreatedDate;
-		this.communityCreatedBy = communityCreatedBy;
-		this.channelList = channelList;
-	}
+    public void setCommunityCreatedBy(User communityCreatedBy) {
+        this.communityCreatedBy = communityCreatedBy;
+    }
 
-	public Community() {
-		super();
+    public List<Channel> getChannelList() {
+        return channelList;
+    }
 
-	}
+    public void setChannelList(List<Channel> channelList) {
+        this.channelList = channelList;
+    }
 
-	@Override
-	public String toString() {
-		return "Community [communityId=" + communityId + ", communityName=" + communityName + ", communityUsers="
-				+ communityUsers + ", communityCreatedDate=" + communityCreatedDate + ", communityCreatedBy="
-				+ communityCreatedBy + ", channelList=" + channelList + "]";
-	}
-
+    @Override
+    public String toString() {
+        return "Community{" +
+                "communityId='" + communityId + '\'' +
+                ", communityName='" + communityName + '\'' +
+                ", communityUsers=" + communityUsers +
+                ", communityCreatedDate=" + communityCreatedDate +
+                ", communityCreatedBy=" + communityCreatedBy +
+                ", channelList=" + channelList +
+                '}';
+    }
 }

@@ -34,6 +34,7 @@ public class MessageServiceImpl implements MessageService {
             String sender = message.getSender().getUserId();
             if (sender.equals(senderId)) {
                 userChatRepository.deleteById(messageId);
+
                 return true;
             } else {
                 throw new MessageNotFoundException("Message Not Found!");
@@ -60,6 +61,7 @@ public class MessageServiceImpl implements MessageService {
                     messages.add(messageToGet);
                 }
             }
+
             return messages;
         } else {
             throw new MessageNotFoundException("Message Not Found!");

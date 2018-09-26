@@ -5,109 +5,99 @@ import java.util.List;
 
 // Model for Channel.
 
-/*
- * The class "Channel" will be acting as the data model for the Channel Table in the database. 
- * Java object to recreate it as a table in your database.
- */
-
-
 public class Channel {
 
-	private String channelId;
-	private String channelName;
-	private String channelCreatedBy;
-	private String channelDescription;
-	private Date channelCreatedDate;
-	private Community community;
-	private List<User> channelUsers;
-	
-	 /*
-     * This class should have seven fields
-     * (channelId, channelname, channelCreatedBy, channelDescription, channelCreatedDate, community, channelUsers)
-     * This class should
-	 * also contain the getters and setters for the fields,
-	 * parameterized constructor and toString method.
-     */
+    private String channelId;
+    private String channelName;
+    private String channelCreatedBy;
+    private String channelDescription;
+    private Date channelCreatedDate;
+    private Community community;
+    private List<User> channelUsers;
 
+    public Channel() {
+        super();
 
-	public String getChannelId() {
-		return channelId;
-	}
+    }
 
-	public void setChannelId(String channelId) {
-		this.channelId = channelId;
-	}
+    public Channel(String channelId, String channelName, String channelCreatedBy, String channelDescription,
+                   Date channelCreatedDate, Community community, List<User> channelUsers) {
+        super();
+        this.channelId = channelId;
+        this.channelName = channelName;
+        this.channelCreatedBy = channelCreatedBy;
+        this.channelDescription = channelDescription;
+        this.channelCreatedDate = channelCreatedDate;
+        this.community = community;
+        this.channelUsers = channelUsers;
+    }
 
-	public String getChannelName() {
-		return channelName;
-	}
+    public String getChannelId() {
+        return channelId;
+    }
 
-	public void setChannelName(String channelName) {
-		this.channelName = channelName;
-	}
+    public void setChannelId(String channelId) {
+        this.channelId = channelId;
+    }
 
-	public String getChannelCreatedBy() {
-		return channelCreatedBy;
-	}
+    public String getChannelName() {
+        return channelName;
+    }
 
-	public void setChannelCreatedBy(String channelCreatedBy) {
-		this.channelCreatedBy = channelCreatedBy;
-	}
+    public void setChannelName(String channelName) {
+        this.channelName = channelName;
+    }
 
-	public String getChannelDescription() {
-		return channelDescription;
-	}
+    public String getChannelCreatedBy() {
+        return channelCreatedBy;
+    }
 
-	public void setChannelDescription(String channelDescription) {
-		this.channelDescription = channelDescription;
-	}
+    public void setChannelCreatedBy(String channelCreatedBy) {
+        this.channelCreatedBy = channelCreatedBy;
+    }
 
-	public Date getChannelCreatedDate() {
-		return channelCreatedDate;
-	}
+    public String getChannelDescription() {
+        return channelDescription;
+    }
 
-	public void setChannelCreatedDate(Date channelCreatedDate) {
-		this.channelCreatedDate = channelCreatedDate;
-	}
+    public void setChannelDescription(String channelDescription) {
+        this.channelDescription = channelDescription;
+    }
 
-	public Community getCommunity() {
-		return community;
-	}
+    public Date getChannelCreatedDate() {
+        return channelCreatedDate;
+    }
 
-	public void setCommunity(Community community) {
-		this.community = community;
-	}
+    public void setChannelCreatedDate(Date channelCreatedDate) {
+        this.channelCreatedDate = channelCreatedDate;
+    }
 
-	public List<User> getChannelUsers() {
-		return channelUsers;
-	}
+    public Community getCommunity() {
+        return community;
+    }
 
-	public void setChannelUsers(List<User> channelUsers) {
-		this.channelUsers = channelUsers;
-	}
+    public void setCommunity(Community community) {
+        this.community = community;
+    }
 
-	public Channel(String channelId, String channelName, String channelCreatedBy, String channelDescription,
-			Date channelCreatedDate, Community community, List<User> channelUsers) {
-		super();
-		this.channelId = channelId;
-		this.channelName = channelName;
-		this.channelCreatedBy = channelCreatedBy;
-		this.channelDescription = channelDescription;
-		this.channelCreatedDate = channelCreatedDate;
-		this.community = community;
-		this.channelUsers = channelUsers;
-	}
+    public List<User> getChannelUsers() {
+        return channelUsers;
+    }
 
-	public Channel() {
-		super();
+    public void setChannelUsers(List<User> channelUsers) {
+        this.channelUsers = channelUsers;
+    }
 
-	}
-
-	@Override
-	public String toString() {
-		return "Channel [channelId=" + channelId + ", channelName=" + channelName + ", channelCreatedBy=" + channelCreatedBy
-				+ ", channelDescription=" + channelDescription + ", channelCreatedDate=" + channelCreatedDate
-				+ ", channelUsers=" + channelUsers + "]";
-	}
-
+    @Override
+    public String toString() {
+        return "Channel{" +
+                "channelId='" + channelId + '\'' +
+                ", channelName='" + channelName + '\'' +
+                ", channelCreatedBy='" + channelCreatedBy + '\'' +
+                ", channelDescription='" + channelDescription + '\'' +
+                ", channelCreatedDate=" + channelCreatedDate +
+                ", community=" + community +
+                ", channelUsers=" + channelUsers +
+                '}';
+    }
 }

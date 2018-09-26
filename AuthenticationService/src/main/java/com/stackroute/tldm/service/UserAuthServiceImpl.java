@@ -17,7 +17,6 @@ public class UserAuthServiceImpl implements UserAuthService {
     @Autowired
     public UserAuthServiceImpl(UserAuthRepository userAuth) {
         this.userAuth = userAuth;
-
     }
 
     @Override
@@ -26,16 +25,15 @@ public class UserAuthServiceImpl implements UserAuthService {
         System.out.println(info);
         try {
             if (!userAuth.existsById(info)
-                    && ((findUserByUserEmail(user.getUserMail()) == null)) && (info.trim().length() > 0) && (info.length()==info.replaceAll("\\s", "").length())){
-
+                    && ((findUserByUserEmail(user.getUserMail()) == null))
+                    && (info.trim().length() > 0)
+                    && (info.length()==info.replaceAll("\\s", "").length())){
                 user.setCreatedAt(new Date());
                 userAuth.save(user);
                 return user;
-
             } else {
                 throw new UserAlreadyExistsException("User Information already present");
             }
-
         } catch (NoSuchElementException exception) {
             throw new UserAlreadyExistsException("User Information already present");
         }

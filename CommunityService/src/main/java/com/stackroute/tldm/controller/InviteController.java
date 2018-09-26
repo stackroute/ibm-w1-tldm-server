@@ -7,7 +7,6 @@ import org.springframework.mail.MailException;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-//import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,33 +18,26 @@ import com.stackroute.tldm.service.InvitationService;
 @CrossOrigin("*")
 public class InviteController {
 
-	private Logger logger = LoggerFactory.getLogger(InviteController.class);
+    private Logger logger = LoggerFactory.getLogger(InviteController.class);
 
-	@Autowired
-	private InvitationService invitationService;
+    @Autowired
+    private InvitationService invitationService;
 
-	@RequestMapping("/signup")
-	public String signup() {
-		return "Please sign up for our service";
-	}
+    @RequestMapping("/signup")
+    public String signup() {
+        return "Please sign up for our service";
+    }
 
-	@PostMapping("/signup-success/{userMail}")
-	public String signupSuccess(@PathVariable String userMail, User user) {
-		// create sender
+    @PostMapping("/signup-success/{userMail}")
+    public String signupSuccess(@PathVariable String userMail, User user) {
+        user.setUserMail(userMail);
+        user.setUserName("isam");
+        try {
+            invitationService.sendNotification(userMail, user);
+        } catch (MailException e) {
+            logger.info("error msg" + e.getMessage());
+        }
 
-		// User user=new User();
-		user.setUserMail(userMail);
-		user.setUserName("isam");
-
-		// send a notification
-		try {
-			invitationService.sendNotification(userMail, user);
-
-		} catch (MailException e) {
-			// catch the error
-			logger.info("error msg" + e.getMessage());
-		}
-
-		return "Thank you for registering with us..Check your Mail";
-	}
+        return "Thank you for registering with us..Check your Mail";
+    }
 }

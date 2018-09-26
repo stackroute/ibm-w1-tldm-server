@@ -23,7 +23,7 @@ import java.util.Map;
 @EnableKafka
 public class KafkaSearchConsumerConfig {
 
-//    @Value("${server.boot}")
+    // @Value("${server.boot}")
     private String ipConfig = "172.23.239.122:9092";
     private String groupId = "search_user_group";
 

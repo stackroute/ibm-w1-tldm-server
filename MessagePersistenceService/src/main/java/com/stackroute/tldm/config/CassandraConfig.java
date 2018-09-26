@@ -9,30 +9,30 @@ import org.springframework.data.cassandra.core.cql.keyspace.CreateKeyspaceSpecif
 
 @Configuration
 public class CassandraConfig {
-	
-	// message_key_space is a namespace used in replication on nodes
-	public static final String KEYSPACE = "message_key_space";
 
-	// Enum identifying any schema actions to take at startup.
-	public SchemaAction getSchemaAction() {
-		return SchemaAction.CREATE_IF_NOT_EXISTS;
-	}
+    // message_key_space is a namespace used in replication on nodes
+    public static final String KEYSPACE = "message_key_space";
 
-	// Object to configure a CREATE KEYSPACE specification
-	protected List<CreateKeyspaceSpecification> getKeyspaceCreations() {
-		CreateKeyspaceSpecification specification = CreateKeyspaceSpecification.createKeyspace(KEYSPACE);
+    // Enum identifying any schema actions to take at startup.
+    public SchemaAction getSchemaAction() {
+        return SchemaAction.CREATE_IF_NOT_EXISTS;
+    }
 
-		return Arrays.asList(specification);
-	}
+    // Object to configure a CREATE KEYSPACE specification
+    protected List<CreateKeyspaceSpecification> getKeyspaceCreations() {
+        CreateKeyspaceSpecification specification = CreateKeyspaceSpecification.createKeyspace(KEYSPACE);
 
-	// returns the keyspace used
-	protected String getKeyspaceName() {
-		return KEYSPACE;
-	}
+        return Arrays.asList(specification);
+    }
 
-	// returns the specific package used
-	public String[] getEntityBasePackages() {
-		return new String[] { "com.stackroute.tldm" };
-	}
+    // returns the keyspace used
+    protected String getKeyspaceName() {
+        return KEYSPACE;
+    }
+
+    // returns the specific package used
+    public String[] getEntityBasePackages() {
+        return new String[]{"com.stackroute.tldm"};
+    }
 
 }

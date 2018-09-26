@@ -9,5 +9,4 @@ import com.stackroute.tldm.model.Message;
 
 @Repository
 public interface UserChatRepository extends CassandraRepository<Message, UUID> {
-
 }

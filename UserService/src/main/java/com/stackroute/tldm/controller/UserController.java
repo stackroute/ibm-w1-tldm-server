@@ -1,22 +1,19 @@
 package com.stackroute.tldm.controller;
 
 import java.util.List;
+
 import com.stackroute.tldm.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.stackroute.tldm.exception.UserAlreadyExistsException;
 import com.stackroute.tldm.exception.UserNotFoundException;
 import com.stackroute.tldm.service.UserService;
 
@@ -26,7 +23,7 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @CrossOrigin("*")
 @RequestMapping("api/v1/user")
-@Api(value="User Resource")
+@Api(value = "User Resource")
 public class UserController {
 
     private UserService service;
@@ -44,10 +41,8 @@ public class UserController {
         try {
             service.updateUser(userId, user);
             responseEntity = new ResponseEntity<>(user, HttpStatus.OK);
-
         } catch (UserNotFoundException exception) {
             responseEntity = new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
-
         }
 
         return responseEntity;
@@ -78,11 +73,9 @@ public class UserController {
     @ApiOperation("Getting User Details By User Name")
     public ResponseEntity<?> getUserByUserName(@PathVariable String userName) {
         ResponseEntity<?> responseEntity;
-
         try {
             if (service.getUserByUserName(userName) != null) {
                 responseEntity = new ResponseEntity<>(service.getUserByUserName(userName), HttpStatus.OK);
-
             } else {
                 responseEntity = new ResponseEntity<>("user not found", HttpStatus.NOT_FOUND);
             }

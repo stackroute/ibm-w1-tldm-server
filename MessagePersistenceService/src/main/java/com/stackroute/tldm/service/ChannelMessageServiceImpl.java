@@ -22,25 +22,21 @@ public class ChannelMessageServiceImpl implements ChannelMessageService {
         this.channelChatRepository = channelChatRepository;
     }
 
-    // this method is used to save a message in a channel
-
     // Saving a Channel Message
     @Override
     public void saveMessage(ChannelMessage channelMessage) {
         channelChatRepository.insert(channelMessage);
     }
 
-    // this method is used to delete the channel messages
-
     // Deleting a particular Channel Message By Sender
     @Override
-
     public boolean deleteChannelMessage(UUID messageId, String senderId) throws MessageNotFoundException {
         if (channelChatRepository.existsById(messageId)) {
             ChannelMessage message = channelChatRepository.findById(messageId).get();
             String sender = message.getSender().getUserId();
             if (sender.equals(senderId) && message != null) {
                 channelChatRepository.deleteById(messageId);
+
                 return true;
             } else {
                 throw new MessageNotFoundException("Message Not found!!");
@@ -50,7 +46,6 @@ public class ChannelMessageServiceImpl implements ChannelMessageService {
         }
     }
 
-    // this method is used to get all the channel messages using specific channel ID
     // Get All Channel Messages By channelId
     @Override
     public List<ChannelMessage> getChannelMessagesByChannelId(String channelId) throws MessageNotFoundException {
@@ -65,6 +60,7 @@ public class ChannelMessageServiceImpl implements ChannelMessageService {
                     messageList.add(groupMessages);
                 }
             }
+
             return messageList;
         } else {
             throw new MessageNotFoundException("Message Not Found!!");

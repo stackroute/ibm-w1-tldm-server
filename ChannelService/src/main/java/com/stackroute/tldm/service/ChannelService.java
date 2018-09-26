@@ -24,11 +24,11 @@ public interface ChannelService {
 
 	Channel updateChannelUser(String channelId, List<User> user) throws ChannelNotFoundException;
 
-	public boolean removeChannelUser(String channelId, String userId);
+	boolean removeChannelUser(String channelId, String userId);
 
-	public List<Channel> getListOfChannelsByUsers(String userName);
+	List<Channel> getListOfChannelsByUsers(String userName);
 	
-	public List<Channel> getListOfChannelsByUser(String userId);
+	List<Channel> getListOfChannelsByUser(String userId);
 	
 	Channel getChannelByChannelId(String channelId) throws ChannelNotFoundException;
 }
