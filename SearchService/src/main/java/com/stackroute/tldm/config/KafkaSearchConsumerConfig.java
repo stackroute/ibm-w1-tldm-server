@@ -23,8 +23,8 @@ import java.util.Map;
 @EnableKafka
 public class KafkaSearchConsumerConfig {
 
-    @Value("${server.boot}")
-    private String ipConfig;
+//    @Value("${server.boot}")
+    private String ipConfig = "172.23.239.122:9092";
 
     @Bean
     public ConsumerFactory<String, User> consumerFactory() {
