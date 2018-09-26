@@ -50,20 +50,8 @@ public class CommunityServiceImpl implements CommunityService {
         return community;
     }
 
-    // get community details using communityId
-    @Override
-    public Community getCommunityById(String communityId) throws CommunityNotFoundException {
-        Community fetchCommunity;
-        try {
-            fetchCommunity = communityRepo.findById(communityId).get();
-        } catch (NoSuchElementException exception) {
-            throw new CommunityNotFoundException("Community not found");
-        }
-
-        return fetchCommunity;
-    }
-
-    //get community details by communityname
+    
+   // get community details by communityname
     @Override
     public Community getCommunityByCommunityName(String communityName) throws CommunityNotFoundException {
         Community community;
@@ -103,7 +91,7 @@ public class CommunityServiceImpl implements CommunityService {
     }
 
     // all channels within the community.
-    @Override
+   @Override
     public List<Channel> findAllChannelsByCommunityName(String communityName) throws CommunityNotFoundException {
         List<Channel> fetchChannels = null;
         try {
@@ -115,24 +103,14 @@ public class CommunityServiceImpl implements CommunityService {
         return fetchChannels;
     }
 
-    //update community using communityName
-    @Override
-    public Community updateByCommunityName(String communityName, Channel channel) {
-        Community fetchCommunity = communityRepo.getCommunityByCommunityName(communityName);
-        List<Channel> channelList = fetchCommunity.getChannelsList();
-        channelList.add(channel);
-        fetchCommunity.setChannelsList(channelList);
-        communityRepo.save(fetchCommunity);
-
-        return fetchCommunity;
-    }
+    
 
     //update community using communityId
     @Override
     public Community updateByCommunityId(String communityId, Channel channel) {
         List<Channel> fetchChannel = new ArrayList<>();
         Community fetchCommunity;
-        fetchCommunity = communityRepo.getCommunityByCommunityId(communityId);
+        fetchCommunity = communityRepo.findById(communityId).get();
         fetchChannel = fetchCommunity.getChannelsList();
         fetchChannel.add(channel);
         fetchCommunity.setChannelsList(fetchChannel);
@@ -140,4 +118,26 @@ public class CommunityServiceImpl implements CommunityService {
 
         return fetchCommunity;
     }
+//get community details using communityId
+
+	@Override
+	public Community getCommunityByCommunityId(String communityId) throws CommunityNotFoundException {
+		Community community;
+      try {
+          community = communityRepo.findById(communityId).get();
+
+      } catch (NoSuchElementException e) {
+          throw new CommunityNotFoundException("community not found");
+      }
+
+      return community;
+  }
+
+
+
+	
+
+	
+
+	
 }

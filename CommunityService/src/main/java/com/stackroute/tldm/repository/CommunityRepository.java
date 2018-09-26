@@ -9,6 +9,6 @@ public interface CommunityRepository extends MongoRepository<Community, String> 
 
     Community getCommunityByCommunityName(String communityName);
 
-    Community getCommunityByCommunityId(String communityId);
+   
 
 }
