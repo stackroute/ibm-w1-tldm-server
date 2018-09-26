@@ -25,12 +25,13 @@ public class KafkaSearchConsumerConfig {
 
 //    @Value("${server.boot}")
     private String ipConfig = "172.23.239.122:9092";
+    private String groupId = "search_user_group";
 
     @Bean
     public ConsumerFactory<String, User> consumerFactory() {
         Map<String, Object> config = new HashMap<>();
         config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, ipConfig);
-        config.put(ConsumerConfig.GROUP_ID_CONFIG, "${groupId.boot}");
+        config.put(ConsumerConfig.GROUP_ID_CONFIG, groupId);
         config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
         return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),

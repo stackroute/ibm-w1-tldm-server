@@ -21,7 +21,7 @@ public class SearchServiceImpl implements SearchService {
         this.searchRepository = searchRepository;
     }
 
-    @KafkaListener(topics = "${search-topic.boot}", groupId = "${groupId.boot}")
+    @KafkaListener(topics = "search_user", groupId = "search_user_group")
     public void receiveUser(@Payload User user) {
         searchRepository.insert(user);
     }
