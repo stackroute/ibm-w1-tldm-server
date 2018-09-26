@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+// Rest call for searching the users by name.
+
 @RestController
 @RequestMapping("/api/v1/search-users")
 @CrossOrigin("*")
