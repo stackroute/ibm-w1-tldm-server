@@ -67,16 +67,16 @@
     </build>
 
     <modules>
-        <module>AuthenticationService</module>
-        <module>UserService</module>
-        <module>ConfigurationService</module>
         <module>DiscoveryService</module>
-        <module>MessageService</module>
+        <module>ConfigurationService</module>
+        <module>AuthenticationService</module>
         <module>GatewayService</module>
+        <module>UserService</module>
+        <module>MessagePersistenceService</module>
+        <module>MessageService</module>
         <module>ChannelService</module>
         <module>CommunityService</module>
         <module>SearchService</module>
-        <module>MessagePersistenceService</module>
     </modules>
 
 </project>
