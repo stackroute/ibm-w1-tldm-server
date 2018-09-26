@@ -172,19 +172,7 @@ public class ChannelController {
         return responseEntity;
     }
 
-    // this handler method is mapped to the URL "/user/{userName}" using HTTP GET method //
-    @GetMapping("/user/{userName}")
-    @ApiOperation("Get the Channel by providing name of user")
-    public ResponseEntity<?> getchannelByUserName(@PathVariable String userName) {
-        ResponseEntity<?> responseEntity;
-        List<Channel> fetchChannel = channelService.getListOfChannelsByUsers(userName);
-        if (fetchChannel != null) {
-            responseEntity = new ResponseEntity<>(fetchChannel, HttpStatus.OK);
-        } else {
-            responseEntity = new ResponseEntity<>("user name not found", HttpStatus.NOT_FOUND);
-        }
-        return responseEntity;
-    }
+   
 
     // this handler method is mapped to the URL "/{channelId}/{userId}" using HTTP DELETE method //
     @DeleteMapping("/{channelId}/{userId}")
