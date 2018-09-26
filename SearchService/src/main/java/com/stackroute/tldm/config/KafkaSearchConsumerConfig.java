@@ -15,6 +15,10 @@ import org.springframework.kafka.support.serializer.JsonDeserializer;
 import java.util.HashMap;
 import java.util.Map;
 
+// Consumer configuration class for User-Search
+// Fetching group-id from cloud configurations.
+// For JSON object to be sent through kafka we need this configuration.
+
 @Configuration
 @EnableKafka
 public class KafkaSearchConsumerConfig {
