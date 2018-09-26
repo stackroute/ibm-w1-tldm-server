@@ -29,4 +29,6 @@ public interface ChannelService {
 	public List<Channel> getListOfChannelsByUsers(String userName);
 	
 	public List<Channel> getListOfChannelsByUser(String userId);
+	
+	Channel getChannelByChannelId(String channelId) throws ChannelNotFoundException;
 }

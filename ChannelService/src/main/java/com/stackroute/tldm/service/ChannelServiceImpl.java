@@ -198,4 +198,18 @@ public class ChannelServiceImpl implements ChannelService {
 		return channels;
 	}
 
-}
+	@Override
+	public Channel getChannelByChannelId(String channelId) throws ChannelNotFoundException {
+		Channel fetchChannel;
+		try {
+			fetchChannel = channelRepository.findById(channelId).get();
+		} catch (NoSuchElementException exception) {
+			throw new ChannelNotFoundException("channel not found");
+		}
+
+		return fetchChannel;
+	}
+		
+	}
+
+

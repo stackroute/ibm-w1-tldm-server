@@ -1,6 +1,5 @@
 package com.stackroute.tldm.config;
 
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -20,7 +19,7 @@ public class SwaggerConfig {
     public Docket productApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()                 .apis(RequestHandlerSelectors.basePackage("com.stackroute.tldm"))
-                .paths(regex("/user/auth.*"))
+                .paths(regex("/api/v1.*"))
                 .build()
                 .apiInfo(metaInfo());
     }
@@ -29,8 +28,8 @@ public class SwaggerConfig {
     private ApiInfo metaInfo() {
 
         ApiInfo apiInfo = new ApiInfo(
-                "Spring boot Authentication Service API",
-                "Spring Boot Swagger for Authentication Service",
+                "Spring boot Channel Service API",
+                "Spring Boot Swagger for Channel Service",
                 "1.0.0",
                 "Terms of Service",
                 new Contact("Pankaj", "https://www.youtube.com/TechPrimers",

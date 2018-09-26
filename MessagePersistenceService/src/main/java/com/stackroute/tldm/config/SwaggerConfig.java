@@ -20,7 +20,7 @@ public class SwaggerConfig {
     public Docket productApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()                 .apis(RequestHandlerSelectors.basePackage("com.stackroute.tldm"))
-                .paths(regex("/user/auth.*"))
+                .paths(regex("/api/v1.*"))
                 .build()
                 .apiInfo(metaInfo());
     }
@@ -29,12 +29,12 @@ public class SwaggerConfig {
     private ApiInfo metaInfo() {
 
         ApiInfo apiInfo = new ApiInfo(
-                "Spring boot Authentication Service API",
-                "Spring Boot Swagger for Authentication Service",
+                "Spring boot Message Persistence Service API",
+                "Spring Boot Swagger for Message Persistence Service",
                 "1.0.0",
                 "Terms of Service",
-                new Contact("Pankaj", "https://www.youtube.com/TechPrimers",
-                        "pankaju713@gmail.com"),
+                new Contact("Soumyajit", "https://www.youtube.com/TechPrimers",
+                        "dassoumyajit1996@gmail.com"),
                 "Apache License Version 2.0",
                 "https://www.apache.org/licesen.html"
         );
