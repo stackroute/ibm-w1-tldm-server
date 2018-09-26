@@ -103,23 +103,23 @@ public class ChannelServiceImpl implements ChannelService {
 		return allUsers;
 	}
 
-	// this method is used to add a user to a channel
-	@Override
-	public Channel updateChannelUser(String channelId, User user) throws ChannelNotFoundException {
-
-		Channel channel = channelRepository.findById(channelId).get();
-		List<User> userList = new ArrayList<>();
-		userList = channel.getChannelUsers();
-		userList.add(user);
-		channel.setChannelUsers(userList);
-		channelRepository.save(channel);
-		return channel;
-
-	}
-
 	// this method is used to list all the channels where a particular userName is
 	// present
+
 	@Override
+	public Channel updateChannelUser(String channelId, List<User> users) throws ChannelNotFoundException {
+		Channel channel = channelRepository.findById(channelId).get();
+		List<User> userList = channel.getChannelUsers();
+
+		for (User user : users) {
+			userList.add(user);
+		}
+
+		channel.setChannelUsers(userList);
+		System.out.println(channelRepository.save(channel));
+		return channel;
+	}
+@Override
 	public List<Channel> getListOfChannelsByUsers(String userName) {
 		List<Channel> channels = new ArrayList<>();
 		List<Channel> channelList = channelRepository.findAll();
@@ -209,7 +209,5 @@ public class ChannelServiceImpl implements ChannelService {
 
 		return fetchChannel;
 	}
-		
-	}
 
-
+}
