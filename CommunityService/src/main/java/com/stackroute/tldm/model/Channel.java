@@ -1,5 +1,7 @@
 package com.stackroute.tldm.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Date;
 import java.util.List;
 
@@ -12,8 +14,9 @@ public class Channel {
     private String channelDescription;
     private Date channelCreatedDate;
     private Community communityName;
-    
-   
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+
     private List<User> channelUsers;
 
     public Channel() {

@@ -4,7 +4,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -13,7 +13,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.junit.Before;
-import org.junit.Ignore;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -27,7 +27,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import org.springframework.test.web.servlet.result.ModelResultMatchers;
+
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.stackroute.tldm.controller.CommunityController;
@@ -91,7 +91,6 @@ public class CommunityControllerTest {
 	}
 
 	@Test
-	
 	public void createCommunitySuccess() throws Exception {
 		when(communityService.createCommunity(any())).thenReturn(community);
 		mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/community")
@@ -102,7 +101,6 @@ public class CommunityControllerTest {
 	}
 
 	@Test
-	
 	public void createCommunityFailure() throws Exception {
 		when(communityService.createCommunity(any())).thenThrow(CommunityAlreadyExistsException.class);
 		mockMvc.perform(post("/api/v1/community")
@@ -113,7 +111,6 @@ public class CommunityControllerTest {
 	}
 
 	@Test
-	
 	public void deleteCommunitySuccess() throws Exception {
 		when(communityService.delCommunity("swedha12")).thenReturn(true);
 		mockMvc.perform(delete("/api/v1/delete/swedha12").contentType(MediaType.APPLICATION_JSON)
@@ -121,7 +118,6 @@ public class CommunityControllerTest {
 	}
 
 	@Test
-	
 	public void deletecommunityFailure() throws Exception {
 		when(communityService.delCommunity("swedha12")).thenThrow(CommunityNotFoundException.class);
 		mockMvc.perform(delete("/api/v1/delete/swedha12").contentType(MediaType.APPLICATION_JSON)
@@ -129,11 +125,7 @@ public class CommunityControllerTest {
 				.andDo(MockMvcResultHandlers.print());
 	}
 
-	
-	
-	
-@Test
-	
+
 	public void updateCommunitySuccess() throws Exception {
 	
 	when(communityService.updateCommunity(eq(community.getCommunityId()), any())).thenReturn(community);
@@ -146,7 +138,6 @@ public class CommunityControllerTest {
 	}
 
 	@Test
-	
 	public void updateCommunityFailure() throws Exception {
 		user.setUserMail("swedha87@gmail.com");
 		when(communityService.updateCommunity(eq(user.getUserId()), any())).thenThrow(CommunityNotFoundException.class);

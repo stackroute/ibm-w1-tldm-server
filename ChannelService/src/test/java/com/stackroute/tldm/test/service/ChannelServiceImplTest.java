@@ -20,7 +20,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import com.stackroute.tldm.exception.ChannelAlreadyExistsException;
 import com.stackroute.tldm.exception.ChannelNotFoundException;
 import com.stackroute.tldm.model.Channel;
-import com.stackroute.tldm.model.Community;
 import com.stackroute.tldm.model.User;
 import com.stackroute.tldm.repository.ChannelRepository;
 import com.stackroute.tldm.service.ChannelServiceImpl;
@@ -31,13 +30,10 @@ public class ChannelServiceImplTest {
 	private Channel channel;
 	@MockBean
 	private User user;
-	@MockBean
-	private Community community;
 	@Mock
 	private ChannelRepository channelRepository;
 	@InjectMocks
 	private ChannelServiceImpl channelService;
-	private List<Channel> channelList = null;
 	private Optional<Channel> options;
 
 	@Before
@@ -50,22 +46,11 @@ public class ChannelServiceImplTest {
 		channel.setChannelCreatedBy("Gayathri");
 		channel.setChannelDescription("product works");
 		channel.setChannelCreatedDate(new Date());
-		channel.setCommunity(community);
 		List<User> userList = new ArrayList<>();
 		channel.setChannelUsers(userList);
 		userList.add(user);
-		// community
-
-		community = new Community();
-		community.setCommunityId("swe123");
-		community.setCommunityName("PRODUCT");
-		community.setCommunityCreatedDate(new Date());
-		community.setCommunityCreatedBy(user);
-		community.setChannelList(channelList);
-		community.setCommunityUsers(userList);
 
 		// users
-
 		user = new User();
 		user.setUserId("swedha12");
 		user.setPhoneNum("56528769987");
@@ -93,13 +78,13 @@ public class ChannelServiceImplTest {
 
 	}
 
-	@Ignore
-	@Test
-	public void getChannelByChannelName() throws ChannelNotFoundException {
-		when(channelRepository.getChannelByChannelName(channel.getChannelName())).thenReturn(channel);
-		Channel fetchChannel = channelService.getChannelByChannelName(channel.getChannelName());
-		assertEquals(channel, fetchChannel);
-	}
+//	@Ignore
+//	@Test
+//	public void getChannelByChannelName() throws ChannelNotFoundException {
+//		when(channelRepository.getChannelByChannelId(channel.getChannelName())).thenReturn(channel);
+//		Channel fetchChannel = channelService.getChannelByChannelName(channel.getChannelName());
+//		assertEquals(channel, fetchChannel);
+//	}
 
 	@Ignore
 	@Test

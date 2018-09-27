@@ -2,7 +2,6 @@ package com.stackroute.tldm.test.controller;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -34,7 +33,6 @@ import com.stackroute.tldm.controller.ChannelController;
 import com.stackroute.tldm.exception.ChannelAlreadyExistsException;
 import com.stackroute.tldm.exception.ChannelNotFoundException;
 import com.stackroute.tldm.model.Channel;
-import com.stackroute.tldm.model.Community;
 import com.stackroute.tldm.model.User;
 import com.stackroute.tldm.service.ChannelService;
 
@@ -51,8 +49,6 @@ public class ChannelControllerTest {
 	@InjectMocks
 	private ChannelController channelController;
 	private User user;
-	private Community community;
-	private List<Channel> channelList = null;
 
 	@Before
 	public void setUp() {
@@ -63,23 +59,11 @@ public class ChannelControllerTest {
 		channel.setChannelDescription("Product works");
 		channel.setChannelCreatedBy("Gayathri");
 		channel.setChannelCreatedDate(new Date());
-		channel.setCommunity(community);
 		List<User> userList = new ArrayList<>();
 		channel.setChannelUsers(userList);
 		userList.add(user);
 
-		// community
-
-		community = new Community();
-		community.setCommunityId("swe123");
-		community.setCommunityName("PRODUCT");
-		community.setCommunityCreatedDate(new Date());
-		community.setCommunityCreatedBy(user);
-		community.setChannelList(channelList);
-		community.setCommunityUsers(userList);
-
 		// users
-
 		user = new User();
 		user.setUserId("swedha12");
 		user.setPhoneNum("56528769987");
@@ -145,7 +129,7 @@ public class ChannelControllerTest {
 	@Ignore
 	@Test
 	public void getByChannelNameSuccess() throws Exception {
-		when(channelService.getChannelByChannelName(channel.getChannelName())).thenReturn(channel);
+		when(channelService.getChannelByChannelId(channel.getChannelId())).thenReturn(channel);
 		mockMvc.perform(
 				get("/ap1/v1/channel/tldm").contentType(MediaType.APPLICATION_JSON).content(asJsonString(channel)))
 				.andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
@@ -154,7 +138,7 @@ public class ChannelControllerTest {
 	@Ignore
 	@Test
 	public void getByChannelNameFailure() throws Exception {
-		when(channelService.getChannelByChannelName("tldm")).thenThrow(ChannelNotFoundException.class);
+		when(channelService.getChannelByChannelId("tldm")).thenThrow(ChannelNotFoundException.class);
 		mockMvc.perform(
 				get("/api/v1/channel/tldm").contentType(MediaType.APPLICATION_JSON).content(asJsonString(channel)))
 				.andExpect(status().isNotFound()).andDo(MockMvcResultHandlers.print());

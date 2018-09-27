@@ -13,7 +13,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ChannelRepository extends MongoRepository<Channel, String> {
 
-    Channel getChannelByChannelName(String channelName) throws ChannelNotFoundException;
-
     List<User> findAllChannelUsersByChannelName(String channelName, Channel channel);
+
 }

@@ -42,16 +42,11 @@ public class ChannelController {
     @ApiOperation("Create new channels")
     public ResponseEntity<?> createChannel(@RequestBody Channel channel) {
         ResponseEntity<?> responseEntity = null;
-        try {
             if (channelService.createChannel(channel) != null) {
                 responseEntity = new ResponseEntity<>(channel, HttpStatus.CREATED);
 
             }
 
-        } catch (ChannelAlreadyExistsException exception) {
-            responseEntity = new ResponseEntity<>(exception.getMessage(), HttpStatus.CONFLICT);
-
-        }
         return responseEntity;
     }
 
@@ -73,7 +68,7 @@ public class ChannelController {
     // this handler method is mapped to the URL using HTTP GET method
     @GetMapping
     @ApiOperation("Get all channel list")
-    public ResponseEntity<?> getAllchannels() {
+    public ResponseEntity<?> getAllChannels() {
         ResponseEntity<?> responseEntity;
         List<Channel> channelList = channelService.getAllChannels();
         if (channelList != null) {
@@ -117,26 +112,6 @@ public class ChannelController {
         return responseEntity;
     }
 
-    // this handler method is mapped to the URL "/{channelName}" using HTTP GET
-    // method //
-    @GetMapping("/{channelName}")
-    @ApiOperation("Get Detail of Channel by Channel Name")
-    public ResponseEntity<?> getChannelByChannelName(@PathVariable String channelName) {
-        ResponseEntity<?> responseEntity;
-        Channel fetch;
-        try {
-            fetch = channelService.getChannelByChannelName(channelName);
-            if (fetch != null) {
-                responseEntity = new ResponseEntity<>(fetch, HttpStatus.OK);
-            } else {
-                responseEntity = new ResponseEntity<>("channel name not found", HttpStatus.NOT_FOUND);
-            }
-        } catch (ChannelNotFoundException e) {
-            responseEntity = new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
-
-        }
-        return responseEntity;
-    }
 
     @GetMapping("/getchannel/{channelId}")
     public ResponseEntity<?> getChannelByChannelId(@PathVariable String channelId) {
@@ -157,12 +132,12 @@ public class ChannelController {
     }
 
     // this handler method is mapped to the URL "/getuser/{channelName}" using HTTP GET method
-    @GetMapping("/getuser/{channelName}")
-    @ApiOperation("get the user of the particular channel by providing channel name")
-    public ResponseEntity<?> getUsersByChannelName(@PathVariable String channelName) {
+    @GetMapping("/getuser/{channelId}")
+    @ApiOperation("get the user of the particular channel by providing channel Id")
+    public ResponseEntity<?> getUsersByChannelId(@PathVariable String channelId) {
         ResponseEntity<?> responseEntity;
         List<User> allUsers;
-        allUsers = channelService.findAllChannelUsersByChannelName(channelName);
+        allUsers = channelService.findAllChannelUsersByChannelId(channelId);
         if (allUsers != null) {
             responseEntity = new ResponseEntity<>(allUsers, HttpStatus.OK);
 
