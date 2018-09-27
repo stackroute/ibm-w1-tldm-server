@@ -20,7 +20,7 @@ public interface CommunityService {
 
    
 
-    Community getCommunityByCommunityName(String communityName) throws CommunityNotFoundException;
+    //Community getCommunityByCommunityName(String communityName) throws CommunityNotFoundException;
     
     Community getCommunityByCommunityId(String communityId) throws CommunityNotFoundException;
 

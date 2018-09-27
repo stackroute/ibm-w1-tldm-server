@@ -51,19 +51,7 @@ public class CommunityServiceImpl implements CommunityService {
     }
 
     
-   // get community details by communityname
-    @Override
-    public Community getCommunityByCommunityName(String communityName) throws CommunityNotFoundException {
-        Community community;
-        try {
-            community = communityRepo.getCommunityByCommunityName(communityName);
-
-        } catch (NoSuchElementException e) {
-            throw new CommunityNotFoundException("community not found");
-        }
-
-        return community;
-    }
+   
 
     // delete community using communityId
     @Override

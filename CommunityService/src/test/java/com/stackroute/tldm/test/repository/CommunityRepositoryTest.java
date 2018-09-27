@@ -72,14 +72,14 @@ public class CommunityRepositoryTest {
     
 
     @Test
-    @Ignore
+ 
     public void createCommunityTest() {
         communityRepo.insert(community);
         Community fetchUser = communityRepo.findById("swetha123").get();
         Assert.assertEquals(community.getCommunityId(), fetchUser.getCommunityId());
     }
     @Test
-    @Ignore
+    
     public void updateCommunityTest() {
         communityRepo.insert(community);
         Community fetchUser = communityRepo.findById("swetha123").get();
@@ -90,7 +90,7 @@ public class CommunityRepositoryTest {
     }
     
     @Test
-    @Ignore
+ 
     public void getCommunityByCommunityNameTest() {
         communityRepo.insert(community);
         Community fetchUser = communityRepo.getCommunityByCommunityName("Product");
@@ -98,7 +98,7 @@ public class CommunityRepositoryTest {
     }
     
     @Test
-    @Ignore
+   
     public void getCommunityByIdTest() {
         communityRepo.insert(community);
         Community fetchUser = communityRepo.findById("swetha123").get();
