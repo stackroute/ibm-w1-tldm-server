@@ -3,6 +3,7 @@ package com.stackroute.tldm.model;
 import java.util.Date;
 import java.util.List;
 
+
 public class Channel {
 
     private String channelId;
@@ -11,6 +12,8 @@ public class Channel {
     private String channelDescription;
     private Date channelCreatedDate;
     private Community communityName;
+    
+   
     private List<User> channelUsers;
 
     public Channel() {

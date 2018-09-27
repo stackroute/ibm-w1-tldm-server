@@ -14,25 +14,24 @@ public interface CommunityService {
 
     Community updateCommunity(String communityId, Community community) throws CommunityNotFoundException;
 
-    //Community updateByCommunityName(String communityName, Channel channel) throws CommunityNotFoundException;
-
+   
     Community updateByCommunityId(String communityId, Channel channel) throws CommunityNotFoundException;
 
    
 
-    //Community getCommunityByCommunityName(String communityName) throws CommunityNotFoundException;
-    
+  
     Community getCommunityByCommunityId(String communityId) throws CommunityNotFoundException;
 
     boolean delCommunity(String communityId) throws CommunityNotFoundException;
 
-    List<User> findAllCommunityUsersByCommunityName(String communityName) throws CommunityNotFoundException;
+   
 
-    List<Channel> findAllChannelsByCommunityName(String communityName) throws CommunityNotFoundException;
+   // List<Channel> findAllChannelsByCommunityName(String communityName) throws CommunityNotFoundException;
     
   
     
-   // List<User> findAllCommunityUsersByCommunityId(String communityId) throws CommunityNotFoundException;
+    List<User> findAllCommunityUsersByCommunityId(String communityId) throws CommunityNotFoundException;
 
-
+   
+    List<Channel> findAllChannelsByCommunityId(String communityId) throws CommunityNotFoundException;
 }

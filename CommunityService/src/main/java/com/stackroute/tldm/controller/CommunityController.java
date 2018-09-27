@@ -93,7 +93,7 @@ public class CommunityController {
         try {
             communityService.updateByCommunityId(communityId, channel);
 
-            responseEntity = new ResponseEntity<>(communityId, HttpStatus.OK);
+            responseEntity = new ResponseEntity<>(community, HttpStatus.OK);
 
         } catch (CommunityNotFoundException exception) {
             responseEntity = new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
@@ -102,4 +102,65 @@ public class CommunityController {
 
         return responseEntity;
     }
+    
+    @GetMapping("/get/{communityId}")
+    public ResponseEntity<?> getCommunityDetailsByCommunityId(@PathVariable String communityId) {
+        ResponseEntity<?> responseEntity = null;
+       // Community community = null;
+        try {
+         Community community=   communityService.getCommunityByCommunityId(communityId);
+
+            responseEntity = new ResponseEntity<>(community, HttpStatus.OK);
+
+        } catch (CommunityNotFoundException exception) {
+            responseEntity = new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
+
+        }
+
+        return responseEntity;
+    }
+    //get communityusers by using communityId
+    
+    @GetMapping("/get/channel/users/{communityId}")
+    
+    public ResponseEntity<?> getCommunityUserDetailsByCommunityId(@PathVariable String communityId) {
+        ResponseEntity<?> responseEntity = null;
+       // Community community = null;
+        try {
+         List<User> communityUsers=   communityService.findAllCommunityUsersByCommunityId(communityId);
+
+            responseEntity = new ResponseEntity<>(communityUsers, HttpStatus.OK);
+
+        } catch (CommunityNotFoundException exception) {
+            responseEntity = new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
+
+        }
+
+        return responseEntity;
+    }
+    
+    //get list of channels within the community using communityId
+    
+@GetMapping("/get/channel/{communityId}")
+    
+    public ResponseEntity<?> getListOfChannelByCommunityId(@PathVariable String communityId) {
+        ResponseEntity<?> responseEntity = null;
+       // Community community = null;
+        try {
+         List<Channel> channelsList=   communityService.findAllChannelsByCommunityId(communityId);
+
+            responseEntity = new ResponseEntity<>(channelsList, HttpStatus.OK);
+
+        } catch (CommunityNotFoundException exception) {
+            responseEntity = new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
+
+        }
+
+        return responseEntity;
+    }
+    
+    
+    
+    
+    
 }

@@ -65,31 +65,19 @@ public class CommunityServiceImpl implements CommunityService {
         return true;
     }
 
-    //all users in the community
-    @Override
-    public List<User> findAllCommunityUsersByCommunityName(String communityName) throws CommunityNotFoundException {
-        List<User> fetchUsers = null;
-        try {
-            fetchUsers = communityRepo.getCommunityByCommunityName(communityName).getCommunityUsers();
-        } catch (NoSuchElementException e) {
-            throw new CommunityNotFoundException("community not found");
-        }
-
-        return fetchUsers;
-    }
-
+  
     // all channels within the community.
-   @Override
-    public List<Channel> findAllChannelsByCommunityName(String communityName) throws CommunityNotFoundException {
-        List<Channel> fetchChannels = null;
-        try {
-            fetchChannels = communityRepo.getCommunityByCommunityName(communityName).getChannelsList();
-        } catch (NoSuchElementException e) {
-            throw new CommunityNotFoundException("community not found");
-        }
-
-        return fetchChannels;
-    }
+//   @Override
+//    public List<Channel> findAllChannelsByCommunityName(String communityName) throws CommunityNotFoundException {
+//        List<Channel> fetchChannels = null;
+//        try {
+//            fetchChannels = communityRepo.getCommunityByCommunityName(communityName).getChannelsList();
+//        } catch (NoSuchElementException e) {
+//            throw new CommunityNotFoundException("community not found");
+//        }
+//
+//        return fetchChannels;
+//    }
 
     
 
@@ -121,6 +109,33 @@ public class CommunityServiceImpl implements CommunityService {
       return community;
   }
 
+	@Override
+	public List<User> findAllCommunityUsersByCommunityId(String communityId) throws CommunityNotFoundException {
+	
+		 List<User> fetchUsers = null;
+	        try {
+	            fetchUsers = communityRepo.getCommunityByCommunityId(communityId).getCommunityUsers();
+	        } catch (NoSuchElementException e) {
+	            throw new CommunityNotFoundException("community not found");
+	        }
+
+	        return fetchUsers;
+	    }
+
+	@Override
+	public List<Channel> findAllChannelsByCommunityId(String communityId) throws CommunityNotFoundException {
+		 List<Channel> fetchChannels = null;
+	        try {
+	            fetchChannels = communityRepo.getCommunityByCommunityId(communityId).getChannelsList();
+	        } catch (NoSuchElementException e) {
+	            throw new CommunityNotFoundException("community not found");
+	        }
+
+	        return fetchChannels;
+	    }
+	}
+
+
 
 
 	
@@ -128,4 +143,4 @@ public class CommunityServiceImpl implements CommunityService {
 	
 
 	
-}
+

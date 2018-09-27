@@ -24,7 +24,10 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import org.springframework.test.web.servlet.result.ModelResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.stackroute.tldm.controller.CommunityController;
@@ -90,19 +93,23 @@ public class CommunityControllerTest {
 	@Test
 	
 	public void createCommunitySuccess() throws Exception {
-		when(communityService.createCommunity(community)).thenReturn(community);
-		mockMvc.perform(
-				post("/api/v1/community").contentType(MediaType.APPLICATION_JSON).content(asJsonString(community)))
-				.andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
+		when(communityService.createCommunity(any())).thenReturn(community);
+		mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/community")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(asJsonString(community)))
+				.andExpect(MockMvcResultMatchers.status().isCreated())
+				.andDo(MockMvcResultHandlers.print());
 	}
 
 	@Test
 	
 	public void createCommunityFailure() throws Exception {
 		when(communityService.createCommunity(any())).thenThrow(CommunityAlreadyExistsException.class);
-		mockMvc.perform(
-				post("/api/v1/community").contentType(MediaType.APPLICATION_JSON).content(asJsonString(community)))
-				.andExpect(status().isConflict()).andDo(MockMvcResultHandlers.print());
+		mockMvc.perform(post("/api/v1/community")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(asJsonString(community)))
+				.andExpect(status().isConflict())
+				.andDo(MockMvcResultHandlers.print());
 	}
 
 	@Test
@@ -122,13 +129,20 @@ public class CommunityControllerTest {
 				.andDo(MockMvcResultHandlers.print());
 	}
 
-	@Test
+	
+	
+	
+@Test
 	
 	public void updateCommunitySuccess() throws Exception {
-		user.setUserMail("swedha87@gmail.com");
-		when(communityService.updateCommunity(eq(user.getUserId()), any())).thenReturn(community);
-		mockMvc.perform(put("/api/v1/community/swedha12").contentType(MediaType.APPLICATION_JSON)
-				.content(asJsonString(community))).andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
+	
+	when(communityService.updateCommunity(eq(community.getCommunityId()), any())).thenReturn(community);
+	community.setChannelsList(channelsList);	
+	mockMvc.perform(MockMvcRequestBuilders.put("/api/v1/community/5baa361ec5f1e2622b02641")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(asJsonString(community)))
+		        .andExpect(MockMvcResultMatchers.status().isOk())
+		        .andDo(MockMvcResultHandlers.print());
 	}
 
 	@Test
@@ -141,25 +155,10 @@ public class CommunityControllerTest {
 				.andDo(MockMvcResultHandlers.print());
 	}
 
-	@Test
-	
-	public void getCommunityNameSuccess() throws Exception {
-		when(communityService.getCommunityByCommunityName("Product")).thenReturn(community);
-		mockMvc.perform(get("/api/v1/community/get/Product").contentType(MediaType.APPLICATION_JSON)
-				.content(asJsonString(community))).andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
-	}
-
-	@Test
-	
-	public void getCommunityNameFailure() throws Exception {
-		when(communityService.getCommunityByCommunityName("Product")).thenThrow(CommunityNotFoundException.class);
-		mockMvc.perform(get("/api/v1/community/get/Product").contentType(MediaType.APPLICATION_JSON)
-				.content(asJsonString(community))).andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
-	}
-
 	private byte[] asJsonString(Community community2) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	
 }
