@@ -84,14 +84,6 @@ public class ChannelServiceImplTest {
 
 	
 	@Test
-	public void getChannelByChannelName() throws ChannelNotFoundException {
-		when(channelRepository.getChannelByChannelName(channel.getChannelName())).thenReturn(channel);
-		Channel fetchChannel = channelService.getChannelByChannelName(channel.getChannelName());
-		assertEquals(channel, fetchChannel);
-	}
-
-	
-	@Test
 	public void deleteChannelSuccess() throws ChannelNotFoundException {
 		when(channelRepository.findById(channel.getChannelId())).thenReturn(options);
 		boolean flag = channelService.deleteChannel("tldm");
