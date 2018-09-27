@@ -8,7 +8,7 @@ import java.util.UUID;
 
 public interface MessageService {
 
-    void saveMessage(Message message);
+    Message saveMessage(Message message);
 
     boolean deleteMessage(UUID messageId, String senderId) throws MessageNotFoundException;
 

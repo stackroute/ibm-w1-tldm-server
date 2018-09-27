@@ -24,8 +24,8 @@ public class ChannelMessageServiceImpl implements ChannelMessageService {
 
     // Saving a Channel Message
     @Override
-    public void saveMessage(ChannelMessage channelMessage) {
-        channelChatRepository.insert(channelMessage);
+    public ChannelMessage saveMessage(ChannelMessage channelMessage) {
+        return channelChatRepository.insert(channelMessage);
     }
 
     // Deleting a particular Channel Message By Sender
