@@ -27,7 +27,7 @@ public class MessagePersistenceController {
     private MessageService messageService;
 
     @Autowired
-    public MessagePersistenceController(MessageService messageService, ChannelMessageService channelMessageService) {
+    public MessagePersistenceController(MessageService messageService) {
         this.messageService = messageService;
     }
 
@@ -35,12 +35,10 @@ public class MessagePersistenceController {
     @DeleteMapping("/{messageId}/{senderId}")
     @ApiOperation("Deleting Messages for One to One messages")
     public ResponseEntity<?> deleteMessage(@PathVariable("messageId") UUID messageId, @PathVariable("senderId") String senderId) {
-        ResponseEntity<?> responseEntity;
+        ResponseEntity<?> responseEntity = null;
         try {
             if (messageService.deleteMessage(messageId, senderId)) {
                 responseEntity = new ResponseEntity<>(HttpStatus.OK);
-            } else {
-                responseEntity = new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
         } catch (MessageNotFoundException e) {
             responseEntity = new ResponseEntity<>(HttpStatus.NOT_FOUND);

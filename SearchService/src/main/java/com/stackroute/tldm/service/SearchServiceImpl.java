@@ -28,7 +28,6 @@ public class SearchServiceImpl implements SearchService {
     @Override
     public List<User> getAllUsersByUserNameRegex(String userName) {
         List<User> userList = searchRepository.findAllByUserNameRegex(userName);
-
         return userList;
     }
 }

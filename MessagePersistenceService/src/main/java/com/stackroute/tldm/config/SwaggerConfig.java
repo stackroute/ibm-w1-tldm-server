@@ -21,8 +21,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select().apis(RequestHandlerSelectors.basePackage("com.stackroute.tldm"))
                 .paths(regex("/api/v1.*"))
-                .build()
-                .apiInfo(metaInfo());
+                .build();
     }
 
     private ApiInfo metaInfo() {
@@ -31,7 +30,7 @@ public class SwaggerConfig {
                 "Spring Boot Swagger for Message Persistence Service",
                 "1.0.0",
                 "Terms of Service",
-                new Contact("Soumyajit", "https://www.youtube.com/TechPrimers",
+                new Contact("Soumyajit", "",
                         "dassoumyajit1996@gmail.com"),
                 "Apache License Version 2.0",
                 "https://www.apache.org/licesen.html"
@@ -39,5 +38,4 @@ public class SwaggerConfig {
 
         return apiInfo;
     }
-
 }
