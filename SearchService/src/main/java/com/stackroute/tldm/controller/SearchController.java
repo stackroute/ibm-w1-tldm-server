@@ -37,4 +37,10 @@ public class SearchController {
 
         return responseEntity;
     }
+
+    @GetMapping("/{message}")
+    public ResponseEntity<?> searchMessages(@PathVariable("message") String message){
+        ResponseEntity<?> responseEntity = null;
+        return responseEntity;
+    }
 }

@@ -33,14 +33,11 @@ public class ChannelMessagePersistenceController {
     // Delete a particular Channel Message By Sender
     @DeleteMapping("/{messageId}/{senderId}")
     @ApiOperation("Delete Messages for One to Many communication")
-    public ResponseEntity<?> deleteChannelMessages(@PathVariable("messageId") UUID messageId,
-                                                   @PathVariable("senderId") String senderId) {
-        ResponseEntity<?> responseEntity;
+    public ResponseEntity<?> deleteChannelMessages(@PathVariable("messageId") UUID messageId, @PathVariable("senderId") String senderId) {
+        ResponseEntity<?> responseEntity = null;
         try {
             if (channelMessageService.deleteChannelMessage(messageId, senderId)) {
                 responseEntity = new ResponseEntity<>(HttpStatus.OK);
-            } else {
-                responseEntity = new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
         } catch (MessageNotFoundException e) {
             responseEntity = new ResponseEntity<>(HttpStatus.NOT_FOUND);
