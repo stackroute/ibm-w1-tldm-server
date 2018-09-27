@@ -1,7 +1,5 @@
 package com.stackroute.tldm.controller;
 
-
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.stackroute.tldm.exception.CommunityAlreadyExistsException;
@@ -26,209 +23,83 @@ import com.stackroute.tldm.model.User;
 import com.stackroute.tldm.service.CommunityService;
 
 @RestController
-@RequestMapping("api/v1/community")                                      //default api for community service
+@RequestMapping("api/v1/community")
 @CrossOrigin("*")
-
 public class CommunityController {
 
-	private CommunityService communityService;
+    private CommunityService communityService;
 
-	@Autowired
+    @Autowired
+    public CommunityController(CommunityService communityService) {
+        this.communityService = communityService;
+    }
 
-	public CommunityController(CommunityService communityService) {
-		this.communityService = communityService;
-	}
+    //creating a community
+    @PostMapping
+    public ResponseEntity<?> createCommunity(@RequestBody Community community) {
+        ResponseEntity<?> responseEntity = null;
+        try {
+            if (communityService.createCommunity(community) != null) {
+                responseEntity = new ResponseEntity<>(community, HttpStatus.CREATED);
+            }
+        } catch (CommunityAlreadyExistsException exception) {
+            responseEntity = new ResponseEntity<>(exception.getMessage(), HttpStatus.CONFLICT);
+        }
 
-	
-	
-	//creating a community
-	
-	@PostMapping                
-	public ResponseEntity<?> createCommunity(@RequestBody Community community) {
-		ResponseEntity<?> responseEntity = null;
-		try {
-			if (communityService.createCommunity(community) != null) {
-				responseEntity = new ResponseEntity<>(community, HttpStatus.CREATED);
-			}
-		} catch (CommunityAlreadyExistsException exception) {
-			responseEntity = new ResponseEntity<>(exception.getMessage(), HttpStatus.CONFLICT);
+        return responseEntity;
+    }
 
-		}
+    //deleting a community
+    @DeleteMapping("/delete/{communityId}")
+    public ResponseEntity<?> deleteCommunity(@PathVariable String communityId) {
+        ResponseEntity<?> responseEntity = null;
+        try {
+            if (communityService.delCommunity(communityId)) {
+                responseEntity = new ResponseEntity<>("Community deleted Successfully", HttpStatus.OK);
+            }
+        } catch (CommunityNotFoundException exception) {
+            responseEntity = new ResponseEntity<>("Community not found", HttpStatus.NOT_FOUND);
+        }
 
-		return responseEntity;
-	}
-	
-	
-	
-	//deleting a community
+        return responseEntity;
+    }
 
-@DeleteMapping("/delete/{communityId}")
-	public ResponseEntity<?> deleteCommunity(@PathVariable String communityId) {
+    //updating a community
+    @PutMapping("/{communityId}")
+    public ResponseEntity<?> updateCommunity(@PathVariable String communityId, @RequestBody Community community) {
+        ResponseEntity<?> responseEntity = null;
+        try {
+            communityService.updateCommunity(communityId, community);
+            responseEntity = new ResponseEntity<>(community, HttpStatus.OK);
 
-		ResponseEntity<?> responseEntity = null;
-		try {
-			if (communityService.delCommunity(communityId)) {
-				responseEntity = new ResponseEntity<>("Community deleted Successfully", HttpStatus.OK);
-			}
-		} catch (CommunityNotFoundException exception) {
-			responseEntity = new ResponseEntity<>("Community not found", HttpStatus.NOT_FOUND);
-		}
-		return responseEntity;
-	}
-	
+        } catch (CommunityNotFoundException exception) {
+            responseEntity = new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
 
-	
-	
-	
+        }
 
-//	@GetMapping("/{communityId}")
-//	public ResponseEntity<?> getCommunityById(@PathVariable String communityId) {
-//
-//		ResponseEntity<?> responseEntity = null;
-//		Community fetchCommunity;
-//		try {
-//			fetchCommunity = communityService.getCommunityById(communityId);
-//			if (fetchCommunity != null) {
-//				responseEntity = new ResponseEntity<>(fetchCommunity, HttpStatus.OK);
-//			} else {
-//				responseEntity = new ResponseEntity<>("community not found", HttpStatus.NOT_FOUND);
-//			}
-//		} catch (CommunityNotFoundException e) {
-//			responseEntity = new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
-//		}
-//
-//		return responseEntity;
-//	}
+        return responseEntity;
+    }
 
 
-//updating a community
+   
 
 
-	@PutMapping("/{communityId}")
-	public ResponseEntity<?> updateCommunity(@PathVariable String communityId, @RequestBody Community community) {
-		ResponseEntity<?> responseEntity = null;
-		try {
-			communityService.updateCommunity(communityId, community);
-			responseEntity = new ResponseEntity<>(community, HttpStatus.OK);
+    //update community:channels get added into the community using communityId
+    
+    
+    @PutMapping("/updated/{communityId")
+    public ResponseEntity<?> updateByCommunityId(@PathVariable String communityId, @RequestBody Channel channel, Community community) {
+        ResponseEntity<?> responseEntity = null;
+        try {
+            communityService.updateByCommunityId(communityId, channel);
 
-		} catch (CommunityNotFoundException exception) {
-			responseEntity = new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
+            responseEntity = new ResponseEntity<>(communityId, HttpStatus.OK);
 
-		}
-		return responseEntity;
-	}
-	
-	
-	//getting community details
-	
-	@GetMapping("/get/{communityName}")
-	public ResponseEntity<?> getCommunityName(@PathVariable String communityName) {
-		ResponseEntity<?> responseEntity = null;	
-		try {
-			if(communityService.getCommunityByCommunityName(communityName)!=null)
-			{
-				responseEntity = new ResponseEntity<>(communityService.getCommunityByCommunityName(communityName), HttpStatus.OK);
-			}
-		
+        } catch (CommunityNotFoundException exception) {
+            responseEntity = new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
 
-		} catch (CommunityNotFoundException exception) {
-			responseEntity = new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
+        }
 
-		}
-		return responseEntity;
-}
-	
-	
-	
-	//get users present in the community
-	
-	@GetMapping("/users/{communityName}")
-	public ResponseEntity<?>getUsersByCommunityName(@PathVariable String communityName) 
-	{
-		ResponseEntity<?> responseEntity = null;
-		List<User>communityUsers;
-		
-		try {
-			communityUsers=communityService.findAllCommunityUsersByCommunityName(communityName);
-			if(communityUsers!=null)
-			{
-				responseEntity=new ResponseEntity<>(communityUsers,HttpStatus.OK);
-						
-			}
-			else
-			{
-				responseEntity=new ResponseEntity<>("community name not found",HttpStatus.NOT_FOUND);
-			}
-		} catch (CommunityNotFoundException e) {
-			responseEntity=new ResponseEntity<>("community name not found",HttpStatus.NOT_FOUND);
-		}
-		
-			
-		return responseEntity;
-		
-	}
-	
-	
-	//get list of channels within  a community 
-	
-	@GetMapping("/channels/{communityName}")
-	public ResponseEntity<?> getChannelsByCommunityName(@PathVariable String communityName) throws CommunityNotFoundException
-	{
-		ResponseEntity<?> responseEntity;
-		List<Channel> channelList;
-		 
-		channelList=communityService.findAllChannelsByCommunityName(communityName);
-		System.out.println("channel"+channelList);
-		if(channelList!=null)
-		{
-			responseEntity=new ResponseEntity<>(channelList,HttpStatus.OK);
-		
-		}
-		else
-		{
-			responseEntity=new ResponseEntity<>("community not found",HttpStatus.NOT_FOUND);
-			
-		}	
-		
-		return responseEntity;
-	}
-//update community:channels get added into the community using communityName
-
-	
-	@PutMapping("/update/{communityName}")
-	public ResponseEntity<?> updateByCommunityName(@PathVariable String communityName, @RequestBody Channel channel,Community community) {
-		ResponseEntity<?> responseEntity = null;
-		try {
-			communityService.updateByCommunityName(communityName, channel);
-		
-			responseEntity = new ResponseEntity<>(community, HttpStatus.OK);
-
-		} catch (CommunityNotFoundException exception) {
-			responseEntity = new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
-
-		}
-		return responseEntity;
-	}
-
-
-//update community:channels get added into the community using communityId
-	
-	@PutMapping("/updated/{communityId")
-	public ResponseEntity<?> updateByCommunityId(@PathVariable String communityId, @RequestBody Channel channel,Community community) {
-		ResponseEntity<?> responseEntity = null;
-		try {
-			communityService.updateByCommunityId(communityId, channel);
-		
-			responseEntity = new ResponseEntity<>(communityId, HttpStatus.OK);
-
-		} catch (CommunityNotFoundException exception) {
-			responseEntity = new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
-
-		}
-		return responseEntity;
-	}
-	
-	
-	
-
+        return responseEntity;
+    }
 }

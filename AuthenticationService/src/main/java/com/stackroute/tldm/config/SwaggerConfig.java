@@ -33,7 +33,7 @@ public class SwaggerConfig {
                 "Spring Boot Swagger for Authentication Service",
                 "1.0.0",
                 "Terms of Service",
-                new Contact("Pankaj", "https://www.youtube.com/TechPrimers",
+                new Contact("Pankaj", "",
                         "pankaju713@gmail.com"),
                 "Apache License Version 2.0",
                 "https://www.apache.org/licesen.html"

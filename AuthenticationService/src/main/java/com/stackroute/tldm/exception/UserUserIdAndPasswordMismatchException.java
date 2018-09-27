@@ -6,7 +6,6 @@ public class UserUserIdAndPasswordMismatchException extends Exception {
 
 	public UserUserIdAndPasswordMismatchException(String message) {
 		super(message);
-
 	}
 
 }

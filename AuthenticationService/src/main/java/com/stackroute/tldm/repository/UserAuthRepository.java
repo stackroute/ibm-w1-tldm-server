@@ -10,10 +10,10 @@ import javax.transaction.Transactional;
 @Transactional
 public interface UserAuthRepository extends JpaRepository<User, String> {
 
-	public User findUserByUserMail(String userEmail);
+	User findUserByUserMail(String userEmail);
 
-	public User findUserByuserId(String userId);
+	User findUserByuserId(String userId);
 
-	public User findUserByUserIdAndPassword(String userId, String password);
+	User findUserByUserIdAndPassword(String userId, String password);
 
 }

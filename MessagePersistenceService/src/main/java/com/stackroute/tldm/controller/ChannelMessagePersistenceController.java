@@ -1,4 +1,4 @@
-	package com.stackroute.tldm.controller;
+package com.stackroute.tldm.controller;
 
 import java.util.UUID;
 
@@ -23,43 +23,42 @@ import com.stackroute.tldm.service.ChannelMessageService;
 @Api(value = "Channel Message Resource")
 public class ChannelMessagePersistenceController {
 
-	private ChannelMessageService channelMessageService;
+    private ChannelMessageService channelMessageService;
 
-	@Autowired
-	public ChannelMessagePersistenceController(ChannelMessageService channelMessageService) {
-		this.channelMessageService = channelMessageService;
-	}
+    @Autowired
+    public ChannelMessagePersistenceController(ChannelMessageService channelMessageService) {
+        this.channelMessageService = channelMessageService;
+    }
 
-	// Delete a particular Channel Message By Sender
-	@DeleteMapping("/{messageId}/{senderId}")
-	@ApiOperation("Delete Messages for One to Many communication")
-	public ResponseEntity<?> deleteChannelMessages(@PathVariable("messageId") UUID messageId,
-			@PathVariable("senderId") String senderId) {
-		ResponseEntity<?> responseEntity;
-		try {
-			if (channelMessageService.deleteChannelMessage(messageId, senderId)) {
-				responseEntity = new ResponseEntity<>(HttpStatus.OK);
-			} else {
-				responseEntity = new ResponseEntity<>(HttpStatus.NOT_FOUND);
-			}
-		} catch (MessageNotFoundException e) {
-			responseEntity = new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
-		return responseEntity;
-	}
+    // Delete a particular Channel Message By Sender
+    @DeleteMapping("/{messageId}/{senderId}")
+    @ApiOperation("Delete Messages for One to Many communication")
+    public ResponseEntity<?> deleteChannelMessages(@PathVariable("messageId") UUID messageId, @PathVariable("senderId") String senderId) {
+        ResponseEntity<?> responseEntity = null;
+        try {
+            if (channelMessageService.deleteChannelMessage(messageId, senderId)) {
+                responseEntity = new ResponseEntity<>(HttpStatus.OK);
+            }
+        } catch (MessageNotFoundException e) {
+            responseEntity = new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
 
-	// Get All Channel Messages By ChannelId
-	@GetMapping("/{channelId}")
-	@ApiOperation("Get Messages for One to Many communication")
-	public ResponseEntity<?> getChannelMessagesByChannelId(@PathVariable("channelId") String channelId) {
-		ResponseEntity<?> responseEntity;
-		try {
-			responseEntity = new ResponseEntity<>(channelMessageService.getChannelMessagesByChannelId(channelId),
-					HttpStatus.OK);
-		} catch (MessageNotFoundException e) {
-			responseEntity = new ResponseEntity<>("message Not Found!", HttpStatus.NOT_FOUND);
-		}
-		return responseEntity;
-	}
+        return responseEntity;
+    }
+
+    // Get All Channel Messages By ChannelId
+    @GetMapping("/{channelId}")
+    @ApiOperation("Get Messages for One to Many communication")
+    public ResponseEntity<?> getChannelMessagesByChannelId(@PathVariable("channelId") String channelId) {
+        ResponseEntity<?> responseEntity;
+        try {
+            responseEntity = new ResponseEntity<>(channelMessageService.getChannelMessagesByChannelId(channelId),
+                    HttpStatus.OK);
+        } catch (MessageNotFoundException e) {
+            responseEntity = new ResponseEntity<>("message Not Found!", HttpStatus.NOT_FOUND);
+        }
+
+        return responseEntity;
+    }
 
 }

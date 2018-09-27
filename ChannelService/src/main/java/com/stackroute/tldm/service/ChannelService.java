@@ -10,7 +10,7 @@ import com.stackroute.tldm.model.User;
 
 public interface ChannelService {
 
-	Channel createChannel(Channel channel) throws ChannelAlreadyExistsException;
+	Channel createChannel(Channel channel);
 
 	Channel updateChannel(String channelId, Channel channel) throws ChannelNotFoundException;
 
@@ -18,17 +18,13 @@ public interface ChannelService {
 
 	List<Channel> getAllChannels();
 
-	Channel getChannelByChannelName(String channelName) throws ChannelNotFoundException;
-
-	List<User> findAllChannelUsersByChannelName(String channelName);
+	List<User> findAllChannelUsersByChannelId(String channelId);
 
 	Channel updateChannelUser(String channelId, List<User> user) throws ChannelNotFoundException;
 
-	public boolean removeChannelUser(String channelId, String userId);
+	boolean removeChannelUser(String channelId, String userId);
 
-	public List<Channel> getListOfChannelsByUsers(String userName);
-	
-	public List<Channel> getListOfChannelsByUser(String userId);
+	List<Channel> getListOfChannelsByUser(String userId);
 	
 	Channel getChannelByChannelId(String channelId) throws ChannelNotFoundException;
 }

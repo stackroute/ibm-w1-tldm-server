@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.stackroute.tldm.exception.MessageNotFoundException;
-//import com.stackroute.tldm.model.ChannelMessage;
-//import com.stackroute.tldm.service.ChannelPersistService;
 import com.stackroute.tldm.service.MessageService;
 
 @RestController
@@ -25,28 +23,27 @@ import com.stackroute.tldm.service.MessageService;
 @CrossOrigin("*")
 @Api(value = "MessagePersistence Resource")
 public class MessagePersistenceController {
-	
-	private MessageService messageService;
 
-	@Autowired
-	public MessagePersistenceController(MessageService messageService, ChannelMessageService channelMessageService) {
-		this.messageService = messageService;
-	}
-	
+    private MessageService messageService;
+
+    @Autowired
+    public MessagePersistenceController(MessageService messageService) {
+        this.messageService = messageService;
+    }
+
     // Delete a particular messageById.
     @DeleteMapping("/{messageId}/{senderId}")
     @ApiOperation("Deleting Messages for One to One messages")
     public ResponseEntity<?> deleteMessage(@PathVariable("messageId") UUID messageId, @PathVariable("senderId") String senderId) {
-        ResponseEntity<?> responseEntity;
+        ResponseEntity<?> responseEntity = null;
         try {
             if (messageService.deleteMessage(messageId, senderId)) {
                 responseEntity = new ResponseEntity<>(HttpStatus.OK);
-            } else {
-                responseEntity = new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
         } catch (MessageNotFoundException e) {
             responseEntity = new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+
         return responseEntity;
     }
 
@@ -62,7 +59,8 @@ public class MessagePersistenceController {
         } catch (MessageNotFoundException e) {
             responseEntity = new ResponseEntity<>("Message Not Found!", HttpStatus.NOT_FOUND);
         }
-		return responseEntity;
-	}
+
+        return responseEntity;
+    }
 
 }

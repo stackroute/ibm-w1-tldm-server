@@ -24,24 +24,24 @@ import com.stackroute.tldm.model.ChannelMessage;
 @EnableKafka
 public class ChannelKafkaConsumerConfig {
 
-	@Value("${server.boot}")
-	private String ipConfig;
-	
-	@Bean
-	public ConsumerFactory<String, ChannelMessage> consumerFactory() {
-		Map<String, Object> config = new HashMap<>();
-		config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, ipConfig);
-		config.put(ConsumerConfig.GROUP_ID_CONFIG, "${groupId2.boot}");
-		config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-		config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-		return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
-				new JsonDeserializer<>(ChannelMessage.class));
-	}
+    @Value("${server.boot}")
+    private String ipConfig;
 
-	@Bean
-	public ConcurrentKafkaListenerContainerFactory<String, ChannelMessage> kafkaListenerContainerFactory() {
-		ConcurrentKafkaListenerContainerFactory<String, ChannelMessage> factory = new ConcurrentKafkaListenerContainerFactory<>();
-		factory.setConsumerFactory(consumerFactory());
-		return factory;
-	}
+    @Bean
+    public ConsumerFactory<String, ChannelMessage> consumerFactory() {
+        Map<String, Object> config = new HashMap<>();
+        config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, ipConfig);
+        config.put(ConsumerConfig.GROUP_ID_CONFIG, "${groupId2.boot}");
+        config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+        config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
+        return new DefaultKafkaConsumerFactory<>(config, new StringDeserializer(),
+                new JsonDeserializer<>(ChannelMessage.class));
+    }
+
+    @Bean
+    public ConcurrentKafkaListenerContainerFactory<String, ChannelMessage> kafkaListenerContainerFactory() {
+        ConcurrentKafkaListenerContainerFactory<String, ChannelMessage> factory = new ConcurrentKafkaListenerContainerFactory<>();
+        factory.setConsumerFactory(consumerFactory());
+        return factory;
+    }
 }

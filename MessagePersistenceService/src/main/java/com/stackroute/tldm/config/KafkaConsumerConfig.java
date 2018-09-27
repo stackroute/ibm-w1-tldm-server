@@ -27,8 +27,8 @@ public class KafkaConsumerConfig {
 
     @Value("${server.boot}")
     private String ipConfig;
-	
-	@Bean
+
+    @Bean
     public ConsumerFactory<String, Message> consumerFactory() {
         Map<String, Object> config = new HashMap<>();
 

@@ -88,7 +88,6 @@ public class CommunityControllerTest {
 	}
 
 	@Test
-	@Ignore
 	public void createCommunitySuccess() throws Exception {
 		when(communityService.createCommunity(community)).thenReturn(community);
 		mockMvc.perform(
@@ -97,7 +96,6 @@ public class CommunityControllerTest {
 	}
 
 	@Test
-	@Ignore
 	public void createCommunityFailure() throws Exception {
 		when(communityService.createCommunity(any())).thenThrow(CommunityAlreadyExistsException.class);
 		mockMvc.perform(
@@ -106,7 +104,6 @@ public class CommunityControllerTest {
 	}
 
 	@Test
-	@Ignore
 	public void deleteCommunitySuccess() throws Exception {
 		when(communityService.delCommunity("swedha12")).thenReturn(true);
 		mockMvc.perform(delete("/api/v1/delete/swedha12").contentType(MediaType.APPLICATION_JSON)
@@ -114,7 +111,6 @@ public class CommunityControllerTest {
 	}
 
 	@Test
-	@Ignore
 	public void deletecommunityFailure() throws Exception {
 		when(communityService.delCommunity("swedha12")).thenThrow(CommunityNotFoundException.class);
 		mockMvc.perform(delete("/api/v1/delete/swedha12").contentType(MediaType.APPLICATION_JSON)
@@ -123,7 +119,6 @@ public class CommunityControllerTest {
 	}
 
 	@Test
-	@Ignore
 	public void updateCommunitySuccess() throws Exception {
 		user.setUserMail("swedha87@gmail.com");
 		when(communityService.updateCommunity(eq(user.getUserId()), any())).thenReturn(community);
@@ -132,29 +127,12 @@ public class CommunityControllerTest {
 	}
 
 	@Test
-	@Ignore
 	public void updateCommunityFailure() throws Exception {
 		user.setUserMail("swedha87@gmail.com");
 		when(communityService.updateCommunity(eq(user.getUserId()), any())).thenThrow(CommunityNotFoundException.class);
 		mockMvc.perform(put("/api/v1/commmunity/swedha12").contentType(MediaType.APPLICATION_JSON)
 				.content(asJsonString(community))).andExpect(status().isNotFound())
 				.andDo(MockMvcResultHandlers.print());
-	}
-
-	@Test
-	@Ignore
-	public void getCommunityNameSuccess() throws Exception {
-		when(communityService.getCommunityByCommunityName("Product")).thenReturn(community);
-		mockMvc.perform(get("/api/v1/community/get/Product").contentType(MediaType.APPLICATION_JSON)
-				.content(asJsonString(community))).andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
-	}
-
-	@Test
-	@Ignore
-	public void getCommunityNameSFailure() throws Exception {
-		when(communityService.getCommunityByCommunityName("Product")).thenThrow(CommunityNotFoundException.class);
-		mockMvc.perform(get("/api/v1/community/get/Product").contentType(MediaType.APPLICATION_JSON)
-				.content(asJsonString(community))).andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
 	}
 
 	private byte[] asJsonString(Community community2) {

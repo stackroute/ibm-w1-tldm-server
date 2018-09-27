@@ -11,5 +11,4 @@ public interface UserAuthService {
 
     User findUserByUserIdAndPassword(String userId, String password);
 
-
 }

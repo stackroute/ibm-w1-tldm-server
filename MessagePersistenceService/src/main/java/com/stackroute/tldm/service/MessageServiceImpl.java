@@ -22,8 +22,8 @@ public class MessageServiceImpl implements MessageService {
 
     // this method is used to save a message
     @Override
-    public void saveMessage(Message message) {
-        userChatRepository.insert(message);
+    public Message saveMessage(Message message) {
+        return userChatRepository.insert(message);
     }
 
     // this method is used to delete a message
@@ -34,6 +34,7 @@ public class MessageServiceImpl implements MessageService {
             String sender = message.getSender().getUserId();
             if (sender.equals(senderId)) {
                 userChatRepository.deleteById(messageId);
+
                 return true;
             } else {
                 throw new MessageNotFoundException("Message Not Found!");
@@ -60,6 +61,7 @@ public class MessageServiceImpl implements MessageService {
                     messages.add(messageToGet);
                 }
             }
+
             return messages;
         } else {
             throw new MessageNotFoundException("Message Not Found!");

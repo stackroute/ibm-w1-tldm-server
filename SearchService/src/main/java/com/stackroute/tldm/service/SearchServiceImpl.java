@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 // receiveUser() method annotated with @KafkaListener becomes the consumer listening from User-Service.
-
 @Service
 public class SearchServiceImpl implements SearchService {
 
@@ -21,7 +20,7 @@ public class SearchServiceImpl implements SearchService {
         this.searchRepository = searchRepository;
     }
 
-    @KafkaListener(topics = "${search-topic.boot}", groupId = "${groupId.boot}")
+    @KafkaListener(topics = "search_user", groupId = "search_user_group")
     public void receiveUser(@Payload User user) {
         searchRepository.insert(user);
     }

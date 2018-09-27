@@ -7,12 +7,6 @@ import com.datastax.driver.core.DataType;
 import org.springframework.data.cassandra.core.mapping.CassandraType;
 import org.springframework.data.cassandra.core.mapping.UserDefinedType;
 
-/*
- * The class "Channel" will be acting as the data model for the Channel Table in the database. 
- * Please note that this class is annotated with @UserdefinedType annotation. 
- * Java object to recreate it as a table in your database.
- */
-
 @UserDefinedType("Channel")
 public class Channel {
 
@@ -26,19 +20,24 @@ public class Channel {
     private String channelDescription;
     @CassandraType(type = DataType.Name.TIMESTAMP)
     private Date channelCreatedDate;
-    @CassandraType(type = DataType.Name.UDT, userTypeName = "Community")
-    private Community community;
     @CassandraType(type = DataType.Name.UDT, userTypeName = "user")
     private List<User> channelUsers;
-    
-    /*
-     * This class should have seven fields
-     * (channelId, channelName, channelCreatedBy, channelDescription, channelCreatedDate, community, channelUsers)
-     * This class should
-	 * also contain the getters and setters for the fields,
-	 * parameterized constructor and toString method.
-     */
 
+    public Channel() {
+        super();
+
+    }
+
+    public Channel(String channelId, String channelName, String channelcreatedBy, String channelDescription,
+                   Date channelCreatedDate, List<User> channelUsers) {
+        super();
+        this.channelId = channelId;
+        this.channelName = channelName;
+        this.channelCreatedBy = channelcreatedBy;
+        this.channelDescription = channelDescription;
+        this.channelCreatedDate = channelCreatedDate;
+        this.channelUsers = channelUsers;
+    }
 
     public String getChannelId() {
         return channelId;
@@ -57,14 +56,14 @@ public class Channel {
     }
 
     public String getChannelCreatedBy() {
-		return channelCreatedBy;
-	}
+        return channelCreatedBy;
+    }
 
-	public void setChannelCreatedBy(String channelCreatedBy) {
-		this.channelCreatedBy = channelCreatedBy;
-	}
+    public void setChannelCreatedBy(String channelCreatedBy) {
+        this.channelCreatedBy = channelCreatedBy;
+    }
 
-	public String getChannelDescription() {
+    public String getChannelDescription() {
         return channelDescription;
     }
 
@@ -80,14 +79,6 @@ public class Channel {
         this.channelCreatedDate = channelCreatedDate;
     }
 
-    public Community getCommunity() {
-        return community;
-    }
-
-    public void setCommunity(Community community) {
-        this.community = community;
-    }
-
     public List<User> getChannelUsers() {
         return channelUsers;
     }
@@ -96,28 +87,15 @@ public class Channel {
         this.channelUsers = channelUsers;
     }
 
-    public Channel(String channelId, String channelName, String channelcreatedBy, String channelDescription,
-                   Date channelCreatedDate, Community community, List<User> channelUsers) {
-        super();
-        this.channelId = channelId;
-        this.channelName = channelName;
-        this.channelCreatedBy = channelcreatedBy;
-        this.channelDescription = channelDescription;
-        this.channelCreatedDate = channelCreatedDate;
-        this.community = community;
-        this.channelUsers = channelUsers;
-    }
-
-    public Channel() {
-        super();
-
-    }
-
     @Override
     public String toString() {
-        return "Channel [channelId=" + channelId + ", channelName=" + channelName + ", channelCreatedBy=" + channelCreatedBy
-                + ", channelDescription=" + channelDescription + ", channelCreatedDate=" + channelCreatedDate
-                + ", channelUsers=" + channelUsers + "]";
+        return "Channel{" +
+                "channelId='" + channelId + '\'' +
+                ", channelName='" + channelName + '\'' +
+                ", channelCreatedBy='" + channelCreatedBy + '\'' +
+                ", channelDescription='" + channelDescription + '\'' +
+                ", channelCreatedDate=" + channelCreatedDate +
+                ", channelUsers=" + channelUsers +
+                '}';
     }
-
 }
