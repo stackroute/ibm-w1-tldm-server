@@ -97,7 +97,7 @@ public class ChannelController {
     }
 
     // this handler method is mapped to the URL "/{channelId}" using HTTP PUT method
-    @PutMapping("/{channelId}")
+    @PutMapping("/user/{channelId}")
     @ApiOperation("Update users in channel")
     public ResponseEntity<?> updateChannelUser(@PathVariable String channelId, @RequestBody List<User> users) {
         ResponseEntity<?> responseEntity = null;
