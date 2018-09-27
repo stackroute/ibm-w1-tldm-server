@@ -16,7 +16,6 @@ public class Channel {
     private String channelCreatedBy;
     private String channelDescription;
     private Date channelCreatedDate;
-  
     private List<User> channelUsers;
 
     public Channel() {
@@ -25,14 +24,13 @@ public class Channel {
     }
 
     public Channel(String channelId, String channelName, String channelCreatedBy, String channelDescription,
-                   Date channelCreatedDate,  List<User> channelUsers) {
+                   Date channelCreatedDate, List<User> channelUsers) {
         super();
         this.channelId = channelId;
         this.channelName = channelName;
         this.channelCreatedBy = channelCreatedBy;
         this.channelDescription = channelDescription;
         this.channelCreatedDate = channelCreatedDate;
-       
         this.channelUsers = channelUsers;
     }
 
@@ -76,7 +74,6 @@ public class Channel {
         this.channelCreatedDate = channelCreatedDate;
     }
 
-    
     public List<User> getChannelUsers() {
         return channelUsers;
     }
@@ -87,8 +84,13 @@ public class Channel {
 
     @Override
     public String toString() {
-        return "Channel [channelId=" + channelId + ", channelName=" + channelName + ", channelCreatedBy="
-                + channelCreatedBy + ", channelDescription=" + channelDescription + ", channelCreatedDate="
-                + channelCreatedDate + ", channelUsers=" + channelUsers + "]";
+        return "Channel{" +
+                "channelId='" + channelId + '\'' +
+                ", channelName='" + channelName + '\'' +
+                ", channelCreatedBy='" + channelCreatedBy + '\'' +
+                ", channelDescription='" + channelDescription + '\'' +
+                ", channelCreatedDate=" + channelCreatedDate +
+                ", channelUsers=" + channelUsers +
+                '}';
     }
 }

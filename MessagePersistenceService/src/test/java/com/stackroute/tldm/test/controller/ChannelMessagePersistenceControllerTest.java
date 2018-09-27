@@ -27,7 +27,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import com.stackroute.tldm.controller.ChannelMessagePersistenceController;
 import com.stackroute.tldm.model.Channel;
 import com.stackroute.tldm.model.ChannelMessage;
-import com.stackroute.tldm.model.Community;
 import com.stackroute.tldm.model.User;
 import com.stackroute.tldm.service.ChannelMessageService;
 import com.stackroute.tldm.service.MessageService;
@@ -46,8 +45,6 @@ public class ChannelMessagePersistenceControllerTest {
 	@MockBean
 	private Channel channel;
 	@MockBean
-	private Community community;
-	@MockBean
 	private ChannelMessageService channelMessageService;
 	@MockBean
 	private MessageService messageService;
@@ -65,15 +62,7 @@ public class ChannelMessagePersistenceControllerTest {
 		channelMessage = new ChannelMessage();
 		uuid= UUID.randomUUID();
 
-		// Community
-		community = new Community();
-		community.setCommunityId("swe123");
-		community.setCommunityName("PRODUCT");
-		community.setCommunityCreatedDate(new Date());
-		community.setCommunityCreatedBy(user);
-		community.setChannelList(channelList);
 		List<User> userList = new ArrayList<>();
-		community.setCommunityUsers(userList);
 		userList.add(user);
 
 		// Channel
@@ -83,7 +72,6 @@ public class ChannelMessagePersistenceControllerTest {
 		channel.setChannelCreatedBy("Gayathri");
 		channel.setChannelDescription("product works");
 		channel.setChannelCreatedDate(new Date());
-		channel.setCommunity(community);
 		channel.setChannelUsers(userList);
 
 		// User

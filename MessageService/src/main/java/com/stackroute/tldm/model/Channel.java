@@ -12,7 +12,6 @@ public class Channel {
     private String channelCreatedBy;
     private String channelDescription;
     private Date channelCreatedDate;
-    private Community community;
     private List<User> channelUsers;
 
     public Channel() {
@@ -21,14 +20,12 @@ public class Channel {
     }
 
     public Channel(String channelId, String channelName, String channelCreatedBy, String channelDescription,
-                   Date channelCreatedDate, Community community, List<User> channelUsers) {
-        super();
+                   Date channelCreatedDate, List<User> channelUsers) {
         this.channelId = channelId;
         this.channelName = channelName;
         this.channelCreatedBy = channelCreatedBy;
         this.channelDescription = channelDescription;
         this.channelCreatedDate = channelCreatedDate;
-        this.community = community;
         this.channelUsers = channelUsers;
     }
 
@@ -72,14 +69,6 @@ public class Channel {
         this.channelCreatedDate = channelCreatedDate;
     }
 
-    public Community getCommunity() {
-        return community;
-    }
-
-    public void setCommunity(Community community) {
-        this.community = community;
-    }
-
     public List<User> getChannelUsers() {
         return channelUsers;
     }
@@ -96,7 +85,6 @@ public class Channel {
                 ", channelCreatedBy='" + channelCreatedBy + '\'' +
                 ", channelDescription='" + channelDescription + '\'' +
                 ", channelCreatedDate=" + channelCreatedDate +
-                ", community=" + community +
                 ", channelUsers=" + channelUsers +
                 '}';
     }

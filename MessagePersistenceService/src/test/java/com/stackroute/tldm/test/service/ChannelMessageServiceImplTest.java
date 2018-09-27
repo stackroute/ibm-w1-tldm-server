@@ -19,7 +19,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import com.stackroute.tldm.exception.MessageNotFoundException;
 import com.stackroute.tldm.model.Channel;
 import com.stackroute.tldm.model.ChannelMessage;
-import com.stackroute.tldm.model.Community;
 import com.stackroute.tldm.model.User;
 import com.stackroute.tldm.repository.ChannelChatRepository;
 
@@ -31,8 +30,6 @@ public class ChannelMessageServiceImplTest {
 	private ChannelMessage channelMessage;
 	@MockBean
 	private Channel channel;
-	@MockBean
-	private Community community;
 	@MockBean
 	private User user;
 	@MockBean
@@ -65,15 +62,7 @@ public class ChannelMessageServiceImplTest {
 		channelMessageList = new ArrayList<>();
 		channelMessageList.add(channelMessage);
 
-		// Community
-		community = new Community();
-		community.setCommunityId("prod789");
-		community.setCommunityName("product");
-		community.setCommunityCreatedBy(user);
-		community.setCommunityCreatedDate(new Date());
-		community.setChannelList(channelList);
 		List<User> userList = new ArrayList<>();
-		community.setCommunityUsers(userList);
 		userList.add(user);
 
 		// Channel
@@ -83,7 +72,6 @@ public class ChannelMessageServiceImplTest {
 		channel.setChannelCreatedBy("abc");
 		channel.setChannelCreatedDate(new Date());
 		channel.setChannelDescription("group message");
-		channel.setCommunity(community);
 		channel.setChannelUsers(userList);
 
 		// User

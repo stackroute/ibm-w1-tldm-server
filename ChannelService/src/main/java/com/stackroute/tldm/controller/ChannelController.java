@@ -68,7 +68,7 @@ public class ChannelController {
     // this handler method is mapped to the URL using HTTP GET method
     @GetMapping
     @ApiOperation("Get all channel list")
-    public ResponseEntity<?> getAllchannels() {
+    public ResponseEntity<?> getAllChannels() {
         ResponseEntity<?> responseEntity;
         List<Channel> channelList = channelService.getAllChannels();
         if (channelList != null) {

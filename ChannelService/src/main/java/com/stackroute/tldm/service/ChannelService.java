@@ -24,8 +24,6 @@ public interface ChannelService {
 
 	boolean removeChannelUser(String channelId, String userId);
 
-	
-	
 	List<Channel> getListOfChannelsByUser(String userId);
 	
 	Channel getChannelByChannelId(String channelId) throws ChannelNotFoundException;

@@ -17,7 +17,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.stackroute.tldm.exception.ChannelNotFoundException;
 import com.stackroute.tldm.model.Channel;
-
 import com.stackroute.tldm.model.User;
 import com.stackroute.tldm.repository.ChannelRepository;
 
@@ -29,8 +28,6 @@ public class ChannelRepositoryTest {
 	private ChannelRepository channelRepository;
 	private Channel channel;
 	private User user;
-	
-	private List<Channel> channelList = null;
 
 	@Before
 	public void setUp() throws Exception {
@@ -40,13 +37,11 @@ public class ChannelRepositoryTest {
 		channel.setChannelCreatedBy("Gayathri");
 		channel.setChannelDescription("product works");
 		channel.setChannelCreatedDate(new Date());
-	
 		List<User> userList = new ArrayList<>();
 		channel.setChannelUsers(userList);
 		userList.add(user);
-		
-		// users
 
+		// users
 		user = new User();
 		user.setUserId("swedha12");
 		user.setPhoneNum("56528769987");
