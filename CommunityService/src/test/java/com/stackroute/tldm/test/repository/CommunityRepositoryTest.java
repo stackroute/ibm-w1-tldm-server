@@ -72,6 +72,7 @@ public class CommunityRepositoryTest {
     
 
     @Test
+    @Ignore
  
     public void createCommunityTest() {
         communityRepo.insert(community);
@@ -79,6 +80,7 @@ public class CommunityRepositoryTest {
         Assert.assertEquals(community.getCommunityId(), fetchUser.getCommunityId());
     }
     @Test
+    @Ignore
     
     public void updateCommunityTest() {
         communityRepo.insert(community);
@@ -90,6 +92,7 @@ public class CommunityRepositoryTest {
     }
     
     @Test
+    @Ignore
  
     public void getCommunityByCommunityNameTest() {
         communityRepo.insert(community);
@@ -98,6 +101,7 @@ public class CommunityRepositoryTest {
     }
     
     @Test
+    @Ignore
    
     public void getCommunityByIdTest() {
         communityRepo.insert(community);
