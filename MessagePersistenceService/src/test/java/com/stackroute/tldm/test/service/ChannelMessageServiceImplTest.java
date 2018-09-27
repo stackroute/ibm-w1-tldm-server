@@ -1,6 +1,5 @@
 package com.stackroute.tldm.test.service;
 
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -95,7 +94,8 @@ public class ChannelMessageServiceImplTest {
 		user.setPhoneNum("7401323395");
 
 	}
-//    @Ignore
+
+//  @Ignore
 //	@Test
 //	public void saveMessageSuccess() {
 //		when(channelChatRepository.save(channelMessage).getMessageId()).thenReturn(uuid);
