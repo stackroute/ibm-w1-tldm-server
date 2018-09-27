@@ -1,7 +1,7 @@
 package com.stackroute.tldm.model;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.redis.core.RedisHash;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
@@ -10,7 +10,7 @@ import java.util.Date;
  * Java object to recreate it as a table in your database.
  */
 
-@RedisHash("user")
+@Document
 public class User {
 
     @Id
@@ -30,7 +30,7 @@ public class User {
      */
 
     public User() {
-
+        super();
     }
 
     public User(String userId, String password, String userName, String phoneNum, String userMail, Date createdAt) {

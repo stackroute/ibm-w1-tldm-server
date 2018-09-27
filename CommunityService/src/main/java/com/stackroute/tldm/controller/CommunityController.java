@@ -122,7 +122,7 @@ public class CommunityController {
 	//getting community details
 	
 	@GetMapping("/get/{communityName}")
-	public ResponseEntity<?> getCommunityName(@PathVariable String communityName) throws CommunityNotFoundException{
+	public ResponseEntity<?> getCommunityName(@PathVariable String communityName) {
 		ResponseEntity<?> responseEntity = null;	
 		try {
 			if(communityService.getCommunityByCommunityName(communityName)!=null)
@@ -143,22 +143,26 @@ public class CommunityController {
 	//get users present in the community
 	
 	@GetMapping("/users/{communityName}")
-	public ResponseEntity<?>getUsersByCommunityName(@PathVariable String communityName) throws CommunityNotFoundException
+	public ResponseEntity<?>getUsersByCommunityName(@PathVariable String communityName) 
 	{
-		ResponseEntity<?> responseEntity;
+		ResponseEntity<?> responseEntity = null;
 		List<User>communityUsers;
 		
-		communityUsers=communityService.findAllCommunityUsersByCommunityName(communityName);
-		if(communityUsers!=null)
-		{
-			responseEntity=new ResponseEntity<>(communityUsers,HttpStatus.OK);
-			
-		
-		}
-		else
-		{
+		try {
+			communityUsers=communityService.findAllCommunityUsersByCommunityName(communityName);
+			if(communityUsers!=null)
+			{
+				responseEntity=new ResponseEntity<>(communityUsers,HttpStatus.OK);
+						
+			}
+			else
+			{
+				responseEntity=new ResponseEntity<>("community name not found",HttpStatus.NOT_FOUND);
+			}
+		} catch (CommunityNotFoundException e) {
 			responseEntity=new ResponseEntity<>("community name not found",HttpStatus.NOT_FOUND);
 		}
+		
 			
 		return responseEntity;
 		
@@ -174,6 +178,7 @@ public class CommunityController {
 		List<Channel> channelList;
 		 
 		channelList=communityService.findAllChannelsByCommunityName(communityName);
+		System.out.println("channel"+channelList);
 		if(channelList!=null)
 		{
 			responseEntity=new ResponseEntity<>(channelList,HttpStatus.OK);
@@ -183,14 +188,46 @@ public class CommunityController {
 		{
 			responseEntity=new ResponseEntity<>("community not found",HttpStatus.NOT_FOUND);
 			
-		}
-		
-		
-		
-		
+		}	
 		
 		return responseEntity;
 	}
+//update community:channels get added into the community using communityName
+
+	
+	@PutMapping("/update/{communityName}")
+	public ResponseEntity<?> updateByCommunityName(@PathVariable String communityName, @RequestBody Channel channel,Community community) {
+		ResponseEntity<?> responseEntity = null;
+		try {
+			communityService.updateByCommunityName(communityName, channel);
+		
+			responseEntity = new ResponseEntity<>(community, HttpStatus.OK);
+
+		} catch (CommunityNotFoundException exception) {
+			responseEntity = new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
+
+		}
+		return responseEntity;
+	}
+
+
+//update community:channels get added into the community using communityId
+	
+	@PutMapping("/updated/{communityId")
+	public ResponseEntity<?> updateByCommunityId(@PathVariable String communityId, @RequestBody Channel channel,Community community) {
+		ResponseEntity<?> responseEntity = null;
+		try {
+			communityService.updateByCommunityId(communityId, channel);
+		
+			responseEntity = new ResponseEntity<>(communityId, HttpStatus.OK);
+
+		} catch (CommunityNotFoundException exception) {
+			responseEntity = new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
+
+		}
+		return responseEntity;
+	}
+	
 	
 	
 

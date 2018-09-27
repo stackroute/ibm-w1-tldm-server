@@ -14,7 +14,9 @@ public interface CommunityService {
 
 	Community updateCommunity(String communityId, Community community) throws CommunityNotFoundException;                     //update a community
 
-
+    Community updateByCommunityName(String communityName,Channel channel)throws CommunityNotFoundException;
+    
+    Community updateByCommunityId(String communityId,Channel channel)throws CommunityNotFoundException;
 
 	Community getCommunityById(String communityId) throws CommunityNotFoundException;                                       
 

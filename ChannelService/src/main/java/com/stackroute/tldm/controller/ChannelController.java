@@ -109,11 +109,11 @@ public class ChannelController {
 	// //
 	@PutMapping("/{channelId}")
 	@ApiOperation("Update users in channel")
-	public ResponseEntity<?> updateChannelUser(@PathVariable String channelId, @RequestBody User user) {
+	public ResponseEntity<?> updateChannelUser(@PathVariable String channelId, @RequestBody List<User> users) {
 		ResponseEntity<?> responseEntity = null;
 		try {
 
-			channelService.updateChannelUser(channelId, user);
+			channelService.updateChannelUser(channelId, users);
 			responseEntity = new ResponseEntity<>(channelId, HttpStatus.OK);
 
 		} catch (ChannelNotFoundException exception) {

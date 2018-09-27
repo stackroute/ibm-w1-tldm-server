@@ -7,7 +7,7 @@ import com.stackroute.tldm.exception.UserNotFoundException;
 import com.stackroute.tldm.model.User;
 import com.stackroute.tldm.service.UserService;
 import org.junit.Before;
-import org.junit.Ignore;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -55,7 +55,7 @@ public class UserControllerTest {
         user.setPassword("123456");
         user.setCreatedAt(new Date());
     }
-@Ignore
+
     @Test
     public void registerUserSuccess() throws Exception {
         when(userService.registerUser(user)).thenReturn(user);
@@ -63,7 +63,7 @@ public class UserControllerTest {
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
                 .andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
     }
-@Ignore
+
 
     @Test
     public void registerUserFailure() throws Exception {
@@ -72,21 +72,21 @@ public class UserControllerTest {
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
                 .andExpect(status().isConflict()).andDo(MockMvcResultHandlers.print());
     }
-@Ignore
+
     @Test
     public void deleteUserSuccess() throws Exception {
         when(userService.deleteUser("swedha12")).thenReturn(true);
         mockMvc.perform(delete("/api/user/swedha12").contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
                 .andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
     }
-@Ignore
+
     @Test
     public void deleteUserFailure() throws Exception {
         when(userService.deleteUser("swedha12")).thenThrow(UserNotFoundException.class);
         mockMvc.perform(delete("/api/user/swedha12").contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
                 .andExpect(status().isNotFound()).andDo(MockMvcResultHandlers.print());
     }
-@Ignore
+
 
     @Test
     public void updateUserSuccess() throws Exception {
@@ -96,7 +96,7 @@ public class UserControllerTest {
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
                 .andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
     }
-@Ignore
+
     @Test
     public void updateUserFailure() throws Exception {
         user.setUserMail("swedha87@gmail.com");
@@ -105,7 +105,7 @@ public class UserControllerTest {
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
                 .andExpect(status().isNotFound()).andDo(MockMvcResultHandlers.print());
     }
-@Ignore
+
     @Test
     public void getByUserIdSuccess() throws Exception {
         when(userService.getUserById("swedha12")).thenReturn(user);
@@ -113,7 +113,7 @@ public class UserControllerTest {
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
                 .andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
     }
-@Ignore
+
 
     @Test
     public void getByUserIdFailure() throws Exception {

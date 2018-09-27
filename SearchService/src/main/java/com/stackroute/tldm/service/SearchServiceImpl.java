@@ -1,45 +1,34 @@
 package com.stackroute.tldm.service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stackroute.tldm.model.User;
 import com.stackroute.tldm.repository.SearchRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.handler.annotation.Payload;
-import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.ListIterator;
+
+// receiveUser() method annotated with @KafkaListener becomes the consumer listening from User-Service.
 
 @Service
 public class SearchServiceImpl implements SearchService {
 
     private SearchRepository searchRepository;
-    private SimpMessagingTemplate template;
 
     @Autowired
-    public SearchServiceImpl(SearchRepository searchRepository, SimpMessagingTemplate template) {
+    public SearchServiceImpl(SearchRepository searchRepository) {
         this.searchRepository = searchRepository;
-        this.template = template;
     }
 
     @KafkaListener(topics = "${search-topic.boot}", groupId = "${groupId.boot}")
-    public void receiveUserList(@Payload List<User> userList) {
-
-        ObjectMapper mapper = new ObjectMapper();
-        List<User> users = mapper.convertValue(userList, List.class);
-        ListIterator<User> iterator = users.listIterator();
-        while (iterator.hasNext()) {
-            User user = mapper.convertValue(iterator.next(), User.class);
-            searchRepository.save(user);
-        }
-
+    public void receiveUser(@Payload User user) {
+        searchRepository.insert(user);
     }
 
     @Override
-    public void getUsersByName(String userName) {
-        template.convertAndSend("/topic/search-user", searchRepository.findAllByUserName(userName));
+    public List<User> getAllUsersByUserNameRegex(String userName) {
+        List<User> userList = searchRepository.findAllByUserNameRegex(userName);
+        return userList;
     }
 }

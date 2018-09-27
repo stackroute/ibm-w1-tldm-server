@@ -33,7 +33,7 @@ public class UserRepositoryTest {
     }
 
     @Test
-    @Ignore
+    
     public void registerUserTest() {
         userRepository.insert(user);
         User fetchUser = userRepository.findById("swetha123").get();
@@ -41,7 +41,7 @@ public class UserRepositoryTest {
     }
 
     @Test
-    @Ignore
+    
     public void getUserByIdTest() {
         userRepository.insert(user);
         User fetchUser = userRepository.findById("swetha123").get();
@@ -49,7 +49,7 @@ public class UserRepositoryTest {
     }
 
     @Test
-    @Ignore
+    
     public void getUserByUserNameTest() {
         userRepository.insert(user);
         User fetchUser = userRepository.getUserByUserName("Swetha Selvaraj");
@@ -57,7 +57,7 @@ public class UserRepositoryTest {
     }
 
     @Test
-    @Ignore
+    
     public void updateUserTest() {
         userRepository.insert(user);
         User fetchUser = userRepository.findById("swetha123").get();
