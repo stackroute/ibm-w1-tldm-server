@@ -78,13 +78,13 @@ public class ChannelServiceImplTest {
 
 	}
 
-	@Ignore
-	@Test
-	public void getChannelByChannelName() throws ChannelNotFoundException {
-		when(channelRepository.getChannelByChannelName(channel.getChannelName())).thenReturn(channel);
-		Channel fetchChannel = channelService.getChannelByChannelName(channel.getChannelName());
-		assertEquals(channel, fetchChannel);
-	}
+//	@Ignore
+//	@Test
+//	public void getChannelByChannelName() throws ChannelNotFoundException {
+//		when(channelRepository.getChannelByChannelId(channel.getChannelName())).thenReturn(channel);
+//		Channel fetchChannel = channelService.getChannelByChannelName(channel.getChannelName());
+//		assertEquals(channel, fetchChannel);
+//	}
 
 	@Ignore
 	@Test

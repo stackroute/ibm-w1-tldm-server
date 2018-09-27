@@ -129,7 +129,7 @@ public class ChannelControllerTest {
 	@Ignore
 	@Test
 	public void getByChannelNameSuccess() throws Exception {
-		when(channelService.getChannelByChannelName(channel.getChannelName())).thenReturn(channel);
+		when(channelService.getChannelByChannelId(channel.getChannelId())).thenReturn(channel);
 		mockMvc.perform(
 				get("/ap1/v1/channel/tldm").contentType(MediaType.APPLICATION_JSON).content(asJsonString(channel)))
 				.andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
@@ -138,7 +138,7 @@ public class ChannelControllerTest {
 	@Ignore
 	@Test
 	public void getByChannelNameFailure() throws Exception {
-		when(channelService.getChannelByChannelName("tldm")).thenThrow(ChannelNotFoundException.class);
+		when(channelService.getChannelByChannelId("tldm")).thenThrow(ChannelNotFoundException.class);
 		mockMvc.perform(
 				get("/api/v1/channel/tldm").contentType(MediaType.APPLICATION_JSON).content(asJsonString(channel)))
 				.andExpect(status().isNotFound()).andDo(MockMvcResultHandlers.print());
