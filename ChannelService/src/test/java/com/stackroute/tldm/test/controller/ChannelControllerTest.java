@@ -34,7 +34,7 @@ import com.stackroute.tldm.controller.ChannelController;
 import com.stackroute.tldm.exception.ChannelAlreadyExistsException;
 import com.stackroute.tldm.exception.ChannelNotFoundException;
 import com.stackroute.tldm.model.Channel;
-import com.stackroute.tldm.model.Community;
+
 import com.stackroute.tldm.model.User;
 import com.stackroute.tldm.service.ChannelService;
 
@@ -51,7 +51,7 @@ public class ChannelControllerTest {
 	@InjectMocks
 	private ChannelController channelController;
 	private User user;
-	private Community community;
+	
 	private List<Channel> channelList = null;
 
 	@Before
@@ -63,20 +63,10 @@ public class ChannelControllerTest {
 		channel.setChannelDescription("Product works");
 		channel.setChannelCreatedBy("Gayathri");
 		channel.setChannelCreatedDate(new Date());
-		channel.setCommunity(community);
+		
 		List<User> userList = new ArrayList<>();
 		channel.setChannelUsers(userList);
 		userList.add(user);
-
-		// community
-
-		community = new Community();
-		community.setCommunityId("swe123");
-		community.setCommunityName("PRODUCT");
-		community.setCommunityCreatedDate(new Date());
-		community.setCommunityCreatedBy(user);
-		community.setChannelList(channelList);
-		community.setCommunityUsers(userList);
 
 		// users
 
@@ -89,7 +79,7 @@ public class ChannelControllerTest {
 
 	}
 
-	@Ignore
+	
 	@Test
 	public void createChannelSuccess() throws Exception {
 		when(channelService.createChannel(channel)).thenReturn(channel);
@@ -98,7 +88,7 @@ public class ChannelControllerTest {
 
 	}
 
-	@Ignore
+	
 	@Test
 	public void createChannelFailure() throws Exception {
 		when(channelService.createChannel(any())).thenThrow(ChannelAlreadyExistsException.class);
@@ -106,7 +96,7 @@ public class ChannelControllerTest {
 				.andExpect(status().isConflict()).andDo(MockMvcResultHandlers.print());
 	}
 
-	@Ignore
+	
 	@Test
 	public void deleteChannelSuccess() throws Exception {
 		when(channelService.deleteChannel("tldm")).thenReturn(true);
@@ -114,7 +104,7 @@ public class ChannelControllerTest {
 				.content(asJsonString(channel))).andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
 	}
 
-	@Ignore
+	
 	@Test
 	public void deleteChannelFailure() throws Exception {
 		when(channelService.deleteChannel("tldm")).thenThrow(ChannelNotFoundException.class);
@@ -122,7 +112,7 @@ public class ChannelControllerTest {
 				.content(asJsonString(channel))).andExpect(status().isNotFound()).andDo(MockMvcResultHandlers.print());
 	}
 
-	@Ignore
+	
 	@Test
 	public void updatechannelSuccess() throws Exception {
 		channel.setChannelDescription("product works");
@@ -132,7 +122,7 @@ public class ChannelControllerTest {
 				.andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
 	}
 
-	@Ignore
+	
 	@Test
 	public void updatechannelFailure() throws Exception {
 		channel.setChannelDescription("product works");
@@ -142,7 +132,7 @@ public class ChannelControllerTest {
 				.andExpect(status().isNotFound()).andDo(MockMvcResultHandlers.print());
 	}
 
-	@Ignore
+	
 	@Test
 	public void getByChannelNameSuccess() throws Exception {
 		when(channelService.getChannelByChannelName(channel.getChannelName())).thenReturn(channel);
@@ -151,7 +141,7 @@ public class ChannelControllerTest {
 				.andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
 	}
 
-	@Ignore
+	
 	@Test
 	public void getByChannelNameFailure() throws Exception {
 		when(channelService.getChannelByChannelName("tldm")).thenThrow(ChannelNotFoundException.class);

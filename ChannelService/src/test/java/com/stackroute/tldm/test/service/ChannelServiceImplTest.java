@@ -20,7 +20,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import com.stackroute.tldm.exception.ChannelAlreadyExistsException;
 import com.stackroute.tldm.exception.ChannelNotFoundException;
 import com.stackroute.tldm.model.Channel;
-import com.stackroute.tldm.model.Community;
+
 import com.stackroute.tldm.model.User;
 import com.stackroute.tldm.repository.ChannelRepository;
 import com.stackroute.tldm.service.ChannelServiceImpl;
@@ -31,8 +31,7 @@ public class ChannelServiceImplTest {
 	private Channel channel;
 	@MockBean
 	private User user;
-	@MockBean
-	private Community community;
+	
 	@Mock
 	private ChannelRepository channelRepository;
 	@InjectMocks
@@ -50,20 +49,10 @@ public class ChannelServiceImplTest {
 		channel.setChannelCreatedBy("Gayathri");
 		channel.setChannelDescription("product works");
 		channel.setChannelCreatedDate(new Date());
-		channel.setCommunity(community);
+		
 		List<User> userList = new ArrayList<>();
 		channel.setChannelUsers(userList);
-		userList.add(user);
-		// community
-
-		community = new Community();
-		community.setCommunityId("swe123");
-		community.setCommunityName("PRODUCT");
-		community.setCommunityCreatedDate(new Date());
-		community.setCommunityCreatedBy(user);
-		community.setChannelList(channelList);
-		community.setCommunityUsers(userList);
-
+		
 		// users
 
 		user = new User();
@@ -76,7 +65,7 @@ public class ChannelServiceImplTest {
 		// userList.add(user);
 	}
 
-	@Ignore
+	
 	@Test
 	public void createChannelSuccess() throws ChannelAlreadyExistsException {
 		when(channelRepository.insert((Channel) any())).thenReturn(channel);
@@ -84,7 +73,7 @@ public class ChannelServiceImplTest {
 		assertEquals(channel, createChannel);
 	}
 
-	@Ignore
+	
 	@Test
 	public void createChannelFailure() throws ChannelAlreadyExistsException {
 		when(channelRepository.insert((Channel) any())).thenReturn(channel);
@@ -93,7 +82,7 @@ public class ChannelServiceImplTest {
 
 	}
 
-	@Ignore
+	
 	@Test
 	public void getChannelByChannelName() throws ChannelNotFoundException {
 		when(channelRepository.getChannelByChannelName(channel.getChannelName())).thenReturn(channel);
@@ -101,21 +90,38 @@ public class ChannelServiceImplTest {
 		assertEquals(channel, fetchChannel);
 	}
 
-	@Ignore
+	
 	@Test
 	public void deleteChannelSuccess() throws ChannelNotFoundException {
 		when(channelRepository.findById(channel.getChannelId())).thenReturn(options);
-		boolean flag = channelService.deleteChannel(channel.getChannelId());
+		boolean flag = channelService.deleteChannel("tldm");
+		assertEquals(true, flag);
+	}
+	
+	@Test
+	public void deleteChannelFailure() throws ChannelNotFoundException {
+		when(channelRepository.findById(channel.getChannelId())).thenReturn(options);
+		boolean flag = channelService.deleteChannel("tldm");
 		assertEquals(true, flag);
 	}
 
-	@Ignore
+	
 	@Test
 	public void updateChannelSuccess() throws ChannelNotFoundException {
-		when(channelRepository.findById(channel.getChannelId())).thenReturn(options);
-		Channel updateChannels = channelService.updateChannel(channel.getChannelId(), channel);
+		when(channelRepository.findById("tldm123")).thenReturn(options);
+		//channel.ChannelDescription("product discussion");
+		channelList.add(channel);
+		Channel updateChannels = channelService.updateChannel(channel.getChannelId(),channel);
 		assertEquals(channel, updateChannels);
 	}
+	
+	@Test
+	public void getChannelByChannelId() throws ChannelNotFoundException {
+		when(channelRepository.findById(channel.getChannelId())).thenReturn(options);
+		Channel fetchChannel = channelService.getChannelByChannelId(channel.getChannelId());
+		assertEquals(channel, fetchChannel);
+	}
+
 	
 	
 
