@@ -20,8 +20,6 @@ public class Channel {
     private String channelDescription;
     @CassandraType(type = DataType.Name.TIMESTAMP)
     private Date channelCreatedDate;
-    @CassandraType(type = DataType.Name.UDT, userTypeName = "Community")
-    private Community community;
     @CassandraType(type = DataType.Name.UDT, userTypeName = "user")
     private List<User> channelUsers;
 
@@ -31,14 +29,13 @@ public class Channel {
     }
 
     public Channel(String channelId, String channelName, String channelcreatedBy, String channelDescription,
-                   Date channelCreatedDate, Community community, List<User> channelUsers) {
+                   Date channelCreatedDate, List<User> channelUsers) {
         super();
         this.channelId = channelId;
         this.channelName = channelName;
         this.channelCreatedBy = channelcreatedBy;
         this.channelDescription = channelDescription;
         this.channelCreatedDate = channelCreatedDate;
-        this.community = community;
         this.channelUsers = channelUsers;
     }
 
@@ -59,14 +56,14 @@ public class Channel {
     }
 
     public String getChannelCreatedBy() {
-		return channelCreatedBy;
-	}
+        return channelCreatedBy;
+    }
 
-	public void setChannelCreatedBy(String channelCreatedBy) {
-		this.channelCreatedBy = channelCreatedBy;
-	}
+    public void setChannelCreatedBy(String channelCreatedBy) {
+        this.channelCreatedBy = channelCreatedBy;
+    }
 
-	public String getChannelDescription() {
+    public String getChannelDescription() {
         return channelDescription;
     }
 
@@ -80,14 +77,6 @@ public class Channel {
 
     public void setChannelCreatedDate(Date channelCreatedDate) {
         this.channelCreatedDate = channelCreatedDate;
-    }
-
-    public Community getCommunity() {
-        return community;
-    }
-
-    public void setCommunity(Community community) {
-        this.community = community;
     }
 
     public List<User> getChannelUsers() {
@@ -106,7 +95,6 @@ public class Channel {
                 ", channelCreatedBy='" + channelCreatedBy + '\'' +
                 ", channelDescription='" + channelDescription + '\'' +
                 ", channelCreatedDate=" + channelCreatedDate +
-                ", community=" + community +
                 ", channelUsers=" + channelUsers +
                 '}';
     }
