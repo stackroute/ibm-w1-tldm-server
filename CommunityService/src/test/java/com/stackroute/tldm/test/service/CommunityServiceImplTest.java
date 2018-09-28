@@ -8,6 +8,7 @@ import static org.mockito.ArgumentMatchers.any;
 
 import java.util.Date;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.junit.Before;
 import org.junit.Ignore;
@@ -16,6 +17,7 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.stackroute.tldm.exception.CommunityAlreadyExistsException;
 import com.stackroute.tldm.exception.CommunityNotFoundException;
@@ -31,20 +33,23 @@ public class CommunityServiceImplTest {
 
 	@Mock
 	private CommunityRepository communityRepo;
+	@MockBean
 	private Community community;
+	@MockBean
 	private User user;
+	
 
 	@InjectMocks
 	private CommunityServiceImpl communityServiceImpl;
-	private CommunityService communityService;
+	
 	private List<Channel> channelsList;
 	private List<User> communityUsers;
-	 Optional<Community> options;
+	private Optional<Community> options;
 
-	private List<User> userList = null;
+	
 
 	@Before
-	public void setUp() {
+	public void setUp() throws Exception{
 		MockitoAnnotations.initMocks(this);
 		community = new Community();
 		community.setCommunityId("swe123");
@@ -60,44 +65,61 @@ public class CommunityServiceImplTest {
 	}
 	
 	@Test
-	@Ignore
+//	@Ignore
 	
     public void createCommunitySuccess() throws CommunityAlreadyExistsException {
         when(communityRepo.insert((Community) any())).thenReturn(community);
-        Community communitySaved = communityService.createCommunity(community);
+        Community communitySaved = communityServiceImpl.createCommunity(community);
         assertEquals(community, communitySaved);
 
     }
-	@Ignore
-	  @Test(expected = CommunityAlreadyExistsException.class)
-	    public void createCommunityFailure() throws CommunityAlreadyExistsException
-	    {
-	        when(communityRepo.insert((Community) any())).thenReturn(null);
-	        Community communitySaved = communityService.createCommunity(community);
-	        Assert.assertEquals(community, communitySaved);
-	    }
 
 	@Test
-	@Ignore
+//	@Ignore
 	
-    public void updateCommunity() throws CommunityNotFoundException {
+    public void updateCommunitySuccess() throws CommunityNotFoundException {
         when(communityRepo.findById(community.getCommunityId())).thenReturn(options);
         community.setCommunityName("product");
-        Community fetchCommunity = communityService.updateCommunity(community.getCommunityName(),community);
+        Community fetchCommunity = communityServiceImpl.updateCommunity(community.getCommunityId(),community);
         assertEquals(community, fetchCommunity);
 
     }
+	@Test
+	 public void updateCommunityFailure() throws CommunityNotFoundException {
+	        when(communityRepo.findById(community.getCommunityId())).thenReturn(options);
+	        community.setCommunityName("product");
+	        Community fetchCommunity = communityServiceImpl.updateCommunity(community.getCommunityId(),community);
+	        assertEquals(community, fetchCommunity);
+
+	    }
 	
 	 @Test
-	 @Ignore
+//	 @Ignore
 	    public void deleteCommunitySuccess() throws CommunityNotFoundException {
 	        when(communityRepo.findById(community.getCommunityId())).thenReturn(options);
-	        boolean flag = communityService.delCommunity(community.getCommunityId());
+	        boolean flag = communityServiceImpl.delCommunity(community.getCommunityId());
 	        assertEquals(true, flag);
 
 	    }
+       
+	 
+	 @Test
+	 public void getCommunityByCommunityIdSuccess()throws CommunityNotFoundException{
+		 when(communityRepo.findById(community.getCommunityId())).thenReturn(options);
+		 Community fetchCommunity=communityServiceImpl.getCommunityByCommunityId(community.getCommunityId());
+	     assertEquals(community,fetchCommunity);
+	 }
+   
+	 @Test(expected = CommunityNotFoundException.class)
+	 public void getCommunityByCommunityIdFailure()throws CommunityNotFoundException{
+		 when(communityRepo.findById(community.getCommunityId())).thenThrow(NoSuchElementException.class);
+		 Community fetchCommunity=communityServiceImpl.getCommunityByCommunityId(community.getCommunityId());
+	     assertEquals(community,fetchCommunity);
+	 }
+	 
+	 
 
-
+	 
 	
 	
 
