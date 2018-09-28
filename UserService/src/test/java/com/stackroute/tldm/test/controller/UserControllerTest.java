@@ -2,7 +2,7 @@ package com.stackroute.tldm.test.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stackroute.tldm.controller.UserController;
-import com.stackroute.tldm.exception.UserAlreadyExistsException;
+
 import com.stackroute.tldm.exception.UserNotFoundException;
 import com.stackroute.tldm.model.User;
 import com.stackroute.tldm.service.UserService;

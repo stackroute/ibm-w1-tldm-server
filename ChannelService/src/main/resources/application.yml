@@ -1,18 +1,18 @@
-server:
-  port: 8065
-
-eureka:
-  client:
-    register-with-eureka: true
-    serviceUrl:
-      defaultZone: http://172.23.239.227:8061/eureka
-
-info:
-  app:
-    description: Channel Service is up and has no problem
-    name: Channel Service
-    version: 1.0.0
-
+#server:
+#  port: 8065
+#
+#eureka:
+#  client:
+#    register-with-eureka: true
+#    serviceUrl:
+#      defaultZone: http://172.23.239.227:8061/eureka
+#
+#info:
+#  app:
+#    description: Channel Service is up and has no problem
+#    name: Channel Service
+#    version: 1.0.0
+#
 #spring:
 #  application:
 #    name: Channel-Service
@@ -23,13 +23,3 @@ info:
 #      uri: http://172.23.239.212:8062
 #
 
-spring:
-    application:
-        name: Channel-Service
-    data:
-        mongodb:
-            database: channelDatabase
-            host: localhost
-            username: gaya397
-            password: root123
-            port: 27017
