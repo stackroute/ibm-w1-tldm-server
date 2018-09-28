@@ -56,34 +56,18 @@ public class UserControllerTest {
         user.setCreatedAt(new Date());
     }
 
-    @Test
-    public void registerUserSuccess() throws Exception {
-        when(userService.registerUser(user)).thenReturn(user);
-        mockMvc.perform(post("/register")
-                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
-                .andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
-    }
-
-
-    @Test
-    public void registerUserFailure() throws Exception {
-        when(userService.registerUser(any())).thenThrow(UserAlreadyExistsException.class);
-        mockMvc.perform(post("/register")
-                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
-                .andExpect(status().isConflict()).andDo(MockMvcResultHandlers.print());
-    }
 
     @Test
     public void deleteUserSuccess() throws Exception {
         when(userService.deleteUser("swedha12")).thenReturn(true);
-        mockMvc.perform(delete("/api/user/swedha12").contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
+        mockMvc.perform(delete("/api/v1/user/swedha12").contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
                 .andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
     }
 
     @Test
     public void deleteUserFailure() throws Exception {
         when(userService.deleteUser("swedha12")).thenThrow(UserNotFoundException.class);
-        mockMvc.perform(delete("/api/user/swedha12").contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
+        mockMvc.perform(delete("/api/v1/user/swedha12").contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
                 .andExpect(status().isNotFound()).andDo(MockMvcResultHandlers.print());
     }
 
@@ -92,7 +76,7 @@ public class UserControllerTest {
     public void updateUserSuccess() throws Exception {
         user.setUserMail("swedha87@gmail.com");
         when(userService.updateUser(eq(user.getUserId()), any())).thenReturn(user);
-        mockMvc.perform(put("/api/user/swedha12")
+        mockMvc.perform(put("/api/v1/user/swedha12")
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
                 .andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
     }
@@ -101,7 +85,7 @@ public class UserControllerTest {
     public void updateUserFailure() throws Exception {
         user.setUserMail("swedha87@gmail.com");
         when(userService.updateUser(eq(user.getUserId()), any())).thenThrow(UserNotFoundException.class);
-        mockMvc.perform(put("/api/user/swedha12")
+        mockMvc.perform(put("/api/v1/user/swedha12")
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
                 .andExpect(status().isNotFound()).andDo(MockMvcResultHandlers.print());
     }
@@ -109,7 +93,7 @@ public class UserControllerTest {
     @Test
     public void getByUserIdSuccess() throws Exception {
         when(userService.getUserById("swedha12")).thenReturn(user);
-        mockMvc.perform(get("/api/user/swedha12")
+        mockMvc.perform(get("/api/v1/user/swedha12")
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
                 .andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
     }
@@ -118,7 +102,7 @@ public class UserControllerTest {
     @Test
     public void getByUserIdFailure() throws Exception {
         when(userService.getUserById("swedha12")).thenThrow(UserNotFoundException.class);
-        mockMvc.perform(get("/api/user/swedha12")
+        mockMvc.perform(get("/api/v1/user/swedha12")
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
                 .andExpect(status().isNotFound()).andDo(MockMvcResultHandlers.print());
     }

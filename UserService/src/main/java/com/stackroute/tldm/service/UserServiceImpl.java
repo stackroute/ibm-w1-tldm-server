@@ -21,7 +21,8 @@ public class UserServiceImpl implements UserService {
 
     @Value("${search-topic.boot}")
     private String searchTopic;
-
+    
+    @Autowired
     public UserServiceImpl(UserRepository userRepo, KafkaTemplate<String, User> kafkaTemplate) {
         this.userRepo = userRepo;
         this.kafkaTemplate = kafkaTemplate;

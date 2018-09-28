@@ -5,20 +5,23 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.mockito.Mockito.when;
 
-
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 import com.stackroute.tldm.model.User;
+
+import org.junit.Assert;
 import org.junit.Before;
 
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
-import com.stackroute.tldm.exception.UserAlreadyExistsException;
+
 import com.stackroute.tldm.exception.UserNotFoundException;
 import com.stackroute.tldm.repository.UserRepository;
 import com.stackroute.tldm.service.UserServiceImpl;
@@ -27,7 +30,8 @@ public class UserServiceImplTest {
 
     @Mock
     private UserRepository userRepo;
-    private User user, user1;
+    @MockBean
+    private User user;
 
     @InjectMocks
     private UserServiceImpl userService;
@@ -40,40 +44,28 @@ public class UserServiceImplTest {
         MockitoAnnotations.initMocks(this);
 
         user = new User();
-        user.setUserId("swedha12");
+        user.setUserId("swedha123");
         user.setPassword("swe123");
         user.setPhoneNum("56528769987");
         user.setUserName("swetha");
         user.setUserMail("swedha87@gmail.com");
         user.setCreatedAt(new Date());
-        
-        userList.add(user);
-       // user1 = new User();//
-      //  options = Optional.of(user);//
+        //userRepo.save(user);
+        userList = new ArrayList<>();
+       userList.add(user);
+       
+        options = Optional.of(user);
     }
    
     
+
+
     
-   
 
     @Test
-    public void registerUserSuccess() throws UserAlreadyExistsException {
-        when(userRepo.insert((User) any())).thenReturn(user);
-        User registerUser = userService.registerUser(user);
-        assertEquals(user, registerUser);
-    }
-
-    @Test
-    public void registerUserFailure() throws UserAlreadyExistsException {
-        when(userRepo.insert((User) any())).thenReturn(user);
-        User registerUser1 = userService.registerUser(user);
-        assertNotEquals(user1, registerUser1);
-    }
-
-    @Test
-    public void getUserByUserName() throws UserNotFoundException {
-        when(userRepo.getUserByUserName(user.getUserName())).thenReturn(user);
-        User fetchUser = userService.getUserByUserName(user.getUserName());
+    public void getUserByUserNameSuccess() throws UserNotFoundException {
+        when(userRepo.getUserByUserName("swetha")).thenReturn(user);
+        User fetchUser = userService.getUserByUserName("swetha");
         assertEquals(user, fetchUser);
     }
 
@@ -83,14 +75,55 @@ public class UserServiceImplTest {
         boolean flag = userService.deleteUser(user.getUserId());
         assertEquals(true, flag);
     }
+    
+    
+    
+    @Test
+    public void updateChannelSuccess() throws UserNotFoundException {
+        when(userRepo.findById(user.getUserId())).thenReturn(options);
+         User updateUser = userService.updateUser(user.getUserId(), user);
+        assertEquals(user, updateUser);
+    }
+    @Test
+    public void updateUserFailure() throws UserNotFoundException {
+        when(userRepo.findById(user.getUserId())).thenReturn(options);
+        User updateUser = userService.updateUser(user.getUserId(), user);
+        assertEquals(user, updateUser);
+    }
+    @Test
+    public void deleteChannelFailure() throws UserNotFoundException {
+        when(userRepo.findById(user.getUserId())).thenReturn(options);
+        boolean flag = userService.deleteUser(user.getUserId());
+        assertEquals(true, flag);
+    }
 
 
     @Test
-    public void getUserById() throws UserNotFoundException {
+    public void getUserByNameSucess() throws UserNotFoundException {
+        when(userRepo.findById(user.getUserName())).thenReturn(options);
+               User fetchUser = userService.getUserById(user.getUserName());
+        assertEquals(user, fetchUser);
+    }
+    
+
+    @Test
+    public void getUserByNameFailure() throws UserNotFoundException {
+        when(userRepo.findById(user.getUserName())).thenReturn(options);
+               User fetchUser = userService.getUserById(user.getUserName());
+        assertEquals(user, fetchUser);
+    }
+    @Test
+    public void getUserByIdSucess() throws UserNotFoundException {
         when(userRepo.findById(user.getUserId())).thenReturn(options);
-        User fetchUser = userService.getUserById(user.getUserId());
+               User fetchUser = userService.getUserById(user.getUserId());
+        assertEquals(user, fetchUser);
+    }
+    
+
+    @Test
+    public void getUserByIdFailure() throws UserNotFoundException {
+        when(userRepo.findById(user.getUserId())).thenReturn(options);
+               User fetchUser = userService.getUserById(user.getUserId());
         assertEquals(user, fetchUser);
     }
 }
-	
-	
