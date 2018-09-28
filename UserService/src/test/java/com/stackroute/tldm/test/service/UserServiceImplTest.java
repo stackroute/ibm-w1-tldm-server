@@ -1,8 +1,8 @@
 package com.stackroute.tldm.test.service;
 
-import static org.mockito.ArgumentMatchers.any;
+
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ import java.util.Optional;
 
 import com.stackroute.tldm.model.User;
 
-import org.junit.Assert;
+
 import org.junit.Before;
 
 import org.junit.Test;
