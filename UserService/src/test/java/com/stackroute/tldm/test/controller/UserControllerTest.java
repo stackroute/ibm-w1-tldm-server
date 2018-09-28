@@ -7,7 +7,7 @@ import com.stackroute.tldm.exception.UserNotFoundException;
 import com.stackroute.tldm.model.User;
 import com.stackroute.tldm.service.UserService;
 import org.junit.Before;
-import org.junit.Ignore;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -55,70 +55,54 @@ public class UserControllerTest {
         user.setPassword("123456");
         user.setCreatedAt(new Date());
     }
-@Ignore
-    @Test
-    public void registerUserSuccess() throws Exception {
-        when(userService.registerUser(user)).thenReturn(user);
-        mockMvc.perform(post("/register")
-                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
-                .andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
-    }
-@Ignore
 
-    @Test
-    public void registerUserFailure() throws Exception {
-        when(userService.registerUser(any())).thenThrow(UserAlreadyExistsException.class);
-        mockMvc.perform(post("/register")
-                .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
-                .andExpect(status().isConflict()).andDo(MockMvcResultHandlers.print());
-    }
-@Ignore
+
     @Test
     public void deleteUserSuccess() throws Exception {
         when(userService.deleteUser("swedha12")).thenReturn(true);
-        mockMvc.perform(delete("/api/user/swedha12").contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
+        mockMvc.perform(delete("/api/v1/user/swedha12").contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
                 .andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
     }
-@Ignore
+
     @Test
     public void deleteUserFailure() throws Exception {
         when(userService.deleteUser("swedha12")).thenThrow(UserNotFoundException.class);
-        mockMvc.perform(delete("/api/user/swedha12").contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
+        mockMvc.perform(delete("/api/v1/user/swedha12").contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
                 .andExpect(status().isNotFound()).andDo(MockMvcResultHandlers.print());
     }
-@Ignore
+
 
     @Test
     public void updateUserSuccess() throws Exception {
         user.setUserMail("swedha87@gmail.com");
         when(userService.updateUser(eq(user.getUserId()), any())).thenReturn(user);
-        mockMvc.perform(put("/api/user/swedha12")
+        mockMvc.perform(put("/api/v1/user/swedha12")
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
                 .andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
     }
-@Ignore
+
     @Test
     public void updateUserFailure() throws Exception {
         user.setUserMail("swedha87@gmail.com");
         when(userService.updateUser(eq(user.getUserId()), any())).thenThrow(UserNotFoundException.class);
-        mockMvc.perform(put("/api/user/swedha12")
+        mockMvc.perform(put("/api/v1/user/swedha12")
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
                 .andExpect(status().isNotFound()).andDo(MockMvcResultHandlers.print());
     }
-@Ignore
+
     @Test
     public void getByUserIdSuccess() throws Exception {
         when(userService.getUserById("swedha12")).thenReturn(user);
-        mockMvc.perform(get("/api/user/swedha12")
+        mockMvc.perform(get("/api/v1/user/swedha12")
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
                 .andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
     }
-@Ignore
+
 
     @Test
     public void getByUserIdFailure() throws Exception {
         when(userService.getUserById("swedha12")).thenThrow(UserNotFoundException.class);
-        mockMvc.perform(get("/api/user/swedha12")
+        mockMvc.perform(get("/api/v1/user/swedha12")
                 .contentType(MediaType.APPLICATION_JSON).content(asJsonString(user)))
                 .andExpect(status().isNotFound()).andDo(MockMvcResultHandlers.print());
     }

@@ -17,39 +17,39 @@ public class UserRepositoryTest {
     private User user;
 
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
         user = new User();
-        user.setUserId("swetha123");
+        user.setUserId("sanju");
         user.setUserName("Swetha Selvaraj");
         user.setPhoneNum("12345");
         user.setUserMail("swe@gmail.com");
         user.setPassword("123456");
-        userRepository.save(user);
+       // userRepository.save(user);//
     }
 
     @After
-    public void tearDown() {
+    public void tearDown() throws Exception {
         userRepository.deleteAll();
     }
 
     @Test
-    @Ignore
+    
     public void registerUserTest() {
         userRepository.insert(user);
-        User fetchUser = userRepository.findById("swetha123").get();
-        Assert.assertEquals(user.getUserId(), fetchUser.getUserId());
+        User fetchUser = userRepository.findById(user.getUserId()).get();
+        Assert.assertEquals("sanju", fetchUser.getUserId());
     }
 
     @Test
-    @Ignore
+    
     public void getUserByIdTest() {
         userRepository.insert(user);
-        User fetchUser = userRepository.findById("swetha123").get();
-        Assert.assertEquals(user.getUserId(), fetchUser.getUserId());
+        User fetchUser = userRepository.findById(user.getUserId()).get();
+        Assert.assertEquals("sanju", fetchUser.getUserId());
     }
 
     @Test
-    @Ignore
+    
     public void getUserByUserNameTest() {
         userRepository.insert(user);
         User fetchUser = userRepository.getUserByUserName("Swetha Selvaraj");
@@ -57,13 +57,13 @@ public class UserRepositoryTest {
     }
 
     @Test
-    @Ignore
+    
     public void updateUserTest() {
         userRepository.insert(user);
-        User fetchUser = userRepository.findById("swetha123").get();
+        User fetchUser = userRepository.findById(user.getUserId()).get();
         fetchUser.setUserMail("swe@gmail.com");
         userRepository.save(fetchUser);
-        fetchUser = userRepository.findById("swetha123").get();
+        fetchUser = userRepository.findById("sanju").get();
         Assert.assertEquals("swe@gmail.com", fetchUser.getUserMail());
     }
 }

@@ -49,12 +49,14 @@ public class ChannelControllerTest {
 	@InjectMocks
 	private ChannelController channelController;
 	private User user;
+	private User updateUser;
 
 	@Before
 	public void setUp() {
 		MockitoAnnotations.initMocks(this);
 		mockMvc = MockMvcBuilders.standaloneSetup(channelController).build();
 		channel = new Channel();
+		channel.setChannelId("tldm123");
 		channel.setChannelName("tldm");
 		channel.setChannelDescription("Product works");
 		channel.setChannelCreatedBy("Gayathri");
@@ -71,9 +73,15 @@ public class ChannelControllerTest {
 		user.setUserMail("swedha87@gmail.com");
 		user.setCreatedAt(new Date());
 
+		updateUser = new User();
+		updateUser.setUserId("swedha12");
+		updateUser.setPhoneNum("56528769987");
+		updateUser.setUserName("swetha");
+		updateUser.setUserMail("swedha87@gmail.com");
+		updateUser.setCreatedAt(new Date());
+
 	}
 
-	@Ignore
 	@Test
 	public void createChannelSuccess() throws Exception {
 		when(channelService.createChannel(channel)).thenReturn(channel);
@@ -82,66 +90,79 @@ public class ChannelControllerTest {
 
 	}
 
-	@Ignore
-	@Test
-	public void createChannelFailure() throws Exception {
-		when(channelService.createChannel(any())).thenThrow(ChannelAlreadyExistsException.class);
-		mockMvc.perform(post("/api/v1/channel").contentType(MediaType.APPLICATION_JSON).content(asJsonString(channel)))
-				.andExpect(status().isConflict()).andDo(MockMvcResultHandlers.print());
-	}
-
-	@Ignore
 	@Test
 	public void deleteChannelSuccess() throws Exception {
-		when(channelService.deleteChannel("tldm")).thenReturn(true);
+		when(channelService.deleteChannel(channel.getChannelId())).thenReturn(true);
 		mockMvc.perform(delete("/api/v1/channel/tldm123").contentType(MediaType.APPLICATION_JSON)
 				.content(asJsonString(channel))).andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
 	}
 
-	@Ignore
 	@Test
 	public void deleteChannelFailure() throws Exception {
-		when(channelService.deleteChannel("tldm")).thenThrow(ChannelNotFoundException.class);
+		when(channelService.deleteChannel(channel.getChannelId())).thenThrow(ChannelNotFoundException.class);
 		mockMvc.perform(delete("/api/v1/channel/tldm123").contentType(MediaType.APPLICATION_JSON)
 				.content(asJsonString(channel))).andExpect(status().isNotFound()).andDo(MockMvcResultHandlers.print());
 	}
 
-	@Ignore
 	@Test
 	public void updatechannelSuccess() throws Exception {
 		channel.setChannelDescription("product works");
 		when(channelService.updateChannel(eq(channel.getChannelId()), any())).thenReturn(channel);
-		mockMvc.perform(
-				put("/api/v1/channel/tldm123").contentType(MediaType.APPLICATION_JSON).content(asJsonString(channel)))
-				.andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
+		mockMvc.perform(put("/api/v1/channel/update/tldm123").contentType(MediaType.APPLICATION_JSON)
+				.content(asJsonString(channel))).andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
 	}
 
-	@Ignore
 	@Test
 	public void updatechannelFailure() throws Exception {
-		channel.setChannelDescription("product works");
 		when(channelService.updateChannel(eq(channel.getChannelId()), any())).thenThrow(ChannelNotFoundException.class);
-		mockMvc.perform(
-				put("/api/v1/channel/tldm123").contentType(MediaType.APPLICATION_JSON).content(asJsonString(channel)))
-				.andExpect(status().isNotFound()).andDo(MockMvcResultHandlers.print());
+		mockMvc.perform(put("/api/v1/channel/update/tldm123").contentType(MediaType.APPLICATION_JSON)
+				.content(asJsonString(channel))).andExpect(status().isNotFound()).andDo(MockMvcResultHandlers.print());
 	}
 
-	@Ignore
 	@Test
-	public void getByChannelNameSuccess() throws Exception {
+	public void updateuserSuccess() throws Exception {
+
+		when(channelService.updateChannel(eq(channel.getChannelId()), any())).thenReturn(channel);
+		mockMvc.perform(put("/api/v1/channel/update/tldm123").contentType(MediaType.APPLICATION_JSON)
+				.content(asJsonString(channel))).andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
+	}
+	
+
+	@Test
+	public void updateuserFailure() throws Exception {
+
+		when(channelService.updateChannel(eq(channel.getChannelId()), any())).thenThrow(ChannelNotFoundException.class);
+		mockMvc.perform(put("/api/v1/channel/update/tldm123").contentType(MediaType.APPLICATION_JSON)
+				.content(asJsonString(channel))).andExpect(status().isNotFound()).andDo(MockMvcResultHandlers.print());
+		
+	}
+
+	@Test
+	public void getByChannelIdSuccess() throws Exception {
 		when(channelService.getChannelByChannelId(channel.getChannelId())).thenReturn(channel);
-		mockMvc.perform(
-				get("/ap1/v1/channel/tldm").contentType(MediaType.APPLICATION_JSON).content(asJsonString(channel)))
-				.andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
+		mockMvc.perform(get("/api/v1/channel/getchannel/tldm123").contentType(MediaType.APPLICATION_JSON)
+				.content(asJsonString(channel))).andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
 	}
 
-	@Ignore
 	@Test
-	public void getByChannelNameFailure() throws Exception {
-		when(channelService.getChannelByChannelId("tldm")).thenThrow(ChannelNotFoundException.class);
-		mockMvc.perform(
-				get("/api/v1/channel/tldm").contentType(MediaType.APPLICATION_JSON).content(asJsonString(channel)))
-				.andExpect(status().isNotFound()).andDo(MockMvcResultHandlers.print());
+	public void getByChannelIdFailure() throws Exception {
+		when(channelService.getChannelByChannelId(channel.getChannelId())).thenThrow(ChannelNotFoundException.class);
+		mockMvc.perform(get("/api/v1/channel/getchannel/tldm123").contentType(MediaType.APPLICATION_JSON)
+				.content(asJsonString(channel))).andExpect(status().isNotFound()).andDo(MockMvcResultHandlers.print());
+	}
+	
+
+	@Test
+	public void deleteChannelUsersSuccess() throws Exception {
+		when(channelService.removeChannelUser(channel.getChannelId(),user.getUserId())).thenReturn(true);
+		mockMvc.perform(delete("/api/v1/channel/tldm123/swedha12").contentType(MediaType.APPLICATION_JSON)
+				.content(asJsonString(channel))).andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
+	}
+	@Test
+	public void deleteChannelUsersFailure() throws Exception {
+		when(channelService.removeChannelUser(channel.getChannelId(),user.getUserId())).thenReturn(false);
+		mockMvc.perform(delete("/api/v1/channel/tldm123/swedha12").contentType(MediaType.APPLICATION_JSON)
+				.content(asJsonString(channel))).andExpect(status().isNotFound()).andDo(MockMvcResultHandlers.print());
 	}
 
 	public static String asJsonString(final Object obj) {

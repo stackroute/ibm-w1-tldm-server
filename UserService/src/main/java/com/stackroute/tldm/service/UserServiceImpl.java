@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
+
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -21,7 +21,8 @@ public class UserServiceImpl implements UserService {
 
     @Value("${search-topic.boot}")
     private String searchTopic;
-
+    
+    @Autowired
     public UserServiceImpl(UserRepository userRepo, KafkaTemplate<String, User> kafkaTemplate) {
         this.userRepo = userRepo;
         this.kafkaTemplate = kafkaTemplate;
