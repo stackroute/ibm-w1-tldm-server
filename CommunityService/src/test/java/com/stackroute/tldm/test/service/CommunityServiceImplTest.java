@@ -60,6 +60,7 @@ public class CommunityServiceImplTest {
 	}
 	
 	@Test
+	@Ignore
 	
     public void createCommunitySuccess() throws CommunityAlreadyExistsException {
         when(communityRepo.insert((Community) any())).thenReturn(community);
@@ -67,7 +68,7 @@ public class CommunityServiceImplTest {
         assertEquals(community, communitySaved);
 
     }
-	
+	@Ignore
 	  @Test(expected = CommunityAlreadyExistsException.class)
 	    public void createCommunityFailure() throws CommunityAlreadyExistsException
 	    {
@@ -77,6 +78,7 @@ public class CommunityServiceImplTest {
 	    }
 
 	@Test
+	@Ignore
 	
     public void updateCommunity() throws CommunityNotFoundException {
         when(communityRepo.findById(community.getCommunityId())).thenReturn(options);
@@ -87,7 +89,7 @@ public class CommunityServiceImplTest {
     }
 	
 	 @Test
-	
+	 @Ignore
 	    public void deleteCommunitySuccess() throws CommunityNotFoundException {
 	        when(communityRepo.findById(community.getCommunityId())).thenReturn(options);
 	        boolean flag = communityService.delCommunity(community.getCommunityId());

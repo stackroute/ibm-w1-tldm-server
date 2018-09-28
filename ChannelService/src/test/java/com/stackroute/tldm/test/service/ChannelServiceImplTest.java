@@ -34,6 +34,7 @@ public class ChannelServiceImplTest {
 	private ChannelRepository channelRepository;
 	@InjectMocks
 	private ChannelServiceImpl channelService;
+	private List<Channel> allChannel = null;
 	private Optional<Channel> options;
 
 	@Before
@@ -59,9 +60,10 @@ public class ChannelServiceImplTest {
 		user.setCreatedAt(new Date());
 
 		// userList.add(user);
+		options =Optional.of(channel);
 	}
 
-	@Ignore
+	
 	@Test
 	public void createChannelSuccess() throws ChannelAlreadyExistsException {
 		when(channelRepository.insert((Channel) any())).thenReturn(channel);
@@ -69,7 +71,7 @@ public class ChannelServiceImplTest {
 		assertEquals(channel, createChannel);
 	}
 
-	@Ignore
+	
 	@Test
 	public void createChannelFailure() throws ChannelAlreadyExistsException {
 		when(channelRepository.insert((Channel) any())).thenReturn(channel);
@@ -78,28 +80,74 @@ public class ChannelServiceImplTest {
 
 	}
 
-//	@Ignore
-//	@Test
-//	public void getChannelByChannelName() throws ChannelNotFoundException {
-//		when(channelRepository.getChannelByChannelId(channel.getChannelName())).thenReturn(channel);
-//		Channel fetchChannel = channelService.getChannelByChannelName(channel.getChannelName());
-//		assertEquals(channel, fetchChannel);
-//	}
+	
+	@Test
+	public void getChannelByChannelIdSuccess() throws ChannelNotFoundException {
+		when(channelRepository.findById("tldm123")).thenReturn(options);
+		Channel fetchChannel = channelService.getChannelByChannelId("tldm123");
+		assertEquals(channel, fetchChannel);
+	}
+	@Test
+	public void getChannelByChannelIdFailure() throws ChannelNotFoundException {
+		when(channelRepository.findById("tldm123")).thenReturn(options);
+		Channel fetchChannel = channelService.getChannelByChannelId(channel.getChannelId());
+		assertEquals(channel, fetchChannel);
+	}
 
-	@Ignore
+	
 	@Test
 	public void deleteChannelSuccess() throws ChannelNotFoundException {
 		when(channelRepository.findById(channel.getChannelId())).thenReturn(options);
 		boolean flag = channelService.deleteChannel(channel.getChannelId());
 		assertEquals(true, flag);
 	}
+	
+	@Test
+	public void deleteChannelFailure() throws ChannelNotFoundException {
+		when(channelRepository.findById(channel.getChannelId())).thenReturn(options);
+		boolean flag = channelService.deleteChannel(channel.getChannelId());
+		assertEquals(true, flag);
+	}
 
-	@Ignore
+	
 	@Test
 	public void updateChannelSuccess() throws ChannelNotFoundException {
 		when(channelRepository.findById(channel.getChannelId())).thenReturn(options);
 		Channel updateChannels = channelService.updateChannel(channel.getChannelId(), channel);
 		assertEquals(channel, updateChannels);
+	}
+	
+	@Test
+	public void updateChannelFailure() throws ChannelNotFoundException {
+		when(channelRepository.findById(channel.getChannelId())).thenReturn(options);
+		Channel updateChannels = channelService.updateChannel(channel.getChannelId(), channel);
+		assertEquals(channel, updateChannels);
+	}
+	@Test
+	public void updateUserSuccess() throws ChannelNotFoundException {
+		when(channelRepository.findById("tldm123")).thenReturn(options);
+		Channel fetchChannel = channelService.getChannelByChannelId(channel.getChannelId());
+		assertEquals(channel, fetchChannel);
+	}
+	
+	@Test
+	public void updateUserFailure() throws ChannelNotFoundException {
+		when(channelRepository.findById("tldm123")).thenReturn(options);
+		Channel fetchChannel = channelService.getChannelByChannelId(channel.getChannelId());
+		assertEquals(channel, fetchChannel);
+	}
+	
+	@Test
+	public void removeUserFailure() throws ChannelNotFoundException {
+		when(channelRepository.findById("tldm123")).thenReturn(options);
+		Channel fetchChannel = channelService.getChannelByChannelId(channel.getChannelId());
+		assertEquals(channel, fetchChannel);
+	}
+	@Test
+	public void removeUserSuccess() throws ChannelNotFoundException {
+		when(channelRepository.findById("tldm123")).thenReturn(options);
+		Channel fetchChannel = channelService.getChannelByChannelId(channel.getChannelId());
+		assertEquals(channel, fetchChannel);
 	}
 	
 	
