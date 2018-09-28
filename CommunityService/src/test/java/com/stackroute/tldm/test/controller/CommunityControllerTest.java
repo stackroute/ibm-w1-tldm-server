@@ -1,19 +1,18 @@
 package com.stackroute.tldm.test.controller;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
+
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 
 import java.util.Date;
 import java.util.List;
 
 import org.junit.Before;
-import org.junit.Ignore;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -63,7 +62,7 @@ public class CommunityControllerTest {
 		MockitoAnnotations.initMocks(this);
 		mockMvc = MockMvcBuilders.standaloneSetup(communityController).build();
 		community = new Community();
-		community.setCommunityId("swe123");
+		community.setCommunityId("5b04f7411764e3765c35f8f6");
 		community.setCommunityName("PRODUCT");
 		community.setCommunityCreatedDate(new Date());
 		community.setCommunityCreatedBy(user);
@@ -89,78 +88,39 @@ public class CommunityControllerTest {
 		channel.setChannelDescription("product works");
 
 	}
-
-	@Test
-	@Ignore
-	public void createCommunitySuccess() throws Exception {
-		when(communityService.createCommunity(any())).thenReturn(community);
-		mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/community")
-				.contentType(MediaType.APPLICATION_JSON)
-				.content(asJsonString(community)))
-				.andExpect(MockMvcResultMatchers.status().isCreated())
-				.andDo(MockMvcResultHandlers.print());
-	}
-
-	@Test
-	@Ignore
-	public void createCommunityFailure() throws Exception {
-		when(communityService.createCommunity(any())).thenThrow(CommunityAlreadyExistsException.class);
-		mockMvc.perform(post("/api/v1/community")
-				.contentType(MediaType.APPLICATION_JSON)
-				.content(asJsonString(community)))
-				.andExpect(status().isConflict())
-				.andDo(MockMvcResultHandlers.print());
-	}
-
-	@Test
-	@Ignore
-	public void deleteCommunitySuccess() throws Exception {
-		when(communityService.delCommunity("swedha12")).thenReturn(true);
-		mockMvc.perform(delete("/api/v1/delete/swedha12").contentType(MediaType.APPLICATION_JSON)
-				.content(asJsonString(community)))
-		        .andExpect(status().isOk())
-		        .andDo(MockMvcResultHandlers.print());
-	}
-
-	@Test
-	@Ignore
-	public void deletecommunityFailure() throws Exception {
-		when(communityService.delCommunity("swedha12"))
-		.thenThrow(CommunityNotFoundException.class);
-		mockMvc.perform(delete("/api/v1/delete/swedha12")
-				.contentType(MediaType.APPLICATION_JSON)
-				.content(asJsonString(community)))
-		        .andExpect(status().isNotFound())
-				.andDo(MockMvcResultHandlers.print());
-	}
-
-   @Test
-   @Ignore
-	public void updateCommunitySuccess() throws Exception {
 	
-	when(communityService.updateCommunity(eq(community.getCommunityId()), any())).thenReturn(community);
-	community.setChannelsList(channelsList);	
-	mockMvc.perform(MockMvcRequestBuilders.put("/api/v1/community/5baa361ec5f1e2622b02641")
-				.contentType(MediaType.APPLICATION_JSON)
-				.content(asJsonString(community)))
-		        .andExpect(MockMvcResultMatchers.status().isOk())
-		        .andDo(MockMvcResultHandlers.print());
+
+	@Test
+//	@Ignore
+	public void deleteCommunitySuccess() throws Exception {
+		when(communityService.delCommunity("5b04f7411764e3765c35f8f6")).thenReturn(true);
+		mockMvc.perform(delete("/api/v1/community/delete/5b04f7411764e3765c35f8f6")
+				.contentType(MediaType.APPLICATION_JSON).content(asJsonString(community)))
+				.andExpect(MockMvcResultMatchers.status().isOk()).andDo(MockMvcResultHandlers.print());
 	}
 
 	@Test
-	@Ignore
-	public void updateCommunityFailure() throws Exception {
-		user.setUserMail("swedha87@gmail.com");
-		when(communityService.updateCommunity(eq(user.getUserId()), any())).thenThrow(CommunityNotFoundException.class);
-		mockMvc.perform(put("/api/v1/commmunity/swedha12").contentType(MediaType.APPLICATION_JSON)
-				.content(asJsonString(community))).andExpect(status().isNotFound())
-				.andDo(MockMvcResultHandlers.print());
+//	@Ignore
+	public void deletecommunityFailure() throws Exception {
+		when(communityService.delCommunity("5b04f7411764e3765c35f8f6")).thenThrow(CommunityNotFoundException.class);
+		mockMvc.perform(delete("/api/v1/community/delete/5b04f7411764e3765c35f8f6")
+				.contentType(MediaType.APPLICATION_JSON).content(asJsonString(community)))
+				.andExpect(MockMvcResultMatchers.status().isNotFound()).andDo(MockMvcResultHandlers.print());
 	}
+
+
+	@Test
+	public void getCommunityByCommunityIdFailure() throws Exception {
+		when(communityService.getCommunityByCommunityId(community.getCommunityId())).thenThrow(CommunityNotFoundException.class);
+		mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/community/get/5b04f7411764e3765c35f8f6")
+				.contentType(MediaType.APPLICATION_JSON)).andExpect(MockMvcResultMatchers.status().isNotFound()).andDo(MockMvcResultHandlers.print());
+
+	}
+	
 
 	private byte[] asJsonString(Community community2) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
 }
