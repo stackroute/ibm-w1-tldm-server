@@ -1,13 +1,16 @@
 package com.stackroute.tldm.model;
 
-public class User {
 
+// Model for User.
+
+public class User {
     private String userId;
     private String userName;
     private String userMail;
     private String phoneNum;
 
     public User() {
+        super();
     }
 
     public User(String userId, String userName, String userMail, String phoneNum) {

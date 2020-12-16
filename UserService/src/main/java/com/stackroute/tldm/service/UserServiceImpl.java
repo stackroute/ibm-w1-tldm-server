@@ -1,41 +1,38 @@
 package com.stackroute.tldm.service;
 
-import java.util.List;
-import java.util.NoSuchElementException;
-
-import com.stackroute.tldm.model.User;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.stackroute.tldm.exception.UserAlreadyExistsException;
 import com.stackroute.tldm.exception.UserNotFoundException;
+import com.stackroute.tldm.model.User;
 import com.stackroute.tldm.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.stereotype.Service;
+
+
+import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class UserServiceImpl implements UserService {
 
     private UserRepository userRepo;
+    private KafkaTemplate<String, User> kafkaTemplate;
 
+    @Value("${search-topic.boot}")
+    private String searchTopic;
+    
     @Autowired
-    public UserServiceImpl(UserRepository userRepo) {
+    public UserServiceImpl(UserRepository userRepo, KafkaTemplate<String, User> kafkaTemplate) {
         this.userRepo = userRepo;
+        this.kafkaTemplate = kafkaTemplate;
     }
 
-    // this method should be used to save a new user
+    // this method is used to save a new user
     @Override
     public User registerUser(User user) throws UserAlreadyExistsException {
-        User registeredUser = null;
-
-        
-        if(!userRepo.existsById(user.getUserId())) {
-        	
-        	registeredUser = userRepo.insert(user);
-        }
-        else {
-        	throw new UserAlreadyExistsException("User exists");
-        }
-
-        return registeredUser;
+        kafkaTemplate.send(searchTopic, user);
+        return userRepo.insert(user);
     }
 
     // this method is used update a existing user

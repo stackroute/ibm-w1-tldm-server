@@ -7,7 +7,6 @@
 
 	<groupId>com.stackroute.tldm</groupId>
 	<artifactId>UserService</artifactId>
-
 	<packaging>jar</packaging>
 
 	<name>UserService</name>
@@ -35,9 +34,30 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		
 		</dependency>
-
-
+		
+		<dependency>
+           <groupId>de.flapdoodle.embed</groupId>
+           <artifactId>de.flapdoodle.embed.process</artifactId>
+           <scope>test</scope>
+           <version>2.0.5</version>
+       </dependency>
+       
+       
+       
+<!--  Dependency for Swagger  -->
+     <dependency>
+       <groupId>io.springfox</groupId>
+       <artifactId>springfox-swagger2</artifactId>
+       <version>2.6.1</version>
+   </dependency>
+ 
+   <dependency>
+       <groupId>io.springfox</groupId>
+       <artifactId>springfox-swagger-ui</artifactId>
+       <version>2.6.1</version>
+   </dependency>
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -64,6 +84,19 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.2</version>
+		</dependency>
+
+
 
 	</dependencies>
 

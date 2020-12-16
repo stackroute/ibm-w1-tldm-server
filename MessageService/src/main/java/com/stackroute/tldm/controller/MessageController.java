@@ -1,64 +1,54 @@
 package com.stackroute.tldm.controller;
 
-import com.stackroute.tldm.exception.MessageNotFoundException;
+import com.stackroute.tldm.model.ChannelMessage;
 import com.stackroute.tldm.model.Message;
-import com.stackroute.tldm.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.messaging.handler.annotation.MessageMapping;
-import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+import java.util.UUID;
+
+// Controller provided with Kafka-Templates for user and channel communications
+// The send method of kafka-template creates a topic if it not exists and produce data on that topic.
+// Here web-socket is used for publishing data to the topic using @MessageMapping which defines the end-point
+// where the data from the web-socket will come.
+// Two message-mappings are used for user and channel respectively.
+
 @RestController
-@RequestMapping("/api/v1/message")
 @CrossOrigin("*")
 public class MessageController {
 
-    private MessageService messageService;
+    private KafkaTemplate<String, Message> kafkaTemplate;
+    private KafkaTemplate<String, ChannelMessage> channelKafkaTemplate;
+
+    @Value("${topic1.boot}")
+    private String BOOT_TOPIC;
+
+    @Value("${topic2.boot}")
+    private String CHANNEL_TOPIC;
 
     @Autowired
-    public MessageController(MessageService messageService) {
-        this.messageService = messageService;
+    public MessageController(KafkaTemplate<String, Message> kafkaTemplate, KafkaTemplate<String, ChannelMessage> channelKafkaTemplate) {
+        this.kafkaTemplate = kafkaTemplate;
+        this.channelKafkaTemplate = channelKafkaTemplate;
     }
-
-    // Web-socket handler method using @MessageMapping to set the endpoint where to send the message and @SendTo to
-    // subscribe to the endpoint to receive the message.
 
     @MessageMapping("/chat")
-    @SendTo("/topic/response")
-    public Message messageResponse(Message message) throws Exception {
-        messageService.saveMessage(message);
-        return new Message(message.getMessageId(), message.getMessageContent(), message.getSender(), message.getReceiver(), message.getCreatedAt());
+    public void sendMessageToUser(Message message) throws Exception {
+        UUID newMessageId = UUID.randomUUID();
+        message.setMessageId(newMessageId);
+        message.setTimestamp(new Date());
+        kafkaTemplate.send(BOOT_TOPIC, message);
     }
 
-    // Delete a particular messageById.
-    @DeleteMapping("/{messageId}")
-    public ResponseEntity<?> deleteMessage(@PathVariable("messageId") String m_id) {
-        ResponseEntity<?> responseEntity;
-        try {
-            if (messageService.deleteMessage(m_id)) {
-                responseEntity = new ResponseEntity<>(HttpStatus.OK);
-            } else {
-                responseEntity = new ResponseEntity<>(HttpStatus.NOT_FOUND);
-            }
-        } catch (MessageNotFoundException e) {
-            responseEntity = new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-
-        return responseEntity;
-    }
-
-    // Get a conversation between Sender and the Receiver.
-    @GetMapping("/{senderId}/{receiverId}")
-    public ResponseEntity<?> getMessagesByUserAndReceiver(@PathVariable("senderId") String senderId, @PathVariable("receiverId") String receiverId) {
-        ResponseEntity<?> responseEntity;
-        try {
-            responseEntity = new ResponseEntity<>(messageService.getMessagesByUserIdAndReceiverId(senderId, receiverId), HttpStatus.OK);
-        } catch (MessageNotFoundException e) {
-            responseEntity = new ResponseEntity<>("Message Not Found!", HttpStatus.NOT_FOUND);
-        }
-
-        return responseEntity;
+    @MessageMapping("/channel-chat")
+    public void sendMessageToChannel(ChannelMessage channelMessage) throws Exception {
+        UUID newChannelMessageId = UUID.randomUUID();
+        channelMessage.setMessageId(newChannelMessageId);
+        channelMessage.setTimestamp(new Date());
+        channelKafkaTemplate.send(CHANNEL_TOPIC, channelMessage);
     }
 }
